@@ -1,9 +1,9 @@
 .gradle
 /build/
-
+.idea*
 # Ignore Gradle GUI config
 gradle-app.setting
-
+gradle*
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
