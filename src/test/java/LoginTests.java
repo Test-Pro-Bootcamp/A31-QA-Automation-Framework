@@ -11,7 +11,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public static void LoginEmptyEmailPasswordTest () throws InterruptedException {
-
+        // Simple comment
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
