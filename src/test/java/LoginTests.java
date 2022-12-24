@@ -18,4 +18,15 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
+
+   @Test
+public static void LoginValidEmailPasswordTest() {
+       WebDriver driver = new ChromeDriver();
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+       String url = "https://bbb.testpro.io/";
+       driver.get(url);
+   }
 }
+
+
