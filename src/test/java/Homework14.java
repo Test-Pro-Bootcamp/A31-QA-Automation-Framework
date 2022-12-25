@@ -20,7 +20,7 @@ import java.time.Duration;
 public class Homework14 extends BaseTest {
 
     @Test
-    public static void RegistrationNavigation() throws InterruptedException{
+    public static void registrationNavigation() throws InterruptedException{
 
       //Open Chrome Browser
         WebDriver driver = new ChromeDriver();
@@ -31,14 +31,14 @@ public class Homework14 extends BaseTest {
       driver.get(url);
 
       //Locate Registration Element
-        WebElement RegiLink = driver.findElement(By.cssSelector("[id='hel']"));
+        WebElement regiLink = driver.findElement(By.cssSelector("[id='hel']"));
 
       //Click
-        RegiLink.click();
-        Thread.sleep(5000);
+        regiLink.click();
+        Thread.sleep(2000);
       //Validate Redirected page
-        String RegiUrl = "https://bbb.testpro.io/registration.php";
-        Assert.assertEquals(driver.getCurrentUrl(),RegiUrl);
+        String regiUrl = "https://bbb.testpro.io/registration.php";
+        Assert.assertEquals(driver.getCurrentUrl(),regiUrl);
         driver.quit();
 
     }
