@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-public class Homework14jwd(){
+public class Homework14Jwd(){
 
 
     @Test
