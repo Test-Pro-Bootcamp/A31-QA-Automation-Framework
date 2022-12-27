@@ -1,12 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-public class Homework14Jwd(){
+public class Homework14Jwd()
+{
 
 
     @Test
@@ -15,11 +15,11 @@ public class Homework14Jwd(){
 
         WebDriver register = new ChromeDriver();
         register.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         String url = "https://testpro.io/";
         register.get(url);
 
-        WebElement registrationLink = register.findElement(By.cssSelector(a[type = 'submit']);
-
+        String registrationLink = "#hel";
         register.findElement(By.cssSelector(registrationLink)).click();
 
         String registrationUrl = "https://bbb.testpro.io/registration.php";
