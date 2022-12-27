@@ -14,9 +14,8 @@ public class Homework14jwd(){
         String url = "https://testpro.io/";
         register.get(url);
 
-        WebElement registtrationLink = register.findElement(By.cssSelector(#hel));
+        WebElement registrationLink = register.findElement(By.cssSelector(#hel));
 
-        String registrationLink= "#hel";
         register.findElement(By.cssSelector(registrationLink)).click();
 
         String registrationUrl = "https://bbb.testpro.io/registration.php";
