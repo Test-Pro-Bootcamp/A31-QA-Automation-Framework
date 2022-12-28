@@ -22,32 +22,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public static void LoginInvalidEmail(){
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-
-        WebElement emailField = driver.findElement(By.cssSelector("type=['email']"));
-        emailField.click();
-        emailField.sendKeys("cucarach@class.com");
-
-        WebElement passwordField = driver.findElement(By.cssSelector("type=[password]"));
-        passwordField.click();
-        passwordField.sendKeys("yayayaya");
-
-        WebElement loginButton = driver.findElement(By.cssSelector("type=['submit']"));
-        loginButton.click();
-
-        Assert.assertTrue(emailField.isDisplayed());
-
-        driver.quit();
-
-    }
-
-    @Test
-    public static void LoginValidEmailPasswordTest() throws InterruptedException {
+    public static void LoginValidEmailPasswordTest() {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -71,4 +46,6 @@ public class LoginTests extends BaseTest {
 
         driver.quit();
     }
+
+
 }
