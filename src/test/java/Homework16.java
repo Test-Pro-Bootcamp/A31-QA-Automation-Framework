@@ -7,19 +7,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTests extends BaseTest {
-
-    @Test
-    public static void LoginEmptyEmailPasswordTest () {
-
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
-    }
+public class Homework16 {
     @Test
     public static void Registration() {
 
@@ -35,11 +23,9 @@ public class LoginTests extends BaseTest {
         WebElement registrationField = driver.findElement(By.cssSelector("[id='hel']"));
         registrationField.click();
 
-        WebElement  newaccField = driver.findElement(By.className("login-wrapper"))
-                Assert.assertTrue(newaccField.isDisplayed)
+        WebElement newaccField = driver.findElement(By.className("login-wrapper"));
+        Assert.assertTrue(newaccField.isDisplayed);
 
         driver.quit();
-
     }
 }
-
