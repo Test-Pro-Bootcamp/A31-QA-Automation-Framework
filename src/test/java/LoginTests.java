@@ -1,3 +1,4 @@
+import net.bytebuddy.dynamic.TypeResolutionStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -7,7 +8,7 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-    @Test
+    @Test(enabled = false)
     public static void LoginEmptyEmailPasswordTest () {
 
         WebDriver driver = new ChromeDriver();
