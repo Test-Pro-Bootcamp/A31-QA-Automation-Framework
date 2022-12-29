@@ -56,7 +56,12 @@ public class Homework17 extends BaseTest {
         morningJamLink.click();
 
         //Validate "Reactor" song is added
-        
+        Thread.sleep(3000);
+        WebElement morningJamPlaylist = driver.findElement(By.cssSelector("[href='#!/playlist/18754']"));
+        morningJamPlaylist.click();
+        WebElement reactorSongIsPresent = driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[1]/table/tr[13]/td[2]"));
+        Assert.assertTrue(reactorSongIsPresent.isDisplayed());
+        driver.quit();
 
 
 
@@ -65,11 +70,6 @@ public class Homework17 extends BaseTest {
 
 
 
-
-
-
-
-//        driver.quit();
     }
 
 
