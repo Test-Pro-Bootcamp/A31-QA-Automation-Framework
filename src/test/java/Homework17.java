@@ -12,25 +12,31 @@ public class Homework17 extends BaseTest {
     @Test
     public static void AddSongToPlaylist () throws InterruptedException {
 
-
             WebDriver driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             String url = "https://bbb.testpro.io/";
             Thread.sleep(2000);
             driver.get(url);
             Assert.assertEquals(driver.getCurrentUrl(), url);
+            Thread.sleep(2000);
             driver.quit();
 
-        WebElement emailfield = driver.findElement(By.cssSelector("[type ='email']"));
-        emailfield.click();
-        emailfield.sendKeys("tatsianahuryeva@yahoo.com");
+            //WebElement emailfield = driver.findElement(By.cssSelector("[type ='email']"));
+            //emailfield.click();
+            //emailfield.clear();
+            //emailfield.sendKeys("demo@class.com");
 
-        WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
-        passwordField.click();
-        passwordField.sendKeys("te$t$tudent");
+            WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
+            passwordField.click();
+            passwordField.clear();
+            passwordField.sendKeys("te$t$tudent");
 
-        WebElement button = driver.findElement(By.cssSelector("button[type = 'submit']"));
-        button.click();
+            WebElement button = driver.findElement(By.cssSelector("button.btn-submit"));
+             button.click();
+            Thread.sleep(2000);
 
+            WebElement avatar = driver.findElement(By.className("avatar"));
+            Assert.assertTrue(avatar.isDisplayed());
+            //driver.quit();
     }
 }
