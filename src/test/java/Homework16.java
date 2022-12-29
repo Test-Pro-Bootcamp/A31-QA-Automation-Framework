@@ -20,8 +20,6 @@ public class Homework16 extends BaseTest {
         RegistrationButton.click();
         String url2 = "https://bbb.testpro.io/registration.php";
         driver.get(url2);
-
-
-
+        //my homework16
     }
 }
