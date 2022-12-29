@@ -82,4 +82,9 @@ public class BaseTest {
         avatarIcon.click();
 
     }
+    public static void allsongsbutton(){
+        WebElement allSongs = driver.findElement(By.cssSelector("[href='#!/songs']"));
+        allSongs.click();
+        
+    }
 }
