@@ -5,10 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 import java.time.Duration;
-
-import static java.lang.Thread.sleep;
 
 public class Homework17 extends BaseTest {
 
@@ -24,16 +21,16 @@ public class Homework17 extends BaseTest {
             Assert.assertEquals(driver.getCurrentUrl(), url);
             driver.quit();
 
-        WebElement Emailfield = driver.findElement(By.cssSelector("[type ='email']"));
-        Emailfield.click();
-        Emailfield.sendKeys("tatsianahuryeva@yahoo.com");
+        WebElement emailfield = driver.findElement(By.cssSelector("[type ='email']"));
+        emailfield.click();
+        emailfield.sendKeys("tatsianahuryeva@yahoo.com");
 
-        WebElement PasswordField = driver.findElement(By.cssSelector("[type = 'password']"));
-        PasswordField.click();
-        PasswordField.sendKeys("te$t$tudent");
+        WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
+        passwordField.click();
+        passwordField.sendKeys("te$t$tudent");
 
-        WebElement Button = driver.findElement(By.cssSelector("button[type = 'submit']"));
-        Button.click();
+        WebElement button = driver.findElement(By.cssSelector("button[type = 'submit']"));
+        button.click();
 
     }
 }
