@@ -44,10 +44,20 @@ public class Homework17 extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), allSongsURL);
 
         //Click "Reactor" song
-        WebElement reactorSong = driver.findElement(By.cssSelector("[class='songs']"));
+        WebElement reactorSong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[12]/td[2]"));
         reactorSong.click();
 
         //Click green "Add To" button
+        WebElement addToButton = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
+        addToButton.click();
+
+        //Click "Morning Jam" Playlist
+        WebElement morningJamLink = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/header/div[3]/div/section[1]/ul/li[7]"));
+        morningJamLink.click();
+
+        //Validate "Reactor" song is added
+        
+
 
 
 
