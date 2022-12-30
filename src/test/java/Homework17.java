@@ -35,20 +35,20 @@ public class Homework17 extends BaseTest {
         WebElement allSongs = driver.findElement(By.xpath("//a[text()='All Songs']"));
         allSongs.click();
 
-        WebElement song = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+        WebElement song = driver.findElement(By.xpath("//td[text()='Mid-Air Machine - If It_s All I Do']"));
         song.click();
 
-        WebElement add = driver.findElement(By.xpath("//button[contains(text(),'Add To…')]"));
+        WebElement add = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
         add.click();
 
         WebElement buttonadd = driver.findElement(By.xpath("//li[contains(text(),'33')]"));
         buttonadd.click();
 
-        WebElement playlist33 = driver.findElement(By.xpath("//a[text()='33']"));
+        WebElement playlist33 = driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li[3]/a"));
         playlist33.click();
 
-        WebElement songicon = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
-        Assert.assertTrue(songicon.isDisplayed());
+        WebElement songicon = driver.findElement(By.xpath("//td[text()='Mid-Air Machine - If It_s All I Do']"));
+        Assert.assertFalse(songicon.isDisplayed());
 
     }
 }
