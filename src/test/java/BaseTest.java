@@ -82,9 +82,28 @@ public class BaseTest {
         avatarIcon.click();
 
     }
-    public static void allsongsbutton(){
-        WebElement allSongs = driver.findElement(By.cssSelector("[href='#!/songs']"));
+    public static void allsongsbutton() {
+        WebElement allSongs = driver.findElement(By.cssSelector("[class='songs']"));
         allSongs.click();
-        
+
     }
+    public static void chosensong(){
+        WebElement song = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+        song.click();
+    }
+    public static void buttonAdd(){
+        WebElement add = driver.findElement(By.xpath("//button[contains(text(),'Add To…')]"));
+        add.click();
+    }
+    public static void addtoplay(){
+        WebElement buttonadd = driver.findElement(By.xpath("//li[contains(text(),'33')]"));
+        buttonadd.click();
+
+    }
+    public static void checkplaylist() {
+        WebElement playlist33 = driver.findElement(By.xpath("//a[text()='33']"));
+        playlist33.click();
+
+    }
+
 }

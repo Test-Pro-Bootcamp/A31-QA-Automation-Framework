@@ -27,8 +27,32 @@ public class LoginTests extends BaseTest {
 
     }
      @Test(enabled = true, priority = 0, description = "FindSong")
-    public static void FindSong (){
-         allsongsbutton();
+    public static void FindSong () throws InterruptedException {
+           //allsongsbutton();
+
+             WebElement allSongs = driver.findElement(By.cssSelector("#!/songs"));
+             allSongs.click();
+
+        // chosensong();
+         WebElement song = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+         song.click();
+
+         Thread.sleep(2000);
+
+
+
+
+
+
+
+         buttonAdd();
+         addtoplay();
+         checkplaylist();
+         WebElement songicon = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+         Assert.assertTrue(songicon.isDisplayed());
+
+
+
      }
 
 

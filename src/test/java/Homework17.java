@@ -19,7 +19,7 @@ public class Homework17 extends BaseTest {
             Thread.sleep(2000);
             driver.get(url);
             Assert.assertEquals(driver.getCurrentUrl(), url);
-            driver.quit();
+
 
         WebElement emailfield = driver.findElement(By.cssSelector("[type ='email']"));
         emailfield.click();
@@ -31,6 +31,24 @@ public class Homework17 extends BaseTest {
 
         WebElement button = driver.findElement(By.cssSelector("button[type = 'submit']"));
         button.click();
+
+        WebElement allSongs = driver.findElement(By.xpath("//a[text()='All Songs']"));
+        allSongs.click();
+
+        WebElement song = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+        song.click();
+
+        WebElement add = driver.findElement(By.xpath("//button[contains(text(),'Add To…')]"));
+        add.click();
+
+        WebElement buttonadd = driver.findElement(By.xpath("//li[contains(text(),'33')]"));
+        buttonadd.click();
+
+        WebElement playlist33 = driver.findElement(By.xpath("//a[text()='33']"));
+        playlist33.click();
+
+        WebElement songicon = driver.findElement(By.xpath("//td[text()='Ketsa - That_s a Beat']"));
+        Assert.assertTrue(songicon.isDisplayed());
 
     }
 }
