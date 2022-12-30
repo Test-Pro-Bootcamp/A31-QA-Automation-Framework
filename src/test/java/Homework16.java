@@ -24,7 +24,7 @@ public class Homework16 extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
-        String registrationURL = "https://bbb.testpro.io/resgistration.php";
+        String registrationURL = "https://bbb.testpro.io/registration.php";
         Assert.assertEquals(driver.getCurrentUrl(),registrationURL);
         driver.quit();
 
