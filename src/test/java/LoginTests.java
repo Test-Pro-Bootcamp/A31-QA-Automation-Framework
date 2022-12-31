@@ -1,51 +1,66 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class LoginTests extends BaseTest {
+    public static WebDriver driver = null;
 
-    @Test
-    public static void LoginEmptyEmailPasswordTest () {
+    @Test(enabled = false, priority = 0, description = "demo")
+    public static void LoginEmptyEmailPasswordTest() {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://testpro.io/";
-        driver.get(url);
+        navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+
+    }
+
+    @Test(enabled = true, priority = 1)
+    public static void LoginValidEmailValidPasswordTest() throws InterruptedException {
+
+       navigateToPage();
+       provideEmail("demo@class.com");
+       providePassword("te$t$tudent");
+       clickSubmit();
+
+       Thread.sleep(2000);
+
+       clickAvatarIcon();
+       WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+       Assert.assertTrue(avatarIcon.isDisplayed());
+    }
+
+    @Test(enabled = true, priority =2, description = "LoginInvalidEmailValidPassword")
+    public static void LoginInvalidEmailValidPasswordTest(){
+
+        navigateToPage();
+        provideEmail("invalid@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+
+        Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test
-    public static void LoginValidEmailPasswordTest() {
+    public static void updateProfileNameTest() throws InterruptedException{
+        navigateToPage();
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Thread.sleep(2000);
+        clickAvatarIcon();
 
-        String url = "https://bbb.testpro.io";
-        driver.get(url);
+        String randomName = generateRandomName();
 
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        emailField.click();
-        emailField.sendKeys("demo@class.com");
+        provideCurrentPassword("te$t$tudent");
+        provideProfileName(randomName);
+        clickSaveButton();
 
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.click();
-        passwordField.sendKeys("te$t$tudent");
+        Thread.sleep(2000);
 
-        WebElement loginField = driver.findElement(By.cssSelector("[type='submit']"));
-        loginField.click();
-
-        WebElement avatar = driver.findElement(By.className("avatar"));
-        Assert.assertTrue(avatar.isDisplayed());
-
-        driver.quit();
+        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        Assert.assertEquals(actualProfileName.getText(), randomName);
     }
-
 
 }
