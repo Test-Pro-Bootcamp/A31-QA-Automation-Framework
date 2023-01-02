@@ -13,8 +13,7 @@ public class Homework16 extends BaseTest {
     @Test
     public static void Registration() {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         String url = "https://bbb.testpro.io/";
         driver.get(url);
         // find element-registration

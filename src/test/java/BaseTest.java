@@ -7,6 +7,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.time.Duration;
+
 
 public class BaseTest {
 
@@ -15,4 +17,11 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
+    public static WebDriver driver = new ChromeDriver();
+
+    @BeforeMethod
+    public static void launchBrowser() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 }
