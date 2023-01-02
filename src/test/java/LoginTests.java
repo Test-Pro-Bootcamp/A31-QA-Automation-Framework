@@ -7,7 +7,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    public static void LoginEmptyEmailPasswordTest () {
+    public static void loginEmptyEmailPasswordTest () {
 
         navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
