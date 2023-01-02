@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class Homework16 extends BaseTest {
-
     @Test
     public static void registrationNav(){
         WebDriver driver = new ChromeDriver();
@@ -20,8 +19,8 @@ public class Homework16 extends BaseTest {
         WebElement regLink = driver.findElement(By.cssSelector("a[href='/registration.php'"));
         regLink.click();
 
-        WebElement headerText = driver.findElement(By.cssSelector("h2[contains(text(),'Register new account')]"));
-        Assert.assertTrue(headerText.isDisplayed());
+        WebElement registerButton = driver.findElement(By.cssSelector("input[value='Register']"));
+        Assert.assertTrue(registerButton.isDisplayed());
 
         driver.quit();
     }
