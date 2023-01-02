@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.time.Duration;
-public class HomeWork14 {
+public class HomeWork14Test extends BaseTest {
     @Test
     public static void navigation() {
         WebDriver driver = new ChromeDriver();
@@ -16,6 +16,5 @@ public class HomeWork14 {
         registrationLink.click();
         String registrationUrl = "https://bbb.testpro.io/registration.php";
         Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
-        driver.quit();
-    }
+        driver.quit(); }
 }
