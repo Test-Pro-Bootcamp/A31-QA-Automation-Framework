@@ -8,6 +8,7 @@
             <class name="LoginTests"/>
             <class name="BaseTest"/>
             <class name="LianoHomeworkTests"/>
+            <class name="Homework17NLTests"/>
         </classes>
     </test>
 </suite>
