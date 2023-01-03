@@ -83,26 +83,26 @@ public class BaseTest {
     public void plusIcon() throws InterruptedException {
         WebElement clickPlusButton = driver.findElement(By.cssSelector("i[class='fa fa-plus-circle create']"));
         clickPlusButton.click();
-        Thread.sleep(500);
+        Thread.sleep(2000);
     }
 
     public void newPlaylistButton() throws InterruptedException {
         WebElement clickNewPlaylistButton = driver.findElement(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']"));
         clickNewPlaylistButton.click();
-        Thread.sleep(500);
+        Thread.sleep(2000);
     }
 
     public void createPlaylistName(String playlistName) throws InterruptedException {
         WebElement newPlaylistField = driver.findElement(By.cssSelector("input[name='name']"));
         newPlaylistField.sendKeys(playlistName);
         newPlaylistField.submit();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     public void confirmCreatedPlaylist() throws InterruptedException {
-        WebElement customPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]"));
+        WebElement customPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'"+playlistName+"')]"));
         Assert.assertTrue(customPlaylist.isDisplayed());
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     public void createPlaylist() throws InterruptedException {
@@ -121,7 +121,7 @@ public class BaseTest {
 
     //Select a song
     public void selectSong() throws InterruptedException {
-        WebElement clickSong = driver.findElement(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(), '" + songTitle + "')]"));
+        WebElement clickSong = driver.findElement(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(), '"+songTitle+"')]"));
         clickSong.click();
         Thread.sleep(1000);
     }
@@ -135,7 +135,7 @@ public class BaseTest {
 
     //Select the existing playlist
     public void selectPlaylist() throws InterruptedException {
-        WebElement clickPlaylistName = driver.findElement(By.xpath("//section[@class='existing-playlists']//li[contains(text(), '" + playlistName + "')]"));
+        WebElement clickPlaylistName = driver.findElement(By.xpath("//section[@class='existing-playlists']//li[contains(text(), '"+playlistName+"')]"));
         clickPlaylistName.click();
         Thread.sleep(2000);
     }
@@ -150,14 +150,14 @@ public class BaseTest {
 
     //navigate to the playlist
     public void navigateToPlaylist() throws InterruptedException {
-        WebElement goToPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(), '" + playlistName + "')]"));
+        WebElement goToPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(), '"+playlistName+"')]"));
         goToPlaylist.click();
         Thread.sleep(2000);
     }
 
     //Confirm the song is added
     public void confirmSongIsAdded() throws InterruptedException {
-        WebElement confirmSong = driver.findElement(By.xpath("//section[@id='playlistWrapper']//td[contains(text(), '" + songTitle + "')]"));
+        WebElement confirmSong = driver.findElement(By.xpath("//section[@id='playlistWrapper']//td[contains(text(), '"+songTitle+"')]"));
         Assert.assertTrue(confirmSong.isDisplayed());
         Thread.sleep(2000);
     }
