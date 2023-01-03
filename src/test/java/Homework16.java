@@ -1,11 +1,7 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 
 public class Homework16 extends BaseTest {
@@ -36,18 +32,4 @@ public class Homework16 extends BaseTest {
 
 }
 
-    public static void clickSubmit() {
-        WebElement submitButton = driver.findElement(By.cssSelector("button[type=submit]"));
-        submitButton.click();
-    }
-
-    public void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
-        passwordField.sendKeys(password);
-    }
-
-    public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        emailField.sendKeys(email);
-    }
 }
