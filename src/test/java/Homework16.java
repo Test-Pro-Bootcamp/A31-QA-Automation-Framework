@@ -26,8 +26,8 @@ public class Homework16 extends BaseTest {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
 
-        provideEmail();
-        providePassword();
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
         clickSubmit();
 
         WebElement avataricon = driver.findElement(By.cssSelector("img.avatar"));
@@ -41,13 +41,13 @@ public class Homework16 extends BaseTest {
         submitButton.click();
     }
 
-    public void providePassword() {
+    public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
-        passwordField.sendKeys("te$t$tudent");
+        passwordField.sendKeys(password);
     }
 
-    public static void provideEmail() {
+    public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        emailField.sendKeys("demo.class.com");
+        emailField.sendKeys(email);
     }
 }
