@@ -35,5 +35,9 @@ public class Homework16 extends BaseTest {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type=submit]"));
         submitButton.click();
 
+        WebElement avataricon = driver.findElement(By.cssSelector("img.avatar"));
+
+        Assert.assertTrue(avataricon.isDisplayed());
+
 }
 }
