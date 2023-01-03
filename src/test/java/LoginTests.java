@@ -7,12 +7,12 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
+    static String url="https://bbb.testpro.io/";
     @Test
     public static void loginEmptyEmailPasswordTest () {
 
-        //update url
-        String url = "https://testpro.io/";
-        driver.get(url);
+        navigateToPage();
+
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }

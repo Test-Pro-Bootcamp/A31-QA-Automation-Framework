@@ -42,6 +42,11 @@ public class BaseTest {
         WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
         passwordField.sendKeys(password);
     }
+
+    public static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 }
 
 

@@ -19,9 +19,8 @@ public class Homework16 extends BaseTest {
 
 @Test(enabled = true, description = "Loginwvalidaccount")
     public static void validLogin (){
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
 
+        navigateToPage();
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
