@@ -3,13 +3,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
 public class BaseTest {
     @BeforeSuite
-    public static void setupClass() {
+    public void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
         WebDriver driver;
@@ -23,21 +24,21 @@ public class BaseTest {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
     }
-    public void enterEmail() {
+    public void enterEmail(String email) {
             WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
             emailField.click();
-            emailField.sendKeys("skyeman75@gmail.com");
+            emailField.sendKeys(email);
         }
-        public void enterPassword() {
+        public void enterPassword(String password) {
             WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
             passwordField.click();
-            passwordField.sendKeys("te$t$tudent");
+            passwordField.sendKeys(password);
         }
         public void clickButton() {
             WebElement submitButton = driver.findElement(By.cssSelector("[type='submit']"));
             submitButton.click();
         }
-        @BeforeMethod
+        @AfterMethod
     public void breakDownBrowser(){
     driver.quit();
     }

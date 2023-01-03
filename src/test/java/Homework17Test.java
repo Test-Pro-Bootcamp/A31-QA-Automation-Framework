@@ -12,8 +12,8 @@ public class Homework17Test extends BaseTest {
 @Test
 public void validLoginEmailPasswordTest(){
     openLoginURL();
-    enterEmail();
-    enterPassword();
+    enterEmail("skyeman75@gmail.com");
+    enterPassword("te$t$tudent");
     clickButton();
     WebElement avatarIcon =driver.findElement(By.cssSelector("[alt='Avatar of student']"));
     Assert.assertTrue(avatarIcon.isDisplayed());
