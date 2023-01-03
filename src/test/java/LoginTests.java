@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-
     @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
     public static void loginEmptyEmailPasswordTest () {
 
@@ -64,6 +63,4 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }
-
-
 }
