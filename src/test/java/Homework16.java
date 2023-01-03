@@ -32,7 +32,7 @@ public class Homework16 extends BaseTest {
         WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
         passwordField.sendKeys("te$t$tudent");
 
-        WebElement submitButton = driver.findElement(By.cssSelector("[type=submit]"));
+        WebElement submitButton = driver.findElement(By.cssSelector("button[type=submit]"));
         submitButton.click();
 
 }
