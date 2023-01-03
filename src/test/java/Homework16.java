@@ -10,19 +10,30 @@ import java.time.Duration;
 
 public class Homework16 extends BaseTest {
 
-    @Test
+    @Test(enabled = true, description = "Testregistrationlink")
     public static void Registration() {
 
 
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-        // find element-registration
-        // click on registration
         WebElement registrationLink = driver.findElement(By.cssSelector("[id='hel']"));
         registrationLink.click();
         String registrationURL = "https://bbb.testpro.io/registration.php";
         Assert.assertEquals(driver.getCurrentUrl(), registrationURL);
 
-        driver.quit();
     }
+
+@Test(enabled = true, description = "Loginwvalidaccount")
+    public static void validLogin (){
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.sendKeys("demo.class.com");
+
+        WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
+        passwordField.sendKeys("te$t$tudent");
+
+        WebElement submitButton = driver.findElement(By.cssSelector("[type=submit]"));
+        submitButton.click();
+
+}
 }
