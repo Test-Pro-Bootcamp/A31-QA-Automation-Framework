@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -17,11 +18,19 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    public static WebDriver driver = new ChromeDriver();
+    public static WebDriver driver = null;
 
     @BeforeMethod
     public static void launchBrowser() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+    @AfterMethod
+    public static closeBrowser(){
+        driver.quit();
+    }
+
+
 }
+
+
