@@ -8,11 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
+import java.util.UUID;
 
 
 public class BaseTest {
 
     public static WebDriver driver = null;
+    static String url="https://bbb.testpro.io/";
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -35,17 +37,46 @@ public class BaseTest {
 
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.clear();
         emailField.sendKeys(email);
     }
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type ='password']"));
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public static void navigateToPage() {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
+    }
+
+    public static String generateRandomName(){
+        return UUID.randomUUID().toString().replace("-","");
+        //this is getting a random userid and removing dashes
+    }
+
+    public static void clickSaveButton() {
+        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+        saveButton.click();
+    }
+
+    public static void provideProfileName(String randomName) {
+        WebElement profilename = driver.findElement(By.cssSelector("[name='name']"));
+        profilename.clear();
+        profilename.sendKeys(randomName);
+    }
+
+    public static void provideCurrentPassword(String password) {
+        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+        currentPassword.clear();
+        currentPassword.sendKeys(password);
+    }
+
+    public static void clickavatarIcon() {
+        WebElement avatarIcon= driver.findElement(By.cssSelector("img.avatar"));
+        avatarIcon.click();
     }
 }
 

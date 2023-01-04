@@ -3,12 +3,15 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.UUID;
+
 
 public class Homework16 extends BaseTest {
 
     @Test(enabled = true, description = "Testregistrationlink")
     public static void Registration() {
 
+        navigateToPage();
 
         WebElement registrationLink = driver.findElement(By.cssSelector("[id='hel']"));
         registrationLink.click();
@@ -17,8 +20,8 @@ public class Homework16 extends BaseTest {
 
     }
 
-@Test(enabled = true, description = "Loginwvalidaccount")
-    public static void validLogin (){
+    @Test(enabled = true, description = "Loginwvalidaccount")
+    public static void validLogin() {
 
         navigateToPage();
         provideEmail("demo@class.com");
@@ -29,6 +32,13 @@ public class Homework16 extends BaseTest {
 
         Assert.assertTrue(avataricon.isDisplayed());
 
+    }
 }
 
-}
+   // public static void  (){
+   // navigateToPage();
+   // provideEmail("demo@class.com");
+   //providePassword("te$t$tudent");
+// clickSubmit();
+
+
