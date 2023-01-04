@@ -65,5 +65,34 @@ public class LoginTests extends BaseTest {
 
     }
 
+    @Test(enabled = true, priority = 4, description = "AddSongToPlaylist")
+
+
+    public static void addSongToPlaylistTest() throws InterruptedException {
+
+        navigateToPage();
+
+        provideEmail("rykov.rg@gmail.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+
+        Thread.sleep(2000);
+
+        allSongsPage();
+
+          WebElement chooseSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr[2]/td[2]"));
+          chooseSong.click();
+
+        addSongButton();
+        addToPlaylist();
+
+          Thread.sleep(2000);
+
+
+          WebElement successPopUp = driver.findElement(By.cssSelector("div[class='success show']"));
+          Assert.assertTrue(successPopUp.isDisplayed());
+
+    }
+
 
 }

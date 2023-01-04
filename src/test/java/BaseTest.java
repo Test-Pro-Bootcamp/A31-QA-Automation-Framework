@@ -82,4 +82,19 @@ public class BaseTest {
         avatarIcon.click();
 
     }
+
+    public static void addToPlaylist() {
+        WebElement addSongToPlaylist = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]"));
+        addSongToPlaylist.click();
+    }
+
+    public static void addSongButton() {
+        WebElement addSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/span/button[2]"));
+        addSong.click();
+    }
+
+    public static void allSongsPage() {
+        WebElement allSongs = driver.findElement(By.cssSelector("[href='#!/songs']"));
+        allSongs.click();
+    }
 }
