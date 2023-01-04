@@ -16,7 +16,7 @@ public class KoelTesting {
     public static void goToKoel(WebDriver driver){
         driver.manage().window().maximize();
         driver.get("https://bbb.testpro.io/");
-        waitforSeconds(driver,2);
+        waitforSeconds(driver,3);
     }
 
     public static void createPlaylist(WebDriver driver, String playlistName){
