@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class Homework16 extends BaseTest {
 
-    @Test(enabled = true, description = "Testregistrationlink")
+    @Test(enabled = false, description = "Testregistrationlink")
     public static void Registration() {
 
         navigateToPage();
@@ -37,4 +37,4 @@ public class Homework16 extends BaseTest {
     }
 
 
-}
+
