@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Homework18 extends BaseTest {
+public class Homework18 extends BaseTest{
 
     @Test
     public static void playSongTest() throws InterruptedException {
+
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
