@@ -30,7 +30,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         LoginTests.driver.quit();
     }
 
@@ -81,5 +81,13 @@ public class BaseTest {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
+
+    }
+
+    public static void logintoPage() {
+
+        provideEmail("adeagle2021@gmail.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
     }
 }
