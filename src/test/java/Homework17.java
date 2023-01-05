@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -59,5 +60,15 @@ public class Homework17 extends BaseTest{
     public WebElement getSuccessShow(){
         return driver.findElement(By.cssSelector("[class= 'success show']"));
     }
+=======
+
+
+
+
+public class Homework17 extends BaseTest{
+
+
+
+>>>>>>> Stashed changes
 
 }

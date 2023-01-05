@@ -8,6 +8,10 @@
             <class name="LoginTests"/>
             <class name="BaseTest"/>
             <class name="Homework17"/>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         </classes>
     </test>
 </suite>
