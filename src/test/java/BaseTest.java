@@ -35,7 +35,7 @@ public class BaseTest {
     }
 
     protected static void navigateToPage() {
-        String url = "https://testpro.io/";
+        String url = "https://bbb.testpro.io/";
         driver.get(url);
     }
 
