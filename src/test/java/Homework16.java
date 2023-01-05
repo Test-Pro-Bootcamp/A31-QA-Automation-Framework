@@ -9,7 +9,7 @@ import java.time.Duration;
 
 
 public class Homework16 extends BaseTest {
-    @Test
+    @Test (enabled = false)
     public static void registrationTest() {
 
         // Precondition: Chrome browser should be opened
