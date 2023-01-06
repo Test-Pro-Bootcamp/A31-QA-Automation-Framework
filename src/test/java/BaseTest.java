@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -30,7 +32,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         LoginTests.driver.quit();
     }
 
@@ -62,30 +64,32 @@ public class BaseTest {
         emailField.sendKeys(email);
     }
 
-    public static void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public static void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public static void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
-
-    public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
-    }
-
     public static void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
+    }
+
+    //Click All Songs tab
+    public void allSongs() throws InterruptedException {
+        WebElement songs = driver.findElement(By.cssSelector("[href='#!/songs']"));
+        songs.click();
+        Thread.sleep(2000);
+    }
+
+    //Select a song and play
+    public void playSelectedSong() throws InterruptedException {
+        String songTitle = "Dark Days";
+        Actions playDesiredSong = new Actions(driver);
+        WebElement selectSong = driver.findElement(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(), '" + songTitle + "')]"));
+        playDesiredSong.doubleClick(selectSong).perform();
+        Thread.sleep(2000);
+    }
+
+    //Validate the song is playing
+    public void validateSongIsPlaying() throws InterruptedException {
+        WebElement soundEqualiserBars = driver.findElement(By.cssSelector("img[alt='Sound bars']"));
+        Assert.assertTrue(soundEqualiserBars.isDisplayed());
+        Thread.sleep(2000);
     }
 }
