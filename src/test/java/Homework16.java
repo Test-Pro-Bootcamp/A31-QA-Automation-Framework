@@ -10,7 +10,7 @@ import java.time.Duration;
 public class Homework16 extends BaseTest {
 
     @Test
-    public static void Navigation() throws InterruptedException{
+    public static void navigation() throws InterruptedException{
         //test: registration page navigation
         //precondition: chrome browser is opened
         //step 1: navigate to koel login page
