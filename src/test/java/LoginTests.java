@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-    static String url = "https://bbb.testprolio";
+    static String url = "https://bbb.testpro.io/";
 
     @Test
     public static void LoginEmptyEmailPasswordTest () {
