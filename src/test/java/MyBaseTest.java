@@ -39,9 +39,10 @@ public class MyBaseTest {
         driver.get(url);
     }
 
-    public static void clickSubmit() {
+    public static void clickSubmit() throws InterruptedException {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
+        Thread.sleep(2000);
     }
 
     public static void providePassword(String password) {
@@ -90,12 +91,12 @@ public class MyBaseTest {
     }
 
     public void viewAllResults() throws InterruptedException {
-        WebElement viewAllButton = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        WebElement viewAllButton = driver.findElement(By.cssSelector("section.songs h1 button"));
         viewAllButton.click();
         Thread.sleep(3000);
     }
     public void selectFirstSong() throws InterruptedException {
-        WebElement viewAllFirstSong = driver.findElement(By.cssSelector("#songResultsWrapper div.item-container table tr:nth-child(2) td.title"));
+        WebElement viewAllFirstSong = driver.findElement(By.cssSelector("#songResultsWrapper div.item-container table tr:nth-child(3) td.title"));
         viewAllFirstSong.click();
         Thread.sleep(2000);
     }
