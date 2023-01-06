@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,9 +15,10 @@ import java.util.UUID;
 
 
 public class BaseTest {
+
     public static WebDriver driver = null;
     public static String url = "https://bbb.testpro.io/";
-
+    public static String songTitle = "Pluto";
 
     @BeforeSuite
     static void setupClass() {
@@ -24,68 +26,63 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public static void launchBrowser() {
-        LoginTests.driver = new ChromeDriver();
-        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public static void openBrowser() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod
     public static void closeBrowser(){
-        LoginTests.driver.quit();
+        driver.quit();
     }
 
-    protected static void navigateToPage() {
+    //Navigate to Homepage
+    public static void navigateToPage() {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
     }
 
-    public void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
+
+
+
+    //login
+    public static void enterEmail(String email) throws InterruptedException {
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+
+        emailField.sendKeys(email);
+        Thread.sleep(1000);
+    }
+    public static void enterPassword(String password) throws InterruptedException {
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.sendKeys(password);
+        Thread.sleep(1000);
+
     }
 
-    public static void clickSubmit() {
+    public static void clickSubmit() throws InterruptedException {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
+        Thread.sleep(1000);
+    }
+    //navigate to All Songs page
+    public static void navigateToAllSongs() throws InterruptedException {
+        WebElement allSongsPage = driver.findElement(By.cssSelector("a[class='songs']"));
+        allSongsPage.click();
+        Thread.sleep(1500);
+
     }
 
-    public static void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.clear();
-        passwordField.sendKeys(password);
+    //select song
+    public static void playDesiredSong() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        WebElement selectedSong = driver.findElement(By.xpath("//section[@id='songsWrapper']//td[contains(text(), '" + songTitle + "')]"));
+        actions.doubleClick(selectedSong).perform();
+        Thread.sleep(1000);
     }
-
-    public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        emailField.clear();
-        emailField.sendKeys(email);
-    }
-
-    public static void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public static void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public static void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
-
-    public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
-    }
-
-    public static void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        avatarIcon.click();
+    //Validate song is playing
+    public boolean validateSongIsPlaying() {
+        WebElement soundBarIcon = driver.findElement(By.cssSelector("img[alt='Sound bars']"));
+        return soundBarIcon.isDisplayed();
 
     }
 }
