@@ -46,7 +46,7 @@ public class LoginTests extends BaseTest {
 
         navigateToPage();
 
-        provideEmail("demo@class.com");
+        provideEmail("pooja.bankar@testpro.io");
         providePassword("te$t$tudent");
         clickSubmit();
 
