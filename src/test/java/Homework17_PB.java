@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework17_PB extends BaseTest{
@@ -15,7 +16,7 @@ public class Homework17_PB extends BaseTest{
        8. Push your code to a remote repository.
        9. Create a pull request.*/
      @Test
-    public static void addSongToPlaylist () throws InterruptedException {
+    public void addSongToPlaylist () throws InterruptedException {
         /* steps
         1.Navigate to Koel page
         2.Enter Email Address and Password.
@@ -30,8 +31,13 @@ public class Homework17_PB extends BaseTest{
          provideEmail("pooja.bankar@testpro.io");
          providePassword("te$t$tudent");
          clickSubmit();
-         Thread.sleep(5000);
+         Thread.sleep(2000);
          clickAllSongsTab();
+         selectFirstSongFromAllSongs();
+         addToButton();
+         selectAllReadyCreatedPlayList();
+
+         Assert.assertTrue(isSongAddedMessageDisplayed());
 
 
          }
@@ -42,15 +48,9 @@ public class Homework17_PB extends BaseTest{
              Thread.sleep(3000);
     }
 
-        //cssSelector for AddTo Button :"button.btn-add-to"
-        //cssSelector for Add to = "ul>li.has-sub" .....context menu not required
-        //cssSelector for ADD to arrow = ".menu.submenu.menu-add-to".....Context menu not required.
-        //Css Selector for 1st song in the list All Songs = "tr.song-item.playing.selected:first-of-type"
-
-
     // Locate first song from All Songs List
     public void selectFirstSongFromAllSongs() throws InterruptedException{
-         WebElement selectFirstSongField = driver.findElement(By.cssSelector("tr.song-item.playing.selected:first-of-type"));
+         WebElement selectFirstSongField = driver.findElement(By.xpath("//*[@id='songsWrapper']//div[1]/table/tr[1]/td[2]"));
          selectFirstSongField.click();
         Thread.sleep(3000);
     }
@@ -61,6 +61,16 @@ public class Homework17_PB extends BaseTest{
          addSelectedSong.click();
          Thread.sleep(3000);
     }
-
+ // Select Test Playlist
+    public void selectAllReadyCreatedPlayList() throws InterruptedException{
+         WebElement selectCreatedPlaylist = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]"));
+         selectCreatedPlaylist.click();
+         Thread.sleep(2000);
+    }
+    // Validating Song added message
+    public boolean isSongAddedMessageDisplayed(){
+         WebElement songAddedMessage = driver.findElement(By.cssSelector("div.alertify-logs.top.right"));
+         return songAddedMessage.isDisplayed();
+    }
 
 }
