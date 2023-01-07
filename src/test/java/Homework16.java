@@ -32,7 +32,7 @@ public class Homework16 extends BaseTest {
 
         Assert.assertTrue(avataricon.isDisplayed());
     }
-//
+
 
     }
 
