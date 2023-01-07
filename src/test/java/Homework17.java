@@ -7,7 +7,6 @@ public class Homework17 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        navigateToPage();
         login("demo@class.com", "te$t$tudent");
         Thread.sleep(2000);
         grabASong();

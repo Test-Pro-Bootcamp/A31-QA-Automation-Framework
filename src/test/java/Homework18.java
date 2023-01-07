@@ -1,12 +1,15 @@
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+
 public class Homework18 extends BaseTest {
 
     @Test
+
     public static void playSong () throws InterruptedException {
         navigateToPage();
         Thread.sleep(2000);
@@ -40,6 +43,7 @@ public class Homework18 extends BaseTest {
              WebElement soundBar = driver.findElement(By.cssSelector("[class='bars']"));
              Assert.assertTrue(soundBar.isDisplayed());
          }
+
 
 
 
