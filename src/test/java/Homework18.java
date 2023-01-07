@@ -4,17 +4,12 @@ public class Homework18 extends BaseTest {
 
     @Test
     public void testPlaySong() {
+        provideEmail("kbetestack@gmail.com");
+        providePassword("te$t$tudent");
 
-
+        playSong();
+        isSongPlaying();
 
     }
-
-public void playSong() {
-
-}
-
-public void isSonPlaying () {
-
-}
 
 }

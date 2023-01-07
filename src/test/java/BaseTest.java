@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -78,6 +79,19 @@ public class BaseTest {
         WebElement avatarIcon= driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
     }
+
+    public void playSong() {
+        WebElement nextSongBtn = driver.findElement(By.xpath("//i[@data-test='play-next-btn']"));
+        WebElement playBtn = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+
+        nextSongBtn.click();
+        playBtn.click();
+    }
+
+    public void isSongPlaying() {
+            WebElement soundBar=driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
+            Assert.assertTrue(soundBar.isDisplayed());
+        }
 }
 
 
