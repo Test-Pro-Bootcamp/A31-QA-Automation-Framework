@@ -46,9 +46,29 @@ public class BaseTest {
         clickSubmit();
     }
 
-    public static void clickSubmit() {
+    public static void clickSubmit(){
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
+    }
+    public static void allSongsPage(){
+        WebElement allSongsPage = driver.findElement(By.cssSelector("a.songs"));
+        allSongsPage.click();
+    }
+    public static void firstSong(){
+        WebElement firstSong = driver.findElement(By.xpath("//td[contains(text(),'HoliznaCC0 - Waiting On A Train')]"));
+        firstSong.click();
+    }
+    public static void addSongTo(){
+        WebElement addSongTo = driver.findElement(By.cssSelector("button.btn-add-to"));
+        addSongTo.click();
+    }
+    public static void firstPlaylist(){
+        WebElement firstPlaylist = driver.findElement(By.xpath("//section[3]/header[1]/div[3]/div[1]/section[1]/ul[1]/li[5]"));
+        firstPlaylist.click();
+    }
+    public static void validatePlaylist() {
+        WebElement validatePlaylist = driver.findElement(By.cssSelector("div.success.show"));
+        validatePlaylist.isDisplayed();
     }
 
     public static void providePassword(String password) {

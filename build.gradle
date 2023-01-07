@@ -17,6 +17,7 @@ dependencies {
 
 test {
     useTestNG() {
+<<<<<<< Updated upstream
         suites "src/test/resources/Homework18.xml"
     }
 }
@@ -24,6 +25,9 @@ test {
 task testSmoke(type: Test) {
     useTestNG() {
         suites "src/test/resources/Smoke.xml"
+=======
+        suites "src/test/resources/TestNG.xml"
+>>>>>>> Stashed changes
     }
 }
 
