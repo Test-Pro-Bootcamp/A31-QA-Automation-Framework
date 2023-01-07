@@ -90,4 +90,15 @@ public class BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
     }
+
+    public static void updateProfile(){
+        WebElement profileIcon = driver.findElement(By.cssSelector("[class='avatar']"));
+        profileIcon.click();
+
+
+
+        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+        currentPassword.click();
+        currentPassword.sendKeys("te$t$tudent");
+    }
 }
