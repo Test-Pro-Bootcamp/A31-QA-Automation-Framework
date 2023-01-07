@@ -17,6 +17,12 @@ dependencies {
 
 test {
     useTestNG() {
+        suites "src/test/resources/TestNG.xml"
+    }
+}
+
+task playSong(type: Test) {
+    useTestNG() {
         suites "src/test/resources/PlaySong.xml"
     }
 }
