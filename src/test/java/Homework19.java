@@ -20,6 +20,20 @@ public class Homework19 extends BaseTest {
         //Navigate to playlist (Work Jams)
         WebElement selectedPlaylist = driver.findElement(By.cssSelector("a[href='#!/playlist/22073']"));
         Actions acts = new Actions(driver);
+        acts.contextClick(selectedPlaylist).perform();
+        Thread.sleep(5000);
+
+        //Click "Delete" option
+        WebElement deleteThePlaylist = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-22073']"));
+        deleteThePlaylist.click();
+
+        //Click "OK" confirmation
+        WebElement deleteConfirmation = driver.findElement(By.cssSelector("button[class='ok']"));
+        deleteConfirmation.click();
+        Thread.sleep(3000);
+        String homepage = "https://bbb.testpro.io/#!/home";
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
     }
 
 }
