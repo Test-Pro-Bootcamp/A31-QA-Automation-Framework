@@ -51,14 +51,14 @@ Homework17
 =======
 
     @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    public static void LoginEmptyEmailPasswordTest () {
+    public static void loginEmptyEmailPasswordTest () {
 
         navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
-    public static void LoginValidEmailValidPasswordTest () throws InterruptedException {
+    public static void loginValidEmailValidPasswordTest () throws InterruptedException {
 
         navigateToPage();
 
@@ -73,7 +73,7 @@ Homework17
     }
 
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
-    public static void LoginInvalidEmailValidPasswordTest () {
+    public static void loginInvalidEmailValidPasswordTest () {
 
         navigateToPage();
 
@@ -85,6 +85,7 @@ Homework17
 
     }
 
+Homework17
     @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
     public static void updateProfileNameTest () throws InterruptedException {
 
@@ -109,6 +110,8 @@ Homework17
 
  main
     }
+
+main
 
 
 }

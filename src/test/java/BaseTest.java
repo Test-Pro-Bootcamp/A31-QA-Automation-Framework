@@ -39,6 +39,12 @@ public class BaseTest {
         driver.get(url);
     }
 
+    public void login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
+
     public static void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
