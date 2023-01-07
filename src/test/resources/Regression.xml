@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG">
+<suite name="Regression">
 
     <test name="Example Test" preserve-order="false">
         <classes>
- Homework
-            <class name="LoginTests"/>
-            <class name="Homework16"/>
+            <class name="LoginTests" />
+            <class name="ProfileTests"/>
             <class name="BaseTest"/>
-
-            <class name="Homework17" />
-<!--            <class name="ProfileTests"/>-->
-<!--            <class name="BaseTest"/>-->
-main
         </classes>
     </test>
 </suite>
