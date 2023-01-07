@@ -101,4 +101,22 @@ public class BaseTest {
         currentPassword.click();
         currentPassword.sendKeys("te$t$tudent");
     }
+
+    public static void selectSong() throws InterruptedException{
+        WebElement allSongs = driver.findElement(By.xpath("//a[@href='#!/songs']"));
+        allSongs.click();
+        Thread.sleep(2000);
+        WebElement songTitle = driver.findElement(By.xpath("//tr[@draggable='true']//td[2]"));
+        songTitle.click();
+        Thread.sleep(2000);
+
+    }
+
+    public static void addToPlaylist() throws InterruptedException{
+
+//            WebElement playlistCreate = driver.findElement(By.xpath("[placeholder='Playlist name']"));
+//            playlistCreate.click();
+//            playlistCreate.sendKeys("New Deagle");
+//            Thread.sleep(2000);
+    }
 }
