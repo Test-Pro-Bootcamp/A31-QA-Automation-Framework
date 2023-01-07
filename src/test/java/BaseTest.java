@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class BaseTest {
     public static WebDriver driver = null;
-    public static String url = null;
+    public static String url = "https://bbb.testpro.io";
 
 
     @BeforeSuite
