@@ -38,7 +38,7 @@ public class Homework18 extends BaseTest{
         Thread.sleep(2000);
     }
     public void soundBars(){
-        WebElement usersAvatar = driver.findElement(By.cssSelector("ing[alt='Sound bars']"));
+        WebElement usersAvatar = driver.findElement(By.cssSelector("img[alt='Sound bars']"));
         Assert.assertTrue(usersAvatar.isDisplayed());
     }
 }
