@@ -14,13 +14,11 @@ public class Homework18 extends BaseTest{
         playNextButton();
         playButton();
         soundBars();
-
     }
     public void allSongs() throws InterruptedException{
         WebElement allSongs = driver.findElement(By.cssSelector("#sidebar > section.music > ul > li:nth-child(3) > a"));
         allSongs.click();
         Thread.sleep(2000);
-
     }
     public void songName() throws InterruptedException{
         WebElement songName = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
