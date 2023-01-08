@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Homework18 Tests">
+<suite name="Homework19 Tests">
 
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework18">
+            <class name="Homework19">
                 <methods>
-                    <include name="playASongTest" />
+                    <include name="deletePlaylist" />
                 </methods>
             </class>
         </classes>

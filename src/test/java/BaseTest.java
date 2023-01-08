@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
 
@@ -31,7 +32,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         LoginTests.driver.quit();
     }
 
@@ -87,16 +88,15 @@ public class BaseTest {
     public static void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
-
     }
 
-    @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
-
-        return new Object[][] {
-                {"invalid@email.com", "invalidPass"},
-                {"demo@mail.com", "invalid"},
-                {"", ""}
-        };
-    }
+//    @DataProvider(name="incorrectLoginProviders")
+//    public static Object[][] getDataFromDataproviders() {
+//
+//        return new Object[][] {
+//                {"invalid@email.com", "invalidPass"},
+//                {"demo@mail.com", "invalid"},
+//                {"", ""}
+//        };
+//    }
 }
