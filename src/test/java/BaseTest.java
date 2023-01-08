@@ -4,10 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -88,6 +85,15 @@ public class BaseTest {
     public static void clickavatarIcon() {
         WebElement avatarIcon= driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
+    }
+
+    @DataProvider(name="incorrectLoginProviders")
+    public static Object[][] getDataFromDataproviders() {
+        return new Object[][]{
+                {"invalid@email.com", "nothing"},
+                {"demo@mail.com", "invalid"},
+                {"", ""}
+        };
     }
 
     public void playSong() {
