@@ -13,8 +13,8 @@ public class Homework17jimmyvu extends BaseTest{
         getASong();
         Thread.sleep(1000);
 
-        WebElement song = driver.findElement(By.xpath("//section[@id='playlistWrapper']/div[@class='song-list-wrap main-scroll-wrap playlist']/div[@class='virtual-scroller scroller']/div[@class='item-container']/table[@class='items']/tr[@class='song-item']/td[contains(text(), 'Waiting On A Train')]"));
-        Assert.assertTrue(song.isDisplayed());
+        WebElement song = driver.findElement(By.xpath("//tr[@class='song-item selected' ]//td[contains(text(), 'Waiting On A Train')]"));
+        Assert.assertEquals(song.getAttribute("innerHTML"),"HoliznaCC0 - Waiting On A Train");
     }
 
     public static void getASong() throws InterruptedException{
