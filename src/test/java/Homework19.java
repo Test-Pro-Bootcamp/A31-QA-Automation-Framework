@@ -8,7 +8,6 @@ public class Homework19 extends BaseTest {
     @Test
     public void deletePlaylist() throws InterruptedException {
         login("test123@test.com", "te$t$tudent");
-        clickAvatarIcon();
         Thread.sleep(2000);
 
         selectDesiredPlaylist();
