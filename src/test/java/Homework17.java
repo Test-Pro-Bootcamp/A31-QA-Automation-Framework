@@ -13,7 +13,7 @@ public class Homework17 extends BaseTest {
     public void addSongToPlaylist() {
 
         //goto Koel page-uname and pw-submit
-        navigateToPage();
+
         provideEmail("kbetestack@gmail.com");
         providePassword("te$t$tudent");
         clickSubmit();

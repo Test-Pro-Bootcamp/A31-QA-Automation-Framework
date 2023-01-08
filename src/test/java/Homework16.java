@@ -11,7 +11,6 @@ public class Homework16 extends BaseTest {
     @Test(enabled = false, description = "Testregistrationlink")
     public static void Registration() {
 
-        navigateToPage();
 
         WebElement registrationLink = driver.findElement(By.cssSelector("[id='hel']"));
         registrationLink.click();
@@ -23,7 +22,7 @@ public class Homework16 extends BaseTest {
     @Test(enabled = true, description = "Loginwvalidaccount")
     public static void validLogin() {
 
-        navigateToPage();
+
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();

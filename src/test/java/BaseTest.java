@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -22,9 +23,11 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public static void launchBrowser() {
+    @Parameters({"BaseURL"})
+    public static void launchBrowser(String BaseURL) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(BaseURL);
     }
     @AfterMethod
     public static void closeBrowser(){
@@ -48,10 +51,10 @@ public class BaseTest {
         passwordField.sendKeys(password);
     }
 
-    public static void navigateToPage() {
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-    }
+//    public static void navigateToPage() {
+//        String url = "https://bbb.testpro.io/";
+//        driver.get(url);
+//    }
 
     public static String generateRandomName(){
         return UUID.randomUUID().toString().replace("-","");
