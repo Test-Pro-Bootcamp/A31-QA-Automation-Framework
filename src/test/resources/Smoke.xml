@@ -6,9 +6,9 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework16">
+            <class name="LoginTests">
                 <methods>
-                    <include name="Loginwvalidaccount"/>
+                    <include name="loginEmptyEmailPasswordTest"/>
                 </methods>
             </class>
         </classes>

@@ -16,7 +16,7 @@ import java.util.UUID;
 public class BaseTest {
 
     public static WebDriver driver = null;
-    static String url="https://bbb.testpro.io/";
+    static String url="null";
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -27,7 +27,9 @@ public class BaseTest {
     public static void launchBrowser(String BaseURL) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(BaseURL);
+        url = BaseURL;
+        driver.get(url);
+
     }
     @AfterMethod
     public static void closeBrowser(){
@@ -39,6 +41,11 @@ public class BaseTest {
         submitButton.click();
     }
 
+    public static void login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.clear();
