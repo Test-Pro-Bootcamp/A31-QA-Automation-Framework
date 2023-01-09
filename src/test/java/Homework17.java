@@ -7,35 +7,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class Homework17 extends BaseTest{
-
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void beforeMethod(){
-//        driver = new ChromeDriver();    // set driver
-        driver = new FirefoxDriver();
-        KoelTesting.goToKoel(driver);
-    }
-
+public class Homework17 extends KoelTesting{
     @Test
     public void addSongToPlaylist() throws InterruptedException {
 
         Actions action = new Actions(driver);
         SoftAssert softAssert = new SoftAssert();
 
-        //Steps for TestCase
-        //Log into koel
-        KoelTesting.logIntoKoel(driver, "paramvirsingh24@gmail.com", "te$t$tudent" );
-        Thread.sleep(1000);
-
         //Create a new user playlist
-        KoelTesting.createPlaylist(driver, "My Test Playlist");
+        KoelTesting.createPlaylist("My Test Playlist");
         Thread.sleep(1000);
 
         //Go to "all songs" tab
-        KoelTesting.clickTabInYourMusic(driver, "songs");
+        KoelTesting.clickTabInYourMusic("songs");
         Thread.sleep(1000);
 
         //Select a song to be inserted
@@ -66,7 +50,6 @@ public class Homework17 extends BaseTest{
         }
 
         KoelTesting.deletePlaylist(driver, "My Test Playlist" );
-        driver.quit();
 
         softAssert.assertAll();
     }
