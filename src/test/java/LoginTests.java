@@ -5,9 +5,8 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public static void loginEmptyEmailPasswordTest (String email, String password) {
+    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
+    public static void loginEmptyEmailPasswordTest(String email, String password) {
 
         login(email, password);
         Assert.assertEquals(driver.getCurrentUrl(), url);
@@ -36,7 +35,4 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
     }
-
-
-
 }
