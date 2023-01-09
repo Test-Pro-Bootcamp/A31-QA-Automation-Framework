@@ -26,6 +26,7 @@ public class BaseTest {
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
         url = BaseURL;
         driver.get(url);
     }
