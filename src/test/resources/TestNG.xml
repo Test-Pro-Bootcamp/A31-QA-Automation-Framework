@@ -5,7 +5,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
+            <class name="Homework17"/>
             <class name="BaseTest"/>
         </classes>
     </test>
