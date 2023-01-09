@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -13,7 +15,7 @@ import java.util.UUID;
 
 public class BaseTest {
     public static WebDriver driver = null;
-    public static String url = null;
+    public static String url = "https://bbb.testpro.io/";
 
 
     @BeforeSuite
@@ -22,12 +24,9 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
+    public static void launchBrowser() {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
-        driver.get(url);
     }
 
     @AfterMethod
@@ -35,12 +34,12 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+    protected static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 
-    public static void login(String email, String password) {
+    public void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
@@ -88,15 +87,5 @@ public class BaseTest {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
-    }
-
-    @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
-
-        return new Object[][] {
-                {"invalid@email.com", "invalidPass"},
-                {"demo@mail.com", "invalid"},
-                {"", ""}
-        };
     }
 }
