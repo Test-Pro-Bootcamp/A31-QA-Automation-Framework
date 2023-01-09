@@ -3,9 +3,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
 
 import java.time.Duration;
 import java.util.UUID;
@@ -13,7 +17,7 @@ import java.util.UUID;
 
 public class BaseTest {
     public static WebDriver driver = null;
-    public static String url = null;
+    public static String url = "https://bbb.testpro.io/";
 
 
     @BeforeSuite
@@ -22,12 +26,9 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
+    public static void launchBrowser() {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
-        driver.get(url);
     }
 
     @AfterMethod
@@ -35,15 +36,9 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
-
-    public static void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
+    protected static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
     }
 
     public static void clickSubmit() {
@@ -81,7 +76,7 @@ public class BaseTest {
     }
 
     public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
     public static void clickAvatarIcon() {
@@ -90,13 +85,38 @@ public class BaseTest {
 
     }
 
-    @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
+    public static void searchSong(String songTitleKeyword) throws InterruptedException {
+        WebElement searchField = driver.findElement(By.cssSelector("#searchForm > input[type=search]"));
+        searchField.sendKeys(songTitleKeyword);
+        Thread.sleep(2000);
+    }
 
-        return new Object[][] {
-                {"invalid@email.com", "invalidPass"},
-                {"demo@mail.com", "invalid"},
-                {"", ""}
-        };
+    public static void viewAllSearchResults() throws InterruptedException{
+        WebElement viewAllSearchResult = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        viewAllSearchResult.click();
+        Thread.sleep(2000);
+    }
+
+    public static void selectFirstSongResult() throws InterruptedException{
+        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("#songResultsWrapper > div > div > div.item-container > table > tr.song-item.selected"));
+        viewAllFirstSongResult.click();
+        Thread.sleep(2000);
+    }
+
+    public static void clickAddToButton() throws InterruptedException{
+        WebElement addTo = driver.findElement(By.cssSelector("button.btn-add-to"));
+        addTo.click();
+        Thread.sleep(2000);
+    }
+
+    public static void choosePlaylist (String playlistName) throws InterruptedException{
+        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"));
+        playlistNameElement.click();
+        Thread.sleep(2000);
+    }
+
+    public static boolean isNotificationPopUpPresent(){
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+        return notificationText.isDisplayed();
     }
 }
