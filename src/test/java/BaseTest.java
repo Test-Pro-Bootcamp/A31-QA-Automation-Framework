@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,6 +11,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
+
 
 
 public class BaseTest {
@@ -38,6 +40,7 @@ public class BaseTest {
     }
 
     @AfterMethod
+
     public static void closeBrowser() {
         driver.quit();
     }
@@ -48,17 +51,19 @@ public class BaseTest {
         clickSubmit();
     }
 
+
+    public static void providePassword(String password) {
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.clear();
+        passwordField.sendKeys(password);
+    }
+
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.clear();
         emailField.sendKeys(email);
     }
 
-    public static void providePasssword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    }
 
     public static void clickSubmit() throws InterruptedException {
         WebElement submitButton = Homework18.driver.findElement(By.cssSelector("[type='submit']"));
@@ -74,5 +79,5 @@ public class BaseTest {
         WebElement soundBar = driver.findElement(By.cssSelector("div > button:nth-child(2) > div"));
         Assert.assertTrue(soundBar.isDisplayed());
     }
-    }
+   
 
