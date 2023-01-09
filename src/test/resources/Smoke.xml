@@ -3,7 +3,7 @@
 
 <suite name="Smoke Tests">
 
-    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+
 
     <test name="Example Test" preserve-order="false">
         <classes>
