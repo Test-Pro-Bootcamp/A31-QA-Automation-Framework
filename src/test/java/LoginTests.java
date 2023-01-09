@@ -7,8 +7,8 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
 
 
-    @Test
-    public static void LoginEmptyEmailPasswordTest () {
+    @Test(enabled = false)
+    public  void LoginEmptyEmailPasswordTest () {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

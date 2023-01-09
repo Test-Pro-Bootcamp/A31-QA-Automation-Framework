@@ -1,32 +1,36 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.time.Duration;
-
+import static org.testng.Assert.assertTrue;
 
 public class Homework17Test extends BaseTest {
+    @Test(description = "Grab the Log In Page")
+    public void loginEmptyEmailPasswordTest() {
+        grabUrl();
+        String url = grabUrl();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
+    @Test(priority = 1, description = "Log in with Valid User Info")
+     public void loginValidEmailPasswordTest(){
+            grabUrl();
+        provideEmail("skyeman75@gmail.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
 
-@Test
-public void validLoginEmailPassword(){
-    openLoginURL();
-    enterEmail("skyeman75@gmail.com");
-    enterPassword("te$t$tudent");
-    clickButton();
-    WebElement avatarIcon =driver.findElement(By.cssSelector("[alt='Avatar of student']"));
-    Assert.assertTrue(avatarIcon.isDisplayed());
-}
-@Test
-public void addSongToPlayList(){
-    WebElement allSongs = driver.findElement(By.cssSelector("a[href*='#!/songs']"));
-    allSongs.click();
-    WebElement songSelect = driver.findElement(By.cssSelector("td.title"));
-    songSelect.click();
-    WebElement addSongButton = driver.findElement(By.cssSelector(".btn-add-to"));
-    addSongButton.click();
-    WebElement addSong =driver.findElement(By.cssSelector("a[href*='#!/playlist/20795']"));
-    addSong.click();
-}
+
+         WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
+         assertTrue(avatarIcon.isDisplayed());
+    }
+    @Test(priority = 2, description = "Invalid User Email")
+    public void loginInvalidEmailPasswordTest(){
+       grabUrl();
+        String url = grabUrl();
+        provideEmail("invalid@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
+
+
 }
