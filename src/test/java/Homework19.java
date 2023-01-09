@@ -20,7 +20,7 @@ public class Homework19 extends BaseTest {
 
     //Navigate and select a playlist
     public void selectDesiredPlaylist() throws InterruptedException {
-        WebElement selectAPlaylist = driver.findElement(By.cssSelector("[href='#!/playlist/35662']"));
+        WebElement selectAPlaylist = driver.findElement(By.cssSelector("[href='#!/playlist/35734']"));
         selectAPlaylist.click();
         Thread.sleep(2000);
     }
@@ -34,6 +34,6 @@ public class Homework19 extends BaseTest {
 
     //Validate the playlist is deleted
     public WebElement getDeleteMsgDisplayed() throws InterruptedException {
-        return driver.findElement(By.cssSelector("div.success.show"));
+        return driver.findElement(By.cssSelector("[class='success show']"));
     }
 }
