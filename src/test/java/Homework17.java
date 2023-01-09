@@ -49,7 +49,7 @@ public class Homework17 extends KoelTesting{
             softAssert.assertEquals((songInPlaylist!=null && songInPlaylist.isDisplayed()==true) , true, "ERROR: The playlist is either empty or an unexpected song was added");
         }
 
-        KoelTesting.deletePlaylist(driver, "My Test Playlist" );
+        KoelTesting.deletePlaylist("My Test Playlist" );
 
         softAssert.assertAll();
     }

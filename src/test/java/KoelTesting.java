@@ -28,7 +28,7 @@ public class KoelTesting {
     @AfterMethod
     public void afterMethod()
     {
-//        driver.quit();
+        driver.quit();
     }
 
 
@@ -58,7 +58,7 @@ public class KoelTesting {
         driver.findElement(By.cssSelector("input[name='name']")).sendKeys(Keys.ENTER);
     }
 
-    public static void  deletePlaylist(WebDriver driver, String playlistName){
+    public static void  deletePlaylist(String playlistName){
         driver.findElement(By.xpath(String.format("//a[contains(text(),'%s')]", playlistName))).click();
         waitforSeconds(5);
         driver.findElement(By.cssSelector("button[title='Delete this playlist']")).click();
