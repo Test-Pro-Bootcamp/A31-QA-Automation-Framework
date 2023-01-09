@@ -17,6 +17,6 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/SampleSet.xml"
+        suites "src/test/resources/Homework19Suite.xml"
     }
 }

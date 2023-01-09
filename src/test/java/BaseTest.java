@@ -9,6 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -19,26 +20,25 @@ public class BaseTest {
     public static WebDriver driver = null;
     public static String url = "https://bbb.testpro.io/";
     public static String songTitle = "Pluto";
+    public static String playlistName = "Sample Playlist";
 
 
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
+
     @BeforeMethod
-    public static void openBrowser() {
+    @Parameters ({"BaseURL"})
+    public void openBrowser(String BaseURL) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        url = BaseURL;
+        driver.get(url);
     }
     @AfterMethod
     public static void closeBrowser(){
         driver.quit();
-    }
-
-    //Navigate to Homepage
-    public static void navigateToPage() {
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
     }
 
     //login
@@ -57,6 +57,15 @@ public class BaseTest {
         submitButton.click();
         Thread.sleep(1000);
     }
+    public static void login(String email, String password) throws InterruptedException {
+        enterEmail(email);
+        enterPassword(password);
+        clickSubmit();
+    }
+
+
+
+
     //navigate to All Songs page
     public static void navigateToAllSongs() throws InterruptedException {
         WebElement allSongsPage = driver.findElement(By.cssSelector("a[class='songs']"));

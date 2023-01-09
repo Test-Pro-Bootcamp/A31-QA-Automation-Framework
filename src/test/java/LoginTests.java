@@ -9,14 +9,12 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
     public static void LoginEmptyEmailPasswordTest () {
 
-        navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
     public static void LoginValidEmailValidPasswordTest () throws InterruptedException {
 
-        navigateToPage();
 
         enterEmail("demo@class.com");
         enterPassword("te$t$tudent");
@@ -31,7 +29,6 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void LoginInvalidEmailValidPasswordTest () throws InterruptedException {
 
-        navigateToPage();
 
         enterEmail("invalid@class.com");
         enterPassword("te$t$tudent");
