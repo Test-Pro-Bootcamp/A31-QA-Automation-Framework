@@ -30,8 +30,17 @@ import org.openqa.selenium.*;
 public class Homework17 extends BaseTest {
 }
 
-    @BeforeSuite
-    public static void addSongToPlaylist (){
+    @Test
+    public static void addSongToPlaylist () {
+
+        login(email:"demo@class.io", password:"te$t$tudent");
+    }
+
+    public void grabASong() {
+
+    WebElement song = driver.findElement(By.cssSelector(".top-song-list>li"));
+
+    }
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
