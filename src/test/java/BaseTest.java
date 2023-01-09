@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -98,5 +100,20 @@ public class BaseTest {
                 {"demo@mail.com", "invalid"},
                 {"", ""}
         };
+    }
+
+    public static void playaSong1() throws InterruptedException {
+        WebElement selecedSongm = driver.findElement(By.cssSelector("article[data-test='song-card'] span[class='cover']"));
+        selecedSongm.click();
+        Thread.sleep(2000);
+
+    }
+
+    public static void isSongPlayingRn() throws InterruptedException {
+        WebElement soundBarr = driver.findElement(By.cssSelector("[height='13']"));
+        soundBarr.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(soundBarr.isDisplayed());
+        Thread.sleep(2000);
     }
 }
