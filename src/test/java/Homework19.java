@@ -18,13 +18,13 @@ public class Homework19 extends BaseTest {
         Assert.assertTrue(avatarIcon.isDisplayed());
 
         //Navigate to playlist (Work Jams)
-        WebElement selectedPlaylist = driver.findElement(By.cssSelector("a[href='#!/playlist/35752']"));
+        WebElement selectedPlaylist = driver.findElement(By.cssSelector("a[href='#!/playlist/35771']"));
         Actions acts = new Actions(driver);
         acts.contextClick(selectedPlaylist).perform();
         Thread.sleep(5000);
 
         //Click "Delete" option
-        WebElement deleteThePlaylist = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-35752']"));
+        WebElement deleteThePlaylist = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-35771']"));
         deleteThePlaylist.click();
         Thread.sleep(3000);
 
