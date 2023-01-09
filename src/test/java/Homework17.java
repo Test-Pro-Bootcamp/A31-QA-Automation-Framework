@@ -13,7 +13,7 @@ public class Homework17 extends BaseTest {
         grabASong();
 
     }
-
+    @Test
     public void grabASong(){
         WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']"));
         WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//li[5]"));
