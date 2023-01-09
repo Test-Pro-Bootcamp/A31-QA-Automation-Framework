@@ -7,24 +7,22 @@ public class Homework17 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        login("demo@class.com", "te$t$tudent");
+        login("adeagle2021@gmail.com", "te$t$tudent");
         Thread.sleep(2000);
-        grabASong();
+
+        WebElement songTitle = driver.findElement(By.cssSelector("[href=\"#!/artist/10\"]"));
+        Actions actions = new Actions(driver);
+        actions.contextClick(songTitle).perform();
+        Thread.sleep(3000);
+        WebElement addToOption = driver.findElement(By.cssSelector("[class=\"has-sub\"]"));
+        actions.moveToElement(addToOption).perform();
+        Thread.sleep(3000);
+        WebElement playSelect = driver.findElement(By.cssSelector("ul [class='menu submenu menu-add-to']  li:nth-child(9)"));
+        actions.moveToElement(playSelect).perform();
+        playSelect.click();
+        Thread.sleep(3000);
+        isSongAdded();
 
     }
 
-    public void grabASong(){
-        WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']"));
-        WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//li[5]"));
-
-        Actions acts = new Actions(driver);
-        acts.clickAndHold(song)
-                .release(playlist)
-                .build()
-                .perform();
-
-        playlist.click();
-//        acts.dragAndDrop(song, playlist).build().perform();
-
-    }
 }

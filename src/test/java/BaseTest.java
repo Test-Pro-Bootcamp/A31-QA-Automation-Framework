@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -98,5 +99,14 @@ public class BaseTest {
                 {"demo@mail.com", "invalid"},
                 {"", ""}
         };
+    }
+
+    public static void isSongAdded()throws InterruptedException {
+        WebElement playllistScreen = driver.findElement(By.cssSelector("[href=\"#!/playlist/20706\"]"));
+        playllistScreen.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(playllistScreen.isDisplayed());
+        Thread.sleep(2000);
+
     }
 }
