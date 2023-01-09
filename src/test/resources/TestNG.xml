@@ -5,14 +5,14 @@
     <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
+
             <class name="BaseTest"/>
-            <class name="ProfileTests"/>
             <class name="Homework19"/>
             <!--<class name="Homework16"/>
             <class name="Homework17"/>
-             <class name="Homework18"/> -->
-
+             <class name="Homework18"/>
+            <class name="LoginTests"/>
+            <class name="ProfileTests"/> -->
 
         </classes>
     </test>

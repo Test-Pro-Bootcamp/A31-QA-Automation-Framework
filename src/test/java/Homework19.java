@@ -7,11 +7,10 @@ public class Homework19 extends BaseTest {
 public void deletePlaylist () {
 
     login("kbetestack@gmail.com", "te$t$tudent");
-    WebElement getPlaylist = driver.findElement(By.cssSelector("a[href*='22390']"));
+    WebElement getPlaylist = driver.findElement(By.cssSelector("a[href*='22380']"));
     getPlaylist.click();
-    WebElement delPlaylist = driver.findElement(By.cssSelector(".del btn-delete-playlist"));
+    WebElement delPlaylist = driver.findElement(By.cssSelector(".btn-delete-playlist"));
     delPlaylist.click();
-
 
     }
 

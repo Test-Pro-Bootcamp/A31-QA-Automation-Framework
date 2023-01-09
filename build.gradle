@@ -17,7 +17,7 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/Homework18.xml"
+        suites "src/test/resources/TestNG.xml"
     }
 }
 
@@ -33,11 +33,11 @@ task testRegression(type: Test) {
     }
 }
 
-task TestNG(type: Test) {
-    useTestNG() {
-        suites "src/test/resources/TestNG.xml"
-    }
-}
+//task TestNG(type: Test) {
+//    useTestNG() {
+//        suites "src/test/resources/TestNG.xml"
+//    }
+//}
 
 //to run through Terminal - gradle test clean or gradle test clean --info or --debug IF only one test
 //if have multiple test tasks, must do gradle testSmoke clean etc.
