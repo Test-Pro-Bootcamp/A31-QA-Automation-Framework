@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = null;
-
+    public static WebDriverWait wait = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -25,7 +26,7 @@ public class BaseTest {
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebDriverWait wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
     }
@@ -47,18 +48,19 @@ public class BaseTest {
     }
 
     public static void clickSubmit() {
-        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
     }
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        wait.until(ExpectedConditions.elementToBeClickable(passwordField));
         passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        WebElement emailField= wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
         emailField.clear();
         emailField.sendKeys(email);
     }

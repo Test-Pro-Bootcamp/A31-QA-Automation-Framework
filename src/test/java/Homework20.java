@@ -1,36 +1,42 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework20 extends BaseTest{
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylistTest() {
+        String playlistName = "Homework20";
+
         //Login valid credentials
-        provideEmail("jrpasia@gmail.com");
-        providePassword("B3n@iah2013");
-        clickSubmit();
+        login("jrpasia@gmail.com", "B3n@iah2013");
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
-        Thread.sleep(2000);
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
 
-        //Navigate to playlist (Work Jams)
-        WebElement selectedPlaylist = driver.findElement(By.cssSelector("a[href='#!/playlist/35771']"));
+        //First Adding a playlist
+        WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
+        newPlaylist.click();
+
+        //Input playlist name
+        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+        nameField.clear();
+        nameField.sendKeys(playlistName,Keys.ENTER);
+
+        //Right-click new playlist
+        WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
         Actions acts = new Actions(driver);
-        acts.contextClick(selectedPlaylist).perform();
-        Thread.sleep(5000);
+        acts.contextClick(createdPlaylist).perform();
 
         //Click "Delete" option
-        WebElement deleteThePlaylist = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-35771']"));
+        WebElement deleteThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Delete']")));
         deleteThePlaylist.click();
-        Thread.sleep(3000);
 
-        //Click "OK" confirmation
-        WebElement deleteConfirmation = driver.findElement(By.cssSelector("button[class='ok']"));
-        deleteConfirmation.click();
-        Thread.sleep(3000);
+        //Click "OK" confirmation (used when there's song(s) inside playlist)
+//        WebElement deleteConfirmation = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='ok']")));
+//        deleteConfirmation.click();
 
         //Assert through delete message box
         WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
