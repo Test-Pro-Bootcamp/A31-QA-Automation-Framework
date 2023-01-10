@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
+
 Homework17
 
     @BeforeMethod
@@ -48,19 +49,18 @@ Homework17
         emailField.click();
         // enter valid email inside the email field
         emailField.sendKeys("sandra.geche@gmail.com");
-=======
 
-    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    public static void loginEmptyEmailPasswordTest () {
+    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
+    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    public static void loginEmptyEmailPasswordTest (String email, String password) {
 
-        navigateToPage();
+
+        login(email, password);
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
     public static void loginValidEmailValidPasswordTest () throws InterruptedException {
-
-        navigateToPage();
 
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -74,8 +74,6 @@ Homework17
 
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void loginInvalidEmailValidPasswordTest () {
-
-        navigateToPage();
 
         provideEmail("invalid@class.com");
         providePassword("te$t$tudent");
