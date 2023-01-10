@@ -14,10 +14,28 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
 }
-// Alter the useTestNG suit last part of "src/test/resources/ _______ .xml" to new TestNG file
+// Alter the use TestNG/gradle suit last part of "src/test/resources/ _______ .xml" to new TestNG file
 // and save by clicking on elephant icon afterwards.
 test {
     useTestNG() {
         suites "src/test/resources/Homework18.xml"
     }
 }
+
+// Or you can add multiples at one time please see below for an example....
+
+//    test {    //the first or main gradle test
+//        useTestNG() {
+//            suites "src/test/resources/TestNG.xml"
+//        }
+//    }
+//     task testSmoke(type: Test) {
+//         useTestNG() {
+//             suites "src/test/resources/Smoke.xml"
+//         }
+//     }
+//     task testRegression(type: Test) {
+//         useTestNG() {
+//             suites "src/test/resources/Regression.xml"
+//         }
+//     }

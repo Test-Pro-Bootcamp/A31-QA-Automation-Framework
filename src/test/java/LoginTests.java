@@ -6,20 +6,12 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
 
-    public static String url = "https://bbb.testpro.io/";
+    @Test (dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
 
-    @Test(enabled = true, priority = 0, description = "loginEmptyEmailPasswordTest")
-    public static void loginEmptyEmailPasswordTest() throws InterruptedException {
-
-        //****Each one of these methods has been created for a shortcut to include it's designated step
-        //****The actual code for each method can be found on the BaseTest
-
-        navigateToPage();
-        provideEmail("");
-        providePassword("te$t$tudent");
-        clickSubmit();
-        Thread.sleep(2000);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+    // @Test(enabled = true, priority = 0, description = "loginEmptyEmailPasswordTest")
+    public static void loginEmptyEmailPasswordTest(){
+     login("" , "te$t$tudent");
+     Assert.assertEquals(driver.getCurrentUrl(),url);
     }
 
     @Test(enabled = true, priority = 1, description = "loginValidEmailValidPasswordTest")
