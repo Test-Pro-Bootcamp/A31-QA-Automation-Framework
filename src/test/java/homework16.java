@@ -9,7 +9,6 @@ import java.time.Duration;
 
 public class homework16 {
     @Test
-
     public static void registration(){
 
         WebDriver driver = new ChromeDriver();
