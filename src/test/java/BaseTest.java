@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
@@ -18,24 +19,18 @@ public  class BaseTest {
     public void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
     @BeforeMethod
-    public void setUpBrowser() {
+    @Parameters({"BaseURL"})
+    public void setUpBrowser(String BaseURL) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(BaseURL);
     }
     @AfterMethod
     public void breakDownBrowser() {
         driver.quit();
     }
-        public String grabUrl(){
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-        return url;
-    }
-
     public void logIn(String email, String password){
-        grabUrl();
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.sendKeys(email);
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));

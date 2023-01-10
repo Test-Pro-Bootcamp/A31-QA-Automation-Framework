@@ -2,15 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNG">
-
+    <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-
-           <class name="Homework18Test">
+            <class name="BaseTest"/>
+            <class name="Homework18Test">
                 <methods>
                     <include name = "playSong()"/>
                 </methods>
-           </class>
+            </class>
         </classes>
     </test>
 </suite>
