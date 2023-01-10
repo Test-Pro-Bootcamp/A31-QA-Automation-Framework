@@ -13,7 +13,7 @@ public class Homework19 extends BaseTest {
         selectExistingPlaylist();
         selectDeletePlaylist();
         Assert.assertTrue(isPlaylistDeletedMessageDisplayed());
-      
+
 
     }
 
