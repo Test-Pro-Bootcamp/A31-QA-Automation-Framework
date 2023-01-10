@@ -1,11 +1,16 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
@@ -18,12 +23,16 @@ public class BaseTest {
     }
 
     public static WebDriver driver = null;
+    public static WebDriverWait wait = null;
 
 
     @BeforeMethod
-    public static void launchBrowser() {
+    @Parameters({"BaseURL"})
+    public static void launchBrowser(String BaseURL) {
         Homework17.driver = new ChromeDriver();
         Homework17.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
+        driver.get(BaseURL);
     }
 
     @AfterMethod
@@ -37,18 +46,62 @@ public class BaseTest {
     }
 
     public static void clickLoginButton() {
+        //WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         loginButton.click();
     }
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.sendKeys(email);
+    }
+
+    public static void confirmLogin() {
+        WebElement usersAvatar = driver.findElement(By.cssSelector("img.avatar"));
+        Assert.assertTrue(usersAvatar.isDisplayed());
+    }
+
+    public static void clickAddButton () {
+        WebElement createPlaylist = driver.findElement(By.cssSelector("i.fa.fa-plus-circle"));
+        createPlaylist.click();
+    }
+
+    public static void selectNewPlaylistFromDropdown() {
+        WebElement NewPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
+        NewPlaylist.click();
+    }
+
+    public static void createXYZPlaylist() {
+        WebElement playlistTextField = driver.findElement(By.cssSelector("input[type='text'][name='name']"));
+        playlistTextField.click();
+        playlistTextField.sendKeys("XYZ Playlist" + Keys.ENTER);
+    }
+
+    public static void confirmXYZPlaylist() {
+        WebElement addNewPlaylist = driver.findElement(By.xpath("//a[text()='XYZ Playlist']"));
+        Assert.assertTrue(addNewPlaylist.isDisplayed());
+    }
+
+    public static void navigateToAllSongsPage () {
+        String url2="https://bbb.testpro.io/#!/songs";
+        driver.get(url2);
+    }
+
+    public static void rightClickSong() {
+        Actions rightClick=new Actions(driver);
+        WebElement waitingOnATrainSong=driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
+        rightClick.contextClick(waitingOnATrainSong).perform();
+    }
+
+    public static void selectXYZPlaylist() {
+        WebElement xyzPlaylist = driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']"));
+        xyzPlaylist.click();
     }
 }
 

@@ -7,14 +7,12 @@ import org.testng.annotations.Test;
 public class Homework18 extends BaseTest {
     @Test
     public static void playSongTest () {
-        navigateToTestPro();
         provideEmail("amandaag39@gmail.com");
         providePassword("te$t$tudent");
         clickLoginButton();
 
         //navigate to 'All Songs'
-        String url2="https://bbb.testpro.io/#!/songs";
-        driver.get(url2);
+        navigateToAllSongsPage();
 
         //double-click a song
         Actions action = new Actions(driver);
