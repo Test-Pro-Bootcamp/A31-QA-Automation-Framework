@@ -29,8 +29,12 @@ public class BaseTest {
         url = BaseURL;
         driver.get(url);
     }
-
-    @AfterMethod
+    @Parameters ({"HomeURL"})
+    public static void getHome (String HomeURL) {
+    url = HomeURL;
+    driver.get(url);
+    }
+   // @AfterMethod
     public static void closeBrowser(){
         LoginTests.driver.quit();
     }
@@ -50,6 +54,7 @@ public class BaseTest {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
     }
+
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
