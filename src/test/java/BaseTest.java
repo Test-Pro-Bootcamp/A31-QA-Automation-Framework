@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -96,10 +95,10 @@ public class BaseTest {
         Actions acts = new Actions(driver);
         acts.clickAndHold(song).moveToElement(playlist).release(playlist).build().perform();
     }
-    public static void addSong(){;
-        Assert.assertTrue(isSongAdded(songTitle), message: "Song titled" +songTitle+ "added to playlist");
-        driver.quit();
-  }
+   // public static void addSong(){;
+    //    Assert.assertTrue(isSongAdded(songTitle), message: "Song titled" +songTitle+ "added to playlist");
+      //  driver.quit();
+  //}
     public static void selectSong(songTitle) {
     }
 

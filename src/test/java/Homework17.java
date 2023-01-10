@@ -1,10 +1,6 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import java.time.Duration;
-import org.openqa.selenium.*;
+
 
 
 //1. Create a new file Homework17.java with @Test annotation in IntelliJ IDEA.
