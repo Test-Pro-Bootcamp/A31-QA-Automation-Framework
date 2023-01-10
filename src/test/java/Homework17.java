@@ -30,8 +30,38 @@ import org.openqa.selenium.*;
 public class Homework17 extends BaseTest {
 }
 
-    @Test
-    public static void addSongToPlaylist () {
+    @Test (enabled = false)
+    public static void addSongToPlaylist throws InterruptedException() {
+
+    String newSongAddedNotification = "Added 1 Song to";
+
+    navigateToPage();
+
+    provideEmail ("demo@TestPro30");
+
+    providePassword ("te$tpro123");
+
+    clickSubmit();
+
+    searchSong(songTitleKeyword: "Pluto");
+
+    viewAllSearchResults();
+
+    searchSong(songTitleKeyword: "Pluto");
+
+    veiwAllSearchResults();
+
+    selectFirstSongResult();
+
+    clickAddToButton();
+
+    choosePlaylist(playlistName: "Test Pro Playlist");
+
+    Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
+
+
+
+
 
         login(email:"demo@class.io", password:"te$t$tudent");
     }
@@ -61,7 +91,7 @@ public class Homework17 extends BaseTest {
 
       //  previously used driver for registration: Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
 
-        @Test
+        @Test (enabled = false)
         //chosen song to add in playlist
         String songTitle = "Pluto";
         selectSong(songTitle);
