@@ -3,8 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -35,16 +33,22 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+protected static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 
     public static void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
     }
+  //  public static void login(String email, String password){
+        //(email);
+        //(password);
+        //clickSubmit();
+    //}
+
 
     public static void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
@@ -91,7 +95,7 @@ public class BaseTest {
     }
 
     @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
+    public static Object[][] getDataFromDataProviders() {
 
         return new Object[][] {
                 {"invalid@email.com", "invalidPass"},
