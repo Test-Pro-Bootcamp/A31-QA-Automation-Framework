@@ -28,77 +28,39 @@ import org.openqa.selenium.*;
 
 
 public class Homework17 extends BaseTest {
-}
-
-    @Test (enabled = false)
-    public static void addSongToPlaylist throws InterruptedException() {
-
-    String newSongAddedNotification = "Added 1 Song to";
-
-    navigateToPage();
-
-    provideEmail ("demo@TestPro30");
-
-    providePassword ("te$tpro123");
-
-    clickSubmit();
-
-    searchSong(songTitleKeyword: "Pluto");
-
-    viewAllSearchResults();
-
-    searchSong(songTitleKeyword: "Pluto");
-
-    veiwAllSearchResults();
-
-    selectFirstSongResult();
-
-    clickAddToButton();
-
-    choosePlaylist(playlistName: "Test Pro Playlist");
-
-    Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
 
 
+    @Test
+    public void addSongToPlaylist throws InterruptedException() throws InterruptedException {
 
+        //Navigating to Koel
+        navigateToPage();
 
+        //Login Method w/ Wait time
+        login("mitchelterlecki@gmail.com", "te$t$tudent");
+        Thread.sleep(3000);
 
-        login(email:"demo@class.io", password:"te$t$tudent");
-    }
+        //Selecting a song
+        selectSong ("Pluto");
 
-    public void grabASong() {
+        //Grabbing a song action
+         grabASong();
 
-    WebElement song = driver.findElement(By.cssSelector(".top-song-list>li"));
+        //Notification of adding new song test
+        String newSongAddedNotification = "Added 1 Song to";
+        clickSubmit();
+        searchSong(songTitleKeyword:"Pluto");
+        viewAllSearchResults();
+        searchSong(songTitleKeyword:"Pluto");
+        veiwAllSearchResults();
+        selectFirstSongResult();
+        clickAddToButton();
+        choosePlaylist(playlistName:"Homework 17 Playlist");
+        Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
 
-    }
-
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-
-        WebElement emailLink = driver.findElement(By.cssSelector("[type='email']"));
-        emailLink.click();
-        emailLink.sendKeys("mitchelterlecki@gmail.com");
-
-        WebElement passwordLink = driver.findElement(By.cssSelector("[type='password']"));
-        passwordLink.click();
-        passwordLink.sendKeys("te$t$tudent");
-
-        // WebElement for the login button or submit maybe?
 
 
       //  previously used driver for registration: Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
-
-        @Test (enabled = false)
-        //chosen song to add in playlist
-        String songTitle = "Pluto";
-        selectSong(songTitle);
-
-        addSong();
-        Assert.assertTrue(isSongAdded(songTitle), message: "Song titled" +songTitle+ "added to playlist");
-        driver.quit();
 
 
     }

@@ -9,6 +9,9 @@ public class LoginTests extends BaseTest {
     @Test (enabled = true , priority = 0, description = "LoginEmptyEmailPasswordTest")
         public static void LoginEmptyEmailPasswordTest () throws InterruptedException {
 
+        //****Each one of these methods has been created for a shortcut to include it's designated step
+        //****The actual code for each method can be found on the BaseTest
+
         navigateToPage();
         provideEmail("");
         providePassword("te$t$tudent");
