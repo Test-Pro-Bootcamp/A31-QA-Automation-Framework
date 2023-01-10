@@ -14,30 +14,19 @@ public class Homework17Test extends BaseTest {
     }
     @Test(enabled = false, description = "Log in with Valid User Info")
      public void loginValidEmailPasswordTest(){
-            grabUrl();
-        provideEmail("skyeman75@gmail.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+        logIn("skyeman75@gmail.com", "te$t$tudent");
 
-
-         WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
-         assertTrue(avatarIcon.isDisplayed());
     }
     @Test( enabled = false, description = "Invalid User Email")
     public void loginInvalidEmailPasswordTest(){
+       logIn("Invalid@class.com", "te$t$tudent");
        grabUrl();
-        String url = grabUrl();
-        provideEmail("invalid@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+       String url = grabUrl();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
     @Test(priority = 1, description = "Move a Song to a Play List")
     public void addASong(){
-        grabUrl();
-        provideEmail("skyeman75@gmail.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+        logIn("skyeman75@gmail.com", "te$t$tudent");
         WebElement allSongs = driver.findElement(By.cssSelector("a[href='#!/songs']"));
         allSongs.click();
         WebElement selectSong = driver.findElement(By.xpath("//tr[@class='song-item selected']"));

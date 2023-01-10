@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
 
+import static org.testng.Assert.assertTrue;
+
 public  class BaseTest {
     WebDriver driver;
 
@@ -26,27 +28,21 @@ public  class BaseTest {
     public void breakDownBrowser() {
         driver.quit();
     }
-
-    public void  provideEmail(String email){
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        emailField.sendKeys(email);
-    }
-
-    public void providePassword(String password){
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.sendKeys(password);
-
-    }
-
-    public void clickSubmit(){
-        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
-        submitButton.click();
-    }
-
-    public String grabUrl(){
+        public String grabUrl(){
         String url = "https://bbb.testpro.io/";
         driver.get(url);
         return url;
     }
+
+    public void logIn(String email, String password){
+        grabUrl();
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.sendKeys(email);
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.sendKeys(password);
+        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        submitButton.click();
+        WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
+        assertTrue(avatarIcon.isDisplayed());}
 }
 
