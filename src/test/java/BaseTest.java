@@ -3,10 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
@@ -18,7 +15,7 @@ public class BaseTest {
     public static WebDriver driver = null;
     public static String url = null;
     public static WebDriverWait wait = null;
-    public static FluentWait fluentWait = null;
+//    public static FluentWait fluentWait = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -33,6 +30,7 @@ public class BaseTest {
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        LoginTests.driver.manage().window().maximize();
     }
 
     @AfterMethod
