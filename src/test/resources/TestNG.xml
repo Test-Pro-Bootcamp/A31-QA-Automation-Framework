@@ -8,8 +8,7 @@
 
            <class name="Homework18Test">
                 <methods>
-                    <include name = "PlaysongTest()"/>
-
+                    <include name = "playSong()"/>
                 </methods>
            </class>
         </classes>

@@ -16,9 +16,8 @@ public class Homework18Test extends BaseTest {
         clickSubmit();
         WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
         assertTrue(avatarIcon.isDisplayed());
-        WebElement playSong = driver.findElement(By.xpath("//span[@class='play']"));
-        playSong.click();
-
+        WebElement player = driver.findElement(By.xpath("//span[@class ='play']"));
+        player.isSelected();
     }
 
 
