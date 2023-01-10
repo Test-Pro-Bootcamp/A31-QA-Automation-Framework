@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -12,9 +14,12 @@ import java.util.UUID;
 
 
 public class BaseTest {
+   //remember if declaring nonnative datatype, must assisn values
     public static WebDriver driver = null;
     public static String url = null;
+    public static WebDriverWait wait = null;
 
+    //public static FluentWait  fluentWait = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -25,9 +30,13 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //would use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
+        // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
+        wait = new WebDriverWait (LoginTests.driver, Duration.ofSeconds(10));
+        //wait until element is available or clickable, then click on it
+
     }
 
     @AfterMethod
@@ -47,18 +56,24 @@ public class BaseTest {
     }
 
     public static void clickSubmit() {
-        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        //WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
     }
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.clear();
+
+        //some methods can use either, only locator or only element so the other syntax is below
+        wait.until(ExpectedConditions.elementToBeClickable((passwordField)));
+
+    passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        //WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
         emailField.clear();
         emailField.sendKeys(email);
     }
@@ -100,3 +115,10 @@ public class BaseTest {
         };
     }
 }
+
+//Fluent wait example
+//Fluentwait wait=new FluentWait(LoginTests.drive)
+//wait
+//.withTimeout(Duration.ofSeconds(10))
+//.pollingEvery(Duration.ofSeconds(1))
+//.ignoring(Exception.class)
