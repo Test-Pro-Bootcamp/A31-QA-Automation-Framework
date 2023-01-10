@@ -1,33 +1,51 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
 
-    @Test (enabled = true, priority = 0, description = "LoginEmptyPasswordTest")
-    public static void LoginEmptyPasswordTest() throws InterruptedException {
+    public static String url = "https://bbb.testpro.io/";
+
+    @Test(enabled = true, priority = 0, description = "loginEmptyEmailPasswordTest")
+    public static void loginEmptyEmailPasswordTest() throws InterruptedException {
+
+        //****Each one of these methods has been created for a shortcut to include it's designated step
+        //****The actual code for each method can be found on the BaseTest
 
         navigateToPage();
-        Assert.assertEquals(driver.getCurrentUrl(url));
+        provideEmail("");
+        providePassword("te$t$tudent");
+        clickSubmit();
+        Thread.sleep(2000);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
-        @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
-        public static void LoginValidEmailValidPasswordTest () throws InterruptedException {
+    @Test(enabled = true, priority = 1, description = "loginValidEmailValidPasswordTest")
+    public static void loginValidEmailValidPasswordTest() throws InterruptedException {
 
-            navigateToPage();
-            provideEmail("demo@class.io");
-            providePassword("te$t$tudent");
-            clickSubmit();
-            Thread.sleep(3000);
-            WebElement avatarIcon = driver.findElement(By.cssSelector("ing.avatar"));
-            Assert.assertTrue(avatarIcon.isDisplayed());
+        navigateToPage();
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+        Thread.sleep(2000);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
 
-
-        }
+        WebElement clickAvatarIcon = driver.findElement(By.cssSelector("ing.avatar"));
+        Assert.assertTrue(clickAvatarIcon.isDisplayed());
     }
+
+    @Test(enabled = true, priority = 2, description = "loginInvalidEmailValidPasswordTest")
+    public static void loginInvalidEmailValidPasswordTest() throws InterruptedException {
+
+        navigateToPage();
+        provideEmail("johndoe@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+        Thread.sleep(2000);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+
+    }
+}

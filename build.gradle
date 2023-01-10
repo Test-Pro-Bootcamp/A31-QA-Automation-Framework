@@ -14,9 +14,10 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
 }
-
+// Alter the useTestNG suit last part of "src/test/resources/ _______ .xml" to new TestNG file
+// and save by clicking on elephant icon afterwards.
 test {
     useTestNG() {
-        suites "src/test/resources/TestNG.xml"
+        suites "src/test/resources/Homework18.xml"
     }
 }
