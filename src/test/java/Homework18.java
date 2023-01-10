@@ -8,11 +8,11 @@ public class Homework18 extends BaseTest {
     @Test
     public void playASongTest() {
         login("demo@class.com", "te$t$tudent");
-        playSong();
+        playASong();
         isSongPlaying();
     }
 
-    public void playSong() {
+    public void playASong() {
         WebElement playNextButton = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
 
