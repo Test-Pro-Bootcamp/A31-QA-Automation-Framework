@@ -3,8 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -22,13 +20,16 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
+    @Parameters({"baseURL"})
+    public static void launchBrowser(String baseURL) {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
-        driver.get(url);
+        driver.manage().window().maximize();
+        driver.get(baseURL);
     }
+
+
+
 
     @AfterMethod
     public static void closeBrowser(){
