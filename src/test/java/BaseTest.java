@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -19,8 +21,7 @@ public class BaseTest {
 
     public static WebDriver driver = null;
     public static String url = "https://bbb.testpro.io/";
-    public static String songTitle = "Pluto";
-    public static String playlistName = "Sample Playlist";
+    public static WebDriverWait wait;
 
 
     @BeforeSuite
@@ -32,39 +33,26 @@ public class BaseTest {
     @Parameters ({"BaseURL"})
     public void openBrowser(String BaseURL) {
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(6));
     }
     @AfterMethod
     public static void closeBrowser(){
         driver.quit();
     }
 
-    //login
-    public static void enterEmail(String email) throws InterruptedException {
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+    //login -- base
+    public static void login(String email, String password) throws InterruptedException {
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
         emailField.sendKeys(email);
-        Thread.sleep(1000);
-    }
-    public static void enterPassword(String password) throws InterruptedException {
+
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         passwordField.sendKeys(password);
-        Thread.sleep(1000);
-    }
-    public static void clickSubmit() throws InterruptedException {
+
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
-        Thread.sleep(1000);
     }
-    public static void login(String email, String password) throws InterruptedException {
-        enterEmail(email);
-        enterPassword(password);
-        clickSubmit();
-    }
-
-
-
 
     //navigate to All Songs page
     public static void navigateToAllSongs() throws InterruptedException {
