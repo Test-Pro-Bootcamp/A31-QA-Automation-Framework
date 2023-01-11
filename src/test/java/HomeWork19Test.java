@@ -27,7 +27,7 @@ public class HomeWork19Test extends BaseTest {
             Thread.sleep(3000);
         }
     private void deletePlayList()throws InterruptedException{
-        WebElement deleteButton = driver.findElement(By.cssSelector("button.btn-delete-playlist"));
+        WebElement deleteButton = driver.findElement(By.cssSelector("button.del btn-delete-playlist"));
         deleteButton.click();
         Thread.sleep(3000);
 
