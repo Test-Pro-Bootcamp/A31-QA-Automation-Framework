@@ -29,6 +29,7 @@ public class BaseTest {
     public static void launchBrowser() {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     @AfterMethod
@@ -98,7 +99,8 @@ public class BaseTest {
     }
 
     public static void selectFirstSongResult() throws InterruptedException{
-        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("#songResultsWrapper > div > div > div.item-container > table > tr.song-item.selected"));
+        WebElement viewAllFirstSongResult = driver.findElement(By.xpath(
+                "//section[@id='songResultsWrapper']/div[1]/div[1]/div[1]/table[1]/tr[1]/td[2]"));
         viewAllFirstSongResult.click();
         Thread.sleep(2000);
     }
