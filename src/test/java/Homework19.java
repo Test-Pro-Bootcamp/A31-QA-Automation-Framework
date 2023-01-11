@@ -9,5 +9,4 @@ public class Homework19 extends BaseTest {
         testPlaylist();
         deleteButton();
         playlistNotExist();
-    }
 }

@@ -11,12 +11,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
 import java.time.Duration;
-
+import java.util.UUID;
+import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class BaseTest {
+
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static String url = "https://bbb.testpro.io/";
@@ -26,23 +36,15 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-//    @Parameters("BaseUrl")
-//    public static void navigateToPage() {
-//        driver.get(url);
-//    }
-
     @BeforeMethod
     @Parameters("BaseURL")
     public void launchBrowser(String BaseUrl) {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.manage().window().maximize();
-        url =BaseUrl;
-        driver.get(url);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+     driver = new ChromeDriver();
+     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+     url =BaseUrl;
+     driver.get(url);
+     wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
-
         @AfterMethod
     public static void closeBrowser() {
         driver.quit();
@@ -52,22 +54,17 @@ public class BaseTest {
         providePasssword(password);
         clickSubmit();
     }
-
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.clear();
         emailField.sendKeys(email);
     }
-
     public static void providePasssword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        passwordField.clear();
-        passwordField.sendKeys(password);
     }
 
-    public static void clickSubmit() throws InterruptedException {
+    public static void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("[type='submit']"));
-//        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='submit']")));
         submitButton.click();
     }
 
@@ -99,15 +96,3 @@ public class BaseTest {
         WebElement addPlayList = driver.findElement(By.xpath("//i[@title='Create a new playlist']"));
         wait.until(ExpectedConditions.visibilityOf(addPlayList)).click();
     }
-//    public static void playSong() throws InterruptedException {
-//        WebElement playButton = driver.findElement(By.cssSelector("div span.cover"));
-//        playButton.click();
-//        Thread.sleep(2000);
-//    }
-//    public static void verifyPlayingSong() {
-//        WebElement soundBar = driver.findElement(By.cssSelector("div > button:nth-child(2) > div"));
-//        Assert.assertTrue(soundBar.isDisplayed());
-//    }
-
-}
-
