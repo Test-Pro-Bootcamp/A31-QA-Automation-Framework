@@ -17,6 +17,8 @@ public class Homework18CH extends BaseTest{
         Thread.sleep(2000);
         songIsPlaying();
 
+        Assert.assertTrue(songIsPlaying());
+
 
     }
 //    public static void homePage(){
