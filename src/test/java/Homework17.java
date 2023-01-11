@@ -22,12 +22,11 @@ import org.testng.annotations.Test;
 //
 //        9. Create a pull request.
 
-
 public class Homework17 extends BaseTest {
-
-
     @Test
-    public void addSongToPlaylist throws InterruptedException() throws InterruptedException {
+    public void addSongToPlaylist() throws InterruptedException {
+
+        String newSongAddedNotification = "Added 1 song into";
 
         //Navigating to Koel
         navigateToPage();
@@ -36,27 +35,24 @@ public class Homework17 extends BaseTest {
         login("mitchelterlecki@gmail.com", "te$t$tudent");
         Thread.sleep(3000);
 
-        //Selecting a song
-        selectSong ("Pluto");
+        //Searching a song
+        searchSong("Pluto");
 
-        //Grabbing a song action
-         grabASong();
-
-        //Notification of adding new song test
-        String newSongAddedNotification = "Added 1 Song to";
-        clickSubmit();
-        searchSong(songTitleKeyword:"Pluto");
+        //View search results
         viewAllSearchResults();
-        searchSong(songTitleKeyword:"Pluto");
-        veiwAllSearchResults();
+
+        //Selecting the first song
         selectFirstSongResult();
+
+        //Clicking the add button
         clickAddToButton();
-        choosePlaylist(playlistName:"Homework 17 Playlist");
-        Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
 
+        //Selecting the playlist
+        choosePlaylist("Tekken Soundtrack");
 
+        //Checking if Popup button is present after selection
+        Assert.assertTrue(isNotificationPopUpPresent());
 
-      //  previously used driver for registration: Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
 
 
     }

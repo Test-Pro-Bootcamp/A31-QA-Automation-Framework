@@ -53,65 +53,47 @@ public class BaseTest {
         currentPassword.sendKeys(password);
     }
 
-    public static void generateRandomName() {
-    return UUID.randomUUID().toString().replace("-" , "");
 
-    }
     //Methods below used for Homework17 class
+     public static String generateRandomName() {
+        return UUID.randomUUID().toString().replace("-" , "");
+
+        }
     public static void login(String email,String password) {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
-    }
 
-    public static void searchSong (String songTitleKeyword) throws InterruptedException {
-        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm-input[type=search]"));
-          searchField.sendKeys(songTitleKeyword);
-        Thread.sleep(4000);
+    }
+    public static void searchSong(String songTitleKeyword) throws InterruptedException {
+        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input [type=search]"));
+        searchField.sendKeys(songTitleKeyword);
+        Thread.sleep(3000);
     }
 
     public static void viewAllSearchResults() throws InterruptedException {
-        WebElement viewAllSearchResults = driver.findElement(By.cssSelector("div.results-section.songs-h1-button"));
+        WebElement viewAllSearchResults = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
         viewAllSearchResults.click();
-    Thread.sleep(4000);
+    Thread.sleep(3000);
     }
 
     public static void selectFirstSongResult() throws InterruptedException {
-        WebElement selectFirstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper-tr.song-item-td.title"));
+        WebElement selectFirstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
         selectFirstSongResult.click();
-        Thread.sleep(4000);
+        Thread.sleep(3000);
     }
 
     public static void clickAddToButton() throws InterruptedException {
         WebElement addTo = driver.findElement(By.cssSelector("button.btn-add-to"));
         addTo.click();
-        Thread.sleep(4000);
+        Thread.sleep(3000);
 
     }
-    public static void grabASong() {
-        WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']")));
-        WebElement playlist = driver.findElement(By.xpath("//li/a[contains(@href,'#!/playlist/35439'"));
-
-        Actions acts = new Actions(driver);
-        acts.clickAndHold(song).moveToElement(playlist).release(playlist).build().perform();
-    }
-   // public static void addSong(){;
-    //    Assert.assertTrue(isSongAdded(songTitle), message: "Song titled" +songTitle+ "added to playlist");
-      //  driver.quit();
-  //}
-    public static void selectSong(songTitle) {
-    }
-
 
     public static void choosePlaylist(String playlistName) throws InterruptedException{
         WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//section/ul/il[contains(text(),'"+playlistName+"')]"));
         playlistNameElement.click();
         Thread.sleep(3000);
-    }
-    public static void gotNotificationText(){
-        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
-        return notificationText.isDisplayed();
-
     }
 
     public boolean isNotificationPopUpPresent() {
@@ -128,5 +110,20 @@ public class BaseTest {
     public static void closeBrowser () {
             LoginTests.driver.quit();
 
+        //***Disregard this method no longer being used.***
+
+//    public static void grabASong() {
+//        WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']")));
+//        WebElement playlist = driver.findElement(By.xpath("//li/a[contains(@href,'#!/playlist/35439'"));
+//        Actions acts = new Actions(driver);
+//        acts.clickAndHold(song).moveToElement(playlist).release(playlist).build().perform();
+        //  }
+
+        //***Disregard this method no longer being used.***
+
+        // public static void addSong(){;
+        //    Assert.assertTrue(isSongAdded(songTitle), message: "Song titled" +songTitle+ "added to playlist");
+        //  driver.quit();
+        //}
     }
 }

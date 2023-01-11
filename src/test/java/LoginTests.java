@@ -3,13 +3,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTests extends BaseTest {
-    public static String url = "https://bbb.testpro.io/";
+     public class LoginTests extends BaseTest {
+        public static String url = "https://bbb.testpro.io/";
     @Test (enabled = true , priority = 0, description = "LoginEmptyEmailPasswordTest")
         public static void LoginEmptyEmailPasswordTest () throws InterruptedException {
 
         //****Each one of these methods has been created for a shortcut to include it's designated step
-        //****The actual code for each method can be found on the BaseTest
+        //****The actual code for each method can be found on the BaseTest Class
 
         navigateToPage();
         provideEmail("");
@@ -50,7 +50,7 @@ public class LoginTests extends BaseTest {
         clickSubmit();
         Thread.sleep(3000);
 
-       String randomName = generateRandomName();
+      String randomName = generateRandomName();
 
        provideCurrentPassword("te$t$tudent");
        provideProfileName (randomName);
