@@ -5,10 +5,9 @@
     <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="BaseTest"/>
-            <class name="Homework18Test">
+            <class name="HomeWork19Test">
                 <methods>
-                    <include name = "playSong()"/>
+                    <include name = "deleteEmptyPlaylist"/>
                 </methods>
             </class>
         </classes>

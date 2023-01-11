@@ -20,3 +20,4 @@ test {
         suites "src/test/resources/TestNG.xml"
     }
 }
+
