@@ -8,6 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -24,9 +25,30 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public static void launchBrowser() {
-        LoginTests.driver = new ChromeDriver();
-        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    @Parameters({"baseURL"})
+    public static void launchBrowser(String baseURL) {
+        //LoginTests.driver = new ChromeDriver();
+        //LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //url = BaseURL;
+        //driver.get(url);
+
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.get(baseURL);
+
+
+    }
+
+    public static void logIn(String email, String password) {
+        WebElement emailField = driver.findElement(By.cssSelector("[type = 'email']"));
+        emailField.sendKeys(email);
+
+        WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
+        passwordField.sendKeys(password);
+
+        WebElement submitButton = driver.findElement(By.cssSelector("[type = 'submit']"));
+        submitButton.click();
     }
 
     @AfterMethod
