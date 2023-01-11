@@ -28,11 +28,10 @@ public class Homework17b extends BaseTest{
         WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']"));
         WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//li[5]"));
 
+        Actions acts = new Actions(driver);
+        acts.ckickAndHold(song).release(playlist).build().perform();
 
-
-
-        public void searchSong(String songTitleKeyword) throws InteruptedException{
-        WebElement searchField = driver.findElement(By.cssSelector());
+        playlist.click();
     }
 
 
