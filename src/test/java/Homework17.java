@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import java.time.Duration;
 import org.openqa.selenium.WebElement;
@@ -36,22 +37,18 @@ public class Homework17 extends BaseTest {
         public void allSongs() throws InterruptedException {
         WebElement allSongs = driver.findElement(By.cssSelector("#sidebar > section.music > ul > li:nth-child(3) > a"));
         allSongs.click();
-        Thread.sleep(2000);
         }
         public void songName() throws InterruptedException {
-            WebElement songName = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
+            WebElement songName = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]")));
             songName.click();
-            Thread.sleep(2000);
         }
         public void addTo() throws InterruptedException {
-            WebElement addTo = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
+            WebElement addTo = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn-add-to']")));
             addTo.click();
-            Thread.sleep(2000);
         }
         public void playlistAuto() throws InterruptedException {
-            WebElement playlistAuto = driver.findElement(By.cssSelector("#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li:nth-child(5)"));
+            WebElement playlistAuto = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li:nth-child(5)")));
             playlistAuto.click();
-            Thread.sleep(4000);
         }
         public WebElement getSuccessPopUp() {
             return driver.findElement(By.cssSelector("div[class='success show']"));
