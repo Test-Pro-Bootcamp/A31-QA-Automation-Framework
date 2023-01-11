@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
     public static void loginValidEmailValidPasswordTest () throws InterruptedException {
 
-        provideEmail("demo@class.com");
+        provideEmail("tatsianahuryeva@yahoo.com");
         providePassword("te$t$tudent");
         clickSubmit();
 
