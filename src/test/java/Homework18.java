@@ -4,14 +4,10 @@ import org.testng.annotations.Test;
 public class Homework18 extends BaseTest {
 
     @Test
-    public void playSong() throws InterruptedException {
-        enterEmail("hand923@gmail.com");
-        enterPassword("te$t$tudent");
-        clickSubmit();
-        navigateToAllSongs();
-        playDesiredSong();
+    public void playSong() {
+        login("hand923@gmail.com", "te$t$tudent");
+        playSong("Dark Days");
 
         Assert.assertTrue(validateSongIsPlaying());
-        Thread.sleep(1500);
     }
 }
