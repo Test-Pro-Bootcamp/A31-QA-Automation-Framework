@@ -14,7 +14,7 @@ import java.util.UUID;
 
 
 public class BaseTest {
-   //remember if declaring nonnative datatype, must assisn values
+   //remember if declaring non-primitive data typles, must assign values-strings, arrays, classes
     public static WebDriver driver = null;
     public static String url = null;
     public static WebDriverWait wait = null;
@@ -63,8 +63,8 @@ public class BaseTest {
 
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-
-        //some methods can use either, only locator or only element so the other syntax is below
+        //some methods can use either locator or element, only locator or only element
+        // so the other syntax is below
         wait.until(ExpectedConditions.elementToBeClickable((passwordField)));
 
     passwordField.clear();
