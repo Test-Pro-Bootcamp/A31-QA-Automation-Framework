@@ -6,7 +6,7 @@ public class Homework18 extends BaseTest {
     @Test
     public void playSong() {
         login("hand923@gmail.com", "te$t$tudent");
-        playSong("Dark Days");
+        playSelectedSong("Dark Days");
 
         Assert.assertTrue(validateSongIsPlaying());
     }

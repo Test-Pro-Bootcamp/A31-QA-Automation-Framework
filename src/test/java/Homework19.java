@@ -9,7 +9,7 @@ public class Homework19 extends BaseTest{
     public void deletePlaylist() throws InterruptedException {
         login("hand923@gmail.com", "te$t$tudent");
         createPlaylist("Empty Playlist");
-        deletePlaylist();
+        deleteEmptyPlaylist("Empty Playlist");
 
         Assert.assertTrue(isDeleted());
     }

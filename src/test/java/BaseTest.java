@@ -92,7 +92,7 @@ public class BaseTest {
     }
 
     //play song -- Homework18
-    public static void playSong(String songTitle) {
+    public static void playSelectedSong(String songTitle) {
         WebElement allSongsPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='songs']")));
         allSongsPage.click();
 
@@ -107,7 +107,7 @@ public class BaseTest {
     }
 
     //deleted playlist -- Homework19
-    public void deletePlaylist(String playlistName) {
+    public void deleteEmptyPlaylist(String playlistName) {
         WebElement customPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playlist playlist']//a[contains(text(), '"+playlistName+"')]")));
         customPlaylist.click();
 
