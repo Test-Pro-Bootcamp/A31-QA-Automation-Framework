@@ -21,9 +21,9 @@ public class BaseTest {
         @BeforeSuite
         static void setupClass() { WebDriverManager.chromedriver().setup();}
 
-    public static void clickAvatarIcon() {
-        WebElement clickAvatarIcon = driver.findElement(By.cssSelector("ing.avatar"));
-        clickAvatarIcon.click();
+    public static void avatarIcon() {
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        avatarIcon.click();
     }
 
     @BeforeMethod
@@ -69,12 +69,8 @@ public class BaseTest {
             }
             public static void openUserProfilePage(){
             WebElement profileIcon = driver.findElement(By.cssSelector("#userBadge span.name"));
+            profileIcon.click();
 
-            }
-            public static void provideProfileName(String randomName) {
-                WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-                profileName.clear();
-                profileName.sendKeys(randomName);
             }
 
             public static void provideCurrentPassword(String password) {
