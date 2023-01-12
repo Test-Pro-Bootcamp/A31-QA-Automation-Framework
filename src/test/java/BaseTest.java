@@ -34,8 +34,11 @@ public class BaseTest {
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
+         //Explicit wait - create class variable so it can be used across the code
+        // then do the second part
+        // wait until element is available or clickable, then click on it
         wait = new WebDriverWait (LoginTests.driver, Duration.ofSeconds(10));
-        //wait until element is available or clickable, then click on it
+
 
     }
 
@@ -57,6 +60,7 @@ public class BaseTest {
 
     public static void clickSubmit() {
         //WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        //by locator type
         WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
     }
@@ -64,9 +68,8 @@ public class BaseTest {
     public static void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         //some methods can use either locator or element, only locator or only element
-        // so the other syntax is below
+        // by element syntax
         wait.until(ExpectedConditions.elementToBeClickable((passwordField)));
-
     passwordField.clear();
         passwordField.sendKeys(password);
     }

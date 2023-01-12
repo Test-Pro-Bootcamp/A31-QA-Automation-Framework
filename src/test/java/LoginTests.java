@@ -20,7 +20,8 @@ public class LoginTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Thread.sleep(2000);
+        //Need for this is replaced by addtional to @BeforeMethod
+        // Thread.sleep(2000);
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         Assert.assertTrue(avatarIcon.isDisplayed());
 
