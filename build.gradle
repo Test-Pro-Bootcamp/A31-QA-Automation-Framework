@@ -19,6 +19,8 @@ test {
     useTestNG() {
         suites "src/test/resources/Homework19.xml"
 
+        suites "src/test/resources/Homework19CH.xml"
+
         suites "src/test/resources/Homework18CH.xml"
 
         suites "src/test/resources/Homework18.xml"
