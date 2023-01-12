@@ -21,7 +21,12 @@ public class BaseTest {
         @BeforeSuite
         static void setupClass() { WebDriverManager.chromedriver().setup();}
 
-        @BeforeMethod
+    public static void clickAvatarIcon() {
+        WebElement clickAvatarIcon = driver.findElement(By.cssSelector("ing.avatar"));
+        clickAvatarIcon.click();
+    }
+
+    @BeforeMethod
         @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
@@ -51,12 +56,21 @@ public class BaseTest {
                 emailField.clear();
                 emailField.sendKeys(email);
             }
+            public static void setName(String newName){
+            WebElement sn = driver.findElement(By.cssSelector("#inputProfileName"));
+            sn.click();
+            sn.clear();
+            sn.sendKeys(newName);
+            }
 
             public static void clickSaveButton() {
                 WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
                 saveButton.click();
             }
+            public static void openUserProfilePage(){
+            WebElement profileIcon = driver.findElement(By.cssSelector("#userBadge span.name"));
 
+            }
             public static void provideProfileName(String randomName) {
                 WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
                 profileName.clear();
