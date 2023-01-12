@@ -15,8 +15,7 @@ public class Homework20 extends BaseTest{
         login("jrpasia@gmail.com", "B3n@iah2013");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
-
-        //First Adding a playlist
+        //First create a playlist
         WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
         newPlaylist.click();
 
@@ -25,7 +24,7 @@ public class Homework20 extends BaseTest{
         nameField.clear();
         nameField.sendKeys(playlistName,Keys.ENTER);
 
-        //Right-click new playlist
+        //Right-click created playlist
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
         Actions acts = new Actions(driver);
         acts.contextClick(createdPlaylist).perform();
@@ -33,10 +32,6 @@ public class Homework20 extends BaseTest{
         //Click "Delete" option
         WebElement deleteThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Delete']")));
         deleteThePlaylist.click();
-
-        //Click "OK" confirmation (used when there's song(s) inside playlist)
-//        WebElement deleteConfirmation = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='ok']")));
-//        deleteConfirmation.click();
 
         //Assert through delete message box
         WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
