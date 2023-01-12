@@ -70,7 +70,8 @@ public class BaseTest {
         //some methods can use either locator or element, only locator or only element
         // by element syntax
         wait.until(ExpectedConditions.elementToBeClickable((passwordField)));
-    passwordField.clear();
+
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
