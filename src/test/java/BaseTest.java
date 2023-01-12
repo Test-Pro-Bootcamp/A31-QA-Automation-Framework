@@ -5,8 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.*;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -14,6 +15,8 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = null;
+
+    public static WebDriverWait wait = null;
 
 
     @BeforeSuite
@@ -29,6 +32,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         url = BaseURL;
         driver.get(url);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     @AfterMethod
