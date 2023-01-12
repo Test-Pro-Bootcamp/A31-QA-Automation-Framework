@@ -10,13 +10,13 @@ import java.util.List;
 public class Homework19 extends BaseTest {
 
     @Test
-    public void DeletePlaylistTest() throws InterruptedException {
+    public void DeletePlaylistTest() {
         String playlistName = "test playlist";
 
         login("demo@class.com", "te$t$tudent");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
-        WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
+        WebElement newPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[text()='New Playlist']")));
         newPlaylist.click();
 
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -29,7 +29,8 @@ public class Homework19 extends BaseTest {
         WebElement deletePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@title='Delete this playlist']")));
         deletePlaylist.click();
 
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='two-cols']//h1[contains(text(), 'Most Played')]")));
+
         List<WebElement> playlistNames = driver.findElements(By.xpath("//section[@id='playlists']//li/a"));
 
         for(WebElement p : playlistNames) {
