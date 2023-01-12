@@ -61,7 +61,7 @@ public class Homework17MG  extends BaseTest {
     @Test
     public static void addSongToPlaylist() {
 
-        login("demo@class.com", "te$t$tudent");
+        login("maria868g@gmail.com", "Grishchenko_000");
 
             WebElement allSongsLink = driver.findElement(By.cssSelector("[href='#!/songs']"));
             allSongsLink.click();
