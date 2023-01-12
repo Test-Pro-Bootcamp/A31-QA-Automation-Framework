@@ -8,7 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -16,6 +16,8 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = "https://bbb.testpro.io/";
+
+    public static WebDriverWait wait = null;
 
 
     @BeforeSuite
@@ -27,6 +29,7 @@ public class BaseTest {
     public static void launchBrowser() {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     @AfterMethod
