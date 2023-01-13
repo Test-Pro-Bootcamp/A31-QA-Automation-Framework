@@ -66,7 +66,7 @@ public class BaseTest {
 
     }
     public static void searchSong(String songTitleKeyword) throws InterruptedException {
-        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input [type=search]"));
+        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type=search]"));
         searchField.sendKeys(songTitleKeyword);
         Thread.sleep(3000);
     }

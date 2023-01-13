@@ -48,7 +48,7 @@ public class Homework17 extends BaseTest {
         clickAddToButton();
 
         //Selecting the playlist
-        choosePlaylist("Tekken Soundtrack");
+        choosePlaylist("Homework 17 Playlist");
 
         //Checking if Popup button is present after selection
         Assert.assertTrue(isNotificationPopUpPresent());
