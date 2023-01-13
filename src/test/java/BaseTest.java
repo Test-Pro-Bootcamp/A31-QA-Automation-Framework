@@ -1,5 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,24 +24,25 @@ public class BaseTest {
     public static WebDriver driver = null;
     public static String url = "https://bbb.testpro.io/";
     public static WebDriverWait wait;
-
+    public static Actions actions;
 
 
     @BeforeSuite
-    static void setupClass() {
+    public static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
     @Parameters ({"BaseURL"})
-    public void openBrowser(String BaseURL) {
+    public static void openBrowser(String BaseURL) {
         driver = new ChromeDriver();
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        actions = new Actions(driver);
     }
     @AfterMethod
-    public void closeBrowser(){
+    public static void closeBrowser(){
         driver.quit();
     }
 
@@ -99,7 +101,6 @@ public class BaseTest {
         WebElement allSongsPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='songs']")));
         allSongsPage.click();
 
-        Actions actions = new Actions(driver);
         WebElement selectedSong = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songsWrapper']//td[contains(text(), '" + songTitle + "')]")));
         actions.doubleClick(selectedSong).perform();
     }
@@ -124,7 +125,19 @@ public class BaseTest {
     }
 
     //rename playlist
-    public static void renameCustomPlaylist() {
+    public static void renameCustomPlaylist(String playlistName, String newPlaylistName) {
+        WebElement clickCustomPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='playlists']//a[text()='"+playlistName+"']")));
+        actions.doubleClick(clickCustomPlaylist).perform();
 
+        WebElement playlistInputField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
+        playlistInputField.sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
+        playlistInputField.sendKeys(newPlaylistName);
+        playlistInputField.sendKeys(Keys.ENTER);
     }
+
+    public static boolean isUpdatedMsg() {
+        WebElement isUpdatedPopUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return isUpdatedPopUp.isDisplayed();
+    }
+
 }

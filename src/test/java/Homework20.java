@@ -7,7 +7,8 @@ public class Homework20 extends BaseTest {
     public void addSongToPlaylist() {
         login("hand923@gmail.com", "te$t$tudent");
         createPlaylist("Sample Playlist");
-        addSongToThePlaylist("Pluto", "Sample Playlist");
+        navigateToAllSongs();
+        addSongToPlaylistFromAllSongs("Pluto", "Sample Playlist");
 
         Assert.assertTrue(songIsAddedMsg());
     }
