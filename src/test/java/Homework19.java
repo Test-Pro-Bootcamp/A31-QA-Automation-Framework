@@ -11,6 +11,7 @@ public void deletePlaylist () {
     getPlaylist.click();
     WebElement delPlaylist = driver.findElement(By.cssSelector(".btn-delete-playlist"));
     delPlaylist.click();
+
     
 
     }
