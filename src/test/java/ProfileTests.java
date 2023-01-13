@@ -3,6 +3,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class ProfileTests extends BaseTest {
     @Test(enabled = true, priority = 3, description = "LoginValidEdmailValidPasswordTest")
     public static void updateProfileNameTest () throws InterruptedException {

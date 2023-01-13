@@ -5,7 +5,12 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
+            <class name="LoginTests">
+                <methods>
+                    <include name="LoginValidEmailValidPasswordTest" />
+                </methods>
+            </class>
+
             <class name="ProfileTests"/>
             <class name="BaseTest"/>
         </classes>
