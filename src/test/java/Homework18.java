@@ -3,26 +3,33 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework18 extends BaseTest {
+public class homework18 extends BaseTest {
 
     @Test
-    public void playASongTest() {
-        login("demo@class.com", "te$t$tudent");
+    public void playASongTest () throws InterruptedException {
+        login("ainurbilyalova818@gmail.com", "te$t$tudent");
+        Thread.sleep(3000);
         playSong();
         isSongPlaying();
-    }
 
-    public void playSong() {
+        }
+
+    public void playSong () {
         WebElement playNextButton = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
 
-        playNextButton.click();
-        playButton.click();
+      playNextButton.click();
+      playButton.click();
     }
 
-    public void isSongPlaying() {
-        WebElement soundBar = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
-        Assert.assertTrue(soundBar.isDisplayed());
+        public void isSongPlaying() {
+            WebElement soundBar = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
+            Assert.assertTrue(soundBar.isDisplayed());
+
+
+        }
+
     }
 
-}
+
+
