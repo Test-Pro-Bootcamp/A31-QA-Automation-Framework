@@ -12,17 +12,18 @@ import java.util.List;
 public class Homework21 extends BaseTest{
 
     @Test (enabled = true, priority = 1, description = "rename a playlist test using actions doubleclick, context click")
-    @Parameters({"TestPlaylist"})
-    public static void renameAPlaylist(String testPlaylist) {
+    @Parameters({"TestPlaylist", "NewName"})
+    public static void renameAPlaylist(String testPlaylist, String newName) {
         login("jimmypvu@gmail.com", "te$t$tudent");
         createTestPlaylist(testPlaylist);
 
         //rename playlist
         WebElement playlistToRename = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playlist playlist']//a[contains(text(), '"+testPlaylist+"')]")));
-        String newName = "newName001";
         enterNewName(playlistToRename, newName);
+
         //assertion
         Assert.assertTrue(doesPlaylistExist(newName));
+
         //clean up after test
         deleteTestPlaylist(newName);
     }
