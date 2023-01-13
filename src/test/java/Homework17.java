@@ -7,7 +7,8 @@ public class Homework17 extends BaseTest {
     public void addSongToPlaylist() throws InterruptedException {
         login("hand923@gmail.com", "te$t$tudent");
         createPlaylist("Sample Playlist");
-        addSongToThePlaylist("Pluto", "Sample Playlist");
+        navigateToAllSongs();
+        addSongToPlaylistFromAllSongs("Pluto", "Sample Playlist");
 
         Assert.assertTrue(songIsAddedMsg());
     }

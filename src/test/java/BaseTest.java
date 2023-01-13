@@ -25,6 +25,7 @@ public class BaseTest {
     public static WebDriverWait wait;
 
 
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -70,12 +71,14 @@ public class BaseTest {
         WebElement customPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]")));
         Assert.assertTrue(customPlaylist.isDisplayed());
     }
-
-    //Add song to playlist -- Homework17
-    public static void addSongToThePlaylist(String songTitle, String playlistName) {
+    //navigate to All Songs page -- base
+    public static void navigateToAllSongs () {
         WebElement clickAllSongs = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'All Songs')]")));
         clickAllSongs.click();
+    }
 
+    //Add song to playlist -- Homework17
+    public static void addSongToPlaylistFromAllSongs(String songTitle, String playlistName) {
         WebElement clickSong = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(),'"+songTitle+"')]")));
         clickSong.click();
 
@@ -118,5 +121,10 @@ public class BaseTest {
     public static boolean isDeleted() {
         WebElement isDeletedMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alertify-logs top right']//div[contains(text(), 'Deleted playlist')]")));
         return isDeletedMessage.isDisplayed();
+    }
+
+    //rename playlist
+    public static void renameCustomPlaylist() {
+
     }
 }
