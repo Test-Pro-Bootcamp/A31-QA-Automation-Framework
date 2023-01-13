@@ -6,13 +6,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework21 extends BaseTest{
+public class Homework21_JRP extends BaseTest{
     @Test
     public void renamePlaylistTest() {
-        String playlistName = "Homework20";
+        String playlistName = "Homework21";
+        String newPlaylistName = "JRP Playlist";
 
         //Login valid credentials
         login("jrpasia@gmail.com", "B3n@iah2013");
+
+        //Click on "+" icon
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
         //First create a playlist
@@ -29,9 +32,13 @@ public class Homework21 extends BaseTest{
         Actions acts = new Actions(driver);
         acts.contextClick(createdPlaylist).perform();
 
-        //Click "Delete" option
-        WebElement deleteThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Delete']")));
-        deleteThePlaylist.click();
+        //Click "Edit" option
+        WebElement editThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Edit']")));
+        editThePlaylist.click();
+
+        //Enter new playlist name
+        WebElement newNameField = driver.findElement(By.xpath("//*[@class='playlist playlist editing']"));
+        newNameField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
 
         //Assert through delete message box
         WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
