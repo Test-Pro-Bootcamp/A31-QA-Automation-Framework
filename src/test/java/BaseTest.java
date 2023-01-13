@@ -39,7 +39,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(6));
     }
     @AfterMethod
-    public static void closeBrowser(){
+    public void closeBrowser(){
         driver.quit();
     }
 
@@ -56,7 +56,7 @@ public class BaseTest {
     }
 
     //Create Playlist -- base
-    public void createPlaylist(String playlistName) {
+    public static void createPlaylist(String playlistName) {
         WebElement plusButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("i[class='fa fa-plus-circle create']")));
         plusButton.click();
 
@@ -72,7 +72,7 @@ public class BaseTest {
     }
 
     //Add song to playlist -- Homework17
-    public void addSongToThePlaylist(String songTitle, String playlistName) {
+    public static void addSongToThePlaylist(String songTitle, String playlistName) {
         WebElement clickAllSongs = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'All Songs')]")));
         clickAllSongs.click();
 
@@ -86,7 +86,7 @@ public class BaseTest {
         clickPlaylistName.click();
     }
     //Validate song is added -- Homework17
-    public boolean songIsAddedMsg() {
+    public static boolean songIsAddedMsg() {
         WebElement songIsAddedPopup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return songIsAddedPopup.isDisplayed();
     }
@@ -101,13 +101,13 @@ public class BaseTest {
         actions.doubleClick(selectedSong).perform();
     }
     //Validate song is playing -- Homework18
-    public boolean validateSongIsPlaying() {
+    public static boolean validateSongIsPlaying() {
         WebElement soundBarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[alt='Sound bars']")));
         return soundBarIcon.isDisplayed();
     }
 
     //deleted playlist -- Homework19
-    public void deleteEmptyPlaylist(String playlistName) {
+    public static void deleteEmptyPlaylist(String playlistName) {
         WebElement customPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playlist playlist']//a[contains(text(), '"+playlistName+"')]")));
         customPlaylist.click();
 
@@ -115,7 +115,7 @@ public class BaseTest {
         clickDelete.click();
     }
     //confirm playlist is deleted
-    public boolean isDeleted() {
+    public static boolean isDeleted() {
         WebElement isDeletedMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alertify-logs top right']//div[contains(text(), 'Deleted playlist')]")));
         return isDeletedMessage.isDisplayed();
     }
