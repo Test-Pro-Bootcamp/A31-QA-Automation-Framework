@@ -27,7 +27,8 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().window().maximize();
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
@@ -80,17 +81,31 @@ public class BaseTest {
     public static void playLists(){
         WebElement playLists = driver.findElement(By.xpath("//h1[contains(text(),'Playlists')]"));
         playLists.isDisplayed();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
     public static void choosePlaylist(){
-        WebElement choosePlaylist = driver.findElement(By.xpath("//a[contains(text(),'rock songs')]"));
-        choosePlaylist.click();
+//        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" li.playlist.playlist:nth-child(8) > a:nth-child(1)")));
+//        playlistElement.click();
+
+        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        playlistElement.click();
+
+//        WebElement choosePlaylist = driver.findElement(By.xpath("//a[contains(text(),'rock songs')]"));
+//        choosePlaylist.click();
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
     }
     public static void deletePlaylist(){
-        WebElement deletePlaylist = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
+        WebElement deletePlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.del.btn-delete-playlist")));
         deletePlaylist.click();
+
+//        WebElement deletePlaylist = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
+//        deletePlaylist.click();
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
     }
     public static void pressOk(){
-        WebElement pressOk = driver.findElement(By.cssSelector("button.ok"));
+        WebElement pressOk = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.ok")));
         pressOk.click();
     }
     public static boolean playlistIsDeleted(){
