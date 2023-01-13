@@ -7,8 +7,6 @@ public class Homework19 extends KoelTesting{
 
     @Test
     public void deletePlaylist() throws InterruptedException {
-        Thread.sleep(2000);
-
         String playlistName = "Hw19 playlist";
         createPlaylist(playlistName);
         deletePlaylist(playlistName);

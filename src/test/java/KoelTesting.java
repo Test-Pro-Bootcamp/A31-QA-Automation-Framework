@@ -1,9 +1,13 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -14,6 +18,7 @@ public class KoelTesting {
 
     public static WebDriver driver;
     public static Actions action;
+    public static WebDriverWait wait;
 
     @BeforeMethod
     @Parameters({"baseURL", "loginEmail", "loginPassword"})
@@ -21,6 +26,7 @@ public class KoelTesting {
     {
         driver = new FirefoxDriver();
         action  = new Actions(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         goToKoel(baseURL);
         logIntoKoel(loginEmail, loginPassword);
     }
@@ -36,13 +42,14 @@ public class KoelTesting {
     {
         driver.manage().window().maximize();
         driver.get(url);
-        waitforSeconds(2);
     }
 
     public static void logIntoKoel(String userName, String password)
     {
-        driver.findElement(By.cssSelector("input[placeholder='Email Address']")).sendKeys(userName);
-        driver.findElement(By.cssSelector("input[placeholder='Password']")).sendKeys(password);
+        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Email Address']")));
+        emailField.sendKeys(userName);
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Password']")));
+        passwordField.sendKeys(password);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
     }
 
@@ -50,42 +57,40 @@ public class KoelTesting {
 
     public static void createPlaylist(String playlistName)
     {
-        driver.findElement(By.cssSelector("i[title='Create a new playlist']")).click();
-        waitforSeconds(5);
-        driver.findElement(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']")).click();
-        waitforSeconds(5);
+        //Click create new playlist button
+        WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("i[title='Create a new playlist']")));
+        elementWait.click();
+        //Click simple playlist option
+        elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']")));
+        elementWait.click();
+        //Input playlist name
+        elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
         driver.findElement(By.cssSelector("input[name='name']")).sendKeys(playlistName);
         driver.findElement(By.cssSelector("input[name='name']")).sendKeys(Keys.ENTER);
     }
 
     public static void  deletePlaylist(String playlistName){
-        driver.findElement(By.xpath(String.format("//a[contains(text(),'%s')]", playlistName))).click();
-        waitforSeconds(5);
-        driver.findElement(By.cssSelector("button[title='Delete this playlist']")).click();
-        waitforSeconds(5);
-
+        //Click on the playlist
+        WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format("//a[contains(text(),'%s')]", playlistName))));
+        elementWait.click();
+        //Click the delete playlist button
+        elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[title='Delete this playlist']")));
+        elementWait.click();
+        //Try to press the ok button, in the case of deleting a playlist that is not empty
         try {
             driver.findElement(By.cssSelector("button[class='ok']")).click();
-        }
-        catch (Exception e) {}
+        }catch (Exception e) {}
     }
 
     public static void clickTabInYourMusic(String tabName){
-        waitforSeconds(5);
-        driver.findElement(By.cssSelector(String.format("a[href='#!/%s']", tabName))).click();
-    }
-    public static void waitforSeconds(int seconds){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+        WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(String.format("a[href='#!/%s']", tabName))));
+        elementWait.click();
     }
 
     public void playTheSong(String name)
     {
         clickTabInYourMusic("songs");
-        waitforSeconds(5);
-         action.doubleClick(driver.findElement(By.xpath(String.format("//td[contains(text(), '%s')]", name)))).build().perform();
+        WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format("//td[contains(text(), '%s')]", name))));
+        action.doubleClick(elementWait).build().perform();
     }
-
-
-
-
 }
