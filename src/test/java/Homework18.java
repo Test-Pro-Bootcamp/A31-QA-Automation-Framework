@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 public class Homework18 extends BaseTest {
 
     @Test
-    public void playASongTest() {
-        login("demo@class.com", "te$t$tudent");
+    public void playASongTest() throws InterruptedException {
+        login("nguidry419@gmail.com", "PlanA2025!");
+        Thread.sleep(2000);
         playSong();
         isSongPlaying();
     }
