@@ -91,7 +91,7 @@ public class BaseTest {
     }
 
     public static void choosePlaylist(String playlistName) throws InterruptedException{
-        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//section/ul/il[contains(text(),'"+playlistName+"')]"));
+        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"));
         playlistNameElement.click();
         Thread.sleep(3000);
     }
