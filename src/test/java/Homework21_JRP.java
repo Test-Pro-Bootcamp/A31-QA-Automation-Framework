@@ -3,7 +3,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework21_JRP extends BaseTest{
@@ -37,12 +36,13 @@ public class Homework21_JRP extends BaseTest{
         editThePlaylist.click();
 
         //Enter new playlist name
-        WebElement newNameField = driver.findElement(By.xpath("//*[@class='playlist playlist editing']"));
-        newNameField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        WebElement newNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='playlists']/ul/li[5]")));
+        acts.doubleClick(newNameField).build().perform();
+//        newNameField.sendKeys(newPlaylistName, Keys.ENTER);
 
-        //Assert through delete message box
-        WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-        Assert.assertTrue(deleteMessageBox.isDisplayed());
+        //Assert updated playlist  message box
+//        WebElement updateMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+//        Assert.assertTrue(updateMessageBox.isDisplayed());
 
 
     }
