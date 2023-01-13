@@ -9,7 +9,10 @@
         <classes>
             <class name="Homework19">
                 <methods>
+
                     <include name="deletePlayList" />
+                    
+
                 </methods>
             </class>
         </classes>
