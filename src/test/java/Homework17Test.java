@@ -10,10 +10,14 @@ public class Homework17Test extends BaseTest {
         WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
         return notificationText.isDisplayed();
     }
-
+ //   public String getNotificationText(){
+     //   WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+     //  return notificationText.getText();
+   // }
 
     @Test(description = "Move a Song to a Play List")
     public void addASong(){
+        String newSongAddedNotification = "Added one song into";
         logIn("skyeman75@gmail.com","te$t$tudent");
         driver.manage().window().maximize();
         searchSong("Pluto");
@@ -21,11 +25,13 @@ public class Homework17Test extends BaseTest {
         selectFirstSongResult();
         clickAddToButton();
         choosePlaylist("Test Pro Playlist");
+       // Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
         Assert.assertTrue(isNotificationPopUpPresent());
+
     }
 
     public void searchSong(String songTitleKeyword){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#searchForm input[type='search']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#searchForm input[type='search']"))).sendKeys(songTitleKeyword);
     }
     public void viewAllSearchResults(){
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.results section.songs h1 button"))).click();
