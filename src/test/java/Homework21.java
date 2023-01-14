@@ -18,8 +18,8 @@ public class Homework21 extends BaseTest{
         createTestPlaylist(testPlaylist);
 
         //rename playlist
-        WebElement playlistToRename = selectPlaylist(testPlaylist);
-        enterNewName(playlistToRename, newName);
+        //WebElement playlistToRename = selectPlaylist(testPlaylist);
+        enterNewName(selectPlaylist(testPlaylist), newName);
 
         //assertion
         Assert.assertTrue(doesPlaylistExist(newName));
