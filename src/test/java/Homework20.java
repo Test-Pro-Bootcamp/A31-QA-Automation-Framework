@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class Homework20 extends BaseTest {
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylist() {
         login("shalinibaronia@gmail.com","te$t$tudent");
         WebElement openPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Newplaylist']")));
         openPlaylist.click();
