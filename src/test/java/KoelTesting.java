@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.KeyInput;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -53,8 +54,6 @@ public class KoelTesting {
         driver.findElement(By.cssSelector("button[type='submit']")).click();
     }
 
-
-
     public static void createPlaylist(String playlistName)
     {
         //Click create new playlist button
@@ -68,6 +67,21 @@ public class KoelTesting {
         driver.findElement(By.cssSelector("input[name='name']")).sendKeys(playlistName);
         driver.findElement(By.cssSelector("input[name='name']")).sendKeys(Keys.ENTER);
     }
+
+    public static void renamePlaylist(String playlistName, String newName){
+        //context click the playlist
+        WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format("//a[contains(text(),'%s')]", playlistName))));
+        action.contextClick(elementWait).build().perform();
+        //click edit option
+        elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@data-testid,'playlist-context-menu-edit')]")));
+        elementWait.click();
+        //Clear field and input new name for playlist and enter
+        elementWait = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[contains(@data-testid,'inline')]")));
+        elementWait.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE ));
+        elementWait.sendKeys(newName);
+        elementWait.sendKeys(Keys.ENTER);
+    }
+
 
     public static void  deletePlaylist(String playlistName){
         //Click on the playlist
@@ -93,4 +107,7 @@ public class KoelTesting {
         WebElement elementWait = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format("//td[contains(text(), '%s')]", name))));
         action.doubleClick(elementWait).build().perform();
     }
+
+
+
 }
