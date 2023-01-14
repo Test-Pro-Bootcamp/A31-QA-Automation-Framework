@@ -3,8 +3,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
-
 public class Homework17Test extends BaseTest {
 
     public boolean isNotificationPopUpPresent(){
