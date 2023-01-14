@@ -1,8 +1,12 @@
-import ...
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-    @Test (enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
+    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
     public static void loginEmptyEmailPasswordTest() {
 
         navigateToPage();
@@ -14,11 +18,11 @@ public class LoginTests extends BaseTest {
 
             navigateToPage();
 
-            provideEmail("demo@class.com");
-            ProvidePassword("te$t$tudent");
+            provideEmail("demo@class.io");
+            providePassword("te$t$tudent");
             clickSubmit();
 
-            Thread.sleep(millis: 2000);
+            Thread.sleep(2000);
             WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
             Assert.assertEquals(avatarIcon.isDisplayed());
         }
@@ -29,7 +33,7 @@ public class LoginTests extends BaseTest {
                     navigateToPage();
 
                     provideEmail("invalid@class.com");
-                    ProvidePassword("te$t$tudent");
+                    providePassword("te$t$tudent");
                     clickSubmit();
 
                     Assert.assertEquals(driver.getCurrentUrl(), url);
