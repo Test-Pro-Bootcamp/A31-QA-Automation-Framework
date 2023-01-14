@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 
 public class ProfileTests extends BaseTest {
-    @Test(enabled = true, priority = 3, description = "LoginValidEdmailValidPasswordTest")
+    @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
     public static void updateProfileNameTest () throws InterruptedException {
 
         navigateToPage();

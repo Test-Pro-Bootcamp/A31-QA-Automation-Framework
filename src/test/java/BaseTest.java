@@ -35,7 +35,7 @@ public class BaseTest {
         driver.get(url);
     }
 
-    public void login(String email, String password);{
+    public void login(String email, String password){
     provideEmail(email);
     providePassword(password);
     clickSubmit();

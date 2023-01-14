@@ -27,7 +27,7 @@ public class LoginTests extends BaseTest {
             Assert.assertEquals(avatarIcon.isDisplayed());
         }
 
-        @Test(enabled = true, priority = 2, description = "LoginValidEmailValidPasswordTest")
+        @Test(enabled = true, priority = 2, description = "loginValidEmailValidPasswordTest")
                 public static void loginInvalidEmailValidPasswordTest () {
 
                     navigateToPage();

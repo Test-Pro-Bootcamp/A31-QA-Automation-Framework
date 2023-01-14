@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Smoke Test">
 
+    <parameter name="BaseURL" value="https://bbb.testpro.io/ "/>
 
     <test name="Smoke Tests" preserve-order="false">
         <classes>
             <class name="LoginTests">
                 <methods>
-                    <include name="LoginValidEmailValidPasswordTest"/>
+                    <include name="loginValidEmailValidPasswordTest"/>
                 </methods>
             </class>
         </classes>
