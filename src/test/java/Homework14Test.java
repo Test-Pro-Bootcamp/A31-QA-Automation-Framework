@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.time.Duration;
-public class HomeWork14Test extends BaseTest {
+public class Homework14Test extends BaseTest {
     @Test
     public static void navigation() {
         WebDriver driver = new ChromeDriver();
