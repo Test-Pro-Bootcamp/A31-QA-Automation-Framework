@@ -20,14 +20,13 @@ public class Homework17Test extends BaseTest {
         clickSubmit();
         WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
         assertTrue(avatarIcon.isDisplayed());
+        driver.manage().window().maximize();
         searchSong("Pluto");
         viewAllSearchResults();
         selectFirstSongResult();
         clickAddToButton();
         choosePlaylist("Test Pro Playlist");
         Assert.assertTrue(isNotificationPopUpPresent());
-
-
     }
 
     public void searchSong(String songTitleKeyword)throws InterruptedException{
@@ -41,7 +40,7 @@ public class Homework17Test extends BaseTest {
         Thread.sleep(2000);
     }
     public void selectFirstSongResult()throws InterruptedException {
-        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("section#searchResultsWrapper tr.song-item td.title"));
+        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
         viewAllFirstSongResult.click();
         Thread.sleep(2000);
     }
@@ -51,7 +50,7 @@ public class Homework17Test extends BaseTest {
         Thread.sleep(2000);
     }
     public void choosePlaylist(String playlistName)throws InterruptedException{
-        WebElement playListNameElement  = driver.findElement(By.xpath("//section[@id='songsResultsWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"));
+        WebElement playListNameElement  = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"));
         playListNameElement.click();
         Thread.sleep(2000);
 }
