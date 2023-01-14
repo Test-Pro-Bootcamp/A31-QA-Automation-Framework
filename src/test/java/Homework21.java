@@ -13,12 +13,12 @@ public class Homework21 extends BaseTest{
 
     @Test (enabled = true, priority = 1, description = "rename a playlist test using actions doubleclick, context click")
     @Parameters({"TestPlaylist", "NewName"})
-    public static void renameAPlaylist(String testPlaylist, String newName) {
+    public void renameAPlaylist(String testPlaylist, String newName) {
         login("jimmypvu@gmail.com", "te$t$tudent");
         createTestPlaylist(testPlaylist);
 
         //rename playlist
-        WebElement playlistToRename = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playlist playlist']//a[contains(text(), '"+testPlaylist+"')]")));
+        WebElement playlistToRename = selectPlaylist(testPlaylist);
         enterNewName(playlistToRename, newName);
 
         //assertion
@@ -28,7 +28,7 @@ public class Homework21 extends BaseTest{
         deleteTestPlaylist(newName);
     }
 
-    public static void createTestPlaylist(String testPlaylist){
+    public void createTestPlaylist(String testPlaylist){
         WebElement createPlaylistBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@data-testid='sidebar-create-playlist-btn']")));
         createPlaylistBtn.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@data-testid='playlist-context-menu-create-simple']"))).click();
@@ -38,7 +38,12 @@ public class Homework21 extends BaseTest{
         playlistNameField.sendKeys(testPlaylist, Keys.ENTER);
     }
 
-    public static void enterNewName(WebElement playlistToRename, String newName) {
+    public WebElement selectPlaylist(String testPlaylist){
+        WebElement selectedPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playlist playlist']//a[contains(text(), '"+testPlaylist+"')]")));
+        return selectedPlaylist;
+    }
+
+    public void enterNewName(WebElement playlistToRename, String newName) {
         Actions action = new Actions(driver);
         action.doubleClick(playlistToRename).perform();
 
@@ -48,12 +53,12 @@ public class Homework21 extends BaseTest{
         nameField.sendKeys(newName, Keys.ENTER);
     }
 
-    public static boolean doesPlaylistExist(String playlistName){
+    public boolean doesPlaylistExist(String playlistName){
         WebElement renamedPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), '"+playlistName+"')]")));
         return renamedPlaylist.isDisplayed();
     }
 
-    public static void deleteTestPlaylist(String playlistName){
+    public void deleteTestPlaylist(String playlistName){
         WebElement playlistToDelete = driver.findElement(By.xpath("//a[contains(text(), '"+playlistName+"')]"));
         Actions action = new Actions(driver);
         action.contextClick(playlistToDelete).perform();
