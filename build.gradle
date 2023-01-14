@@ -17,7 +17,7 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/HW20.xml"
+        suites "src/test/resources/HWork21.xml"
     }
 }
 
