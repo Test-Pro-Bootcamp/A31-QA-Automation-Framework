@@ -35,16 +35,13 @@ public class Homework21_JRP extends BaseTest{
         WebElement editThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Edit']")));
         editThePlaylist.click();
 
-        //Enter new playlist name
+        //Enter rename playlist
         WebElement newNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='playlists']/ul/li[5]")));
         acts.doubleClick(newNameField).build().perform();
-//        newNameField.sendKeys(newPlaylistName, Keys.ENTER);
+        newNameField.clear();
+        newNameField.sendKeys(newPlaylistName, Keys.ENTER);
 
-        //Assert updated playlist  message box
-//        WebElement updateMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-//        Assert.assertTrue(updateMessageBox.isDisplayed());
-
-
+      
     }
 
 }
