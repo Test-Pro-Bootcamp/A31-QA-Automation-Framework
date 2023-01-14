@@ -3,12 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
-
-import java.time.Duration;
-import java.util.List;
-import java.util.Set;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
@@ -20,11 +15,10 @@ public class LoginPage extends BasePage {
     By passwordField = By.cssSelector("[type='password']");
     By submitButton = By.cssSelector("button[type='submit']");
 
+    @FindBy(css = "[test]")
+    WebElement email;
 
-    public LoginPage(WebDriver givenDriver) {
-        driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    }
+    public LoginPage(WebDriver givenDriver) { super(givenDriver);}
     public void provideEmail(String email) {
         WebElement emailElement = driver.findElement(emailField);
         emailElement.click();
@@ -43,5 +37,5 @@ public class LoginPage extends BasePage {
         providePassword("B3n@iah2013");
         clickSubmitBtn();
     }
-    
+
     }
