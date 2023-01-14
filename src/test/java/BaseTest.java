@@ -11,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 
 public  class BaseTest {
     public static WebDriver driver = null;
-    public static String url = null;
+
 
 
     @BeforeSuite
@@ -20,12 +20,12 @@ public  class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"BaseURL"})
-    public static void setUpBrowser(String BaseURL) {
+    @Parameters({"baseURL"})
+    public static void setUpBrowser(String baseURL) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
-        driver.get(url);
+        driver.manage().window().maximize();
+        driver.get(baseURL);
     }
 
     @AfterMethod

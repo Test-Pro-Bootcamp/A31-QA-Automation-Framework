@@ -5,12 +5,7 @@ import org.testng.annotations.Test;
 
 public class HomeWork19Test extends BaseTest {
 
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public static void logInEmptyEmailPasswordTest(String email, String password) {
 
-        logIn(email, password);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-    }
     @Test(description = "Delete a PlayList")
     public void deleteEmptyPlaylist() throws InterruptedException{
         logIn("skyeman75@gmail.com", "te$t$tudent");
@@ -27,7 +22,7 @@ public class HomeWork19Test extends BaseTest {
             Thread.sleep(3000);
         }
     private void deletePlayList()throws InterruptedException{
-        WebElement deleteButton = driver.findElement(By.cssSelector("button.del btn-delete-playlist"));
+        WebElement deleteButton = driver.findElement(By.cssSelector(".btn-delete-playlist"));
         deleteButton.click();
         Thread.sleep(3000);
 
