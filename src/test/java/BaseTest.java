@@ -8,6 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -24,15 +25,20 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public static void launchBrowser() {
+    @Parameters({"BaseUrl"})
+    public static void launchBrowser(String BaseUrl) {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        url = BaseUrl;
+        driver.get(url);
     }
 
     @AfterMethod
     public static void closeBrowser(){
         LoginTests.driver.quit();
     }
+
+
 
     protected static void navigateToPage() {
         String url = "https://bbb.testpro.io/";
@@ -86,6 +92,20 @@ public class BaseTest {
     public static void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
+    }
 
+    public static void allSongsPage(){
+        WebElement allSongsPageNavigate = driver.findElement(By.cssSelector("[href='#!/songs']"));
+        allSongsPageNavigate.click();
+    }
+
+    public static void addSongButton(){
+        WebElement addSongButtonNavigate = driver.findElement(By.cssSelector("[class='btn-add-to']"));
+        addSongButtonNavigate.click();
+    }
+
+    public static void addToPlaylist(){
+        WebElement addToPlaylistNavigate = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]"));
+        addToPlaylistNavigate.click();
     }
 }
