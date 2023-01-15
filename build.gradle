@@ -44,6 +44,7 @@ task testmoke(type: Test) {
 }
 task testpara(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Homework19.xml"
+        suites "src/test/resources/Home19work.xml"
     }
 }
+
