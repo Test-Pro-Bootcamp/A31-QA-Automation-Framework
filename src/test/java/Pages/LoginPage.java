@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends pages.BasePage {
 
     WebDriver driver;
     WebDriver wait;
@@ -18,7 +18,14 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[test]")
     WebElement email;
 
-    public LoginPage(WebDriver givenDriver) { super(givenDriver);}
+    public LoginPage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
+
+    //    public LoginPage(WebDriver givenDriver) {
+//        driver = givenDriver;
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//    }
     public void provideEmail(String email) {
         WebElement emailElement = driver.findElement(emailField);
         emailElement.click();

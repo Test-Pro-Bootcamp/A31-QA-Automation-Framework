@@ -3,8 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,10 +13,10 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public static WebDriver driver = null;
-    public static String url = null;
-    public static WebDriverWait wait = null;
-    public static FluentWait fluentWait = null;
+    public static WebDriver driver;
+    public static String url;
+    public static WebDriverWait wait;
+    public static FluentWait fluentWait;
 
     @BeforeSuite
     static void setupClass() {
