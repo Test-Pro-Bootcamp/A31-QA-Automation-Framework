@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends pages.BasePage {
+public class LoginPage extends BasePage {
 
-    WebDriver driver;
-    WebDriver wait;
+//    WebDriver driver;
+//    WebDriver wait;
 
     //Locators
     By emailField = By.cssSelector("[type='email']");
@@ -22,7 +22,7 @@ public class LoginPage extends pages.BasePage {
         super(givenDriver);
     }
 
-    //    public LoginPage(WebDriver givenDriver) {
+//    public LoginPage(WebDriver givenDriver) {
 //        driver = givenDriver;
 //        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 //    }

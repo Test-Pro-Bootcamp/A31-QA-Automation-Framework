@@ -13,10 +13,10 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public static WebDriver driver;
-    public static String url;
-    public static WebDriverWait wait;
-    public static FluentWait fluentWait;
+    public static WebDriver driver = null;
+    public static String url = null;
+    public static WebDriverWait wait = null;
+    public static FluentWait fluentWait = null;
 
     @BeforeSuite
     static void setupClass() {

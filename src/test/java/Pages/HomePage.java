@@ -1,4 +1,4 @@
-package pages;
+package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage extends pages.BasePage {
+public class HomePage extends BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
