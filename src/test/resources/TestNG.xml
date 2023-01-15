@@ -6,14 +6,10 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="SeleniumTechniques">
-            <methods>
-                <include name="listOfSongsWebElements" />
-            </methods>
-        </class>
+<!--            <class name="SeleniumTechniques"/>-->
 <!--            <class name="Homework17" />-->
-<!--            <class name="ProfileTests"/>-->
-<!--            <class name="BaseTest"/>-->
+            <class name="ProfileTests"/>
+<!--            <class name="LoginTests"/>-->
         </classes>
     </test>
 </suite>
