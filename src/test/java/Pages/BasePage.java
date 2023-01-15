@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,22 +8,32 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.Set;
 
 public class BasePage {
 
     WebDriver driver;
-    WebDriver wait;
+    WebDriverWait wait;
     Actions actions;
 
-    public BasePage(WebDriver givenDriver) { super();}
+    public BasePage( WebDriver givenDriver) {
+        driver = givenDriver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    }
 
     public void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)); 
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-    
+
     public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+    public void contextClick(By locator) {
+        actions.contextClick(findElement(locator)).perform();
+    }
+
+    public void doubleClick (By locator) {
+        actions.doubleClick(findElement(locator)).perform();
+    }
+
 }
