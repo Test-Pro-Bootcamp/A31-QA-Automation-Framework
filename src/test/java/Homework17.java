@@ -53,5 +53,4 @@ public class Homework17 extends BaseTest {
         //close chrome
         driver.quit();
     }
-
 }
