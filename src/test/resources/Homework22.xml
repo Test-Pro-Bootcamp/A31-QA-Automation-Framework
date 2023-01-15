@@ -9,10 +9,10 @@
         <classes>
             <class name="Homework22">
                 <methods>
-                    <include name="addSongToPlaylist" />
-                    <include name="playSong" />
+<!--                    <include name="addSongToPlaylist" />-->
+<!--                    <include name="playSong" />-->
+<!--                    <include name="deletePlaylist" />-->
                     <include name="renamePlaylist" />
-                    <include name="deletePlaylist" />
                 </methods>
             </class>
         </classes>

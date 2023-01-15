@@ -4,21 +4,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.BasePage;
 
 import java.time.Duration;
 import java.util.UUID;
 
 
 public class BaseTest {
-    public static WebDriver driver = null;
-    public static String url = null;
-    public static WebDriverWait wait = null;
-    public static FluentWait fluentWait = null;
+    public static WebDriver driver;
+    public static WebDriverWait wait;
+    public static String url;
+    Actions action;
+    public static FluentWait fluentWait;
 
     @BeforeSuite
     static void setupClass() {
@@ -45,30 +48,30 @@ public class BaseTest {
 //        driver.get(url);
 //    }
 
-    public static void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-    }
-
-    public static void clickSubmit() {
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
-        submitButton.click();
-    }
-
-    public static void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
-
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    }
-
-    public static void provideEmail(String email) {
-        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
-        emailField.clear();
-        emailField.sendKeys(email);
-    }
+//    public static void login(String email, String password) {
+//        provideEmail(email);
+//        providePassword(password);
+//        clickSubmit();
+//    }
+//
+//    public static void clickSubmit() {
+//        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+//        submitButton.click();
+//    }
+//
+//    public static void providePassword(String password) {
+//        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+//        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
+//
+//        passwordField.clear();
+//        passwordField.sendKeys(password);
+//    }
+//
+//    public static void provideEmail(String email) {
+//        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+//        emailField.clear();
+//        emailField.sendKeys(email);
+//    }
 
     public static void clickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));

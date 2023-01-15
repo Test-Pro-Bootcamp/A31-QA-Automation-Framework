@@ -1,12 +1,16 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class Homework22 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
-        login("test123@test.com", "te$t$tudent");
+        loginPage.login("test123@test.com", "te$t$tudent");
 
         createPlaylist("HW17");
         addSongToThePlaylist("Frantic", "HW17");
@@ -18,7 +22,10 @@ public class Homework22 extends BaseTest {
 
     @Test(enabled = true, priority = 1, description = "PlayASong")
     public void playSong() {
-        login("test123@test.com", "te$t$tudent");
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login("test123@test.com", "te$t$tudent");
 
         allSongs();
         playSelectedSong("Dark Days");
@@ -28,7 +35,10 @@ public class Homework22 extends BaseTest {
 
     @Test(enabled = true, priority = 3, description = "DeleteAPlaylist")
     public void deletePlaylist() {
-        login("test123@test.com", "te$t$tudent");
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login("test123@test.com", "te$t$tudent");
 
         createPlaylist("HW19");
         selectDesiredPlaylist("HW19");
@@ -39,6 +49,11 @@ public class Homework22 extends BaseTest {
 
     @Test(enabled = true, priority = 2, description = "RenameAPlaylist")
     public void renamePlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login("test123@test.com", "te$t$tudent");
+
         createPlaylist("HW");
         choosePlaylist("HW");
         doubleClickChoosePlaylist("HW");
