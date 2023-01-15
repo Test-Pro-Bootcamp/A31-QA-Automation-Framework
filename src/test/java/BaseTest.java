@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.DataProvider;
@@ -12,13 +13,13 @@ import static org.testng.Assert.assertTrue;
 
 public  class BaseTest {
     public static WebDriver driver = null;
-   public static WebDriverWait wait = null;
+    public static WebDriverWait wait = null;
 
 
-    @BeforeSuite
+   @BeforeSuite
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
-    }
+   }
 
     @BeforeMethod
     @Parameters({"baseURL"})
