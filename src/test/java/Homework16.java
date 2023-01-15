@@ -23,15 +23,12 @@ public class Homework16 {
         driver.get("https://bbb.testpro.io/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement RegistrationButton = driver.findElement(By.id("hel"));
-        RegistrationButton.click();
+        WebElement registrationButton = driver.findElement(By.id("hel"));
+        registrationButton.click();
 
         Thread.sleep(2000);
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://bbb.testpro.io/registration.php");
-
-        //String title = driver.getTitle();
-        //assertEquals("Register new account", title);
 
         driver.quit();
     }
