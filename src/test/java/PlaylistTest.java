@@ -10,9 +10,43 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PlaylistTest extends BaseTest{
+
     @Test(enabled = true)
+    public void addSongTest() {
+        String playlistName = "Homework";
+
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        BasePage basePage = new BasePage(driver);
+        Actions acts = new Actions(driver);
+
+        //Login valid credentials
+        loginPage.login();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+
+        //Click on "+" icon to create a playlist
+        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
+
+        //Click "New Playlist"
+        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
+
+        //Input playlist name
+        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+        nameField.clear();
+        nameField.sendKeys(playlistName, Keys.ENTER);
+
+        //Click "All Songs"
+        basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
+
+        //Click "Add To" button
+        WebElement addToBtn = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/span/button[2]"));
+        addToBtn.click();
+        acts.scrollToElement((WebElement) By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]")).click();
+    }
+
+    @Test(enabled = false)
     public void renamePlaylistTest() {
-        String playlistName = "Homework21";
+        String playlistName = "Homework";
         String newPlaylistName = "JRP Playlist";
 
         LoginPage loginPage = new LoginPage(driver);
@@ -50,9 +84,9 @@ public class PlaylistTest extends BaseTest{
 
 
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void deletePlaylistTest() {
-        String playlistName = "Homework21";
+        String playlistName = "Homework";
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
