@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -30,8 +31,8 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         Homework17.driver = new ChromeDriver();
-        Homework17.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        //wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
+//        Homework17.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
         driver.get(BaseURL);
     }
 
@@ -68,7 +69,8 @@ public class BaseTest {
     }
 
     public static void clickAddButton () {
-        WebElement createPlaylist = driver.findElement(By.cssSelector("i.fa.fa-plus-circle"));
+//        WebElement createPlaylist = driver.findElement(By.cssSelector("i.fa.fa-plus-circle"));
+        WebElement createPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("i.fa.fa-plus-circle")));
         createPlaylist.click();
     }
 
@@ -84,7 +86,8 @@ public class BaseTest {
     }
 
     public static void confirmXYZPlaylist() {
-        WebElement addNewPlaylist = driver.findElement(By.xpath("//a[text()='XYZ Playlist']"));
+//        WebElement addNewPlaylist = driver.findElement(By.xpath("//a[text()='XYZ Playlist']"));
+        WebElement addNewPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='XYZ Playlist']")));
         Assert.assertTrue(addNewPlaylist.isDisplayed());
     }
 
@@ -102,6 +105,12 @@ public class BaseTest {
     public static void selectXYZPlaylist() {
         WebElement xyzPlaylist = driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']"));
         xyzPlaylist.click();
+    }
+
+    public static void rightClickXYZPlaylist() {
+        Actions rightClick=new Actions(driver);
+        WebElement xyzPlaylist =driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']"));
+        rightClick.contextClick(xyzPlaylist).perform();
     }
 }
 

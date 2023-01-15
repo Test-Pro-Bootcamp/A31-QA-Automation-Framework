@@ -36,6 +36,7 @@ public class Homework19 extends BaseTest {
         WebElement deletePlaylistButton = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
         deletePlaylistButton.click();
 
+
         //validate playlist deletion
         WebElement deletedPlaylist = driver.findElement(By.xpath("//div[@class='success show' and contains(text(),'Deleted playlist')]"));
         Assert.assertTrue(deletedPlaylist.isDisplayed());

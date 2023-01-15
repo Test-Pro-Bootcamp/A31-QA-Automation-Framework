@@ -79,14 +79,14 @@ public class Homework17 extends BaseTest {
         addTooButton.click();
 
         //click on XYZ Playlist in dropdown
-        WebElement xyzPlaylistDropdown=driver.findElement(By.xpath("//*[@id=\"app\"]/nav/ul/li[4]/ul/li[10]"));
+        WebElement xyzPlaylistDropdown=driver.findElement(By.xpath("//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]"));
         xyzPlaylistDropdown.click();
 
         //navigate to XYZ Playlist
         selectXYZPlaylist();
 
         //check for song in playlist
-        WebElement waitingOnATrainSongPlaylist=driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[1]/table/tr/td[2]"));
+        WebElement waitingOnATrainSongPlaylist=driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[@class='item-container']/table/tr/td[@class='title' and contains(text(),\"Waiting On A Train\")]"));
         Assert.assertTrue(waitingOnATrainSongPlaylist.isDisplayed());
 
     }
