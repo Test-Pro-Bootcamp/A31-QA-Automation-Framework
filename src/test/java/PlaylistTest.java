@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class PlaylistTest extends BaseTest{
 
     @Test(enabled = true)
-    public void addSongTest() {
+    public void addSongTest() throws InterruptedException {
         String playlistName = "Homework";
 
         LoginPage loginPage = new LoginPage(driver);
@@ -34,14 +34,34 @@ public class PlaylistTest extends BaseTest{
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
         nameField.clear();
         nameField.sendKeys(playlistName, Keys.ENTER);
+        Thread.sleep(3000);
 
         //Click "All Songs"
         basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
 
-        //Click "Add To" button
-        WebElement addToBtn = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/span/button[2]"));
-        addToBtn.click();
-        acts.scrollToElement((WebElement) By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]")).click();
+//        //Click "Add To" button
+//        WebElement addToBtn = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/span/button[2]"));
+//        addToBtn.click();
+
+
+        //Click "Reactor" song
+        WebElement reactorSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr[12]/td[2]"));
+        reactorSong.click();
+
+        //Click green "Add To" button
+        loginPage.findElement(By.cssSelector("button[class='btn-add-to']"));
+
+        //Click "Homework" Playlist
+        WebElement createdPlaylist = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]"));
+        createdPlaylist.click();
+
+        //Validate "Reactor" song is added
+//        Thread.sleep(3000);
+//        WebElement morningJamPlaylist = driver.findElement(By.cssSelector("[href='#!/playlist/18754']"));
+//        morningJamPlaylist.click();
+//        WebElement reactorSongIsPresent = driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[1]/table/tr[13]/td[2]"));
+//        Assert.assertTrue(reactorSongIsPresent.isDisplayed());
+//        driver.quit();
     }
 
     @Test(enabled = false)
