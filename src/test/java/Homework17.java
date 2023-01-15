@@ -35,8 +35,8 @@ public class Homework17 extends BaseTest {
         int randomSong = rand.nextInt(100) + 2;
 
         // click on a random song from the list
-        WebElement firstSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr["+ randomSong +"]"));
-        firstSong.click();
+        WebElement songToAdd = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr["+ randomSong +"]"));
+        songToAdd.click();
 
         // Select add button
         WebElement addSelectedSong = driver.findElement(By.cssSelector("button.btn-add-to"));
