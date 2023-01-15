@@ -51,6 +51,8 @@ public class Homework17 extends BaseTest {
         choosePlaylist("Homework 17 Playlist");
 
         //Checking if Popup button is present after selection
+       // Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
+
         Assert.assertTrue(isNotificationPopUpPresent());
 
 
