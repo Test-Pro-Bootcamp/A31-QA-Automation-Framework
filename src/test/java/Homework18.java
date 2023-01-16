@@ -11,7 +11,6 @@ public class Homework18 extends BaseTest {
         playSong();
         isSongPlaying();
     }
-
     public void playSong() {
         WebElement playNextButton = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
@@ -19,7 +18,6 @@ public class Homework18 extends BaseTest {
         playNextButton.click();
         playButton.click();
     }
-
     public void isSongPlaying() {
         WebElement soundBar = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
         Assert.assertTrue(soundBar.isDisplayed());
