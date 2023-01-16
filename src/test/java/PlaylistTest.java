@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class PlaylistTest extends BaseTest{
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void addSongTest() throws InterruptedException {
         String playlistName = "Homework";
 
@@ -34,38 +34,89 @@ public class PlaylistTest extends BaseTest{
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
         nameField.clear();
         nameField.sendKeys(playlistName, Keys.ENTER);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         //Click "All Songs"
         basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
-
-//        //Click "Add To" button
-//        WebElement addToBtn = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/span/button[2]"));
-//        addToBtn.click();
-
 
         //Click "Reactor" song
         WebElement reactorSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr[12]/td[2]"));
         reactorSong.click();
 
-        //Click green "Add To" button
-        loginPage.findElement(By.cssSelector("button[class='btn-add-to']"));
+        //Right-click song
+        acts.contextClick(reactorSong).perform();
 
-        //Click "Homework" Playlist
-        WebElement createdPlaylist = driver.findElement(By.xpath("//*[@id='songsWrapper']/header/div[3]/div/section[1]/ul/li[5]"));
-        createdPlaylist.click();
+        //Click "Add To"
+        basePage.findElement(By.xpath("//ul/li[@class='has-sub']")).click();
+
+        //Click "Homework"
+        basePage.findElement(By.xpath("//ul/li[@class='has-sub']/ul/li[7]")).click();
 
         //Validate "Reactor" song is added
-//        Thread.sleep(3000);
-//        WebElement morningJamPlaylist = driver.findElement(By.cssSelector("[href='#!/playlist/18754']"));
-//        morningJamPlaylist.click();
-//        WebElement reactorSongIsPresent = driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[1]/table/tr[13]/td[2]"));
-//        Assert.assertTrue(reactorSongIsPresent.isDisplayed());
-//        driver.quit();
-    }
+        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+        Assert.assertTrue(addedMessageBox.isDisplayed());
 
+    }
+    @Test(enabled = true)
+    public void playPlaylistSongTest() throws InterruptedException {
+        String playlistName = "Homework";
+
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        BasePage basePage = new BasePage(driver);
+        Actions acts = new Actions(driver);
+
+        //Login valid credentials
+        loginPage.login();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+
+        //Click on "+" icon to create a playlist
+        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
+
+        //Click "New Playlist"
+        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
+
+        //Input playlist name
+        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+        nameField.clear();
+        nameField.sendKeys(playlistName, Keys.ENTER);
+        Thread.sleep(2000);
+
+        //Click "All Songs"
+        basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
+
+        //Click "Reactor" song
+        WebElement reactorSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr[12]/td[2]"));
+        reactorSong.click();
+
+        //Right-click song
+        acts.contextClick(reactorSong).perform();
+
+        //Click "Add To"
+        basePage.findElement(By.xpath("//ul/li[@class='has-sub']")).click();
+
+        //Click "Homework"
+        basePage.findElement(By.xpath("//ul/li[@class='has-sub']/ul/li[7]")).click();
+
+        //Validate "Reactor" song is added
+        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+        Assert.assertTrue(addedMessageBox.isDisplayed());
+
+        //Go to created playlist
+        WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
+        createdPlaylist.click();
+
+        //Right-click song on list
+        WebElement clickSongOnList = driver.findElement(By.xpath("//*[@id='playlistWrapper']/div/div/div[1]/table/tr/td[2]"));
+        acts.contextClick(clickSongOnList).perform();
+
+        //Click "Play" option
+        WebElement playBtn = driver.findElement(By.xpath("//ul/li[@class='playback']"));
+        playBtn.click();
+
+    }
     @Test(enabled = false)
-    public void renamePlaylistTest() {
+    public void renamePlaylistTest() throws InterruptedException {
         String playlistName = "Homework";
         String newPlaylistName = "JRP Playlist";
 
@@ -89,24 +140,22 @@ public class PlaylistTest extends BaseTest{
         nameField.clear();
         nameField.sendKeys(playlistName, Keys.ENTER);
 
-        //Right-click created playlist
+        //Double-click created playlist to edit
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
-        acts.contextClick(createdPlaylist).perform();
+        acts.doubleClick(createdPlaylist).perform();
+        Thread.sleep(1000);
 
-        //Click "Edit" option
-        basePage.findElement(By.xpath("//ul/li[text()='Edit']")).click();
-
-        //Enter rename playlist
-        WebElement newNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='playlists']/ul/li[5]")));
-        acts.doubleClick(newNameField).build().perform();
-//        newNameField.clear();
-//        newNameField.sendKeys(newPlaylistName, Keys.ENTER);
-
+        //Double-click to highlight and rename
+        WebElement highlightedList = driver.findElement(By.xpath("//*[@id='playlists']/ul/li[3]"));
+        acts.doubleClick(highlightedList).perform();
+//        Thread.sleep(1000);
+//        highlightedList.sendKeys(Keys.BACK_SPACE);
+//        highlightedList.sendKeys(newPlaylistName, Keys.ENTER);
 
     }
     @Test(enabled = false)
     public void deletePlaylistTest() {
-        String playlistName = "Homework";
+        String playlistName = "Test Delete";
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
