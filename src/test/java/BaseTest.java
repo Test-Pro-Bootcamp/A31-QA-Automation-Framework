@@ -14,7 +14,7 @@ import java.util.UUID;
 
 
 public class BaseTest {
-   //remember if declaring non-primitive data typles, must assign values-strings, arrays, classes
+   //remember if declaring non-primitive data types, must assign values-strings, arrays, classes
     public static WebDriver driver = null;
     public static String url = null;
     public static WebDriverWait wait = null;
@@ -34,11 +34,10 @@ public class BaseTest {
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
-         //Explicit wait - create class variable so it can be used across the code
+         //Explicit wait - create class variable, so it can be used across the code
         // then do the second part
         // wait until element is available or clickable, then click on it
         wait = new WebDriverWait (LoginTests.driver, Duration.ofSeconds(10));
-
 
     }
 
@@ -110,7 +109,7 @@ public class BaseTest {
     }
 
     @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
+    public static Object[][] getDataFromDataProviders() {
 
         return new Object[][] {
                 {"invalid@email.com", "invalidPass"},
