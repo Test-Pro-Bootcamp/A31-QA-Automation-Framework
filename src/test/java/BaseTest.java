@@ -3,8 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,14 +38,19 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+    protected static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 
-    public static void login(String email, String password) {
+   public static void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
+        clickSubmit();
+    }
+    public  static void login(){
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
         clickSubmit();
     }
 
@@ -70,6 +73,43 @@ public class BaseTest {
         emailField.sendKeys(email);
     }
 
+    public static void homePage(){
+        WebElement homePage = driver.findElement(By.xpath("//a[contains(text(),'Home')]"));
+        homePage.click();
+    }
+    public static void playLists(){
+        WebElement playLists = driver.findElement(By.xpath("//h1[contains(text(),'Playlists')]"));
+        playLists.isDisplayed();
+    }
+    public static void choosePlaylist(){
+        WebElement choosePlaylist = driver.findElement(By.xpath("//a[contains(text(),'rock songs')]"));
+        choosePlaylist.click();
+    }
+    public static void deletePlaylist(){
+        WebElement deletePlaylist = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
+        deletePlaylist.click();
+    }
+    public static void pressOk(){
+        WebElement pressOk = driver.findElement(By.cssSelector("button.ok"));
+        pressOk.click();
+    }
+    public static boolean playlistIsDeleted(){
+
+        WebElement playlistIsDeleted = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.success.show")));
+        return true;
+    }
+    public static void mostPlayed() {
+        WebElement mostPlayed = driver.findElement(By.xpath("//h1[contains(text(),'Most Played')]"));
+        mostPlayed.isDisplayed();
+    }
+    public static void playSong() {
+        driver.findElement(By.cssSelector("[data-testid='play-next-btn']")).click();
+        driver.findElement(By.cssSelector("[data-testid='play-btn']")).click();
+    }
+    public boolean songIsPlaying(){
+        WebElement songIsPlaying = driver.findElement(By.cssSelector("[data-testid= 'sound-bar-play']"));
+        return songIsPlaying.isDisplayed();
+    }
     public static void clickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
         saveButton.click();
