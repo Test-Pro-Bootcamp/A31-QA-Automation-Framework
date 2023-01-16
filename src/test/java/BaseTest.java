@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -15,16 +16,17 @@ public class BaseTest {
     public static WebDriver driver = null;
     public static String url = "https://testpro.io/";
 
-
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
-    public static void launchBrowser() {
+    @Parameters({"baseURL"})
+    public static void launchBrowser(String baseURL) {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(baseURL);
     }
 
     @AfterMethod
