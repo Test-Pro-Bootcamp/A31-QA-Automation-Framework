@@ -1,5 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +14,6 @@ public class ProfileTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Thread.sleep(2000);
         clickAvatarIcon();
 
         String randomName = generateRandomName();
@@ -21,8 +22,8 @@ public class ProfileTests extends BaseTest {
         provideProfileName(randomName);
         clickSaveButton();
 
-        Thread.sleep(2000);
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        //WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        WebElement actualProfileName = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.view-profile>span")));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }

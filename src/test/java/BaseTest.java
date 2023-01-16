@@ -30,11 +30,11 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-        //would use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
+        //if use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
-         //Explicit wait - create class variable, so it can be used across the code
+         //Explicit wait - create class variable outside of indiv method, so it can be used across the code
         // then do the second part
         // wait until element is available or clickable, then click on it
         wait = new WebDriverWait (LoginTests.driver, Duration.ofSeconds(10));
@@ -82,7 +82,8 @@ public class BaseTest {
     }
 
     public static void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+       // WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+        WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn-submit")));
         saveButton.click();
     }
 
@@ -103,7 +104,8 @@ public class BaseTest {
     }
 
     public static void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+       // WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar")));
         avatarIcon.click();
 
     }
@@ -120,7 +122,7 @@ public class BaseTest {
 }
 
 //Fluent wait example
-//Fluentwait wait=new FluentWait(LoginTests.drive)
+//FluentWait wait=new FluentWait(LoginTests.drive)
 //wait
 //.withTimeout(Duration.ofSeconds(10))
 //.pollingEvery(Duration.ofSeconds(1))
