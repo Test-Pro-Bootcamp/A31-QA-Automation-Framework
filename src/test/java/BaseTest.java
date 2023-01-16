@@ -1,9 +1,11 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -49,8 +51,8 @@ public class BaseTest {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
-    }
 
+    }
     public static void clickSubmit() {
         WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
@@ -105,5 +107,30 @@ public class BaseTest {
                 {"demo@mail.com", "invalid"},
                 {"", ""}
         };
+    }
+
+    public static void rightClickPlaylistNam(){
+        WebElement Playlist = driver.findElement(By.xpath("//a[@href=\"#!/playlist/38496\"]"));
+        Actions actions = new Actions(driver);
+        actions.contextClick(Playlist).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@data-testid=\"playlist-context-menu-edit-38496\"]")));
+
+
+    }
+
+    public static void clickEditOption() throws InterruptedException {
+        WebElement EditOption = driver.findElement(By.xpath("//li[@data-testid=\"playlist-context-menu-edit-38496\"]"));
+        EditOption.click();
+        Thread.sleep(4000);
+}
+    public static void typeNewName() throws InterruptedException {
+        String playListName = "Adeagle2021";
+        WebElement EditInput = driver.findElement(By.cssSelector("input[name='name']"));
+        EditInput.sendKeys((Keys.chord(Keys.CONTROL,"a",Keys.BACK_SPACE)));
+        EditInput.sendKeys(playListName);
+        EditInput.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
+
+
     }
 }
