@@ -7,8 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework21Test extends BaseTest {
-    Actions actions;
-    actions = new Actions(driver);
+
 
 
     String playlistnewname = "Jarrod Playlist";

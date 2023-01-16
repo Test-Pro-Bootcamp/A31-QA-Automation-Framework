@@ -14,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 public  class BaseTest {
     public static WebDriver driver = null;
     public static WebDriverWait wait = null;
-
+    public static Actions actions;
 
    @BeforeSuite
     public static void setupClass() {
@@ -29,6 +29,7 @@ public  class BaseTest {
         driver.manage().window().maximize();
         driver.get(baseURL);
         wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        actions = new Actions(driver);
     }
 
     @AfterMethod
