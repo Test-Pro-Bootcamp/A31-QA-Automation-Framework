@@ -6,9 +6,15 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
+ Homework17
+            <class name="LoginTests"/>
+            <class name="Homework17"/>
+            <class name="BaseTest"/>
+=======
             <class name="Homework17" />
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
+ main
         </classes>
     </test>
 </suite>
