@@ -22,8 +22,7 @@ public class LoginTests extends BaseTest {
         clickSubmit();
 
         //Need for this is replaced by addtional to @BeforeMethod
-        //WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        WebElement avatarIcon = wait.until(ExpectedConditions.elementToBeClickable("img.avatar"));
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         Assert.assertTrue(avatarIcon.isDisplayed());
 
     }
