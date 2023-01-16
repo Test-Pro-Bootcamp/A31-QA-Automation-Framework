@@ -6,7 +6,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework17" />
+            <class name="Homework17b" />
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>
