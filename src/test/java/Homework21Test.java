@@ -7,9 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework21Test extends BaseTest {
-    Actions actions;
-    actions = new Actions(driver);
-
 
     String playlistnewname = "Jarrod Playlist";
 
@@ -30,7 +27,7 @@ public class Homework21Test extends BaseTest {
 
     public void contextClickEdit() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li[data-testid^='playlist-context-menu-edit'"))).click();
-        WebElement editField = driver.findElement(By.cssSelector("input{name='name']"));
+        WebElement editField = driver.findElement(By.cssSelector("input[name='name']"));
         editField.sendKeys(playlistnewname);
         editField.sendKeys(Keys.ENTER);
     }
