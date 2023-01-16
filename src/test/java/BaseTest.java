@@ -35,10 +35,10 @@ public class BaseTest {
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
     }
 
-    @AfterMethod
-    public static void closeBrowser(){
-        LoginTests.driver.quit();
-    }
+//    @AfterMethod
+//    public static void closeBrowser(){
+//        LoginTests.driver.quit();
+//    }
 
 //    protected static void navigateToPage() {
 //        String url = "https://bbb.testpro.io/";
