@@ -40,10 +40,10 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+    protected static void navigateToPage() {
+    String url = "https://bbb.testpro.io/";
+    driver.get(url);
+    }
 
     public static void login(String email, String password) {
         provideEmail(email);
