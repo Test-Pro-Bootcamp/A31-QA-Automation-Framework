@@ -12,33 +12,33 @@ public class LoginPage extends BasePage {
     //Locators
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
-    By clickSubmitButton = By.cssSelector("button[type='submit']");
+    By submitButton = By.cssSelector("button[type='submit']");
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
-    public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(emailField);
+    public void provideEmail(String email) {
+        WebElement emailElement = driver.findElement(emailField);
 //        emailField.clear();
-        emailField.click();
-        emailField.sendKeys(email);
+        emailElement.click();
+        emailElement.sendKeys(email);
     }
 
-    public static void providePassword(String password) {
-        WebElement passwordField = driver.findElement(passwordField);
+    public void providePassword(String password) {
+        WebElement passwordElement = driver.findElement(passwordField);
 //        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 //        passwordField.clear();
-        passwordField.click();
-        passwordField.sendKeys(password);
+        passwordElement.click();
+        passwordElement.sendKeys(password);
     }
 
-    public static void clickSubmit() {
-        WebElement submitButton = driver.findElement(clickSubmitButton);
-        submitButton.click();
+    public void clickSubmit() {
+        WebElement submitButtonElement = driver.findElement(submitButton);
+        submitButtonElement.click();
     }
 
-    public static void login(String email, String password) {
+    public void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
