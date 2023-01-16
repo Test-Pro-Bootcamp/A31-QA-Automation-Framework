@@ -29,10 +29,16 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+    }
+    @Parameters({"HomeURL"})
+    public static void getHome(String HomeURL) {
+        url = HomeURL;
+        driver.get(url);
+        //wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
     }
 
     @AfterMethod
