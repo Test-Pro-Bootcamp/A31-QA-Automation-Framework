@@ -20,6 +20,11 @@ test {
         suites "src/test/resources/Homework19.xml"
     }
 }
+test {
+    useTestNG() {
+        suites "src/test/resources/Homework21.xml"
+    }
+}
 
 task testSmoke(type: Test) {
     useTestNG() {
