@@ -8,7 +8,7 @@ import pages.LoginPage;
 public class LoginTests extends BaseTest {
 
     //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    @Test
     public static void loginEmptyEmailPasswordTest (String email, String password) {
 
         login(email, password);
