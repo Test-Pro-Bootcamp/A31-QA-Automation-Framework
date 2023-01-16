@@ -19,8 +19,8 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait wait;
-    public static String url;
-    Actions action;
+    public static String url = "https://bbb.testpro.io/";
+    public static Actions action;
     public static FluentWait fluentWait;
 
     @BeforeSuite
@@ -35,12 +35,13 @@ public class BaseTest {
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
+        action = new Actions(driver);
     }
 
     @AfterMethod
-    public static void closeBrowser(){
-        LoginTests.driver.quit();
+    public static void closeBrowser() {
+        driver.quit();
     }
 
 //    protected static void navigateToPage() {
@@ -73,40 +74,40 @@ public class BaseTest {
 //        emailField.sendKeys(email);
 //    }
 
-    public static void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public static void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public static void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
-
-    public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
-    }
-
-    public static void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        avatarIcon.click();
-
-    }
-
-    @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
-
-        return new Object[][] {
-                {"invalid@email.com", "invalidPass"},
-                {"demo@mail.com", "invalid"},
-                {"", ""}
-        };
-    }
+//    public static void clickSaveButton() {
+//        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+//        saveButton.click();
+//    }
+//
+//    public static void provideProfileName(String randomName) {
+//        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+//        profileName.clear();
+//        profileName.sendKeys(randomName);
+//    }
+//
+//    public static void provideCurrentPassword(String password) {
+//        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+//        currentPassword.clear();
+//        currentPassword.sendKeys(password);
+//    }
+//
+//    public static String generateRandomName() {
+//        return UUID.randomUUID().toString().replace("-", "");//
+//    }
+//
+//    public static void clickAvatarIcon() {
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+//        avatarIcon.click();
+//
+//    }
+//
+//    @DataProvider(name="incorrectLoginProviders")
+//    public static Object[][] getDataFromDataproviders() {
+//
+//        return new Object[][] {
+//                {"invalid@email.com", "invalidPass"},
+//                {"demo@mail.com", "invalid"},
+//                {"", ""}
+//        };
+//    }
 }
