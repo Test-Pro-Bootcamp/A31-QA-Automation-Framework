@@ -1,21 +1,42 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class LoginTests extends BaseTest {
 
-    @Test
-    public static void LoginEmptyEmailPasswordTest () {
+    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
+    public static void loginEmptyEmailPasswordTest() {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://testpro.io/";
-        driver.get(url);
+        navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+    }
+
+    @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
+            public static void loginValidEmailValidPasswordTest () throws InterruptedException {
+
+            navigateToPage();
+
+            provideEmail("demo@class.io");
+            providePassword("te$t$tudent");
+            clickSubmit();
+
+            Thread.sleep(2000);
+            WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+            Assert.assertEquals(avatarIcon.isDisplayed());
+        }
+
+        @Test(enabled = true, priority = 2, description = "loginValidEmailValidPasswordTest")
+                public static void loginInvalidEmailValidPasswordTest () {
+
+                    navigateToPage();
+
+                    provideEmail("invalid@class.com");
+                    providePassword("te$t$tudent");
+                    clickSubmit();
+
+                    Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 }
+
