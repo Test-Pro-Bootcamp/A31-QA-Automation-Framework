@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="HW20">
+
+    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+
+    <test name="HW20" preserve-order="false">
+        <classes>
+            <class name="HW20">
+                <methods>
+                    <include name="DeletePlaylist" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
