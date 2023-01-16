@@ -14,7 +14,7 @@ public class Homework20 extends BaseTest {
     public void DeletePlaylistTest() throws InterruptedException {
         String playlistName = "test playlist";
 
-        login("demo@class.com", "te$t$tudent");
+        login("kbetestack@gmail.com", "te$t$tudent");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
         WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));

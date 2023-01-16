@@ -8,9 +8,6 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="Homework20">
-                <methods>
-                    <include name="deletePlaylist" />
-                </methods>
             </class>
         </classes>
     </test>
