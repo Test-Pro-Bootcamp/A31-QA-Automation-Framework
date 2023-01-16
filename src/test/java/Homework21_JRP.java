@@ -35,7 +35,7 @@ public class Homework21_JRP extends BaseTest{
         WebElement editThePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[text()='Edit']")));
         editThePlaylist.click();
 
-        //Enter rename playlist
+        //Enter new playlist name
         WebElement newNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='playlists']/ul/li[5]")));
         acts.doubleClick(newNameField).build().perform();
         newNameField.clear();
