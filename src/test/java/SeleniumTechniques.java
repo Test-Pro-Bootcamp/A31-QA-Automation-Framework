@@ -15,7 +15,7 @@ public class SeleniumTechniques extends BaseTest {
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
-        login();
+        login("dummytest@class.com","te$t$tudent");
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -25,8 +25,7 @@ public class SeleniumTechniques extends BaseTest {
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
     public void renamePlaylist() throws InterruptedException {
-        login();
-        doubleClickChoosePlaylist();
+        login("dummytest@class.com","te$t$tudent");
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
         Thread.sleep(2000);
@@ -35,7 +34,7 @@ public class SeleniumTechniques extends BaseTest {
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
-        login();
+        login("dummytest@class.com","te$t$tudent");
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -43,7 +42,7 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-        login();
+        login("dummytest@class.com","te$t$tudent");
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
