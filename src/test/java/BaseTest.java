@@ -29,10 +29,8 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
-        driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(4));
     }
 
     @AfterMethod
@@ -40,10 +38,10 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+   public static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 
     public static void login(String email, String password) {
         provideEmail(email);
