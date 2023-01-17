@@ -22,7 +22,7 @@ task testHomework20 (type: Test) {
 
 test {
     useTestNG() {
-        suites "src/test/resources/Homework20.xml"
+        suites "src/test/resources/Homework21.xml"
     }
 }
 
