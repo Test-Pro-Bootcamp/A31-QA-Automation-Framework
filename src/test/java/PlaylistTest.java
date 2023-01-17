@@ -115,7 +115,7 @@ public class PlaylistTest extends BaseTest{
         playBtn.click();
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void renamePlaylistTest() throws InterruptedException {
         String playlistName = "Homework";
         String newPlaylistName = "JRP Playlist";
@@ -153,7 +153,7 @@ public class PlaylistTest extends BaseTest{
 //        highlightedList.sendKeys(newPlaylistName, Keys.ENTER);
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void deletePlaylistTest() {
         String playlistName = "Test Delete";
 
