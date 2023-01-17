@@ -114,6 +114,10 @@ public class PlaylistTest extends BaseTest{
         WebElement playBtn = driver.findElement(By.xpath("//ul/li[@class='playback']"));
         playBtn.click();
 
+        //Verify through displayed equalizer
+        WebElement equalizerBars = driver.findElement(By.xpath("[alt='Sound bars']"));
+        Assert.assertTrue(equalizerBars.isDisplayed());
+
     }
     @Test(enabled = true)
     public void renamePlaylistTest() throws InterruptedException {
