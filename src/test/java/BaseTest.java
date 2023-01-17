@@ -21,7 +21,7 @@ public class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static String url = "https://bbb.testpro.io/";
-    public static Actions action;
+    public static Actions actions;
 
     @BeforeSuite
     static void setupClass() {
@@ -32,11 +32,12 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
-        action = new Actions(driver);
+        actions = new Actions(driver);
     }
 
     @AfterMethod

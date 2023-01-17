@@ -16,7 +16,7 @@ public class BasePage {
     public WebDriverWait wait;
     public Actions actions;
 
-    public BasePage (WebDriver givenDriver) {
+    public BasePage(WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
@@ -31,7 +31,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void doubleClick (WebElement locator) {
+    public void doubleClick(WebElement locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         actions.doubleClick(locator).perform();
     }

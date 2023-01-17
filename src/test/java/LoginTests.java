@@ -15,7 +15,6 @@ public class LoginTests extends BaseTest {
         HomePage homePage = new HomePage(driver);
 
         loginPage.login("test123@test.com", "te$t$tudent");
-//        homePage.getUserAvatar().isDisplayed();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 

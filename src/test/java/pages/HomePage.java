@@ -9,17 +9,16 @@ import org.testng.Assert;
 
 public class HomePage extends BasePage {
 
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By plusIcon = By.cssSelector("i[class='fa fa-plus-circle create']");
-    By newPlaylistButton = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
-    By playlistInputField = By.cssSelector("input[name='name']");
-    By deleteButton = By.className("[class='del btn-delete-playlist']");
-    By deleteSuccessMsg = By.cssSelector("[class='success show']");
-
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
+    By userAvatarIcon = By.cssSelector("img.avatar");
+    By plusIcon = By.cssSelector("i[class='fa fa-plus-circle create']");
+    By newPlaylistButton = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
+    By playlistInputField = By.cssSelector("input[name='name']");
+    By deleteButton = By.cssSelector("[class='del btn-delete-playlist']");
+    By successMsg = By.cssSelector("div.success.show");
 
     public WebElement getUserAvatar() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
@@ -65,9 +64,9 @@ public class HomePage extends BasePage {
     }
 
     //Validate the playlist is deleted
-    public void deletionMsg() {
-        WebElement successfulDeleteMsg = driver.findElement(deleteSuccessMsg);
-        Assert.assertTrue(successfulDeleteMsg.isDisplayed());
+    public boolean deletionMsg() {
+        WebElement successfulDeleteMsg = driver.findElement(successMsg);
+        return successfulDeleteMsg.isDisplayed();
     }
 
     public void choosePlaylist(String playlistName) {
@@ -80,17 +79,16 @@ public class HomePage extends BasePage {
         actions.doubleClick(playlistElement).perform();
     }
 
-    public void enterPlaylistName() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
-        WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
-        playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
-        playlistInputField.sendKeys("HW22");
-        playlistInputField.sendKeys(Keys.ENTER);
+    public void enterPlaylistName(String playlistName) {
+        WebElement playlistInputFieldElement = driver.findElement(playlistInputField);
+        playlistInputFieldElement.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        playlistInputFieldElement.sendKeys(playlistName);
+        playlistInputFieldElement.sendKeys(Keys.ENTER);
     }
 
-    public boolean doesPlaylistExist(String playlistName) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + playlistName + "']")));
-        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='" + playlistName + "']"));
+    public boolean getSuccessMsg() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(successMsg));
+        WebElement playlistElement = driver.findElement(successMsg);
         return playlistElement.isDisplayed();
     }
 
