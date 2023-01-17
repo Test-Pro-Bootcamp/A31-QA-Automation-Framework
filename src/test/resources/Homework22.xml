@@ -12,7 +12,8 @@
 <!--                    <include name="addSongToPlaylist" />-->
 <!--                    <include name="playSong" />-->
 <!--                    <include name="deletePlaylist" />-->
-                    <include name="renamePlaylist" />
+<!--                    <include name="renamePlaylist" />-->
+                    <include name="loginValidEmailPasswordTest"/>"
                 </methods>
             </class>
         </classes>

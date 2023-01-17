@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
 
@@ -27,7 +28,6 @@ public class LoginPage extends BasePage {
 
     public void providePassword(String password) {
         WebElement passwordElement = driver.findElement(passwordField);
-//        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 //        passwordField.clear();
         passwordElement.click();
         passwordElement.sendKeys(password);

@@ -2,15 +2,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 public class ProfileTests extends BaseTest {
 
     @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
     public static void updateProfileNameTest () throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
 
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+        loginpage.provideEmail("test123@test.com");
+        loginpage.providePassword("te$t$tudent");
+        loginpage.clickSubmit();
 
         Thread.sleep(2000);
         clickAvatarIcon();

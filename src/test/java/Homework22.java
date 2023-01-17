@@ -56,7 +56,7 @@ public class Homework22 extends BaseTest {
 
         loginPage.login("test123@test.com", "te$t$tudent");
 
-        ("HW");
+        createPlaylist("HW");
         choosePlaylist("HW");
         doubleClickChoosePlaylist("HW");
         enterPlaylistName();
