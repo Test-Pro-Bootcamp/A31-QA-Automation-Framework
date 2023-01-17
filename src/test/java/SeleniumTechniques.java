@@ -5,17 +5,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
 import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
+
 
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
-        login();
+        loginPage.login("test123@test.com", "te$t$tudent");
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -25,7 +30,7 @@ public class SeleniumTechniques extends BaseTest {
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
     public void renamePlaylist() throws InterruptedException {
-        login();
+        loginPage.login("test123@test.com", "te$t$tudent");
         doubleClickChoosePlaylist();
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
@@ -35,7 +40,7 @@ public class SeleniumTechniques extends BaseTest {
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
-        login();
+        loginPage.login("test123@test.com", "te$t$tudent");
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -43,7 +48,7 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-        login();
+        loginPage.login("test123@test.com", "te$t$tudent");
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());

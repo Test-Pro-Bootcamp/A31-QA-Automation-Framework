@@ -10,14 +10,13 @@ import pages.LoginPage;
 public class LoginTests extends BaseTest {
     @Test
     public static void loginValidEmailPasswordTest() {
+
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
 
         loginPage.login("test123@test.com", "te$t$tudent");
-
-        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
-        Assert.assertTrue(avatarIcon.isDisplayed());
-
+//        homePage.getUserAvatar().isDisplayed();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 
 //    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")

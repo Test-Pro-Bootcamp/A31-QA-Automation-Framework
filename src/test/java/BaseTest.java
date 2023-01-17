@@ -17,11 +17,11 @@ import java.util.UUID;
 
 
 public class BaseTest {
+
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static String url = "https://bbb.testpro.io/";
     public static Actions action;
-    public static FluentWait fluentWait;
 
     @BeforeSuite
     static void setupClass() {
@@ -31,8 +31,8 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));

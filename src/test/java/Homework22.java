@@ -5,6 +5,8 @@ import pages.HomePage;
 import pages.LoginPage;
 
 public class Homework22 extends BaseTest {
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
 
 //    @Test
 //    public void addSongToPlaylist() {
@@ -56,10 +58,10 @@ public class Homework22 extends BaseTest {
 
         loginPage.login("test123@test.com", "te$t$tudent");
 
-        createPlaylist("HW");
-        choosePlaylist("HW");
-        doubleClickChoosePlaylist("HW");
-        enterPlaylistName();
-        Assert.assertTrue(isUpdatedMsgPopUp());
+        homePage.createPlaylist("HW");
+        homePage.choosePlaylist("HW");
+        homePage.doubleClickChoosePlaylist("HW");
+        homePage.enterPlaylistName();
+        Assert.assertTrue((homePage.doesPlaylistExist(playlistName)));
     }
 }

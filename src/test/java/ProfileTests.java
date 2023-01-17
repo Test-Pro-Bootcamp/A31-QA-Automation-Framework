@@ -2,28 +2,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
+import pages.ProfilePage;
 
 public class ProfileTests extends BaseTest {
 
-    @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
-    public static void updateProfileNameTest () throws InterruptedException {
+    @Test
+    public static void updateProfileNameTest() {
+
         LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
-        loginpage.provideEmail("test123@test.com");
-        loginpage.providePassword("te$t$tudent");
-        loginpage.clickSubmit();
+        loginPage.login("test123@test.com", "te$t$tudent");
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
-        Thread.sleep(2000);
-        clickAvatarIcon();
+        String randomName = profilePage.generateRandomName();
 
-        String randomName = generateRandomName();
+        profilePage.provideCurrentPassword("te$t$tudent");
+        profilePage.provideProfileName(randomName);
+        profilePage.clickSaveButton();
 
-        provideCurrentPassword("te$t$tudent");
-        provideProfileName(randomName);
-        clickSaveButton();
-
-        Thread.sleep(2000);
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 

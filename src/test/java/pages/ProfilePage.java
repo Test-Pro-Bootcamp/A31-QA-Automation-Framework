@@ -1,45 +1,61 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.DataProvider;
 
-public class ProfilePage {
+import java.util.UUID;
 
-    WebDriver driver;
-    WebElement wait;
+public class ProfilePage extends BasePage {
+
+    By currentPassword = By.cssSelector("[name='current_password']");
+    By profileName = By.cssSelector("[name='name']");
+    By emailAddress = By.cssSelector("[type='email']");
+    By saveButton = By.cssSelector("button.btn-submit");
 
 
-    public static void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
+    public ProfilePage(WebDriver givenDriver) {
+        super(givenDriver);
     }
 
-    public static void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
+    public void provideCurrentPassword(String password) {
+        WebElement currentPasswordElement = driver.findElement(currentPassword);
+        currentPasswordElement.clear();
+        currentPasswordElement.sendKeys(password);
     }
 
-    public static void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
+    public void provideProfileName(String randomName) {
+        WebElement profileNameElement = driver.findElement(profileName);
+        profileNameElement.clear();
+        profileNameElement.sendKeys(randomName);
     }
 
-    public static String generateRandomName() {
+    public void provideEmailAddress(String email) {
+        WebElement emailAddressElement = driver.findElement(emailAddress);
+        emailAddressElement.click();
+        emailAddressElement.sendKeys(email);
+    }
+
+    public void clickSaveButton() {
+        WebElement saveButtonElement = driver.findElement(saveButton);
+        saveButtonElement.click();
+    }
+
+    public String generateRandomName() {
         return UUID.randomUUID().toString().replace("-", "");//
     }
 
-    public static void clickAvatarIcon() {
+    public void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
-
     }
 
-    @DataProvider(name="incorrectLoginProviders")
+    @DataProvider(name = "incorrectLoginProviders")
     public static Object[][] getDataFromDataproviders() {
 
-        return new Object[][] {
+        return new Object[][]{
                 {"invalid@email.com", "invalidPass"},
                 {"demo@mail.com", "invalid"},
                 {"", ""}

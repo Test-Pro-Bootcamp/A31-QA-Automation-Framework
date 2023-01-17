@@ -1,13 +1,20 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 public class HomePage extends BasePage {
 
     By userAvatarIcon = By.cssSelector("img.avatar");
+    By plusIcon = By.cssSelector("i[class='fa fa-plus-circle create']");
+    By newPlaylistButton = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
+    By playlistInputField = By.cssSelector("input[name='name']");
+    By deleteButton = By.className("[class='del btn-delete-playlist']");
+    By deleteSuccessMsg = By.cssSelector("[class='success show']");
 
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
@@ -18,47 +25,73 @@ public class HomePage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
     }
 
-
-
-
+    public boolean isDisplayed() {
+        return true;
+    }
 
     //Create a playlist
-    public void createPlaylist() throws InterruptedException {
-        String playlistName = "HW19";
-        WebElement clickPlusButton = driver.findElement(By.cssSelector("i[class='fa fa-plus-circle create']"));
-        clickPlusButton.click();
-        Thread.sleep(2000);
+    public void createPlaylist(String playlistName) {
+        clickPlusIcon();
+        clickNewPlaylistButton();
+        createAPlaylistName(playlistName);
+    }
 
-        WebElement clickNewPlaylistButton = driver.findElement(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']"));
-        clickNewPlaylistButton.click();
-        Thread.sleep(2000);
+    public void clickPlusIcon() {
+        WebElement clickPlusButtonElement = driver.findElement(plusIcon);
+        clickPlusButtonElement.click();
+    }
 
-        WebElement newPlaylistField = driver.findElement(By.cssSelector("input[name='name']"));
+    public void clickNewPlaylistButton() {
+        WebElement selectNewPlaylistButton = driver.findElement(newPlaylistButton);
+        selectNewPlaylistButton.click();
+    }
+
+    public void createAPlaylistName(String playlistName) {
+        WebElement newPlaylistField = driver.findElement(playlistInputField);
         newPlaylistField.sendKeys(playlistName);
         newPlaylistField.submit();
-        Thread.sleep(2000);
     }
 
     //Navigate and select a playlist
-    public void selectDesiredPlaylist() throws InterruptedException {
-        String playlistName = "HW19";
-        WebElement selectAPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]"));
-        selectAPlaylist.click();
-        Thread.sleep(2000);
+    public void selectDesiredPlaylist(String playlistName) {
+        WebElement selectAPlaylistElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]")));
+        selectAPlaylistElement.click();
     }
 
     //Delete the selected playlist
-    public void deleteDesiredPlaylist() throws InterruptedException {
-        WebElement clickDeleteButton = driver.findElement(By.cssSelector("[class='del btn-delete-playlist']"));
+    public void deleteDesiredPlaylist() {
+        WebElement clickDeleteButton = driver.findElement(deleteButton);
         clickDeleteButton.click();
-        Thread.sleep(2000);
     }
 
     //Validate the playlist is deleted
-    public void deletionMsg() throws InterruptedException {
-        WebElement successfulDeleteMsg = driver.findElement(By.cssSelector("[class='success show']"));
+    public void deletionMsg() {
+        WebElement successfulDeleteMsg = driver.findElement(deleteSuccessMsg);
         Assert.assertTrue(successfulDeleteMsg.isDisplayed());
     }
 
+    public void choosePlaylist(String playlistName) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"))).click();
+    }
+
+    public void doubleClickChoosePlaylist(String playlistName) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]")));
+        WebElement playlistElement = driver.findElement(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"));
+        actions.doubleClick(playlistElement).perform();
+    }
+
+    public void enterPlaylistName() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
+        WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
+        playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        playlistInputField.sendKeys("HW22");
+        playlistInputField.sendKeys(Keys.ENTER);
+    }
+
+    public boolean doesPlaylistExist(String playlistName) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + playlistName + "']")));
+        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='" + playlistName + "']"));
+        return playlistElement.isDisplayed();
+    }
 
 }
