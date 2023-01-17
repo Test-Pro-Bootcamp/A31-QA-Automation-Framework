@@ -15,15 +15,15 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
 }
 
-test {
-    useTestNG() {
-        suites "src/test/resources/Homework19.xml"
-    }
-}
+//test {
+ //   useTestNG() {
+  //      suites "src/test/resources/Homework19.xml"
+ //   }
 
-task testSmoke(type: Test) {
+
+task testHomework18a(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Smoke.xml"
+        suites "src/test/resources/Homework18a.xml"
     }
 }
 
