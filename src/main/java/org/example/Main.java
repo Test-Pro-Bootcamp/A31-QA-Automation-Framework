@@ -11,7 +11,7 @@ public class Main {
         driver.get("https://bbb.testpro.io/");
 
         WebElement link = driver.findElement(By.cssSelector("#hel"));
-        //link.click();
+        link.click();
 
         if (driver.getPageSource().contains("Register new account")){
             System.out.println("Got redirected");
