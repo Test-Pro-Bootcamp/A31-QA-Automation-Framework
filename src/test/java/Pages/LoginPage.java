@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage extends BasePage{
-    By emailField = By.cssSelector("[type = 'email']");
-    By passwordField = By.cssSelector("[type = 'password']");
-    By  submitButton = By.cssSelector("button[type = 'submit']");
+    private final By emailField = By.cssSelector("[type = 'email']");
+    private final By passwordField = By.cssSelector("[type = 'password']");
+    private final By  submitButton = By.cssSelector("button[type = 'submit']");
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions action;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions action;
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -24,7 +24,7 @@ public class BasePage {
         action.doubleClick(findElement(locator)).perform();
     }
 
-    public void Click(By locator){
+    public void click(By locator){
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
