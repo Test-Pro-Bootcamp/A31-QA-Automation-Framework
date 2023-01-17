@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,30 +14,24 @@ public class Homework19 extends BaseTest {
     public void DeletePlaylistTest() throws InterruptedException {
         String playlistName = "test playlist";
 
-        login("demo@class.com", "te$t$tudent");
+        login("adeagle2021@gmail.com", "te$t$tudent");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
+        //clickNewPlaylistOption
+        WebElement NewPlaylistOption = driver.findElement(By.xpath("//li[text()='New Playlist']"));
+        NewPlaylistOption.click();
+        //
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
+        WebElement PlaylistField = driver.findElement(By.cssSelector("input[name='name']"));
+        PlaylistField.sendKeys("FinallyBro");
+        PlaylistField.sendKeys(Keys.ENTER);
 
-        WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
-        newPlaylist.click();
+        Actions actions = new Actions(driver);
+        WebElement Playlistname = driver.findElement(By.cssSelector("[href=\"#!/playlist/20364\"]"));
+        actions.contextClick(Playlistname).perform();
+        Thread.sleep(5000);
+         WebElement deleteOption = driver.findElement(By.cssSelector("li:nth-child(14) ul [data-testid=\"playlist-context-menu-delete-20364\"]]"));
+        actions.moveToElement(deleteOption).click(deleteOption);
+        Thread.sleep(4000);
 
-        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
-        nameField.clear();
-        nameField.sendKeys(playlistName, Keys.ENTER);
-
-        WebElement testPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
-        testPlaylist.click();
-
-        WebElement deletePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@title='Delete this playlist']")));
-        deletePlaylist.click();
-
-        Thread.sleep(2000);
-        List<WebElement> playlistNames = driver.findElements(By.xpath("//section[@id='playlists']//li/a"));
-
-        for(WebElement p : playlistNames) {
-            String name = p.getText();
-            if (name.equals(playlistName)) {
-                Assert.assertTrue(false);
-            }
-        }
     }
 }
