@@ -7,7 +7,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests">
+            <class name="Homework21">
                 <methods>
                     <include name="renamePlaylist" />
                 </methods>
