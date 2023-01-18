@@ -40,10 +40,10 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+    protected static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
 
     public static void login(String email, String password) {
         provideEmail(email);
@@ -106,4 +106,47 @@ public class BaseTest {
                 {"", ""}
         };
     }
+
+    //HW17 by Aliaksandr
+    public void choosePlaylist (String playlistName) throws InterruptedException {
+        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResults rapper']//section/ul/li[contains(text(), '"+playlistName+"')]"));
+        playlistNameElement.click();
+        Thread.sleep(2000);
+    }
+
+    public String getNotificationText(){
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+        return notificationText.getText();
+    }
+
+    public boolean isNotificationPopUpPresent(){
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show")); return notificationText.isDisplayed();
+    }
+
+    public void searchSong(String songTitleKeyword) throws InterruptedException{
+        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type=search]"));
+
+        searchField.sendKeys(songTitleKeyword);
+        Thread.sleep(2000);
+    }
+
+    public void viewAllSearchResults() throws InterruptedException {
+        WebElement viewAllSearchResult = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        viewAllSearchResult.click();
+        Thread.sleep(2000);
+    }
+
+    public void selectFirstSongResult() throws InterruptedException {
+        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
+        viewAllFirstSongResult.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickAddToButton() throws InterruptedException {
+        WebElement addTo = driver.findElement(By.cssSelector("button.btn-add-to"));
+        addTo.click();
+        Thread.sleep(2000);
+    }
+
+    //End of HW17 by Aliaksandr
 }
