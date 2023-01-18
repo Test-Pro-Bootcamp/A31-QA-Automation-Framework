@@ -36,8 +36,4 @@ public class HomeWork22 extends BaseTest{
         songsPage.selectAllReadyCreatedPlayList();
         songsPage.isSongAddedMessageDisplayed();
     }
-
-
 }
-
-

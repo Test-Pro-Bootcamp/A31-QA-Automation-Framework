@@ -61,4 +61,3 @@ public class SongsPage extends BasePage {
         return songAddedMessage.isDisplayed();
     }
 }
-
