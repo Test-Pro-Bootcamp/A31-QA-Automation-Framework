@@ -10,9 +10,7 @@ import java.time.Duration;
 
 public class HomePage extends BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    By userAvatarIcon = By.cssSelector("img.avatar");
+    private By userAvatarIcon = By.cssSelector("img.avatar");
 
     public HomePage( WebDriver givenDriver) {
         super(givenDriver);

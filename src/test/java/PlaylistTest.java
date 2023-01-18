@@ -115,7 +115,7 @@ public class PlaylistTest extends BaseTest{
         playBtn.click();
 
         //Verify through displayed equalizer
-        WebElement equalizerBars = driver.findElement(By.xpath("[alt='Sound bars']"));
+        WebElement equalizerBars = driver.findElement(By.cssSelector("[alt='Sound bars']"));
         Assert.assertTrue(equalizerBars.isDisplayed());
 
     }

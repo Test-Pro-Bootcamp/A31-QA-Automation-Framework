@@ -7,13 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-//    WebDriver driver;
-//    WebDriver wait;
-
     //Locators
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-    By submitButton = By.cssSelector("button[type='submit']");
+    private By emailField = By.cssSelector("[type='email']");
+    private By passwordField = By.cssSelector("[type='password']");
+    private By submitButton = By.cssSelector("button[type='submit']");
 
     @FindBy(css = "[test]")
     WebElement email;
@@ -22,10 +19,6 @@ public class LoginPage extends BasePage {
         super(givenDriver);
     }
 
-//    public LoginPage(WebDriver givenDriver) {
-//        driver = givenDriver;
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//    }
     public void provideEmail(String email) {
         WebElement emailElement = driver.findElement(emailField);
         emailElement.click();
