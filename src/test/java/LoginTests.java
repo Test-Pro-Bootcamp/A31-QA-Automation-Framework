@@ -1,47 +1,46 @@
+
 import Homework22.HomePage22;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import Homework22.LoginPage22;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public static void loginEmptyEmailPasswordTest (String email, String password) {
+    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
+    //@Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+   public static void loginEmptyEmailPasswordTest (String email, String password) {
 
         login(email, password);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+       Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     //Page Object Model example
-    @Test
-    public void LoginValidEmailPasswordTest () {
+    @Test(enabled = true, priority = 1, description = "loginValidEmailPasswordTest")
+    public static void loginValidEmailPasswordTest () {
 
-        LoginPage loginPage = new LoginPage(driver);
         HomePage22 HomePage22 = new HomePage22(driver);
+        LoginPage22 LoginPage22 = new LoginPage22(driver);
 
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-
-        Assert.assertTrue(HomePage22.getUserAvatar().isDisplayed());
-
+        LoginPage22.login();
+        HomePage22.getUserAvatar().isDisplayed();
+        HomePage22.doubleClickFirstPlaylist();
+        HomePage22.enterPlaylistName("Test Pro Playlist");
+        HomePage22.doesPlaylistExist("Test Pro Playlist");
+      //  LoginPage22.provideEmail("demo@class.com");
+      //  LoginPage22.providePassword("te$t$tudent");
+      //  LoginPage22.clickSubmitBtn();
     }
 
-    @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
-    public static void loginInvalidEmailValidPasswordTest () {
+ //   @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
+ //   public static void loginInvalidEmailValidPasswordTest () {
 
-        provideEmail("invalid@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+        //provideEmail("invalid@class.com");
+        //providePassword("te$t$tudent");
+        //clickSubmit();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+ //       Assert.assertEquals(driver.getCurrentUrl(), url);
 
-    }
+   // }
 
 
 

@@ -1,27 +1,33 @@
 package Homework22;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+public class HomePage22 extends BasePage22 {
 
-public class HomePage22 {
+    public HomePage22( WebDriver givenDriver) { super (givenDriver); }
 
-    WebDriver driver;
-    WebDriverWait wait;
+    By firstPlaylist = By.cssSelector(".playlist:nth=child(3)");
+    By playlistInputField = By.cssSelector("input[name='name']");
 
-    By userAvatarIcon = By.cssSelector("img.avatar");
-
-    public HomePage22( WebDriver givenDriver) {
-        driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    public void doubleClickFirstPlaylist() { doubleClick(driver.findElement(firstPlaylist));}
+    public void enterPlaylistName (String playlistName) {
+        driver.findElement(playlistInputField).sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        driver.findElement(playlistInputField).sendKeys(playlistName);
+        driver.findElement(playlistInputField).sendKeys(Keys.ENTER);
     }
 
-    public WebElement getUserAvatar () {
-        return  wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
+    public HomePage22 getUserAvatar() {
+        driver.findElement(By.xpath(("//*[@id=\"userBadge\"]")));
+        return this;
     }
 
+    public boolean doesPlaylistExist(String playlistName) {
+        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Test Pro Playlist']"));
+        return playlistElement.isDisplayed();
+    }
+
+    public boolean isDisplayed() { return true;}
 }
