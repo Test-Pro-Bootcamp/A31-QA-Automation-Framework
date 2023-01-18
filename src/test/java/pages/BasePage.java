@@ -17,7 +17,7 @@ public class BasePage {
 
     public BasePage( WebDriver givenDriver) {
         driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void click(By locator) {
