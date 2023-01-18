@@ -1,29 +1,30 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        login("demo@class.com", "te$t$tudent");
-        Thread.sleep(2000);
+        login("serge.uwiduhaye@gmail.com", "te$t$tudent");
+        //Thread.sleep(2000);
         grabASong();
 
     }
 
     public void grabASong(){
-        WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']"));
-        WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//li[5]"));
+        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//article[@data-test='song-card']")));
+        WebElement myFirstPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playlist:nth-child(3)")));
 
         Actions acts = new Actions(driver);
         acts.clickAndHold(song)
-                .release(playlist)
+                .release(myFirstPlaylist)
                 .build()
                 .perform();
 
-        playlist.click();
+        myFirstPlaylist.click();
 //        acts.dragAndDrop(song, playlist).build().perform();
 
     }
