@@ -10,7 +10,7 @@ public class Homework21 extends BaseTest {
     public static String playlistName = "Test Playlist";
 
     @Test
-    public static void renamePlaylist() throws InterruptedException {
+    public static void renamePlaylist() {
         //Enter tester username
         provideEmail("amandaag39@gmail.com");
 
@@ -41,17 +41,16 @@ public class Homework21 extends BaseTest {
         editPlaylistButton.click();
 
         //clear text field
-        Thread.sleep(1000);
-        WebElement playlistTextField = driver.findElement(By.cssSelector("input[data-testid='inline-playlist-name-input']"));
+        //WebElement playlistTextField = driver.findElement(By.cssSelector("input[data-testid='inline-playlist-name-input']"));
+        WebElement playlistTextField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[data-testid='inline-playlist-name-input']")));
         playlistTextField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
         playlistTextField.sendKeys(playlistName);
         playlistTextField.sendKeys(Keys.ENTER);
 
         //confirm presence of playlist with edited name
-        Thread.sleep(1000);
-        WebElement editedXYZPlaylist = driver.findElement(By.xpath("//a[text()='"+playlistName +"']"));
+        //WebElement editedXYZPlaylist = driver.findElement(By.xpath("//a[text()='"+playlistName +"']"));
+        WebElement editedXYZPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='"+playlistName +"']")));
         Assert.assertTrue(editedXYZPlaylist.isDisplayed());
-
 
     }
 

@@ -23,7 +23,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    public static WebDriver driver = null;
+    public static WebDriver driver;
     public static WebDriverWait wait = null;
 
 
