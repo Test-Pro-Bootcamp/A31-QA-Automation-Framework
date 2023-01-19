@@ -10,7 +10,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework18">
+            <class name="tests.Homework18">
                 <methods>
                     <include name="playSong"/>
                 </methods>
