@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -13,15 +14,22 @@ public class HomePage extends BasePage {
         super(givenDriver);
     }
 
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By plusIcon = By.cssSelector("i[class='fa fa-plus-circle create']");
-    By newPlaylistButton = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
-    By playlistInputField = By.cssSelector("input[name='name']");
-    By deleteButton = By.cssSelector("[class='del btn-delete-playlist']");
-    By successMsg = By.cssSelector("div.success.show");
+    //WebElements
+    @FindBy(css = "img.avatar")
+    WebElement userAvatarIcon;
+    @FindBy(css = "i[class='fa fa-plus-circle create']")
+    WebElement plusIcon;
+    @FindBy(css = "li[data-testid='playlist-context-menu-create-simple']")
+    WebElement newPlaylistButton;
+    @FindBy(css = "input[name='name']")
+    WebElement playlistInputField;
+    @FindBy(css = "[class='del btn-delete-playlist']")
+    WebElement deleteButton;
+    @FindBy(css = "div.success.show")
+    WebElement successMsg;
 
     public WebElement getUserAvatar() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
+        return userAvatarIcon;
     }
 
     public boolean isDisplayed() {
@@ -36,19 +44,16 @@ public class HomePage extends BasePage {
     }
 
     public void clickPlusIcon() {
-        WebElement clickPlusButtonElement = driver.findElement(plusIcon);
-        clickPlusButtonElement.click();
+        plusIcon.click();
     }
 
     public void clickNewPlaylistButton() {
-        WebElement selectNewPlaylistButton = driver.findElement(newPlaylistButton);
-        selectNewPlaylistButton.click();
+        newPlaylistButton.click();
     }
 
     public void createAPlaylistName(String playlistName) {
-        WebElement newPlaylistField = driver.findElement(playlistInputField);
-        newPlaylistField.sendKeys(playlistName);
-        newPlaylistField.submit();
+        playlistInputField.sendKeys(playlistName);
+        playlistInputField.submit();
     }
 
     //Navigate and select a playlist
@@ -59,14 +64,12 @@ public class HomePage extends BasePage {
 
     //Delete the selected playlist
     public void deleteDesiredPlaylist() {
-        WebElement clickDeleteButton = driver.findElement(deleteButton);
-        clickDeleteButton.click();
+        deleteButton.click();
     }
 
     //Validate the playlist is deleted
     public boolean deletionMsg() {
-        WebElement successfulDeleteMsg = driver.findElement(successMsg);
-        return successfulDeleteMsg.isDisplayed();
+        return successMsg.isDisplayed();
     }
 
     public void choosePlaylist(String playlistName) {
@@ -79,17 +82,21 @@ public class HomePage extends BasePage {
         actions.doubleClick(playlistElement).perform();
     }
 
+    public void contextClickChoosePlaylist(String playlistName) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]")));
+        WebElement playlistElement = driver.findElement(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"));
+        actions.contextClick(playlistElement).perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(),'Edit')]"))).click();
+    }
+
     public void enterPlaylistName(String playlistName) {
-        WebElement playlistInputFieldElement = driver.findElement(playlistInputField);
-        playlistInputFieldElement.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
-        playlistInputFieldElement.sendKeys(playlistName);
-        playlistInputFieldElement.sendKeys(Keys.ENTER);
+        playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        playlistInputField.sendKeys(playlistName);
+        playlistInputField.sendKeys(Keys.ENTER);
     }
 
     public boolean getSuccessMsg() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(successMsg));
-        WebElement playlistElement = driver.findElement(successMsg);
-        return playlistElement.isDisplayed();
+        return successMsg.isDisplayed();
     }
 
 }

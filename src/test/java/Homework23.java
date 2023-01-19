@@ -14,7 +14,7 @@ public class Homework23 extends BaseTest {
         homePage.createPlaylist("HW");
         homePage.choosePlaylist("HW");
         homePage.doubleClickChoosePlaylist("HW");
-        homePage.enterPlaylistName("HW22");
+        homePage.enterPlaylistName("HW23");
         Assert.assertTrue((homePage.getSuccessMsg()));
     }
 
