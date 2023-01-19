@@ -3,33 +3,41 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AllSongsPage extends BasePage{
 
-    By successMsg = By.cssSelector("div.success.show");
-    By selectFirstSong = By.cssSelector("section#songsWrapper tr:nth-child(1) td.title");
-    By addToButton = By.cssSelector("button[class='btn-add-to']");
-    By choosePlaylistName = By.cssSelector("li[class = 'playlist']");
+    @FindBy(css="section#songsWrapper tr:nth-child(1) td.title")
+    WebElement firstSong;
+    @FindBy(css="button[class='btn-add-to']")
+    WebElement addToButton;
+
+    //locator
     By soundBarIcon = By.cssSelector("img[alt='Sound bars']");
 
     public AllSongsPage (WebDriver givenDriver) { super(givenDriver); }
 
-    public void addSongToPlaylist () {
-        click(selectFirstSong);
-        click(addToButton);
-        click(choosePlaylistName);
+    public AllSongsPage selectFirstSong () {
+        waitClick(firstSong);
+        firstSong.click();
+        return this;
     }
 
-    public void playSelectedSong() {
-        doubleClick(driver.findElement(selectFirstSong));
+    public AllSongsPage addSongToPlaylist () {
+        waitClick(addToButton);
+        addToButton.click();
+        firstPlaylist.click();
+        return this;
     }
 
-    public boolean isPlaying() {
-        return waitVisible(soundBarIcon);
+    public AllSongsPage playSelectedSong() {
+        doubleClick(firstSong);
+        return this;
     }
 
-    public boolean getSuccessMsg () {
-        return waitVisible(successMsg);
+    public WebElement isPlaying() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(soundBarIcon));
     }
+
 }

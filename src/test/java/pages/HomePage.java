@@ -4,23 +4,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import java.time.Duration;
 
 public class HomePage extends BasePage{
 
-    //Locators
-    By avatarIcon = By.cssSelector("img.avatar");
-    By successMsg = By.cssSelector("div.success.show");
-    By plusButton = By.cssSelector("[class='fa fa-plus-circle create']");
-    By newPlaylistOption = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
-    By playlistInputField = By.cssSelector("input[name='name']");
-    By allSongsButton = By.xpath("//a[contains(text(), 'All Songs')]");
-    By playlist = By.cssSelector(".playlist:nth-child(3)");
+    //WebElements
+    @FindBy (css="[class='fa fa-plus-circle create']")
+    WebElement createPlaylistButton;
+    @FindBy (css="li[data-testid='playlist-context-menu-create-simple']")
+    WebElement newPlaylistOption;
+    @FindBy (css="input[name='name']")
+    WebElement playlistInputField;
 
+    //locator
+    By avatarIcon = By.cssSelector("img.avatar");
 
     //Constructor
     public HomePage(WebDriver givenDriver) {
@@ -28,39 +26,29 @@ public class HomePage extends BasePage{
     }
 
     //Page methods
-    public WebElement getUserAvatar() {
+    public WebElement userAvatarIcon() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(avatarIcon));
     }
 
-    public boolean getSuccessMsg() {
-        return waitVisible(successMsg);
+    public HomePage createCustomPlaylist(String playlistName) {
+        waitClick(createPlaylistButton);
+        createPlaylistButton.click();
+        newPlaylistOption.click();
+        playlistInputField.sendKeys(playlistName);
+        playlistInputField.submit();
+        return this;
     }
 
-    public void createdCustomPlaylist(String playlistName) {
-        click(plusButton);
-        click(newPlaylistOption);
-
-        WebElement inputPlaylistName = driver.findElement(playlistInputField);
-        inputPlaylistName.sendKeys(playlistName);
-        inputPlaylistName.submit();
+    public HomePage doubleClickFirstPlaylist() {
+        doubleClick(firstPlaylist);
+        return this;
     }
 
-    public void clickAllSongs() {
-        click(allSongsButton);
-    }
-
-    public void clickPlaylist() {
-        click(playlist);
-    }
-
-    public void doubleClickPlaylist() {
-        doubleClick(driver.findElement(playlist));
-    }
-
-    public void renamePlaylist(String newPlaylistName) {
+    public HomePage renamePlaylist(String newPlaylistName) {
         waitClick(playlistInputField);
-        driver.findElement(playlistInputField).sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
-        driver.findElement(playlistInputField).sendKeys(newPlaylistName);
-        driver.findElement(playlistInputField).sendKeys(Keys.ENTER);
+        playlistInputField.sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
+        playlistInputField.sendKeys(newPlaylistName);
+        playlistInputField.sendKeys(Keys.ENTER);
+        return this;
     }
 }

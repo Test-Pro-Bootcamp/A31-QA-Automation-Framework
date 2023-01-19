@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.Keys;
@@ -12,10 +13,13 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage{
 
-    //Locators
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-    By clickSubmitButton = By.cssSelector("button[type='submit']");
+    //Web Elements
+    @FindBy (css="[type='email']")
+    WebElement emailField;
+    @FindBy (css="[type='password']")
+    WebElement passwordField;
+    @FindBy (css="button[type='submit']")
+    WebElement submitButton;
 
     //Constructor
     public LoginPage (WebDriver givenDriver) {
@@ -23,13 +27,18 @@ public class LoginPage extends BasePage{
     }
 
     //Page methods
-    public void login(String email, String password) {
-        waitClick(emailField);
-        driver.findElement(emailField).sendKeys(email);
+    public LoginPage provideEmail(String email) {
+        emailField.sendKeys(email);
+        return this;
+    }
 
-        driver.findElement(passwordField).sendKeys(password);
-
-        click(clickSubmitButton);
+    public LoginPage providePassword(String password) {
+        passwordField.sendKeys(password);
+        return this;
+    }
+    public LoginPage clickSubmitButton(){
+        submitButton.click();
+        return this;
     }
 
 

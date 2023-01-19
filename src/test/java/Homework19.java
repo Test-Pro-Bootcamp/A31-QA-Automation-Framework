@@ -11,18 +11,20 @@ public class Homework19 extends BaseTest{
     @Test
     public void deletePlaylist() {
 
+        String playlistName = "Empty Playlist";
+
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         CustomPlaylistPage customPlaylistPage = new CustomPlaylistPage(driver);
 
-        loginPage.login("hand923@gmail.com", "te$t$tudent");
+        loginPage.provideEmail("hand923@gmail.com")
+                .providePassword("te$t$tudent")
+                .clickSubmitButton();
 
-        homePage.createdCustomPlaylist("Empty Playlist");
-        Assert.assertTrue(homePage.getSuccessMsg());
-
-        homePage.clickPlaylist();
+        homePage.createCustomPlaylist(playlistName)
+                .clickFirstPlaylist();
 
         customPlaylistPage.deleteEmptyPlaylist();
-        Assert.assertTrue(customPlaylistPage.isDeleted());
+        Assert.assertTrue(customPlaylistPage.getSuccessMsg().isDisplayed());
     }
 }

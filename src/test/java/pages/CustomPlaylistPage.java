@@ -2,21 +2,22 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CustomPlaylistPage extends BasePage{
 
-    By deleteButton = By.cssSelector("button[class='del btn-delete-playlist']");
-    By successMsg = By.cssSelector("div.success.show");
+    @FindBy (css="button[class='del btn-delete-playlist']")
+    WebElement deleteButton;
+
 
     public CustomPlaylistPage (WebDriver givenDriver){
         super(givenDriver);
     }
 
-    public void deleteEmptyPlaylist() {
-        click(deleteButton);
-    }
-
-    public boolean isDeleted() {
-        return waitVisible(successMsg);
+    public CustomPlaylistPage deleteEmptyPlaylist() {
+        waitClick(deleteButton);
+        deleteButton.click();
+        return this;
     }
 }

@@ -14,11 +14,14 @@ public class Homework18 extends BaseTest {
         HomePage homePage = new HomePage(driver);
         AllSongsPage allSongsPage = new AllSongsPage(driver);
 
-        loginPage.login("hand923@gmail.com", "te$t$tudent");
+        loginPage.provideEmail("hand923@gmail.com")
+                 .providePassword("te$t$tudent")
+                 .clickSubmitButton();
 
         homePage.clickAllSongs();
 
-        allSongsPage.playSelectedSong();
-        Assert.assertTrue(allSongsPage.isPlaying());
+        allSongsPage.selectFirstSong()
+                    .playSelectedSong();
+        Assert.assertTrue(allSongsPage.isPlaying().isDisplayed());
     }
 }
