@@ -33,25 +33,25 @@ public class Homework21 extends BaseTest {
 
 
     }
-    //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
-    @Test
-    public void listOfSongsWebElements() {
-        login("kbetestack@gmail.com", "te$t$tudent");
-        choosePlaylist();
-        displayAllSongs();
-        Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
-    }
-
-    @Test
-    public void hoverOverPlayBtn() {
-        login("kbetestack@gmail.com", "te$t$tudent");
-        chooseAllSongsList();
-        hoverToPlayBtn();
-        Assert.assertTrue(hoverToPlayBtn().isDisplayed());
-
-    }
-
-
+//    //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
+//    @Test
+//    public void listOfSongsWebElements() {
+//        login("kbetestack@gmail.com", "te$t$tudent");
+//        choosePlaylist();
+//        displayAllSongs();
+//        Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
+//    }
+//
+//    @Test
+//    public void hoverOverPlayBtn() {
+//        login("kbetestack@gmail.com", "te$t$tudent");
+//        chooseAllSongsList();
+//        hoverToPlayBtn();
+//        Assert.assertTrue(hoverToPlayBtn().isDisplayed());
+//
+//    }
+//
+//
     //    helper methods
     public void chooseAllSongsList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
@@ -77,10 +77,10 @@ public class Homework21 extends BaseTest {
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(1)"));
         Actions.doubleClick(playlistElement).perform();
     }
-
-    public void choosePlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(1)"))).click();
-    }
+//
+//    public void choosePlaylist() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(1)"))).click();
+//    }
     public void enterPlaylistName() {
         WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
 //        clear() does not work, element has an attribute of "required"
@@ -92,31 +92,31 @@ public class Homework21 extends BaseTest {
     public boolean doesPlaylistExist() {
         WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Edited Playlist Name']"));
         return playlistElement.isDisplayed();
-    }
+   }
 
-    public int countSongsInPlaylist() {
-        return driver.findElements(By.cssSelector("section#playlistWrapper td.title")).size();
-    }
-
-    public void displayAllSongs() {
-        List<WebElement> songList = driver.findElements(By.cssSelector("section#playlistWrapper td.title"));
-        System.out.println("Number of songs found: " + countSongsInPlaylist());
-        for (WebElement e : songList) {
-            System.out.println(e.getText());
-        }
-    }
-    public String getPlaylistDetails() {
-        return driver.findElement(By.cssSelector("span.meta.text-secondary span.meta")).getText();
-    }
-
-    //hover to play button/controls
-    public WebElement hoverToPlayBtn(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
-        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        Actions.moveToElement(playButton).perform();
-        return  playButton;
-
-    }
+//    public int countSongsInPlaylist() {
+//        return driver.findElements(By.cssSelector("section#playlistWrapper td.title")).size();
+//    }
+//
+//    public void displayAllSongs() {
+//        List<WebElement> songList = driver.findElements(By.cssSelector("section#playlistWrapper td.title"));
+//        System.out.println("Number of songs found: " + countSongsInPlaylist());
+//        for (WebElement e : songList) {
+//            System.out.println(e.getText());
+//        }
+//    }
+//    public String getPlaylistDetails() {
+//        return driver.findElement(By.cssSelector("span.meta.text-secondary span.meta")).getText();
+//    }
+//
+//    //hover to play button/controls
+//    public WebElement hoverToPlayBtn(){
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
+//        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+//        Actions.moveToElement(playButton).perform();
+//        return  playButton;
+//
+//    }
 
 
 }
