@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -74,7 +75,7 @@ public class Homework21 extends BaseTest {
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(1)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(1)"));
-        action.doubleClick(playlistElement).perform();
+        Actions.doubleClick(playlistElement).perform();
     }
 
     public void choosePlaylist() {
@@ -112,7 +113,7 @@ public class Homework21 extends BaseTest {
     public WebElement hoverToPlayBtn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        action.moveToElement(playButton).perform();
+        Actions.moveToElement(playButton).perform();
         return  playButton;
 
     }
