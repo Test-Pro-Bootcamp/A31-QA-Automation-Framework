@@ -15,6 +15,8 @@ public class LoginPage extends BasePage{
         super(givenDriver);
     }
 
+
+
     public void clickSubmitBtn() {
         driver.findElement(submitButtonLocator).click();
     }
@@ -30,8 +32,8 @@ public class LoginPage extends BasePage{
 
     }
 
-    public void logIn(){
-        provideEmail("demo@class.com");
+    public void login(){
+        provideEmail("dummytest@class.com");
         providePassword("te$t$tudent");
         clickSubmitBtn();
     }
