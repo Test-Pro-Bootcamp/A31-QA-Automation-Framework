@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Homework19 extends BaseTest {
+public class HomeworkNineteen extends BaseTest {
 
     @Test
-    public void DeletePlaylistTest() throws InterruptedException {
-        String playlistName = "test playlist";
+    public void deletePlaylistTest() throws Exception {
+        String playlistName = "test19";
 
-        login("demo@class.com", "te$t$tudent");
+        login("ainurbilyalova818@gmail.com", "te$t$tudent");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
         WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
@@ -21,10 +21,11 @@ public class Homework19 extends BaseTest {
 
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
         nameField.clear();
-        nameField.sendKeys(playlistName, Keys.ENTER);
+        nameField.sendKeys("test19", Keys.ENTER);
 
-        WebElement testPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
-        testPlaylist.click();
+
+        WebElement test19 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='" + playlistName + "']")));
+        test19.click();
 
         WebElement deletePlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@title='Delete this playlist']")));
         deletePlaylist.click();
@@ -32,7 +33,7 @@ public class Homework19 extends BaseTest {
         Thread.sleep(2000);
         List<WebElement> playlistNames = driver.findElements(By.xpath("//section[@id='playlists']//li/a"));
 
-        for(WebElement p : playlistNames) {
+        for (WebElement p : playlistNames) {
             String name = p.getText();
             if (name.equals(playlistName)) {
                 Assert.assertTrue(false);
