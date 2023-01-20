@@ -54,8 +54,6 @@ public class PlaylistTest extends BaseTest{
 
         //Validate "Reactor" song is added
         basePage.assertAddDeleteMessage();
-//        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-//        Assert.assertTrue(addedMessageBox.isDisplayed());
 
     }
     @Test(enabled = true)
@@ -73,11 +71,9 @@ public class PlaylistTest extends BaseTest{
 
         //Click on "+" icon to create a playlist
         basePage.clickPlusIcon();
-//        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
 
         //Click "New Playlist"
         basePage.clickNewPlaylist();
-//        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -102,8 +98,9 @@ public class PlaylistTest extends BaseTest{
         basePage.findElement(By.xpath("//ul/li[@class='has-sub']/ul/li[7]")).click();
 
         //Validate "Reactor" song is added
-        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-        Assert.assertTrue(addedMessageBox.isDisplayed());
+        basePage.assertAddDeleteMessage();
+//        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+//        Assert.assertTrue(addedMessageBox.isDisplayed());
 
         //Go to created playlist
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
@@ -138,11 +135,9 @@ public class PlaylistTest extends BaseTest{
 
         //Click on "+" icon to create a playlist
         basePage.clickPlusIcon();
-//        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
 
         //Click "New Playlist"
         basePage.clickNewPlaylist();
-//        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
