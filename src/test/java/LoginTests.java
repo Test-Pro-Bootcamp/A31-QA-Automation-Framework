@@ -29,7 +29,6 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
     }
-
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void loginInvalidEmailValidPasswordTest () {
 
@@ -40,7 +39,4 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
     }
-
-
-
 }
