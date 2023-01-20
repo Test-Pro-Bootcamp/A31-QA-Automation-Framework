@@ -28,7 +28,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
+        driver = new ChromeDriver();
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);

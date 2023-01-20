@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,11 +12,11 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
-
+    Actions action = new Actions(driver);
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
-        login();
+//        login();
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -25,7 +26,7 @@ public class SeleniumTechniques extends BaseTest {
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
     public void renamePlaylist() throws InterruptedException {
-        login();
+//        login();
         doubleClickChoosePlaylist();
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
@@ -35,7 +36,7 @@ public class SeleniumTechniques extends BaseTest {
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
-        login();
+//        login();
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -43,7 +44,7 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-        login();
+//        login();
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
