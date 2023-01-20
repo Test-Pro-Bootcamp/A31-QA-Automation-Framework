@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class PlaylistTest extends BaseTest{
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void addSongTest() throws InterruptedException {
         String playlistName = "Homework";
 
@@ -25,10 +25,10 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
         //Click on "+" icon to create a playlist
-        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
+        basePage.clickPlusIcon();
 
         //Click "New Playlist"
-        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
+        basePage.clickNewPlaylist();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -53,11 +53,12 @@ public class PlaylistTest extends BaseTest{
         basePage.findElement(By.xpath("//ul/li[@class='has-sub']/ul/li[7]")).click();
 
         //Validate "Reactor" song is added
-        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-        Assert.assertTrue(addedMessageBox.isDisplayed());
+        basePage.assertAddDeleteMessage();
+//        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+//        Assert.assertTrue(addedMessageBox.isDisplayed());
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void playPlaylistSongTest() throws InterruptedException {
         String playlistName = "Homework";
 
@@ -71,10 +72,12 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
         //Click on "+" icon to create a playlist
-        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
+        basePage.clickPlusIcon();
+//        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
 
         //Click "New Playlist"
-        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
+        basePage.clickNewPlaylist();
+//        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -119,7 +122,7 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(equalizerBars.isDisplayed());
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void renamePlaylistTest() throws InterruptedException {
         String playlistName = "Homework";
         String newPlaylistName = "JRP Playlist";
@@ -134,10 +137,12 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
         //Click on "+" icon to create a playlist
-        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
+        basePage.clickPlusIcon();
+//        basePage.findElement(By.xpath("//i[@title='Create a new playlist']")).click();
 
         //Click "New Playlist"
-        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
+        basePage.clickNewPlaylist();
+//        basePage.findElement(By.xpath("//li[text()='New Playlist']")).click();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -170,11 +175,10 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
         //Click on "+" icon to create new playlist
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
+        basePage.clickPlusIcon();
 
         //Click "New Playlist"
-        WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
-        newPlaylist.click();
+        basePage.clickNewPlaylist();
 
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
@@ -192,8 +196,7 @@ public class PlaylistTest extends BaseTest{
 
         //Assert through delete message box
         basePage.assertAddDeleteMessage();
-//        WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-//        Assert.assertTrue(deleteMessageBox.isDisplayed());
+
 
 
     }

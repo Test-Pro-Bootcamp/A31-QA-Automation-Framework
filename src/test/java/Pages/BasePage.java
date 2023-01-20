@@ -40,5 +40,12 @@ public class BasePage {
         WebElement addDeleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
         Assert.assertTrue(addDeleteMessageBox.isDisplayed());
     }
-
+    public void clickPlusIcon() {
+        WebElement plusIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@title='Create a new playlist']")));
+        plusIcon.click();
+    }
+    public void clickNewPlaylist() {
+        WebElement newPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='New Playlist']")));
+        newPlaylist.click();
+    }
 }
