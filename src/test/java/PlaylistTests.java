@@ -1,6 +1,6 @@
-import Pages.BasePage;
-import Pages.HomePage;
-import Pages.LoginPage;
+import pages.BasePage;
+import pages.HomePage;
+import pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -99,8 +99,6 @@ public class PlaylistTests extends BaseTest{
 
         //Validate "Reactor" song is added
         basePage.assertAddDeleteMessage();
-//        WebElement addedMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-//        Assert.assertTrue(addedMessageBox.isDisplayed());
 
         //Go to created playlist
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
