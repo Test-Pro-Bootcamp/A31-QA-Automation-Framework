@@ -15,7 +15,9 @@ public class ProfileTests extends BaseTest {
         HomePage homePage = new HomePage(driver);
         ProfilePage profilePage = new ProfilePage(driver);
 
-        loginPage.login("test123@test.com", "te$t$tudent");
+        loginPage.provideEmail("test123@test.com")
+                .providePassword("te$t$tudent")
+                .clickSubmit();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
         String randomName = profilePage.generateRandomName();

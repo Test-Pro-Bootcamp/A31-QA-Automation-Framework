@@ -11,7 +11,7 @@
                 <methods>
 <!--                    <include name="addSongToPlaylist" />-->
 <!--                    <include name="playSong" />-->
-<!--                    <include name="deletePlaylist" />-->
+                    <include name="deletePlaylist" />
                     <include name="renamePlaylist" />
                 </methods>
             </class>

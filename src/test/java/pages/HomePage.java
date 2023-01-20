@@ -27,6 +27,8 @@ public class HomePage extends BasePage {
     WebElement deleteButton;
     @FindBy(css = "div.success.show")
     WebElement successMsg;
+    @FindBy(xpath = "//li[contains(text(),'Edit')]")
+    WebElement editPlaylistButton;
 
     public WebElement getUserAvatar() {
         return userAvatarIcon;
@@ -56,11 +58,10 @@ public class HomePage extends BasePage {
         playlistInputField.submit();
     }
 
-    //Navigate and select a playlist
-    public void selectDesiredPlaylist(String playlistName) {
-        WebElement selectAPlaylistElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]")));
-        selectAPlaylistElement.click();
-    }
+//    //Navigate and select a playlist
+//    public void selectDesiredPlaylist(String playlistName) {
+//        click(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]"));
+//    }
 
     //Delete the selected playlist
     public void deleteDesiredPlaylist() {
@@ -73,7 +74,7 @@ public class HomePage extends BasePage {
     }
 
     public void choosePlaylist(String playlistName) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"))).click();
+        click(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"));
     }
 
     public void doubleClickChoosePlaylist(String playlistName) {
@@ -86,7 +87,7 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]")));
         WebElement playlistElement = driver.findElement(By.xpath("//section[@id='playlists']//ul//li//a[contains(text(), '" + playlistName + "')]"));
         actions.contextClick(playlistElement).perform();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(),'Edit')]"))).click();
+        editPlaylistButton.click();
     }
 
     public void enterPlaylistName(String playlistName) {

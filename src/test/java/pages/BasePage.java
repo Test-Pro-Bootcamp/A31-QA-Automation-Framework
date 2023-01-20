@@ -27,7 +27,6 @@ public class BasePage {
 
     public void click(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
-        //driver.findElement(locator).click();
     }
 
     public WebElement findElement(By locator) {
@@ -37,5 +36,9 @@ public class BasePage {
     public void doubleClick(WebElement locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         actions.doubleClick(locator).perform();
+    }
+
+    public void waitClick(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 }

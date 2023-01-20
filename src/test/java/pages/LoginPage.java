@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,21 +24,25 @@ public class LoginPage extends BasePage {
         super(givenDriver);
     }
 
-    public void provideEmail(String email) {
+    public LoginPage provideEmail(String email) {
         emailField.sendKeys(email);
+        return this;
     }
 
-    public void providePassword(String password) {
+    public LoginPage providePassword(String password) {
         passwordField.sendKeys(password);
+        return this;
     }
 
-    public void clickSubmit() {
+    public LoginPage clickSubmit() {
         submitButton.click();
+        return this;
     }
 
-    public void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-    }
+//    public LoginPage login(String email, String password) {
+//        provideEmail(email);
+//        providePassword(password);
+//        clickSubmit();
+//        return this;
+//    }
 }
