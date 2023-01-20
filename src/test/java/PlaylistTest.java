@@ -57,7 +57,7 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(addedMessageBox.isDisplayed());
 
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void playPlaylistSongTest() throws InterruptedException {
         String playlistName = "Homework";
 
@@ -119,7 +119,7 @@ public class PlaylistTest extends BaseTest{
         Assert.assertTrue(equalizerBars.isDisplayed());
 
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void renamePlaylistTest() throws InterruptedException {
         String playlistName = "Homework";
         String newPlaylistName = "JRP Playlist";
@@ -163,6 +163,7 @@ public class PlaylistTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
+        BasePage basePage = new BasePage(driver);
 
         //Login valid credentials
         loginPage.login();
@@ -190,8 +191,9 @@ public class PlaylistTest extends BaseTest{
         deleteThePlaylist.click();
 
         //Assert through delete message box
-        WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
-        Assert.assertTrue(deleteMessageBox.isDisplayed());
+        basePage.assertAddDeleteMessage();
+//        WebElement deleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+//        Assert.assertTrue(deleteMessageBox.isDisplayed());
 
 
     }

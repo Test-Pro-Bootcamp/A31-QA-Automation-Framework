@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -33,6 +34,11 @@ public class BasePage {
 
     public void doubleClick (By locator) {
         actions.doubleClick(findElement(locator)).perform();
+    }
+
+    public void assertAddDeleteMessage() {
+        WebElement addDeleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
+        Assert.assertTrue(addDeleteMessageBox.isDisplayed());
     }
 
 }
