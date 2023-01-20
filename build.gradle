@@ -49,7 +49,6 @@ task testpara(type: Test) {
 }
 task test20(type: Test) {
     useTestNG() {
-        suites"src/test/java/Home20work.java"
+        suites"src/test/resources/Home20work.xml"
     }
-
 }

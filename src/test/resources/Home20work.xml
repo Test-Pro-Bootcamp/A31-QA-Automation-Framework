@@ -2,7 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="wait">
-    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
         <classes>
