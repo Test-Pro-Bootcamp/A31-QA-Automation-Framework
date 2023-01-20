@@ -22,7 +22,6 @@ public class LoginTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Thread.sleep(2000);
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         Assert.assertTrue(avatarIcon.isDisplayed());
 
@@ -50,7 +49,6 @@ public class LoginTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Thread.sleep(2000);
         clickAvatarIcon();
 
         String randomName = generateRandomName();
@@ -59,7 +57,6 @@ public class LoginTests extends BaseTest {
         provideProfileName(randomName);
         clickSaveButton();
 
-        Thread.sleep(2000);
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 

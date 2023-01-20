@@ -7,6 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -15,6 +17,7 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = "https://testpro.io/";
+    public static WebDriverWait wait = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -40,6 +43,8 @@ public class BaseTest {
     }
 
     public static void clickSubmit() {
+        wait = new WebDriverWait (driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
     }
