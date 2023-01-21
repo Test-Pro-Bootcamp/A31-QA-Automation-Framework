@@ -12,6 +12,8 @@ public class AllSongsPage extends BasePage{
     WebElement firstSong;
     @FindBy(css="button[class='btn-add-to']")
     WebElement addToButton;
+    @FindBy (css=".playlist:nth-child(3)")
+    WebElement firstPlaylist;
 
     //locator
     By soundBarIcon = By.cssSelector("img[alt='Sound bars']");

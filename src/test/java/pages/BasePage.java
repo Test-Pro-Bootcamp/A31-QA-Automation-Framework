@@ -14,16 +14,9 @@ import java.time.Duration;
 public class BasePage {
 
     //Attributes
-    public WebDriver driver;
-    public WebDriverWait wait;
-    public Actions actions;
-    public String playlistName = null;
-    
-    //Web Element
-    @FindBy (xpath="//a[contains(text(), 'All Songs')]")
-    WebElement allSongsButton;
-    @FindBy (css=".playlist:nth-child(3)")
-    WebElement firstPlaylist;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
     //locator
     By successMsg = By.cssSelector("div.success.show");
@@ -48,15 +41,5 @@ public class BasePage {
 
     public WebElement getSuccessMsg() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(successMsg));
-    }
-
-    public void clickAllSongs() {
-        waitClick(allSongsButton);
-        allSongsButton.click();
-    }
-
-    public void clickFirstPlaylist() {
-        waitClick(firstPlaylist);
-        firstPlaylist.click();
     }
 }

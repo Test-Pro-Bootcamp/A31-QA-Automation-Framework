@@ -16,6 +16,10 @@ public class HomePage extends BasePage{
     WebElement newPlaylistOption;
     @FindBy (css="input[name='name']")
     WebElement playlistInputField;
+    @FindBy (xpath="//a[contains(text(), 'All Songs')]")
+    WebElement allSongsButton;
+    @FindBy (css=".playlist:nth-child(3)")
+    WebElement firstPlaylist;
 
     //locator
     By avatarIcon = By.cssSelector("img.avatar");
@@ -37,6 +41,16 @@ public class HomePage extends BasePage{
         playlistInputField.sendKeys(playlistName);
         playlistInputField.submit();
         return this;
+    }
+
+    public void clickAllSongs() {
+        waitClick(allSongsButton);
+        allSongsButton.click();
+    }
+
+    public void clickFirstPlaylist() {
+        waitClick(firstPlaylist);
+        firstPlaylist.click();
     }
 
     public HomePage doubleClickFirstPlaylist() {
