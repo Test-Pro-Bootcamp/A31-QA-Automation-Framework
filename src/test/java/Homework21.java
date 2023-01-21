@@ -4,13 +4,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 public class Homework21 extends BaseTest {
 
     public static String playlistName = "Test Playlist";
 
     @Test
-    public static void renamePlaylist() {
+    public void renamePlaylist() {
+
+        HomePage homePage = new HomePage(driver);
+
         //Enter tester username
         provideEmail("amandaag39@gmail.com");
 
@@ -21,16 +25,16 @@ public class Homework21 extends BaseTest {
         clickLoginButton();
 
         //click add button
-        clickAddButton();
+        homePage.clickAddButton();
 
         //select New Playlist from dropdown
-        selectNewPlaylistFromDropdown();
+        homePage.selectNewPlaylistFromDropdown();
 
         //create XYZ Playlist
-        createXYZPlaylist();
+        homePage.createXYZPlaylist();
 
         //confirm playlist creation
-        confirmXYZPlaylist();
+        Assert.assertTrue(homePage.confirmXYZPlaylist().isDisplayed());
 
         //right-click XYZ Playlist
         rightClickXYZPlaylist();

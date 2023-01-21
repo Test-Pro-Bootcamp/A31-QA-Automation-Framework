@@ -2,6 +2,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AllSongsPage;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.PlaylistPage;
 
 public class Homework17 extends BaseTest {
 
@@ -16,78 +20,89 @@ public class Homework17 extends BaseTest {
     @Test (enabled = true, priority = 1)
     public static void loginValidUserNameTest () {
 
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+
         //Enter tester username
-        provideEmail("amandaag39@gmail.com");
+        loginPage.provideEmail("amandaag39@gmail.com");
 
         //Enter password
-        providePassword("te$t$tudent");
+        loginPage.providePassword("te$t$tudent");
 
         //Click login button
-        clickLoginButton();
+        loginPage.clickSubmitBtn();
 
         //Confirm successful login
-        confirmLogin();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
     }
+
 
     @Test (enabled = true, priority = 2)
     public static void createPlaylistTest () {
 
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
         //Enter tester username
-        provideEmail("amandaag39@gmail.com");
+        loginPage.provideEmail("amandaag39@gmail.com");
 
         //Enter password
-        providePassword("te$t$tudent");
+        loginPage.providePassword("te$t$tudent");
 
         //Click login button
-        clickLoginButton();
+        loginPage.clickSubmitBtn();
 
         //click add button
-        clickAddButton();
+        homePage.clickAddButton();
 
         //select New Playlist from dropdown
-        selectNewPlaylistFromDropdown();
+        homePage.selectNewPlaylistFromDropdown();
 
         //create XYZ Playlist
-        createXYZPlaylist();
+        homePage.createXYZPlaylist();
 
         //confirm playlist creation
-        confirmXYZPlaylist();
+        Assert.assertTrue(homePage.confirmXYZPlaylist().isDisplayed());
 
     }
 
     @Test (enabled = true, priority = 3)
     public static void addSongToPlaylist (){
 
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        PlaylistPage playlistPage = new PlaylistPage(driver);
+
         //Enter tester username
-        provideEmail("amandaag39@gmail.com");
+        loginPage.provideEmail("amandaag39@gmail.com");
 
         //Enter password
-        providePassword("te$t$tudent");
+        loginPage.providePassword("te$t$tudent");
 
         //Click login button
-        clickLoginButton();
+        loginPage.clickSubmitBtn();
 
         //navigate to 'All Songs'
-        navigateToAllSongsPage();
+        homePage.navigateToAllSongsPage();
 
         //right-click on song
-        rightClickSong();
+        allSongsPage.rightClickSong();
 
         //click on add to
-        WebElement addTooButton=driver.findElement(By.xpath("//*[@id=\"app\"]/nav/ul/li[4]"));
-        addTooButton.click();
+        homePage.clickAddTooButton();
 
         //click on XYZ Playlist in dropdown
-        WebElement xyzPlaylistDropdown=driver.findElement(By.xpath("//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]"));
-        xyzPlaylistDropdown.click();
+        homePage.clickXYZInDropdown();
 
         //navigate to XYZ Playlist
-        selectXYZPlaylist();
+        homePage.selectXYZPlaylist();
 
         //check for song in playlist
-        WebElement waitingOnATrainSongPlaylist=driver.findElement(By.xpath("//*[@id=\"playlistWrapper\"]/div/div/div[@class='item-container']/table/tr/td[@class='title' and contains(text(),\"Waiting On A Train\")]"));
-        Assert.assertTrue(waitingOnATrainSongPlaylist.isDisplayed());
+        playlistPage.confirmXYZPlaylist();
+
 
     }
 }

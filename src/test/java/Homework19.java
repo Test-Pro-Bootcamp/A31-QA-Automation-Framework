@@ -2,11 +2,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 public class Homework19 extends BaseTest {
 
     @Test
     public static void deletePlaylist() throws InterruptedException {
+
+        HomePage homePage = new HomePage(driver);
 
         //Enter tester username
         provideEmail("amandaag39@gmail.com");
@@ -18,19 +21,19 @@ public class Homework19 extends BaseTest {
         clickLoginButton();
 
         //click add button
-        clickAddButton();
+        homePage.clickAddButton();
 
         //select New Playlist from dropdown
-        selectNewPlaylistFromDropdown();
+        homePage.selectNewPlaylistFromDropdown();
 
         //create XYZ Playlist
-        createXYZPlaylist();
+        homePage.createXYZPlaylist();
 
         //confirm playlist creation
-        confirmXYZPlaylist();
+        Assert.assertTrue(homePage.confirmXYZPlaylist().isDisplayed());
 
         //select XYZPlaylist
-        selectXYZPlaylist();
+        homePage.selectXYZPlaylist();
 
         //click deletePlaylistButton
         WebElement deletePlaylistButton = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
