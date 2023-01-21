@@ -33,11 +33,9 @@ public class BasePage {
     public void contextClick(By locator) {
         actions.contextClick(findElement(locator)).perform();
     }
-
     public void doubleClick (By locator) {
         actions.doubleClick(findElement(locator)).perform();
     }
-
     public void assertAddDeleteMessage() {
         WebElement addDeleteMessageBox = driver.findElement(By.cssSelector("div[class='alertify-logs top right']"));
         Assert.assertTrue(addDeleteMessageBox.isDisplayed());
@@ -50,4 +48,5 @@ public class BasePage {
         WebElement newPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='New Playlist']")));
         newPlaylist.click();
     }
+
 }

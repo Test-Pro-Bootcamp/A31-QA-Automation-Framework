@@ -81,6 +81,7 @@ public class PlaylistTests extends BaseTest{
         nameField.sendKeys(playlistName, Keys.ENTER);
         Thread.sleep(2000);
 
+
         //Click "All Songs"
         basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
 
@@ -189,8 +190,6 @@ public class PlaylistTests extends BaseTest{
 
         //Assert through delete message box
         basePage.assertAddDeleteMessage();
-
-
 
     }
 }

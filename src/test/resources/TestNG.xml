@@ -7,9 +7,9 @@
     <test name="Example Test" preserve-order="false">
         <classes>
 <!--            <class name="LoginTests" />-->
-<!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
-            <class name="PlaylistTests"/>
+<!--            <class name="PlaylistTests"/>-->
+            <class name="CurrentQueTests"/>
         </classes>
     </test>
 </suite>
