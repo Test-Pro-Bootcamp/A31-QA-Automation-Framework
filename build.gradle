@@ -52,3 +52,8 @@ task test20(type: Test) {
         suites"src/test/resources/Home20work.xml"
     }
 }
+task testact(type: Test){
+    useTestNG(){
+        suites"scr/test/resources/Homework21.xml"
+    }
+}
