@@ -20,7 +20,7 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
 
-    Actions actions;
+    Actions action = new Actions(driver);
 
     //public static FluentWait  fluentWait = null;
 
