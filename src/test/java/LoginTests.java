@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -27,7 +28,7 @@ public class LoginTests extends BaseTest {
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
 
-        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+        Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(homePage.getUserAvatar())).isDisplayed());
 
     }
 
