@@ -17,7 +17,9 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/Homework19.xml"
+        //suites "src/test/resources/Homework19.xml"
+        scanForTestClasses = false
+        include '**/*'
     }
 }
 
