@@ -5,11 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class HomePage extends BasePage {
 
@@ -39,23 +38,16 @@ public class HomePage extends BasePage {
         WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
         return notificationText.isDisplayed();
     }
-    //   public String getNotificationText(){
-    //   WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
-    //  return notificationText.getText();
-    // }
-
     @Test(description = "Move a Song to a Play List")
     public void addASong(){
         homePage.provideEmail("skymena75@gmail.com");
         homePage.providePassword("te$t#tudent");
         homePage.clickSubmitButton();
-        String newSongAddedNotification = "Added one song into";
         searchSong("Pluto");
         viewAllSearchResults();
         selectFirstSongResult();
         clickAddToButton();
         choosePlaylist("Test Pro Playlist");
-        // Assert.assertTrue(getNotificationText().contains(newSongAddedNotification));
         Assert.assertTrue(isNotificationPopUpPresent());
     }
     public void searchSong(String songTitleKeyword){

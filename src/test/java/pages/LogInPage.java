@@ -1,16 +1,9 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
-
 import static org.testng.Assert.assertTrue;
 
 public class LogInPage extends BasePage {
@@ -27,5 +20,13 @@ public class LogInPage extends BasePage {
         assertTrue(avatarIcon.isDisplayed());
 
     }
+    @Test
+    public static void navigation() {
+        WebElement registrationLink = driver.findElement(By.cssSelector("a[type = submit]"));
+        registrationLink.click();
+        String registrationUrl = "https://bbb.testpro.io/registration.php";
+        Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
+        driver.quit(); }
 }
+
 
