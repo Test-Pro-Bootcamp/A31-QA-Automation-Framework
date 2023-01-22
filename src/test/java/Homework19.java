@@ -29,7 +29,7 @@ public class Homework19 extends BaseTest {
         WebElement Playlistname = driver.findElement(By.cssSelector("[href=\"#!/playlist/20364\"]"));
         actions.contextClick(Playlistname).perform();
         Thread.sleep(5000);
-         WebElement deleteOption = driver.findElement(By.cssSelector("li:nth-child(14) ul [data-testid=\"playlist-context-menu-delete-20364\"]]"));
+        WebElement deleteOption = driver.findElement(By.cssSelector("li:nth-child(14) ul [data-testid=\"playlist-context-menu-delete-20364\"]]"));
         actions.moveToElement(deleteOption).click(deleteOption);
         Thread.sleep(4000);
 
