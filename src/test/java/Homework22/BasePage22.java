@@ -10,8 +10,8 @@ import java.time.Duration;
 
 public class BasePage22 {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
+    WebDriver driver;
+    WebDriverWait wait;
     Actions actions;
 
 
@@ -24,6 +24,10 @@ public class BasePage22 {
     public void doubleClick(WebElement locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         actions.doubleClick(locator).perform();
+    }
+
+    public  WebElement findElement (By locator) {
+        return  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 }

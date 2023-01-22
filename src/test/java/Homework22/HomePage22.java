@@ -4,30 +4,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage22 extends BasePage22 {
 
-    public HomePage22( WebDriver givenDriver) { super (givenDriver); }
 
-    By firstPlaylist = By.cssSelector(".playlist:nth=child(3)");
-    By playlistInputField = By.cssSelector("input[name='name']");
+    public HomePage22 ( WebDriver givenDriver) { super(givenDriver);}
 
-    public void doubleClickFirstPlaylist() { doubleClick(driver.findElement(firstPlaylist));}
+
+    public void doubleClickFirstPlaylist() {
+        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        actions.doubleClick(playlistElement).perform();
+    }
     public void enterPlaylistName (String playlistName) {
-        driver.findElement(playlistInputField).sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
-        driver.findElement(playlistInputField).sendKeys(playlistName);
-        driver.findElement(playlistInputField).sendKeys(Keys.ENTER);
+        WebElement playlistInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name='name']")));
+        (playlistInputField).sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        (playlistInputField).sendKeys(playlistName);
+        (playlistInputField).sendKeys(Keys.ENTER);
     }
 
-    public HomePage22 getUserAvatar() {
-        driver.findElement(By.xpath(("//*[@id=\"userBadge\"]")));
-        return this;
-    }
-
-    public boolean doesPlaylistExist(String playlistName) {
+    public boolean doesPlaylistExist () {
         WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Test Pro Playlist']"));
         return playlistElement.isDisplayed();
     }
 
-    public boolean isDisplayed() { return true;}
 }

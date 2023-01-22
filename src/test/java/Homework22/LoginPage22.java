@@ -9,30 +9,28 @@ import java.time.Duration;
 
 public class LoginPage22 extends BasePage22 {
 
-    WebDriver driver;
-    WebDriverWait wait;
-
     By submitButtonLocator = By.cssSelector("[type='submit']");
     By emailField= By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
 
     public LoginPage22 (WebDriver givenDriver) { super(givenDriver);}
 
-    public void provideEmail(String email) {driver.findElement(emailField).sendKeys(email);}
+    public void provideEmail(String email) {
+        WebElement emailElement = driver.findElement(emailField);
+        emailElement.click();
+        emailElement.sendKeys(email);
+    }
 
-    @FindBy(css = "[test]")
-    WebElement email;
 
-    public void providePassword(String password) {driver.findElement(passwordField).sendKeys(password);}
+    public void providePassword(String password) {
+        WebElement passwordElement = driver.findElement(passwordField);
+        passwordElement.click();
+        passwordElement.sendKeys(password);
+    }
 
-    public LoginPage22 clickSubmitBtn(){
+    public void clickSubmitBtn(){
         driver.findElement(submitButtonLocator).click();
-        return this;
     }
 
-    public void login(){
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmitBtn();
-    }
+
 }

@@ -9,7 +9,6 @@
         <classes>
             <class name="LoginTests">
                 <methods>
-                    <include name="loginValidEmailValidPasswordTest" />
                 </methods>
             </class>
         </classes>
