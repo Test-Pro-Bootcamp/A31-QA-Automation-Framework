@@ -31,7 +31,7 @@ public class BaseTest {
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public static void closeBrowser(){
         LoginTests.driver.quit();
     }

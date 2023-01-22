@@ -35,6 +35,11 @@ public class CurrentQueTests extends BaseTest {
         //Click "Top of Queue"
         basePage.findElement(By.xpath("//ul/li[@class='has-sub']/ul/li[3]")).click();
 
+        //Assert song is added to que
+        homePage.clickCurrentQueBtn();
+        basePage.findElement(By.xpath("//*[@id=\"queueWrapper\"]/div/div/div[1]/table/tr/td[2]"));
+
+
 
 
     }
