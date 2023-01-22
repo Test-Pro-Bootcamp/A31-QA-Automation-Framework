@@ -7,16 +7,12 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage{
 
     //locators
-    By submitButtonLocator = By.cssSelector("[type='submit']");
+    By submitButtonLocator = By.cssSelector("button[type='submit']");
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
 
     public LoginPage( WebDriver givenDriver) {
         super(givenDriver);
-    }
-
-    public void clickSubmitBtn() {
-        driver.findElement(submitButtonLocator).click();
     }
 
     public void provideEmail(String email) {
@@ -30,8 +26,13 @@ public class LoginPage extends BasePage{
 
     }
 
+    public void clickSubmitBtn() {
+
+        driver.findElement(submitButtonLocator).click();
+    }
+
     public void logIn(){
-        provideEmail("demo@class.com");
+        provideEmail("serge.uwiduhaye@gmail.com");
         providePassword("te$t$tudent");
         clickSubmitBtn();
     }

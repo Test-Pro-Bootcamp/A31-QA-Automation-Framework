@@ -8,6 +8,7 @@
         <classes>
 <!--            <class name="LoginTests" />-->
             <class name="ProfileTests"/>
+            <class name="Homework22_Serge"/>
             <class name="BaseTest"/>
         </classes>
     </test>
