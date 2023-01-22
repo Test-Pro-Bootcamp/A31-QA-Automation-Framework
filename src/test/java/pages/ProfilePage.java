@@ -13,13 +13,13 @@ public class ProfilePage extends BasePage {
 
     //WebElements
     @FindBy(css = "[name='current_password']")
-    WebElement currentPassword;
+    private WebElement currentPassword;
     @FindBy(css = "[name='name']")
-    WebElement profileName;
+    private WebElement profileName;
     @FindBy(css = "[type='email']")
-    WebElement emailAddress;
+    private WebElement emailAddress;
     @FindBy(css = "button.btn-submit")
-    WebElement saveButton;
+    private WebElement saveButton;
 
     public ProfilePage(WebDriver givenDriver) {
         super(givenDriver);

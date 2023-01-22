@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import pages.BasePage;
 
+import java.net.URI;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -39,6 +42,28 @@ public class BaseTest {
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
+        driver = pickBrowser(System.getProperty("browser"));
+    }
+
+    public WebDriver pickBrowser(String browser) {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        String gridURL = "http://192.168.1.67:1234";
+        switch (browser) {
+            case "firefox":
+                System.getProperty("webdriver.gecko.driver", "geckodriver");
+                return driver = new FirefoxDriver();
+            break;
+            case "grid-firefox":
+                capabilities.setCapability("browserName", "firefox");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+            break;
+            case "grid-chrome":
+                capabilities.setCapability("browserName", "chrome");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+            break;
+            default:
+                return driver = new ChromeDriver();
+        }
     }
 
     @AfterMethod

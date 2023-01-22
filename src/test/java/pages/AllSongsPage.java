@@ -14,11 +14,11 @@ public class AllSongsPage extends BasePage {
 
     //WebElements
     @FindBy(css = "[href='#!/songs']")
-    WebElement allSongs;
+    private WebElement allSongs;
     @FindBy(css = "button[class='btn-add-to']")
-    WebElement addToButton;
+    private WebElement addToButton;
     @FindBy(css = "img[alt='Sound bars']")
-    WebElement soundBarsIcon;
+    private WebElement soundBarsIcon;
 
     //Add song to the playlist - Homework17
     public void addSongToThePlaylist(String songTitle, String playlistName) {

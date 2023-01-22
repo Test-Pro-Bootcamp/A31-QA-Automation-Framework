@@ -14,11 +14,11 @@ public class LoginPage extends BasePage {
 
     //WebElements
     @FindBy(css = "[type='email']")
-    WebElement emailField;
+    private WebElement emailField;
     @FindBy(css = "[type='password']")
-    WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(css = "button[type='submit']")
-    WebElement submitButton;
+    private WebElement submitButton;
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);

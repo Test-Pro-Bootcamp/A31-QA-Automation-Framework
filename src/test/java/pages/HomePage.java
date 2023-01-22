@@ -16,19 +16,19 @@ public class HomePage extends BasePage {
 
     //WebElements
     @FindBy(css = "img.avatar")
-    WebElement userAvatarIcon;
+    private WebElement userAvatarIcon;
     @FindBy(css = "i[class='fa fa-plus-circle create']")
-    WebElement plusIcon;
+    private WebElement plusIcon;
     @FindBy(css = "li[data-testid='playlist-context-menu-create-simple']")
-    WebElement newPlaylistButton;
+    private WebElement newPlaylistButton;
     @FindBy(css = "input[name='name']")
-    WebElement playlistInputField;
+    private WebElement playlistInputField;
     @FindBy(css = "[class='del btn-delete-playlist']")
-    WebElement deleteButton;
+    private WebElement deleteButton;
     @FindBy(css = "div.success.show")
-    WebElement successMsg;
+    private WebElement successMsg;
     @FindBy(xpath = "//li[contains(text(),'Edit')]")
-    WebElement editPlaylistButton;
+    private WebElement editPlaylistButton;
 
     public WebElement getUserAvatar() {
         return userAvatarIcon;

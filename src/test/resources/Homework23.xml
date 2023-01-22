@@ -7,7 +7,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework23">
+            <class name="Homework24">
                 <methods>
 <!--                    <include name="addSongToPlaylist" />-->
 <!--                    <include name="playSong" />-->
