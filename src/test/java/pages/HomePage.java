@@ -58,11 +58,6 @@ public class HomePage extends BasePage {
         playlistInputField.submit();
     }
 
-//    //Navigate and select a playlist
-//    public void selectDesiredPlaylist(String playlistName) {
-//        click(By.xpath("//section[@id='playlists']//li[@class='playlist playlist']//a[contains(text(),'" + playlistName + "')]"));
-//    }
-
     //Delete the selected playlist
     public void deleteDesiredPlaylist() {
         deleteButton.click();

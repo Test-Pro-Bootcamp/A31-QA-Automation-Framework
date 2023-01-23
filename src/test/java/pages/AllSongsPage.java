@@ -31,7 +31,6 @@ public class AllSongsPage extends BasePage {
     //Click All Songs tab
     public void allSongs() {
         allSongs.click();
-        // click(allSongs); //using BasePage click(By locator) method
     }
 
     public void selectSong(String sTitle) {
@@ -50,11 +49,6 @@ public class AllSongsPage extends BasePage {
         WebElement clickPlaylistName = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@class='existing-playlists']//li[contains(text(), '" + pName + "')]")));
         clickPlaylistName.click();
     }
-
-//    public void validateTheSongIsAdded(String songTitle, String playlistName) {
-//        navigateToPlaylist(playlistName);
-//        Assert.assertTrue(confirmSongIsAdded(songTitle));
-//    }
 
     //Navigate to the playlist
     public void navigateToPlaylist(String pName) {
