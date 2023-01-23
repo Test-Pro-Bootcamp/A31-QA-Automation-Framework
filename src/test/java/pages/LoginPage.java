@@ -23,13 +23,10 @@ public class LoginPage extends BasePage{
         WebElement emailElement = driver.findElement(emailField);
         emailElement.sendKeys(email);
     }
-
     public void providePassword(String password) {
         WebElement passwordElement = driver.findElement(passwordField);
         passwordElement.sendKeys(password);
-
     }
-
     public void logIn(){
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
