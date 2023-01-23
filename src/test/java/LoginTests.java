@@ -3,20 +3,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 //following  example for using page objects
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
+
     public void LoginValidEmailPasswordTest() {
         LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
 
         WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
-        Assert.assertTrue(avatarIcon.isDisplayed());
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+
     }
 
 
