@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 
 
+
 public class Homework21 extends BaseTest{
 
     @Test
@@ -28,7 +29,7 @@ public class Homework21 extends BaseTest{
 
 
     @Test
-    public void refactorRenamePlayList() throws InterruptedException {
+    public void refactorRenamePlayList()  {
         SeleniumTechniques.renamePlaylist();
     }
 
