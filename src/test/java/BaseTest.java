@@ -25,11 +25,11 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"KoelURL"})
-    public static void launchBrowser(String KoelUrl) {
+    @Parameters({"BaseURL"})
+    public static void launchBrowser(String BaseUrl) {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = KoelUrl;
+        url = BaseUrl;
         driver.get(url);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         action = new Actions(driver);
