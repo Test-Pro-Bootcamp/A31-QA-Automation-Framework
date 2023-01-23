@@ -3,14 +3,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -24,13 +29,13 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-        WebDriverManager.chromedriver().setup();
+        // WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
+    public static void launchBrowser(String BaseURL) throws MalformedURLException {
+        driver = pickBrowser(System.getProperty("browser"));
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
@@ -39,9 +44,37 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeBrowser(){
+    public static void closeBrowser() throws MalformedURLException {
         LoginTests.driver.quit();
     }
+    private static WebDriver pickBrowser(String browser) throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        String gridURL = "http://192.168.0.21:4444";
+        switch (browser) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "MicrosoftEdge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            case "grid-firefox":
+                caps.setCapability("browserName", "firefox");
+                driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+            case "grid-edge":
+                caps.setCapability("browserName", "MicrosoftEdge");
+                driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+            case "grid-chrome":
+                caps.setCapability("browserName", "chrome");
+                driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+        }
+        return null;
+    }
+
 
 //    protected static void navigateToPage() {
 //        String url = "https://bbb.testpro.io/";
