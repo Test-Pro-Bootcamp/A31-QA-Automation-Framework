@@ -9,19 +9,21 @@ public class LoginTests extends BaseTest {
 
     //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
     @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public static void loginEmptyEmailPasswordTest (String email, String password) {
-        LoginPage loginPage = new LoginPage(driver);
+    public void loginEmptyEmailPasswordTest (String email, String password) {
+        LoginPage loginPage = new LoginPage(getDriver());
 
-        login(email, password);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmitBtn();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     //Page Object Model example
     @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password Test")
     public void LoginValidEmailPasswordTest () {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");
@@ -32,13 +34,14 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
-    public static void loginInvalidEmailValidPasswordTest () {
+    public void loginInvalidEmailValidPasswordTest () {
+        LoginPage loginPage = new LoginPage(getDriver());
 
         provideEmail("invalid@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
 
     }
 
