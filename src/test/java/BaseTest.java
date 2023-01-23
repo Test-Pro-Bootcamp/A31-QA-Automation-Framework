@@ -11,19 +11,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.time.Duration;
 
-import static java.sql.DriverManager.getDriver;
 
 public class BaseTest {
     public static WebDriver driver = null;
     public static WebDriverWait wait = null;
     public static String url = null;
-    public static ThreadLocal<WebDriver> threadDriver = null;
-    public Actions actions = null;
+
     @BeforeSuite
     static void setupClass() {
         //WebDriverManager.chromedriver().setup();
@@ -33,22 +30,16 @@ public class BaseTest {
     @Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
-        threadDriver = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadDriver.set(driver);
-        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
-        actions = new Actions(getDriver());
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().get(url);
-    }
-    public static WebDriver getDriver() {
-        return threadDriver.get();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(url);
     }
 
     @AfterMethod
     public static void closeBrowser() {
-        getDriver().quit();
-        threadDriver.remove();
+       driver.quit();
+
     }
 
     private static WebDriver pickBrowser(String browser) throws MalformedURLException {
