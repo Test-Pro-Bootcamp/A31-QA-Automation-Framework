@@ -37,9 +37,9 @@ public class LoginTests extends BaseTest {
     public void loginInvalidEmailValidPasswordTest () {
         LoginPage loginPage = new LoginPage(getDriver());
 
-        provideEmail("invalid@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+        loginPage.provideEmail("invalid@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmitBtn();
 
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
 

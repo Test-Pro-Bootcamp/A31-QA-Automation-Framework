@@ -90,9 +90,6 @@ public class BaseTest {
     }
 
     public WebDriver lambdaTest() throws MalformedURLException {
-//        String LT_USERNAME = "khaledoni01";
-//        String LT_ACCESS_KEY = "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4";
-//        String hub = "@hub.lambdatest.com/wd/hub";
 
         String hubURL = "https://hub.lambdatest.com/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -109,16 +106,6 @@ public class BaseTest {
         capabilities.setCapability("LT:Options", ltOptions);
 
         return new RemoteWebDriver(new URL(hubURL), capabilities);
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//        caps.setCapability("platform", "Windows 10");
-//        caps.setCapability("browserName", "Chrome");
-//        caps.setCapability("version", "107");
-//        caps.setCapability("resolution", "2560 x 1440");
-//        caps.setCapability("build", "TestNG for With Java");
-//        caps.setCapability("name", this.getClass().getName());
-//        caps.setCapability("plugin", "Windows 10");
-//        caps.setCapability("platform", "git-testng");
-//        return new RemoteWebDriver(new URL("https://" + LT_USERNAME + ":" + LT_ACCESS_KEY + hub), caps);
     }
 
 
