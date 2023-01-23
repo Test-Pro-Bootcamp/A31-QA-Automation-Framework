@@ -1,3 +1,5 @@
+import Homework23.AllSongsPage;
+import Homework23.LoginPage23;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,16 +14,8 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
-    Actions action = new Actions(driver);
+
     //      context click (sometimes koel page does not load completely, re-run the test)
-    @Test
-    public void playSong()   {
-//        login();
-        chooseAllSongsList();
-        contextClickFirstSong();
-        choosePlay();
-        Assert.assertTrue(isSongPlaying());
-    }
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
@@ -44,13 +38,24 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-//        login();
+        login("demo@class.com","te$t$tudent");
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
 
     }
+    @Test
+    public void playSong()   {
+        LoginPage23 loginpage23 = new LoginPage23(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
 
+
+        loginpage23.logIn();
+        allSongsPage.chooseAllSongsList();
+        allSongsPage.contextClickFirstSong();
+        allSongsPage.choosePlay();
+        Assert.assertTrue(isSongPlaying());
+    }
 
     //    helper methods
     public void chooseAllSongsList() {
@@ -60,12 +65,11 @@ public class SeleniumTechniques extends BaseTest {
     public void contextClickFirstSong() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
         WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
-        action.contextClick(firstSong).perform();
+        actions.contextClick(firstSong).perform();
     }
-
-    public void choosePlay() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav.menu.song-menu li.playback"))).click();
-    }
+    //public void chooseAllSongsList() {
+      //  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
+    //}
 
     public boolean isSongPlaying() {
         WebElement soundBarVisualizer = driver.findElement(By.cssSelector("[data-testid = 'sound-bar-play']"));
@@ -75,7 +79,7 @@ public class SeleniumTechniques extends BaseTest {
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
-        action.doubleClick(playlistElement).perform();
+        actions.doubleClick(playlistElement).perform();
     }
 
     public void choosePlaylist() {
@@ -113,7 +117,7 @@ public class SeleniumTechniques extends BaseTest {
     public WebElement hoverToPlayBtn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        action.moveToElement(playButton).perform();
+        actions.moveToElement(playButton).perform();
         return  playButton;
 
 }

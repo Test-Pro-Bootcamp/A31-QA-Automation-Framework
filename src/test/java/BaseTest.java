@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -24,6 +25,7 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
     public static FluentWait fluentWait = null;
+    public static Actions actions = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -38,6 +40,7 @@ public class BaseTest {
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        actions = new Actions(driver);
     }
 
     @AfterMethod
