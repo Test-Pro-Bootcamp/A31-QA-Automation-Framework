@@ -34,37 +34,7 @@ public class HomePage extends BasePage {
         Assert.assertTrue(isSongPlaying());
     }
     //Code for Moving a Song to a Playlist Homework17Test
-    public boolean isNotificationPopUpPresent(){
-        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
-        return notificationText.isDisplayed();
-    }
-    @Test(description = "Move a Song to a Play List")
-    public void addASong(){
-        homePage.provideEmail("skymena75@gmail.com");
-        homePage.providePassword("te$t#tudent");
-        homePage.clickSubmitButton();
-        searchSong("Pluto");
-        viewAllSearchResults();
-        selectFirstSongResult();
-        clickAddToButton();
-        choosePlaylist("Test Pro Playlist");
-        Assert.assertTrue(isNotificationPopUpPresent());
-    }
-    public void searchSong(String songTitleKeyword){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#searchForm input[type='search']"))).sendKeys(songTitleKeyword);
-    }
-    public void viewAllSearchResults(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.results section.songs h1 button"))).click();
-    }
-    public void selectFirstSongResult(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("section#songResultsWrapper tr.song-item td.title"))).click();
-    }
-    public void clickAddToButton(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn-add-to"))).click();
-    }
-    public void choosePlaylist(String playlistName){
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songResultsWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"))).click();
-    }
+
    // Code for Deleting a Playlist Homework19Test
     @Test(description = "Delete an Empty PlayList")
     public void deleteEmptyPlaylist(){
