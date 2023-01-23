@@ -32,14 +32,12 @@ public class BaseTest {
         url = BaseUrl;
         driver = pickBrowser(System.getProperty("browser"));
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
     }
 
     @AfterMethod
     public static void closeBrowser() {
        driver.quit();
-
     }
 
     private static WebDriver pickBrowser(String browser) throws MalformedURLException {
