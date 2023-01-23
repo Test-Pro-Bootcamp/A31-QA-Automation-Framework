@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG">
-    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+<suite name="Homework20 Tests">
 
-    <test name="Example Test" preserve-order="false">
+    <parameter name="KoelURL" value="https://bbb.testpro.io/" />
+
+    <test name="Test" preserve-order="false">
         <classes>
-            <class name="LoginTests" />
+            <class name="Homework20"/>
             <class name="BaseTest"/>
         </classes>
     </test>
