@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -26,8 +27,9 @@ public class BaseTest {
     public WebDriver driver = null;
     public String url = null;
     public WebDriverWait wait = null;
-    public FluentWait fluentWait = null;
 
+    public FluentWait fluentWait = null;
+    public Actions actions = null;
     public ThreadLocal<WebDriver> threadDriver = null;
 
     @BeforeSuite
@@ -38,13 +40,15 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
-        driver = pickBrowser(System.getProperty("browser"));
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         threadDriver = new ThreadLocal<>();
+        driver = pickBrowser(System.getProperty("browser"));
         threadDriver.set(driver);
-        getDriver().get(url);
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        actions = new Actions(getDriver());
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().get(url);
+
     }
 
     public WebDriver getDriver() {
