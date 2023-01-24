@@ -30,7 +30,8 @@ public class BaseTest {
 
     public FluentWait fluentWait = null;
     public Actions actions = null;
-    public ThreadLocal<WebDriver> threadDriver = null;
+    public ThreadLocal<WebDriver> threadLocal = null;
+
 
     @BeforeSuite
     public void setupClass() {
@@ -41,24 +42,26 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
-        threadDriver = new ThreadLocal<>();
+        threadLocal = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadDriver.set(driver);
+        threadLocal.set(driver);
+
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().manage().window().maximize();
         getDriver().get(url);
 
     }
 
     public WebDriver getDriver() {
-        return threadDriver.get();
+        return threadLocal.get();
     }
 
     @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
-        threadDriver.remove();
+        threadLocal.remove();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
@@ -92,11 +95,12 @@ public class BaseTest {
     public WebDriver lambdaTest() throws MalformedURLException {
 
         String hubURL = "https://hub.lambdatest.com/wd/hub";
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("browserVersion", "95");
+        capabilities.setCapability("browserName", "Firefox");
+        capabilities.setCapability("browserVersion", "107.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user","khaledoni01");
+        ltOptions.put("user", "khaledoni01");
         ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
