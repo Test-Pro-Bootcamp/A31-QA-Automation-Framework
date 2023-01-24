@@ -14,7 +14,7 @@ import java.util.List;
 public class Homework21 extends BaseTest {
 
     @Test
-    public void renamePlaylist() throws InterruptedException {
+    public void renamePlaylist()  {
         login("kbetestack@gmail.com", "te$t$tudent");
         doubleClickChoosePlaylist();
         enterPlaylistName();
