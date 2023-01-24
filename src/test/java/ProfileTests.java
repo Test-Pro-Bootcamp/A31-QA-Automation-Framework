@@ -8,7 +8,7 @@ public class ProfileTests extends BaseTest {
 
     @Test(enabled = true, priority = 3, description = "update profile test")
     public void updateProfileNameTest () throws InterruptedException {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(LoginTests.driver);
 
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
