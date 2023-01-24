@@ -1,13 +1,14 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends pages.BasePage {
-
+    String playlistName = "Homework";
     //Locators
     @FindBy(css = "[class='home active']")
     private WebElement homeButton;
@@ -33,6 +34,13 @@ public class HomePage extends pages.BasePage {
     }
     public HomePage clickAllSongsBtn() {
         allSongsButton.click();
+        return this;
+    }
+    public HomePage inputPlaylistName() throws InterruptedException {
+        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='name']")));
+        nameField.clear();
+        nameField.sendKeys(playlistName, Keys.ENTER);
+        Thread.sleep(1000);
         return this;
     }
 }

@@ -31,10 +31,11 @@ public class PlaylistTests extends BaseTest{
         basePage.clickNewPlaylist();
 
         //Input playlist name
-        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
-        nameField.clear();
-        nameField.sendKeys(playlistName, Keys.ENTER);
-        Thread.sleep(2000);
+        homePage.inputPlaylistName();
+//        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='name']")));
+//        nameField.clear();
+//        nameField.sendKeys(playlistName, Keys.ENTER);
+//        Thread.sleep(1000);
 
         //Click "All Songs"
         basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
@@ -76,10 +77,10 @@ public class PlaylistTests extends BaseTest{
         basePage.clickNewPlaylist();
 
         //Input playlist name
-        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='name']")));
         nameField.clear();
         nameField.sendKeys(playlistName, Keys.ENTER);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
 
         //Click "All Songs"
@@ -146,7 +147,7 @@ public class PlaylistTests extends BaseTest{
         //Double-click created playlist to edit
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
         acts.doubleClick(createdPlaylist).perform();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
 
         //Double-click to highlight and rename
         WebElement highlightedList = driver.findElement(By.xpath("//*[@id='playlists']/ul/li[3]"));
