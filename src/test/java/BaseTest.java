@@ -35,6 +35,7 @@ public class BaseTest {
 
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
+        action = new Actions(driver);
         //if use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
