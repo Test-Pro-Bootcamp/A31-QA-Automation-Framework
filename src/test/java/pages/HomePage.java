@@ -10,11 +10,11 @@ public class HomePage extends pages.BasePage {
 
     //Locators
     @FindBy(css = "[class='home active']")
-    WebElement homeButton;
+    private WebElement homeButton;
     @FindBy(css = "[class='queue']")
-    WebElement currentQue;
+    private WebElement currentQue;
     @FindBy(css = "[class='songs']")
-    WebElement allSongsButton;
+    private WebElement allSongsButton;
     private By userAvatarIcon = By.cssSelector("img.avatar");
 
     public HomePage( WebDriver givenDriver) {

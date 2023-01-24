@@ -8,11 +8,11 @@ public class LoginPage extends pages.BasePage {
 
     //Locators
     @FindBy(css = "[type='email']")
-    WebElement emailField;
+    private WebElement emailField;
     @FindBy(css = "[type='password']")
-    WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(css = "button[type='submit']")
-    WebElement submitButton;
+    private WebElement submitButton;
 
 
 //    @FindBy(css = "[test]")
