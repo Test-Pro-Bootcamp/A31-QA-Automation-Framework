@@ -23,6 +23,9 @@ public class BasePage {
     public void click(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+    public void click(WebElement locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
     public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
