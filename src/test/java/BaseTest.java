@@ -72,12 +72,15 @@ public class BaseTest {
             case "grid-edge":
                 caps.setCapability("browserName", "MicrosoftEdge" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+                break;
             case "grid-firefox":
                 caps.setCapability("browserName", "firefox" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+                break;
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+                break;
              default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
