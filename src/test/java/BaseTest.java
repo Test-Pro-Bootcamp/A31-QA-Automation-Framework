@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class BaseTest {
    //remember if declaring non-primitive data types, must assign values-strings, arrays, classes
-    public static WebDriver driver = null;
+    public static WebDriver driver;
     public static String url = null;
     public static WebDriverWait wait = null;
 
@@ -36,7 +36,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
+    public static void launchBrowser(String BaseURL) throws MalformedURLException {
         driver = pickBrowser(System.getProperty("browser"));
         //if use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -71,12 +71,12 @@ public class BaseTest {
                 caps.setCapability("browserName", "MicrosoftEdge" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
             case "grid-firefox":
-                caps.setCapability("browserName", "" );"firefox");
+                caps.setCapability("browserName", "firefox" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
             case "grid-chrome":
-                caps.setCapability("browserName", "" );"chrome");
+                caps.setCapability("browserName", "chrome" );
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
-                default:
+             default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
 
