@@ -10,9 +10,9 @@ public class Homework18 extends BaseTest {
     @Test
     public void playSong() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
 
         loginPage.provideEmail("hand923@gmail.com")
                  .providePassword("te$t$tudent")

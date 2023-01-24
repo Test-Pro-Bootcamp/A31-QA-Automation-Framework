@@ -10,8 +10,8 @@ public class Homework21 extends BaseTest{
 
         String newPlaylistName = "Edited Playlist";
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")

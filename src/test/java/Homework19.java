@@ -13,9 +13,9 @@ public class Homework19 extends BaseTest{
 
         String playlistName = "Empty Playlist";
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        CustomPlaylistPage customPlaylistPage = new CustomPlaylistPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        CustomPlaylistPage customPlaylistPage = new CustomPlaylistPage(getDriver());
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")
