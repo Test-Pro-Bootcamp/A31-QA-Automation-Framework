@@ -1,21 +1,28 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
     @Test
-    public static void LoginEmptyEmailPasswordTest () {
+    public void LoginValidEmailPasswordTest () {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homepage = new HomePage(getDriver());
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
+        Assert.assertTrue(homepage.getUserAvatar().isDisplayed());
+    }
 
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+    @Test
+    public void loginInvalidEmailValidPasswordTest () {
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("invalid@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmit();
+
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+
     }
 }
