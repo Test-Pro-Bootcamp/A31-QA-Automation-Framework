@@ -8,6 +8,7 @@
         <classes>
 <!--            <class name="LoginTests" />-->
             <class name="PlaylistTests"/>
+            <class name="CurrentQueTests"/>
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>
