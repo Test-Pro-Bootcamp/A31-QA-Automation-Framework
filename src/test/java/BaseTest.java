@@ -23,9 +23,11 @@ public class BaseTest {
    //remember if declaring non-primitive data types, must assign values-strings, arrays, classes
     public static WebDriver driver;
     public static String url = null;
+
     public static WebDriverWait wait = null;
 
-    Actions action = new Actions(driver);
+    public static Actions action;
+
 
     //public static FluentWait  fluentWait = null;
 

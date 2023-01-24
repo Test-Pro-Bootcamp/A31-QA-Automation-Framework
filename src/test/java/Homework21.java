@@ -19,7 +19,6 @@ public class Homework21 extends BaseTest {
         doubleClickChoosePlaylist();
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
-        Thread.sleep(2000);
 
     }
 
