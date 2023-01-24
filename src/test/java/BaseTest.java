@@ -20,7 +20,8 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
 
-    Actions action = new Actions(driver);
+    public static Actions action;
+
 
     //public static FluentWait  fluentWait = null;
 
@@ -31,6 +32,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
+
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
         //if use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
