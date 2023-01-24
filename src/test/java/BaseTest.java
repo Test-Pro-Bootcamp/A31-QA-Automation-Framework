@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.time.Duration;
@@ -40,10 +39,10 @@ public class BaseTest {
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
     }
 
-    @AfterMethod
-    public static void closeBrowser(){
-        LoginTests.driver.quit();
-    }
+//    @AfterMethod
+//    public static void closeBrowser(){
+//        LoginTests.driver.quit();
+//    }
 
     private static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
