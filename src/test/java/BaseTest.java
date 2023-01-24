@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
@@ -26,13 +27,13 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-        WebDriverManager.chromedriver().setup();
+    // WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
+        driver = pickBrowser(System.getProperty("browser"));
         //if use implicit wait after creation of ChromeDriver - always put it in BeforeMethod
         // LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
@@ -49,6 +50,23 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
+    private static WebDriver pickBrowser(String browser){
+        switch (browser) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "MicrosoftEdge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+
+        }
+        return driver;
+    }
 //    protected static void navigateToPage() {
 //        String url = "https://bbb.testpro.io/";
 //        driver.get(url);
