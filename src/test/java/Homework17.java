@@ -14,7 +14,6 @@ public class Homework17 extends BaseTest {
 
         //Confirm successful navigation
         WebElement koelLogo = driver.findElement(By.cssSelector("img[alt]"));
-
     }
 
     @Test (enabled = true, priority = 1)
@@ -22,7 +21,6 @@ public class Homework17 extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-
 
         //Enter tester username
         loginPage.provideEmail("amandaag39@gmail.com");
@@ -101,8 +99,8 @@ public class Homework17 extends BaseTest {
         homePage.selectXYZPlaylist();
 
         //check for song in playlist
-        playlistPage.confirmXYZPlaylist();
-
+        Assert.assertTrue(playlistPage.confirmXYZPlaylist().isDisplayed());
 
     }
+
 }

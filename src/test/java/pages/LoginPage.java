@@ -10,9 +10,6 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
-    public WebDriver driver;
-    WebDriverWait wait;
-
     //locators
     @FindBy (css = "[type='submit']")
     WebElement submitButtonLocator;
@@ -20,9 +17,7 @@ public class LoginPage extends BasePage {
     WebElement emailField;
     @FindBy(css = "[type='password']")
     WebElement passwordField;
-//    By submitButtonLocator = By.cssSelector("[type='submit']");
-//    By emailField = By.cssSelector("[type='email']");
-//    By passwordField = By.cssSelector("[type='password']");
+
 
     public LoginPage(WebDriver givenDriver) {
         super (givenDriver);
@@ -37,18 +32,12 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage provideEmail(String email) {
-//        WebElement emailElement = driver.findElement(emailField);
-//        emailElement.click();
-//        emailElement.sendKeys(email);
         emailField.click();
         emailField.sendKeys(email);
         return this;
     }
 
     public LoginPage providePassword(String password) {
-//        WebElement passwordElement = driver.findElement(passwordField);
-//        passwordElement.click();
-//        passwordElement.sendKeys(password);
         passwordField.click();
         passwordField.sendKeys(password);
         return this;

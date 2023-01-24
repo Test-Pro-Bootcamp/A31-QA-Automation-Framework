@@ -1,8 +1,8 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.LoginPage;
+import pages.PlaylistPage;
 
 public class Homework19 extends BaseTest {
 
@@ -10,15 +10,17 @@ public class Homework19 extends BaseTest {
     public static void deletePlaylist() throws InterruptedException {
 
         HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        PlaylistPage playlistPage = new PlaylistPage(driver);
 
         //Enter tester username
-        provideEmail("amandaag39@gmail.com");
+        loginPage.provideEmail("amandaag39@gmail.com");
 
         //Enter password
-        providePassword("te$t$tudent");
+        loginPage.providePassword("te$t$tudent");
 
         //Click login button
-        clickLoginButton();
+        loginPage.clickSubmitBtn();
 
         //click add button
         homePage.clickAddButton();
@@ -36,13 +38,10 @@ public class Homework19 extends BaseTest {
         homePage.selectXYZPlaylist();
 
         //click deletePlaylistButton
-        WebElement deletePlaylistButton = driver.findElement(By.cssSelector("button.del.btn-delete-playlist"));
-        deletePlaylistButton.click();
-
+        playlistPage.deletePlaylist();
 
         //validate playlist deletion
-        WebElement deletedPlaylist = driver.findElement(By.xpath("//div[@class='success show' and contains(text(),'Deleted playlist')]"));
-        Assert.assertTrue(deletedPlaylist.isDisplayed());
+        Assert.assertTrue(playlistPage.getDeletePlaylistButton().isDisplayed());
 
     }
 }

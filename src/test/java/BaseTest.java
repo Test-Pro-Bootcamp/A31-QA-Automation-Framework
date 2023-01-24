@@ -66,7 +66,6 @@ public class BaseTest {
     }
 
     public static void clickLoginButton() {
-        //WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         loginButton.click();
     }
@@ -111,12 +110,12 @@ public class BaseTest {
 //        driver.get(url2);
 //    }
 
-    public static void rightClickSong() {
-        Actions rightClick = new Actions(driver);
-        WebElement waitingOnATrainSong = driver.findElement(By.xpath("//*[text()='HoliznaCC0 - Waiting On A Train']"));
-//        WebElement waitingOnATrainSong = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='HoliznaCC0 - Waiting On A Train']")));
-        rightClick.contextClick(waitingOnATrainSong).perform();
-    }
+//    public static void rightClickSong() {
+//        Actions rightClick = new Actions(driver);
+//        WebElement waitingOnATrainSong = driver.findElement(By.xpath("//*[text()='HoliznaCC0 - Waiting On A Train']"));
+////        WebElement waitingOnATrainSong = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='HoliznaCC0 - Waiting On A Train']")));
+//        rightClick.contextClick(waitingOnATrainSong).perform();
+//    }
 
     public void rightClickXYZPlaylist() {
         Actions rightClick = new Actions(driver);

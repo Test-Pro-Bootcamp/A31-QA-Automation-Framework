@@ -12,41 +12,33 @@ import java.time.Duration;
 
 public class HomePage extends BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-
     //WebElements
     @FindBy(css = "img.avatar")
-    WebElement userAvatarIcon;
-//    By userAvatarIcon = By.cssSelector("img.avatar");
+    private WebElement userAvatarIcon;
 
     @FindBy (css = "i.fa.fa-plus-circle")
-    WebElement addPlaylistButton;
-//    By addPlaylistButton = By.cssSelector("i.fa.fa-plus-circle");
+    private WebElement addPlaylistButton;
 
     @FindBy (xpath = "//li[text()='New Playlist']")
-    WebElement addNewPlaylistButton;
-//    By addNewPlaylistButton = By.xpath("//li[text()='New Playlist']");
+    private WebElement addNewPlaylistButton;
 
     @FindBy (css = "input[type='text'][name='name']")
-    WebElement newPlaylistTextField;
-//    By newPlaylistTextField = By.cssSelector("input[type='text'][name='name']");
+    private WebElement newPlaylistTextField;
 
     @FindBy(xpath = "//a[text()='XYZ Playlist']")
-    WebElement xyzPlaylist;
-//    By xyzPlaylist = By.xpath("//a[text()='XYZ Playlist']");
+    private WebElement xyzPlaylist;
 
     @FindBy (xpath = "//*[@id=\"app\"]/nav/ul/li[4]")
-    WebElement addToButton;
-//    By addToButton = By.xpath("//*[@id=\"app\"]/nav/ul/li[4]");
+    private WebElement addToButton;
 
     @FindBy (xpath = "//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]")
-    WebElement xyzPlaylistButton;
-//    By xyzPlaylistButton = By.xpath("//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]");
+    private WebElement xyzPlaylistButton;
 
     @FindBy (xpath = "//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']")
-    WebElement xyzPlaylistDropDownClick;
-//    By xyzPlaylistDropDownClick = By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']");
+    private WebElement xyzPlaylistDropDownClick;
+
+    @FindBy (css = "img[alt='Sound bars']")
+    private WebElement soundBarsShown;
 
 
     public HomePage(WebDriver givenDriver) {
@@ -63,24 +55,19 @@ public class HomePage extends BasePage {
     public void clickAddButton() {
         wait.until(ExpectedConditions.visibilityOf(addPlaylistButton));
         addPlaylistButton.click();
-//        driver.findElement(addPlaylistButton).click();
     }
 
     public void selectNewPlaylistFromDropdown() {
         addNewPlaylistButton.click();
-//        driver.findElement(addNewPlaylistButton).click();
     }
 
     public void createXYZPlaylist() {
         newPlaylistTextField.click();
         newPlaylistTextField.sendKeys("XYZ Playlist" + Keys.ENTER);
-//        driver.findElement(newPlaylistTextField).click();
-//        driver.findElement(newPlaylistTextField).sendKeys("XYZ Playlist" + Keys.ENTER);
     }
 
     public WebElement confirmXYZPlaylist() {
         return wait.until(ExpectedConditions.visibilityOf(xyzPlaylist));
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(xyzPlaylist));
     }
 
     public void navigateToAllSongsPage () {
@@ -90,20 +77,18 @@ public class HomePage extends BasePage {
 
     public void clickAddTooButton () {
         addToButton.click();
-//        WebElement addToButtonElement = driver.findElement(addToButton);
-//        addToButtonElement.click();
     }
 
     public void clickXYZInDropdown () {
         xyzPlaylistButton.click();
-//        WebElement xyzPlaylistDropdownElement = driver.findElement(xyzPlaylistButton);
-//        xyzPlaylistDropdownElement.click();
     }
 
     public void selectXYZPlaylist () {
         xyzPlaylistDropDownClick.click();
-//        WebElement xyzPlaylistDropdownLinkElement = driver.findElement(xyzPlaylistDropDownClick);
-//        xyzPlaylistDropdownLinkElement.click();
+    }
+
+    public WebElement soundBarsShownMethod () {
+        return wait.until(ExpectedConditions.visibilityOf(soundBarsShown));
     }
 }
 
