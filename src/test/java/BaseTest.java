@@ -1,12 +1,14 @@
 import com.beust.jcommander.Parameter;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.netty.util.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -18,6 +20,9 @@ import java.util.UUID;
 
 public class BaseTest {
     public static WebDriver driver = null;
+    private static WebDriver WebDriverReference;
+    private static Duration Timeout;
+    public static WebDriverWait wait;
     public static String url = "https://bbb.testpro.io/";
 
 
@@ -30,8 +35,9 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(BaseURL);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterMethod
@@ -47,6 +53,7 @@ public class BaseTest {
     public static void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public static void providePassword(String password) {

@@ -9,7 +9,8 @@
 <!--            <class name="BaseTest"/>-->
 <!--            <class name="Homework16"></class>-->
 <!--            <class name="Homework17"></class>-->
-            <class name="Homwork19"></class>
+<!--            <class name="Homwork19"></class>-->
+            <class name = "Homework20"></class>
         </classes>
     </test>
 </suite>
