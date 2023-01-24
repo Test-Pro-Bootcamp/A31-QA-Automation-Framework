@@ -6,20 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends pages.BasePage {
+import java.time.Instant;
+
+public class HomePage {
 
     //Locators
     @FindBy(css = "[class='home active']")
-    private WebElement homeButton;
+    WebElement homeButton;
     @FindBy(css = "[class='queue']")
-    private WebElement currentQue;
+    WebElement currentQue;
     @FindBy(css = "[class='songs']")
-    private WebElement allSongsButton;
+    WebElement allSongsButton;
     private By userAvatarIcon = By.cssSelector("img.avatar");
 
     public HomePage( WebDriver givenDriver) {
-        super(givenDriver);
-    }
+        super(givenDriver);    }
     public WebElement getUserAvatar () {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
     }
