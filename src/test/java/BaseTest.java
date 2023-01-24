@@ -6,11 +6,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -50,7 +54,10 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-    private static WebDriver pickBrowser(String browser){
+    private static WebDriver pickBrowser(String browser) throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        String gridUrl = "http://########:4444";
+
         switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
@@ -60,7 +67,16 @@ public class BaseTest {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
-            default:
+            case "grid-edge":
+                caps.setCapability("browserName", "MicrosoftEdge" );
+                driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+            case "grid-firefox":
+                caps.setCapability("browserName", "" );"firefox");
+                driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+            case "grid-chrome":
+                caps.setCapability("browserName", "" );"chrome");
+                driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
+                default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
 
