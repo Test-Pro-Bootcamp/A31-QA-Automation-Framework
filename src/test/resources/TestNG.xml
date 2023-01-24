@@ -6,7 +6,8 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests" />
+<!--            <class name="LoginTests" />-->
+            <class name="PlaylistTests"/>
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>
