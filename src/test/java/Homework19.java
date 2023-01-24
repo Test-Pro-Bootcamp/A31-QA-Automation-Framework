@@ -11,8 +11,12 @@ public class Homework19 extends BaseTest {
         clickSubmit();
 
         //select playlist Homework 19 Test
-        WebElement selectPlaylist = driver.findElement(By.xpath("//a[normalize-space()='Homework 19 Test']"));
+        WebElement selectPlaylist = driver.findElement(By.xpath("(//a[normalize-space()='Homework 19 Test'])[1]"));
         selectPlaylist.click();
+
+        //WebDriverWait wait = new WebDriverWait(WebDriverReference,TimeOut);
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "locator")));
+
 
         // Delete selected playlist
         WebElement deletePlaylist = driver.findElement(By.xpath("//button[normalize-space()='Playlist']"));
