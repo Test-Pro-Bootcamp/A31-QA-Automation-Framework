@@ -9,13 +9,15 @@ import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
-@Test
+    @Test
     public void LoginPageValidEmailPasswordTest(){
-    LoginPage loginPage = new LoginPage(driver);
-    HomePage homePage = new HomePage(driver);
-loginPage.login();
-homePage.addPlaylist();
-homePage.doubleClickToPlaylist();
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.login();
+        homePage.addPlaylist();
+        homePage.newPlaylist();
+        homePage.namePlaylist();
+        homePage.doubleClickToPlaylist();
 //    loginPage.provideEmail("sandra.geche@gmail.com");
 //    loginPage.provideEmail("te$t$tudent");
 //    loginPage.clickSubmitBtn();

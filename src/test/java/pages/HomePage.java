@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,39 +18,49 @@ public class HomePage extends BasePage {
         super(givenDriver);
     }
 
-    By addAPlaylist = By.xpath("//*[@class='fa fa-plus-circle create']");
-    By clickNewPlaylist = By.xpath("//*[@data-testid='playlist-context-menu-create-simple']");
-    By playlistName = By.cssSelector("input[placeholder='↵ to save']");
-    By clickPlaylist = By.cssSelector(".playlist:nth-child(3)");
-    By chooseName = By.cssSelector("input[name='name']");
+    @FindBy(xpath = "//*[@class='fa fa-plus-circle create']")
+    WebElement addAPlaylist;
+    @FindBy(xpath = "//*[@data-testid='playlist-context-menu-create-simple']")
+    WebElement clickNewPlaylist;
+    @FindBy(css = "input[placeholder='↵ to save']")
+    WebElement playlistName;
+    @FindBy(css = ".playlist:nth-child(3)")
+    WebElement clickPlaylist;
+    @FindBy(css = "input[name='name']")
+    WebElement chooseName;
 
-    public void addPlaylist() {
-
-        driver.findElement(addAPlaylist).click();
+    public HomePage addPlaylist() {
+        addAPlaylist.click();
+        return this;
     }
 
-    public void newPlaylist() {
-        driver.findElement(clickNewPlaylist).click();
+    public HomePage newPlaylist() {
+        clickNewPlaylist.click();
+        return this;
     }
 
-    public void namePlaylist() {
-        driver.findElement(playlistName).clear();
-        driver.findElement(playlistName).click();
-        driver.findElement(playlistName).sendKeys("best songs");
-        driver.findElement(playlistName).sendKeys(Keys.ENTER);
+    public HomePage namePlaylist() {
+        playlistName.clear();
+        playlistName.click();
+        playlistName.sendKeys("best songs");
+        playlistName.sendKeys(Keys.ENTER);
+        return this;
     }
 
-    public void doubleClickToPlaylist() {
-        doubleClick(driver.findElement(clickPlaylist));
+    public HomePage doubleClickToPlaylist() {
+        doubleClick(clickPlaylist);
+        return this;
     }
 
     public static void choosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
-    public void newPlaylistName() {
-        driver.findElement(chooseName).sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
-        driver.findElement(chooseName).sendKeys("Wild dream");
-        driver.findElement(chooseName).sendKeys(Keys.ENTER);
+
+    public HomePage newPlaylistName() {
+        chooseName.sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
+        chooseName.sendKeys("Wild dream");
+        chooseName.sendKeys(Keys.ENTER);
+        return this;
     }
 
 }
