@@ -14,11 +14,17 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
 }
+task testHomework20 (type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Homework20.xml"
+    }
+}
 
 test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
         systemProperty "browser", System.getProperty("browser")
+
     }
 }
 
