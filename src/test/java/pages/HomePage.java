@@ -1,9 +1,10 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,42 +15,72 @@ public class HomePage extends BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By addPlaylistButton = By.cssSelector("i.fa.fa-plus-circle");
-    By addNewPlaylistButton = By.xpath("//li[text()='New Playlist']");
-    By newPlaylistTextField = By.cssSelector("input[type='text'][name='name']");
-    By xyzPlaylist = By.xpath("//a[text()='XYZ Playlist']");
-    By addToButton = By.xpath("//*[@id=\"app\"]/nav/ul/li[4]");
-    By xyzPlaylistButton = By.xpath("//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]");
-    By xyzPlaylistDropDownClick = By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']");
+    //WebElements
+    @FindBy(css = "img.avatar")
+    WebElement userAvatarIcon;
+//    By userAvatarIcon = By.cssSelector("img.avatar");
+
+    @FindBy (css = "i.fa.fa-plus-circle")
+    WebElement addPlaylistButton;
+//    By addPlaylistButton = By.cssSelector("i.fa.fa-plus-circle");
+
+    @FindBy (xpath = "//li[text()='New Playlist']")
+    WebElement addNewPlaylistButton;
+//    By addNewPlaylistButton = By.xpath("//li[text()='New Playlist']");
+
+    @FindBy (css = "input[type='text'][name='name']")
+    WebElement newPlaylistTextField;
+//    By newPlaylistTextField = By.cssSelector("input[type='text'][name='name']");
+
+    @FindBy(xpath = "//a[text()='XYZ Playlist']")
+    WebElement xyzPlaylist;
+//    By xyzPlaylist = By.xpath("//a[text()='XYZ Playlist']");
+
+    @FindBy (xpath = "//*[@id=\"app\"]/nav/ul/li[4]")
+    WebElement addToButton;
+//    By addToButton = By.xpath("//*[@id=\"app\"]/nav/ul/li[4]");
+
+    @FindBy (xpath = "//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]")
+    WebElement xyzPlaylistButton;
+//    By xyzPlaylistButton = By.xpath("//*[@id=\"app\"]/nav/ul/li/ul/li[contains(text(),\"XYZ Playlist\")]");
+
+    @FindBy (xpath = "//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']")
+    WebElement xyzPlaylistDropDownClick;
+//    By xyzPlaylistDropDownClick = By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']");
 
 
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        PageFactory.initElements(driver, this);
     }
 
     public WebElement getUserAvatar() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
+        return wait.until(ExpectedConditions.visibilityOf(userAvatarIcon));
     }
 
     public void clickAddButton() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(addPlaylistButton));
-        driver.findElement(addPlaylistButton).click();
+        wait.until(ExpectedConditions.visibilityOf(addPlaylistButton));
+        addPlaylistButton.click();
+//        driver.findElement(addPlaylistButton).click();
     }
 
     public void selectNewPlaylistFromDropdown() {
-        driver.findElement(addNewPlaylistButton).click();
+        addNewPlaylistButton.click();
+//        driver.findElement(addNewPlaylistButton).click();
     }
 
     public void createXYZPlaylist() {
-        driver.findElement(newPlaylistTextField).click();
-        driver.findElement(newPlaylistTextField).sendKeys("XYZ Playlist" + Keys.ENTER);
+        newPlaylistTextField.click();
+        newPlaylistTextField.sendKeys("XYZ Playlist" + Keys.ENTER);
+//        driver.findElement(newPlaylistTextField).click();
+//        driver.findElement(newPlaylistTextField).sendKeys("XYZ Playlist" + Keys.ENTER);
     }
 
     public WebElement confirmXYZPlaylist() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(xyzPlaylist));
+        return wait.until(ExpectedConditions.visibilityOf(xyzPlaylist));
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(xyzPlaylist));
     }
 
     public void navigateToAllSongsPage () {
@@ -58,20 +89,21 @@ public class HomePage extends BasePage {
     }
 
     public void clickAddTooButton () {
-        WebElement addToButtonElement = driver.findElement(addToButton);
-        addToButtonElement.click();
+        addToButton.click();
+//        WebElement addToButtonElement = driver.findElement(addToButton);
+//        addToButtonElement.click();
     }
 
     public void clickXYZInDropdown () {
-        WebElement xyzPlaylistDropdownElement = driver.findElement(xyzPlaylistButton);
-        xyzPlaylistDropdownElement.click();
+        xyzPlaylistButton.click();
+//        WebElement xyzPlaylistDropdownElement = driver.findElement(xyzPlaylistButton);
+//        xyzPlaylistDropdownElement.click();
     }
 
     public void selectXYZPlaylist () {
-        WebElement xyzPlaylistDropdownLinkElement = driver.findElement(xyzPlaylistDropDownClick);
-        xyzPlaylistDropdownLinkElement.click();
-//            WebElement xyzPlaylist = driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li/a[text()='XYZ Playlist']"));
-//            xyzPlaylist.click();
+        xyzPlaylistDropDownClick.click();
+//        WebElement xyzPlaylistDropdownLinkElement = driver.findElement(xyzPlaylistDropDownClick);
+//        xyzPlaylistDropdownLinkElement.click();
     }
 }
 

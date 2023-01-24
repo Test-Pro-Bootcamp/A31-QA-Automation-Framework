@@ -23,6 +23,7 @@ public class BasePage {
 
 
     public void click(By locator) {
+
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -30,15 +31,9 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void contextClick (By locator) {
+    public void contextClick(By locator) { actions.contextClick(findElement(locator)).perform(); }
 
-        actions.contextClick(findElement(locator));
-    }
-
-    public void doubleClick (By locator) {
-
-        actions.doubleClick(findElement(locator));
-    }
+    public void doubleClick (By locator) { actions.doubleClick(findElement(locator)).perform(); }
 
 
 }

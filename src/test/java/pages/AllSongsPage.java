@@ -10,11 +10,11 @@ import java.time.Duration;
 
 public class AllSongsPage extends BasePage {
 
-    static WebDriver driver;
+    WebDriver driver;
     WebDriverWait wait;
-    static Actions actions;
+    Actions actions;
 
-    static By waitingOnATrainSong = By.xpath("//*[@id='playlistWrapper']/div/div/div[1]/table/tr/td[2]");
+    By waitingOnATrainSong = By.xpath("//*[text()='HoliznaCC0 - Waiting On A Train']");
 
     public AllSongsPage(WebDriver givenDriver) {
         super(givenDriver);
@@ -22,9 +22,9 @@ public class AllSongsPage extends BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    public static void rightClickSong() {
+    public void rightClickSong() {
         WebElement waitingOnATrainSongClick = driver.findElement(waitingOnATrainSong);
-        actions.contextClick(waitingOnATrainSongClick);
+        actions.contextClick(waitingOnATrainSongClick).perform();
     }
 
 }

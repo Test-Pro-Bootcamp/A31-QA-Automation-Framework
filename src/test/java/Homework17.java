@@ -69,7 +69,7 @@ public class Homework17 extends BaseTest {
     }
 
     @Test (enabled = true, priority = 3)
-    public static void addSongToPlaylist (){
+    public static void addSongToPlaylist () {
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
