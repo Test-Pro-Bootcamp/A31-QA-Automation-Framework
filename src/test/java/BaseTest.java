@@ -27,12 +27,12 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-//        WebDriverManager.firefoxdriver().setup();
+     //   WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) throws MalformedURLException {
+    public static void launchBrowser(String BaseURL) throws MalformedURLException{
         driver = pickBrowser(System.getProperty("browser"));
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
@@ -45,9 +45,9 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-    private static WebDriver pickBrowser(String browser) throws MalformedURLException {
+    private static WebDriver pickBrowser(String browser) throws MalformedURLException  {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://192.168.1.222:4444";
 
         switch (browser){
             case "firefox":
