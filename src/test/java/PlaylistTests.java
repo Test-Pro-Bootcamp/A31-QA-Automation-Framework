@@ -13,7 +13,6 @@ public class PlaylistTests extends BaseTest{
 
     @Test(enabled = true)
     public void addSongTest() throws InterruptedException {
-        String playlistName = "Homework";
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -59,7 +58,6 @@ public class PlaylistTests extends BaseTest{
     }
     @Test(enabled = true)
     public void playPlaylistSongTest() throws InterruptedException {
-        String playlistName = "Homework";
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
