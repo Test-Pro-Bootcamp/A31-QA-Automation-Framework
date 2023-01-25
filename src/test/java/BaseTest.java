@@ -25,7 +25,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeMethod
+    // @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();

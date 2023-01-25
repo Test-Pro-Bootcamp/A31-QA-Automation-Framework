@@ -5,6 +5,7 @@
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
+        <parameter name="BaseURL" value="https://bbb.testpro.io/" />
         <classes>
             <class name="Homework17" />
 <!--            <class name="ProfileTests"/>-->
