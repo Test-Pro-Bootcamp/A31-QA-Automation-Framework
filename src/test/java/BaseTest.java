@@ -20,6 +20,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.UUID;
 
 
@@ -29,6 +30,7 @@ public class BaseTest {
     public static WebDriverWait wait;
     public static String url = "https://bbb.testpro.io/";
     public static Actions actions;
+    public ThreadLocal<WebDriver> threadDriver;
 
     @BeforeSuite
     static void setupClass() {
@@ -37,17 +39,31 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) throws MalformedURLException {
+    public void launchBrowser(String BaseURL) throws MalformedURLException {
         driver = pickBrowser(System.getProperty("browser"));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        threadDriver = new ThreadLocal<>();
+        threadDriver.set(driver);
+
+        getDriver().manage().window().maximize();
+//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
-        driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
-        actions = new Actions(driver);
+        getDriver().get(url);
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        actions = new Actions(getDriver());
     }
 
-    public static WebDriver pickBrowser(String browser) throws MalformedURLException {
+    public WebDriver getDriver() {
+        return threadDriver.get();
+    }
+
+    @AfterMethod
+    public void closeBrowser() {
+        getDriver().quit();
+        threadDriver.remove();
+    }
+
+    public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.211:4444";
         switch (browser) {
@@ -66,33 +82,32 @@ public class BaseTest {
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+            case "cloud":
+                return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
         }
     }
 
-    public WebDriver lambdaTest () throws MalformedURLException {
-        String username = "greeshma.udupatestpro";
-        String accesskey = "WaedTiPnMaVyPLFMEaT4nOHoJzJSKUqZUzkdd7mS2okezRwKT7";
-        String hub = "@hub.lambdatest.com/wd/hub";
+    public WebDriver lambdaTest() throws MalformedURLException {
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "Windows 10");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("browserVersion", "108.0");
-        caps.setCapability("resolution", "1024*746");
-        caps.setCapability("build", "Selenium 4");
-        caps.setCapability("name", this.getClass().getName());
-        caps.setCapability("seCdp", true);
-        caps.setCapability("selenium_version", "4.0.0");
+        String hubURL = "https://hub.lambdatest.com/wd/hub";
 
-        return new RemoteWebDriver(new URL("http://" + username + ":" + accesskey + hub), caps);
-    }
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "Chrome");
+        capabilities.setCapability("browserVersion", "109.0");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("user", "greeshma.udupatestpro");
+        ltOptions.put("accessKey", "WaedTiPnMaVyPLFMEaT4nOHoJzJSKUqZUzkdd7mS2okezRwKT7");
+        ltOptions.put("build", "Selenium 4");
+        ltOptions.put("name", this.getClass().getName());
+        ltOptions.put("platformName", "Windows 10");
+        ltOptions.put("seCdp", true);
+        ltOptions.put("selenium_version", "4.0.0");
+        capabilities.setCapability("LT:Options", ltOptions);
 
-    @AfterMethod
-    public static void closeBrowser() {
-        driver.quit();
+        return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
 
 }

@@ -9,10 +9,10 @@ import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
     @Test
-    public static void loginValidEmailPasswordTest() {
+    public void loginValidEmailPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com")
                 .providePassword("te$t$tudent")

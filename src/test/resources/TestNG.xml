@@ -4,7 +4,7 @@
 <suite name="TestNG" parallel="methods" thread-count="2">
     <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
 
-    <test name="Example Test" preserve-order="false">
+    <test name="Homework25" preserve-order="false">
         <classes>
             <class name="Homework25">
                 <methods>

@@ -7,8 +7,8 @@ public class Homework25 extends BaseTest {
     @Test
     public void renamePlaylist() {
 
-       LoginPage loginPage = new LoginPage(driver);
-       HomePage homePage = new HomePage(driver);
+       LoginPage loginPage = new LoginPage(getDriver());
+       HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com")
                 .providePassword("te$t$tudent")
@@ -17,14 +17,14 @@ public class Homework25 extends BaseTest {
         homePage.createPlaylist("HW");
         homePage.choosePlaylist("HW");
         homePage.doubleClickChoosePlaylist("HW");
-        homePage.enterPlaylistName("HW24");
+        homePage.enterPlaylistName("HW25");
         Assert.assertTrue((homePage.getSuccessMsg()));
     }
 
     @Test
     public void deletePlaylist() {
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com")
                 .providePassword("te$t$tudent")

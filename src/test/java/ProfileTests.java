@@ -9,11 +9,11 @@ import pages.ProfilePage;
 public class ProfileTests extends BaseTest {
 
     @Test
-    public static void updateProfileNameTest() {
+    public void updateProfileNameTest() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        ProfilePage profilePage = new ProfilePage(getDriver());
 
         loginPage.provideEmail("test123@test.com")
                 .providePassword("te$t$tudent")
@@ -26,7 +26,7 @@ public class ProfileTests extends BaseTest {
         profilePage.provideProfileName(randomName);
         profilePage.clickSaveButton();
 
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        WebElement actualProfileName = getDriver().findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }
