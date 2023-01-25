@@ -12,11 +12,14 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
-    Actions action = new Actions(driver);
+
+    static Actions action = new Actions(driver);
+
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
-//        login();
+        login("terrence.regis", "te$t$tudent");
+
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -25,18 +28,22 @@ public class SeleniumTechniques extends BaseTest {
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
-    public void renamePlaylist() throws InterruptedException {
-//        login();
+
+    public static void renamePlaylist()  {
+        login("terrence.regis@gmail.com", "te$t$tudent");
+
         doubleClickChoosePlaylist();
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
-        Thread.sleep(2000);
+
 
     }
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
-//        login();
+
+        login("terrence.regis", "te$t$tudent");
+
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -44,7 +51,9 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-//        login();
+
+        login("terrence.regis", "te$t$tudent");
+
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
@@ -72,7 +81,7 @@ public class SeleniumTechniques extends BaseTest {
         return soundBarVisualizer.isDisplayed();
     }
 
-    public void doubleClickChoosePlaylist() {
+    public static void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
         action.doubleClick(playlistElement).perform();
@@ -81,16 +90,19 @@ public class SeleniumTechniques extends BaseTest {
     public void choosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
-    public void enterPlaylistName() {
+    public static void enterPlaylistName() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='name']")));
         WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
 //        clear() does not work, element has an attribute of "required"
 //            workaround is ctrl A (to select all) then backspace to clear then replace with new playlist name
-        playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+
+        playlistInputField.sendKeys((Keys.chord(Keys.COMMAND, "a", Keys.DELETE)));
         playlistInputField.sendKeys("Summer Songs");
         playlistInputField.sendKeys(Keys.ENTER);
     }
-    public boolean doesPlaylistExist() {
-        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Edited Playlist Name']"));
+    public static boolean doesPlaylistExist() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains (text(), 'Summer Songs')]")));
+        WebElement playlistElement = driver.findElement(By.xpath("//a[contains (text(), 'Summer Songs')]"));
         return playlistElement.isDisplayed();
     }
 

@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class LoginPage extends BasePage{
 
     //locators
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
+   private  By submitButtonLocator = By.cssSelector("[type='submit']");
+   private  By emailField = By.cssSelector("[type='email']");
+    private By passwordField = By.cssSelector("[type='password']");
 
     By profileIcon  = By.xpath("//a[@class='view-profile']");
 
@@ -38,8 +38,10 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage logIn(){
-        provideEmail("demo@class.com");
+
+    public void logIn(){
+        provideEmail("terrence.regis@gmail.com");
+=
         providePassword("te$t$tudent");
         clickSubmitBtn();
         return this;

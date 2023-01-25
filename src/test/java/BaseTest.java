@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -31,6 +32,7 @@ public class BaseTest {
     public FluentWait fluentWait = null;
     public Actions actions = null;
     public ThreadLocal<WebDriver> threadLocal = null;
+
 
 
     @BeforeSuite
