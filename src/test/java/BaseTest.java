@@ -18,6 +18,7 @@ import pages.BasePage;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -32,7 +33,6 @@ public class BaseTest {
     @BeforeSuite
     static void setupClass() {
 //        WebDriverManager.chromedriver().setup();
-
     }
 
     @BeforeMethod
@@ -70,6 +70,24 @@ public class BaseTest {
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
         }
+    }
+
+    public WebDriver lambdaTest () throws MalformedURLException {
+        String username = "greeshma.udupatestpro";
+        String accesskey = "WaedTiPnMaVyPLFMEaT4nOHoJzJSKUqZUzkdd7mS2okezRwKT7";
+        String hub = "@hub.lambdatest.com/wd/hub";
+
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platformName", "Windows 10");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("browserVersion", "108.0");
+        caps.setCapability("resolution", "1024*746");
+        caps.setCapability("build", "Selenium 4");
+        caps.setCapability("name", this.getClass().getName());
+        caps.setCapability("seCdp", true);
+        caps.setCapability("selenium_version", "4.0.0");
+
+        return new RemoteWebDriver(new URL("http://" + username + ":" + accesskey + hub), caps);
     }
 
     @AfterMethod

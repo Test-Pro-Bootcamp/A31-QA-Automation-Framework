@@ -3,12 +3,12 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class Homework24 extends BaseTest {
+public class Homework25 extends BaseTest {
     @Test
     public void renamePlaylist() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+       LoginPage loginPage = new LoginPage(driver);
+       HomePage homePage = new HomePage(driver);
 
         loginPage.provideEmail("test123@test.com")
                 .providePassword("te$t$tudent")

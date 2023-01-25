@@ -40,10 +40,10 @@ public class LoginPage extends BasePage {
     }
 
     //Login
-//    public LoginPage login(String email, String password) {
-//        provideEmail(email);
-//        providePassword(password);
-//        clickSubmit();
-//        return this;
-//    }
+    public LoginPage login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+        return this;
+    }
 }
