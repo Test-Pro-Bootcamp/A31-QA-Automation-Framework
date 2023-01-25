@@ -6,12 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 
 
@@ -19,7 +23,7 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-//        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.firefoxdriver().setup();
     }
 
     public static WebDriver driver;
@@ -28,7 +32,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
+    public static void launchBrowser(String BaseURL) throws MalformedURLException {
         driver = pickBrowser(System.getProperty("browser"));
         driver.get(BaseURL);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
@@ -43,7 +47,9 @@ public class BaseTest {
         Homework17.driver.quit();
     }
 
-    private static WebDriver pickBrowser(String browser) {
+    private static WebDriver pickBrowser(String browser) throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        String gridURL = "http://10.0.0.252:4444";
         switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
@@ -53,9 +59,19 @@ public class BaseTest {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
+            case "grid-edge":
+                caps.setCapability("browserName", "MicrosoftEdge");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
+            case "grid-firefox":
+                caps.setCapability("browserName","firefox");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
+            case "grid-chrome":
+                caps.setCapability("browserName", "chrome");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
             default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
+                break;
         }
         return driver;
     }
