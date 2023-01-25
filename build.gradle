@@ -17,7 +17,10 @@ dependencies {
 
 test {
     useTestNG() {
+<<<<<Homework22
         suites "src/test/resources/Homework22.xml"
+
+ 
     }
 }
 
