@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,7 +25,9 @@ public class CurrentQueTests extends BaseTest {
         homePage.clickAllSongsBtn();
 
         //Click "Ketsa" song
-        basePage.contextClick();
+        WebElement selectedSong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[7]/td[2]"));
+        selectedSong.click();
+        acts.contextClick(selectedSong).perform();
 
         //Click "Add To"
         basePage.findElement(By.xpath("//ul/li[@class='has-sub']")).click();

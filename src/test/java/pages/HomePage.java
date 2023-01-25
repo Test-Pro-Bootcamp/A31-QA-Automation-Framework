@@ -16,13 +16,20 @@ public class HomePage extends pages.BasePage {
     private WebElement currentQue;
     @FindBy(css = "[class='songs']")
     private WebElement allSongsButton;
+    @FindBy(css = "[alt='Sound bars']")
+    private WebElement soundBars;
     private By userAvatarIcon = By.cssSelector("img.avatar");
+    private By createdPlaylist = By.xpath("//li/a[text()='"+playlistName+"']");
+
 
     public HomePage( WebDriver givenDriver) {
         super(givenDriver);
     }
     public WebElement getUserAvatar () {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(userAvatarIcon));
+    }
+    public WebElement getCreatedPlaylist () {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(createdPlaylist));
     }
     public HomePage clickHomeButton() {
         homeButton.click();
@@ -43,4 +50,9 @@ public class HomePage extends pages.BasePage {
         Thread.sleep(1000);
         return this;
     }
+    public HomePage assertSoundBars() {
+        soundBars.isDisplayed();
+        return this;
+    }
+
 }

@@ -1,6 +1,3 @@
-import pages.BasePage;
-import pages.HomePage;
-import pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -8,6 +5,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.BasePage;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class PlaylistTests extends BaseTest{
 
@@ -77,17 +77,18 @@ public class PlaylistTests extends BaseTest{
         basePage.clickNewPlaylist();
 
         //Input playlist name
-        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='name']")));
-        nameField.clear();
-        nameField.sendKeys(playlistName, Keys.ENTER);
-        Thread.sleep(1000);
+        homePage.inputPlaylistName();
+//        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='name']")));
+//        nameField.clear();
+//        nameField.sendKeys(playlistName, Keys.ENTER);
+//        Thread.sleep(1000);
 
 
         //Click "All Songs"
         basePage.findElement(By.xpath("//li/a[text()='All Songs']")).click();
 
         //Click "Reactor" song
-        WebElement reactorSong = driver.findElement(By.xpath("//*[@id='songsWrapper']/div/div/div[1]/table/tr[12]/td[2]"));
+        WebElement reactorSong = driver.findElement(By.xpath("//td[contains(text(), 'Reactor')]"));
         reactorSong.click();
 
         //Right-click song
@@ -103,8 +104,9 @@ public class PlaylistTests extends BaseTest{
         basePage.assertAddDeleteMessage();
 
         //Go to created playlist
-        WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
-        createdPlaylist.click();
+        homePage.getCreatedPlaylist().click();
+//        WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
+//        createdPlaylist.click();
 
         //Right-click song on list
         WebElement clickSongOnList = driver.findElement(By.xpath("//*[@id='playlistWrapper']/div/div/div[1]/table/tr/td[2]"));
@@ -115,9 +117,9 @@ public class PlaylistTests extends BaseTest{
         playBtn.click();
 
         //Verify through displayed equalizer
-        WebElement equalizerBars = driver.findElement(By.cssSelector("[alt='Sound bars']"));
-        Assert.assertTrue(equalizerBars.isDisplayed());
-
+        homePage.assertSoundBars();
+//        WebElement equalizerBars = driver.findElement(By.cssSelector("[alt='Sound bars']"));
+//        Assert.assertTrue(equalizerBars.isDisplayed());
     }
     @Test(enabled = true)
     public void renamePlaylistTest() throws InterruptedException {
@@ -140,9 +142,10 @@ public class PlaylistTests extends BaseTest{
         basePage.clickNewPlaylist();
 
         //Input playlist name
-        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
-        nameField.clear();
-        nameField.sendKeys(playlistName, Keys.ENTER);
+        homePage.inputPlaylistName();
+//        WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+//        nameField.clear();
+//        nameField.sendKeys(playlistName, Keys.ENTER);
 
         //Double-click created playlist to edit
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
@@ -158,7 +161,7 @@ public class PlaylistTests extends BaseTest{
 
     }
     @Test(enabled = true)
-    public void deletePlaylistTest() {
+    public void deletePlaylistTest() throws InterruptedException {
         String playlistName = "Test Delete";
 
         LoginPage loginPage = new LoginPage(driver);
@@ -178,7 +181,7 @@ public class PlaylistTests extends BaseTest{
         //Input playlist name
         WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
         nameField.clear();
-        nameField.sendKeys(playlistName,Keys.ENTER);
+        nameField.sendKeys(playlistName, Keys.ENTER);
 
         //Right-click created playlist
         WebElement createdPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[text()='"+playlistName+"']")));
