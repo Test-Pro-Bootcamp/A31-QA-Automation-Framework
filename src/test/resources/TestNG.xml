@@ -6,9 +6,12 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework18"/>
             <class name="Homework17A"/>
-<!--            <class name="ProfileTests"/>-->
+            <class name="Homework18"/>
+            <class name="Homework19"/>
+            <class name="MyBaseTest"/>
+            <class name="Homework20"/>
+<!--   <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>
     </test>
