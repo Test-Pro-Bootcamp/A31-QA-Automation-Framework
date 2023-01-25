@@ -18,8 +18,8 @@ public class Homework22 extends BaseTest {
 
         loginPage.logIn();
         homePage.doubleClickChoosePlaylist();
-        homePage.enterPlaylistName(playlistName);
-        Assert.assertTrue(homePage.doesPlaylistExist(playlistName));
+        homePage.enterPlaylistName();
+        Assert.assertTrue(homePage.doesPlaylistExist());
     }
 
 }
