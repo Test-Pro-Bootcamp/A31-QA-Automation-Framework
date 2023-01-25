@@ -31,11 +31,13 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
+        driver.manage().window().maximize();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
         action = new Actions(driver);
+
     }
 
     @AfterMethod
@@ -112,7 +114,7 @@ public class BaseTest {
 
     //HW17 by Aliaksandr
     public void choosePlaylist (String playlistName) throws InterruptedException {
-        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResults rapper']//section/ul/li[contains(text(), '"+playlistName+"')]"));
+        WebElement playlistNameElement = driver.findElement(By.xpath("//a[contains(text(),'Test Pro Playlist')]"));
         playlistNameElement.click();
         Thread.sleep(2000);
     }
@@ -123,7 +125,8 @@ public class BaseTest {
     }
 
     public boolean isNotificationPopUpPresent(){
-        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show")); return notificationText.isDisplayed();
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+        return notificationText.isDisplayed();
     }
 
     public void searchSong(String songTitleKeyword) throws InterruptedException{
