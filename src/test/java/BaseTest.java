@@ -30,8 +30,7 @@ public class BaseTest {
 
     public FluentWait fluentWait = null;
     public Actions actions = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
-
+    public ThreadLocal<WebDriver> threadDriver = null;
 
     @BeforeSuite
     public void setupClass() {
@@ -41,32 +40,33 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
+//        driver = new FirefoxDriver();
         url = BaseURL;
-        threadLocal = new ThreadLocal<>();
+//        driver.get(url);
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        threadDriver = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadLocal.set(driver);
-
+        threadDriver.set(driver);
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().manage().window().maximize();
+        //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().get(url);
 
     }
 
     public WebDriver getDriver() {
-        return threadLocal.get();
+        return threadDriver.get();
     }
 
     @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
-        threadLocal.remove();
+        threadDriver.remove();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://192.168.0.163:4444";
 
         switch (browser) {
             case "firefox":
@@ -93,15 +93,17 @@ public class BaseTest {
     }
 
     public WebDriver lambdaTest() throws MalformedURLException {
+//        String LT_USERNAME = "khaledoni01";
+//        String LT_ACCESS_KEY = "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4";
+//        String hub = "@hub.lambdatest.com/wd/hub";
 
-        String hubURL = "https://hub.lambdatest.com/wd/hub";
-
+        String hubURL = "https://jimmypvu:vygtZr8rY1Zejji0D6x0n7sWm2VOwb3uchbBYRbpDcKJ4v5SQu@hub.lambdatest.com/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Firefox");
-        capabilities.setCapability("browserVersion", "107.0");
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "108");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
+        ltOptions.put("user","jimmypvu");
+        ltOptions.put("accessKey", "vygtZr8rY1Zejji0D6x0n7sWm2VOwb3uchbBYRbpDcKJ4v5SQu");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
         ltOptions.put("platformName", "Windows 10");
@@ -110,6 +112,16 @@ public class BaseTest {
         capabilities.setCapability("LT:Options", ltOptions);
 
         return new RemoteWebDriver(new URL(hubURL), capabilities);
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setCapability("platform", "Windows 10");
+//        caps.setCapability("browserName", "Chrome");
+//        caps.setCapability("version", "107");
+//        caps.setCapability("resolution", "2560 x 1440");
+//        caps.setCapability("build", "TestNG for With Java");
+//        caps.setCapability("name", this.getClass().getName());
+//        caps.setCapability("plugin", "Windows 10");
+//        caps.setCapability("platform", "git-testng");
+//        return new RemoteWebDriver(new URL("https://" + LT_USERNAME + ":" + LT_ACCESS_KEY + hub), caps);
     }
 
 
@@ -155,7 +167,7 @@ public class BaseTest {
     }
 
     public void provideCurrentPassword(String password) {
-        WebElement currentPassword = getDriver().findElement(By.cssSelector("[name='current_password']"));
+        WebElement currentPassword = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[name='current_password']")));
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }
