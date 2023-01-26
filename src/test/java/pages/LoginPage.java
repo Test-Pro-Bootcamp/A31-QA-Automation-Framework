@@ -39,11 +39,11 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    //Login
-    public LoginPage login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-        return this;
-    }
+//    //Login
+//    public LoginPage login(String email, String password) {
+//        provideEmail(email);
+//        providePassword(password);
+//        clickSubmit();
+//        return this;
+//    }
 }

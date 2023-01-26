@@ -40,6 +40,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
+        url = BaseURL;
         driver = pickBrowser(System.getProperty("browser"));
 
         threadDriver = new ThreadLocal<>();
@@ -47,7 +48,6 @@ public class BaseTest {
 
         getDriver().manage().window().maximize();
 //        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        url = BaseURL;
         getDriver().get(url);
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         actions = new Actions(getDriver());
@@ -96,14 +96,14 @@ public class BaseTest {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("browserVersion", "109.0");
+        capabilities.setCapability("browserVersion", "108.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "greeshma.udupatestpro");
-        ltOptions.put("accessKey", "WaedTiPnMaVyPLFMEaT4nOHoJzJSKUqZUzkdd7mS2okezRwKT7");
+        ltOptions.put("username", "greeshma.udupa");
+        ltOptions.put("accessKey", "xMOZWn1H29b7wnvm1BncObwGHhAi6dC0LtfyvOLb8t1TvLrVcb");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
         ltOptions.put("platformName", "Windows 10");
-        ltOptions.put("seCdp", true);
+        ltOptions.put("w3c", true);
         ltOptions.put("selenium_version", "4.0.0");
         capabilities.setCapability("LT:Options", ltOptions);
 
