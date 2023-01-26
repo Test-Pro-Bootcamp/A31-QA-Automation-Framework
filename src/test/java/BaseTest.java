@@ -40,13 +40,16 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
+//        driver = new FirefoxDriver();
         url = BaseURL;
+//        driver.get(url);
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         threadDriver = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
         threadDriver.set(driver);
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().get(url);
 
     }
@@ -63,7 +66,7 @@ public class BaseTest {
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://192.168.0.163:4444";
 
         switch (browser) {
             case "firefox":
@@ -164,7 +167,7 @@ public class BaseTest {
     }
 
     public void provideCurrentPassword(String password) {
-        WebElement currentPassword = getDriver().findElement(By.cssSelector("[name='current_password']"));
+        WebElement currentPassword = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[name='current_password']")));
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }

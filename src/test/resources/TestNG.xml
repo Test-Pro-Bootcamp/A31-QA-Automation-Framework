@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG" parallel="methods" thread-count="2">
+<suite name="TestNG" parallel="classes" thread-count="3">
 <!--<suite name="TestNG">-->
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+    <parameter name="TestPlaylist1" value="testPlaylist001" />
+    <parameter name="TestPlaylist2" value="testPlaylist002" />
+    <parameter name="TestPlaylist3" value="testPlaylist003" />
+    <parameter name="NewName" value="newName001" />
 
-    <test name="Example Test" preserve-order="false">
+    <test name="Example Test" preserve-order="true">
         <classes>
+<!--            <class name="BaseTest" />-->
             <class name="LoginTests" />
+            <class name="ProfileTests" />
+            <class name="Homework24">
+                <methods>
+                    <include name="createNewPlaylistValidNameTest" />
+                    <include name="renamePlaylistValidNameTest" />
+                    <include name="deleteExistingPlaylistTest" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
