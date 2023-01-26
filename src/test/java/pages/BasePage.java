@@ -3,7 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,14 +19,17 @@ public class BasePage {
 
     public BasePage( WebDriver givenDriver) {
         driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        actions = new Actions(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
-    public void click(WebElement locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+    public void click(WebElement locator){
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public WebElement findElement(By locator) {
@@ -35,8 +40,16 @@ public class BasePage {
         actions.contextClick(findElement(locator)).perform();
     }
 
+    public void contextClick(WebElement locator){
+        actions.contextClick(locator).perform();
+    }
+
     public void doubleClick (By locator) {
         actions.doubleClick(findElement(locator)).perform();
+    }
+
+    public void doubleClick(WebElement locator){
+        actions.doubleClick(locator).perform();
     }
 
 }
