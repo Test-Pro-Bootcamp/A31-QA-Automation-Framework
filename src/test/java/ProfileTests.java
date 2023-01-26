@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProfilePage;
 
-public class ProfileTests extends BaseTest {
+public class ProfileTests extends BaseTestHW24 {
 
 
     @Test(enabled = true, priority = 0, description = "Change profile theme")
     public void changeTheme() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
         loginPage.logIn()
                 .clickProfileIcon();
@@ -21,7 +21,7 @@ public class ProfileTests extends BaseTest {
 
     @Test(enabled = false, priority = 1, description = "update profile test")
     public void updateProfileNameTest () throws InterruptedException {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
 
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -37,7 +37,7 @@ public class ProfileTests extends BaseTest {
         clickSaveButton();
 
         Thread.sleep(2000);
-        WebElement actualProfileName = getDriver().findElement(By.cssSelector("a.view-profile>span"));
+        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }
