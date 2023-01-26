@@ -100,11 +100,11 @@ public class BaseTest {
         capabilities.setCapability("browserName", "Firefox");
         capabilities.setCapability("browserVersion", "107.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
+        ltOptions.put("user", "guyvanalex4");
+        ltOptions.put("accessKey", "Ca3GWhgcMNNOMyVL4dCJVgYkVMf6ZnhiU5NpcmI1R6qAznjijI");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
-        ltOptions.put("platformName", "Windows 10");
+        ltOptions.put("platformName", "Windows 11");
         ltOptions.put("seCdp", true);
         ltOptions.put("selenium_version", "4.0.0");
         capabilities.setCapability("LT:Options", ltOptions);
