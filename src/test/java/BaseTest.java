@@ -179,4 +179,38 @@ public class BaseTest {
                 {"", ""}
         };
     }
+
+    public void searchSong(String songTitleKeyword) throws InterruptedException {
+        WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type=search"));
+        searchField.sendKeys(songTitleKeyword);
+        Thread.sleep(2000);
+    }
+
+    public void viewAllSearchResults() throws InterruptedException {
+        WebElement viewAllSearchResult = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        viewAllSearchResult.click();
+        Thread.sleep(2000);
+    }
+
+    public void selectFirstSongResult() throws InterruptedException {
+        WebElement viewAllFirstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
+        viewAllFirstSongResult.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickAddToButton() throws InterruptedException {
+        WebElement addTo = driver.findElement(By.cssSelector("button.btn-add-to"));
+        addTo.click();
+        Thread.sleep(2000);
+    }
+    public void choosePlaylist (String playlistName) throws InterruptedException {
+        WebElement playlistNameElement = driver.findElement(By.xpath("//section[@id='songResultWrapper']//section/ul/li[contains(text(),'"+playlistName+"')]"));
+        playlistNameElement.click();
+        Thread.sleep(2000);
+    }
+    public String isNotificationPopUpPresent(){
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+        return notificationText.isDisplayed();
+    }
+
 }
