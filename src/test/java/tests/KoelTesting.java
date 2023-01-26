@@ -21,7 +21,6 @@ public class KoelTesting {
 
     @BeforeSuite
     static void setupClass() {
-//        WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
     }
 

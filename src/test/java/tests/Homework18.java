@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 public class Homework18 extends KoelTesting{
 
-    @Test
+    @Test (enabled = true, description = "Play a song from the songs tab")
     public void playSong(){
-        homePage.clickTabInYourMusic("songs");
+        homePage.clickFromYourMusicPanel("songs");
         homePage.playTheSong("Reactor");
-        WebElement soundBars = basePage.checkElement(By.xpath("//img[@alt='Sound bars']"));
+        WebElement soundBars = basePage.checkElement(driver.findElement(By.xpath("//img[@alt='Sound bars']")));
         Assert.assertEquals(soundBars.isDisplayed(), true);
     }
 }

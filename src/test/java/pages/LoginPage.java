@@ -1,19 +1,23 @@
 package pages;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver givenDriver)
     {
         super(givenDriver);
+        PageFactory.initElements(givenDriver, this);
     }
 
-    //Selectors
-    By emailField = By.cssSelector("input[placeholder='Email Address']");
-    By passwordField = By.cssSelector("input[placeholder='Password']");
-    By loginBtn = By.cssSelector("button[type='submit']");
-    By registrationBtn = By.cssSelector("a[type='submit']");
+    //Elements
+    @FindBy(css = "input[placeholder='Email Address']") WebElement emailField;
+    @FindBy(css = "input[placeholder='Password']")  WebElement passwordField;
+    @FindBy(css = "button[type='submit']")  WebElement loginBtn;
+    @FindBy(css = "a[type='submit']")   WebElement registrationBtn;
+
 
     public void enterUsername(String username)
     {

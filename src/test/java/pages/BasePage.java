@@ -17,13 +17,13 @@ public class BasePage{
     public BasePage(WebDriver givenDriver)
     {
         this.driver = givenDriver;
-        wait = new WebDriverWait(givenDriver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(givenDriver, Duration.ofSeconds(10));
         actions = new Actions(driver);
     }
 
-    public void click(By locator)
+    public void click(WebElement element)
     {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
     public void rightClick(By locator)
@@ -38,7 +38,12 @@ public class BasePage{
         actions.doubleClick(element).build().perform();
     }
 
-    public WebElement checkElement(By locator)
+    public WebElement checkElement(WebElement element)
+    {
+        return  wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public WebElement findElement(By locator)
     {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }

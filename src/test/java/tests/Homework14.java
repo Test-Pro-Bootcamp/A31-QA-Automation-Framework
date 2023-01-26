@@ -8,7 +8,7 @@ import pages.LoginPage;
 
 public class Homework14 {
 
-    @Test
+    @Test(enabled = true, description = "Navigate to the registration page")
     public static void navigation()
     {
         WebDriverManager.firefoxdriver().setup();
