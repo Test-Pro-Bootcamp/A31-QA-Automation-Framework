@@ -17,6 +17,8 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/TestNG.xml" , "src/test/resources/Hw18.xml"
+        suites "src/test/resources/TestNG.xml"
+                "src/test/resources/Hw18.xml"
+        systemProperty("browser", System.getProperty("browser"))
     }
 }
