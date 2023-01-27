@@ -3,13 +3,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -94,17 +92,18 @@ public class BaseTest {
 
     public WebDriver lambdaTest() throws MalformedURLException {
 
+
         String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Firefox");
-        capabilities.setCapability("browserVersion", "107.0");
+        capabilities.setCapability("browserName", "Chrome");
+        capabilities.setCapability("browserVersion", "108.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
+        ltOptions.put("user", "pooja.b.bankar");
+        ltOptions.put("accessKey", "zMzjTdq92GWBU6mbvY28f57PdTjfR1uOViRlLWeJSpeuS5y5PO");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
-        ltOptions.put("platformName", "Windows 10");
+        ltOptions.put("platformName", "Windows 11");
         ltOptions.put("seCdp", true);
         ltOptions.put("selenium_version", "4.0.0");
         capabilities.setCapability("LT:Options", ltOptions);

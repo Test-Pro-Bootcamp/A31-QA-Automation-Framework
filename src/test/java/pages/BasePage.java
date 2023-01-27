@@ -11,13 +11,14 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
+
 
     public BasePage( WebDriver givenDriver) {
         driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public void click(By locator) {
