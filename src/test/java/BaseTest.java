@@ -39,10 +39,10 @@ public class BaseTest {
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(30));
     }
 
-//    @AfterMethod
-//    public static void closeBrowser(){
-//        LoginTests.driver.quit();
-//    }
+    @AfterMethod
+    public static void closeBrowser(){
+        LoginTests.driver.quit();
+    }
 
     private static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
