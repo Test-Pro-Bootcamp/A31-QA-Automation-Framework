@@ -36,7 +36,7 @@ public class BaseTest {
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(30));
     }
 
 //    @AfterMethod
@@ -46,7 +46,7 @@ public class BaseTest {
 
     private static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://localhost:4444";
 
         switch (browser){
             case "firefox":
