@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG">
+    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+
+    <test name="Example Test" preserve-order="false">
+        <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+        <classes>
+            <class name="Homework17" />
+<!--            <class name="ProfileTests"/>-->
+<!--            <class name="BaseTest"/>-->
+        </classes>
+    </test>
+</suite>
