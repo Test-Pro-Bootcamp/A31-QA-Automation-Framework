@@ -1,13 +1,19 @@
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.BasePage;
 
 import java.time.Duration;
 import java.util.List;
+
+import static pages.AllSongsPage.chooseAllSongsList;
+import static pages.BasePage.actions;
 
 public class SeleniumTechniques extends BaseTest {
 
@@ -32,6 +38,13 @@ public class SeleniumTechniques extends BaseTest {
         Thread.sleep(2000);
 
     }
+
+    private void login() {
+    }
+
+    private void enterPlaylistName() {
+    }
+
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
@@ -39,6 +52,9 @@ public class SeleniumTechniques extends BaseTest {
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
+    }
+
+    private void choosePlaylist() {
     }
 
     @Test
@@ -56,7 +72,7 @@ public class SeleniumTechniques extends BaseTest {
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
 //    }
 
-    public void contextClickFirstSong() {
+    public static void contextClickFirstSong() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
         WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
         actions.contextClick(firstSong).perform();
@@ -74,7 +90,8 @@ public class SeleniumTechniques extends BaseTest {
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
-        actions.doubleClick(playlistElement).perform();
+        BasePage actions = null;
+        actions.doubleClick( playlistElement);
     }
 
 //    public void choosePlaylist() {

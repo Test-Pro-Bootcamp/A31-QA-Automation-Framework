@@ -1,3 +1,4 @@
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,6 +8,8 @@ import pages.LoginPage;
 import pages.TestProPlaylistPage;
 
 public class Homework22CH extends BaseTest{
+
+
 
     @Test
     public void refactorAllSongs() throws InterruptedException{
@@ -30,9 +33,9 @@ public class Homework22CH extends BaseTest{
         TestProPlaylistPage testProPlaylistPage = new TestProPlaylistPage(driver);
 
         loginPage.logIn();
-        testProPlaylistPage.doubleClickChoosePlaylist();
+        homePage.doubleClickChoosePlaylist();
         homePage.enterPlaylistName(playListName);
-        Assert.assertTrue(IsPlaylistRenamed());
+        Assert.assertTrue(homePage.doesPlaylistExist());
         Thread.sleep(3000);
     }
 }

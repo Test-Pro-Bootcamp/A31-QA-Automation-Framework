@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +21,11 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
     public static FluentWait fluentWait = null;
+    public static Actions actions;
+
+
+//    public BaseTest(WebDriver givenDriver) {
+//    } this is for POM/pagefactory
 
     @BeforeSuite
     static void setupClass() {
@@ -29,10 +36,12 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        actions = new Actions(driver);
+        PageFactory.initElements(driver, Homework23.class);
     }
 
     @AfterMethod
@@ -86,6 +95,27 @@ public class BaseTest {
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }
+    public static void contextClickFirstSong(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
+        WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
+        actions = new Actions(driver);
+        actions.contextClick(firstSong).perform();
+    }
+    public static void chooseAllSongsList(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
+    }
+    public void choosePlay(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav.menu.song-menu li.playback"))).click();
+    }
+    public boolean songIsPlaying(){
+        WebElement songIsPlaying = driver.findElement(By.cssSelector("[data-testid= 'sound-bar-play']"));
+        return songIsPlaying.isDisplayed();
+    }
+    public void doubleClickChoosePlaylist() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        actions.doubleClick(playlistElement).perform();
+    }
 
     public static String generateRandomName() {
         return UUID.randomUUID().toString().replace("-", "");//
@@ -94,7 +124,6 @@ public class BaseTest {
     public static void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
-
     }
 
     @DataProvider(name="incorrectLoginProviders")
