@@ -19,4 +19,16 @@ public class LoginTests extends BaseTest {
                 .clickSubmit();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
+
+    @Test
+    public void loginEmptyPasswordTest() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("test123@test.com")
+                .providePassword("")
+                .clickSubmit();
+//        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
 }
