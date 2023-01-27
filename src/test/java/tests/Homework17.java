@@ -9,7 +9,7 @@ public class Homework17 extends KoelTesting{
     @Test (enabled = true, description = "Add a song to a user created playlist")
     public void addSongToPlaylist()
     {
-        String playlist = "My Test Playlist";
+        String playlist = "Hw17 Playlist";
         String song = "Algorithms";
 
         homePage.createPlaylist(playlist);        //Create a new user playlist

@@ -12,12 +12,12 @@ public class Homework19 extends KoelTesting{
         homePage.createPlaylist(playlistName);
         homePage.deletePlaylist(playlistName);
 
-        WebElement playlistElement = null;
+        WebElement element =null;
         try {
-            playlistElement = basePage.checkElement(driver.findElement(By.xpath(String.format("//section[@id='playlists']/ul/li/a[contains(text(),'%s')]", playlistName))));
+            element = homePage.findElement(By.xpath("//div[contains(text(),'Deleted playlist')]"));      //green popup for playlist rename verification
         }catch (Exception e){}
         finally {
-            Assert.assertEquals(playlistElement==null, true);
+            Assert.assertTrue(element != null);
         }
     }
 }

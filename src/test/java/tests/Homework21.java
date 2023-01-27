@@ -9,7 +9,7 @@ public class Homework21 extends KoelTesting{
     @Test (description = "Renaming a users created playlist")
     public  void renamePlaylist()
     {
-        String  playlistName= "Test playlist";
+        String  playlistName= "Hw21 playlist";
         String newPlaylistName = "Renamed";
         homePage.createPlaylist(playlistName);
         homePage.renamePlaylist(playlistName,newPlaylistName);

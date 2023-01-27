@@ -34,7 +34,7 @@ public class HomePage extends BasePage{
     {
         rightClick(By.xpath(String.format("//a[contains(text(),'%s')]", playlistName)));        //context click the playlist
         click(editPlaylistOptionBtn);        //click edit option
-        WebElement element = checkElement(driver.findElement(By.xpath("//input[contains(@data-testid,'inline')]")));
+        WebElement element = checkElement(findElement(By.xpath("//input[contains(@data-testid,'inline')]")));
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE ));
         element.sendKeys(newName);
         element.sendKeys(Keys.ENTER);

@@ -17,6 +17,7 @@ import pages.LoginPage;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 
 public class KoelTesting {
 
@@ -24,21 +25,21 @@ public class KoelTesting {
     LoginPage loginPage ;
     HomePage homePage;
     AllSongsPage allSongsPage;
-    public WebDriver driver;
-
-    @BeforeSuite
-    public void setupClass() throws MalformedURLException {
-        driver = pickBrowser(System.getProperty("browser"));
-    }
+    WebDriver driver;
+    ThreadLocal<WebDriver> threadDriver;
 
     @BeforeMethod
     @Parameters({"baseURL", "loginEmail", "loginPassword"})
-    public void beforeMethod(String baseURL, String loginEmail, String loginPassword)
+    public void beforeMethod(String baseURL, String loginEmail, String loginPassword) throws MalformedURLException
     {
-        basePage = new BasePage(driver);
-        loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
-        allSongsPage = new AllSongsPage(driver);
+        driver = pickBrowser(System.getProperty("browser"));
+        threadDriver = new ThreadLocal<>();
+        threadDriver.set(driver);
+
+        basePage = new BasePage(getDriver());
+        loginPage = new LoginPage(getDriver());
+        homePage = new HomePage(getDriver());
+        allSongsPage = new AllSongsPage(getDriver());
 
         goToKoel(baseURL);
         logIntoKoel(loginEmail, loginPassword);
@@ -54,6 +55,27 @@ public class KoelTesting {
     {
         driver.manage().window().maximize();
         driver.get(url);
+    }
+
+    public WebDriver getDriver()
+    {
+        return threadDriver.get();
+    }
+
+    public WebDriver lambdaTest() throws MalformedURLException {
+        String username = "paramvir.singhtestpro";
+        String authkey =  "M96fUDyMSYDNjUGnohmgoCRxtxsVXovVAqaIq0LqjapmUChdMA";
+        String hub = "@hub.lambdatest.com/wd/hub";
+
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("browserName", "Edge");
+        caps.setCapability("version", "latest");
+        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("name", this.getClass().getName());
+        caps.setCapability("plugin", "git-testng");
+
+        return new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
     private WebDriver pickBrowser(String browser) throws MalformedURLException {
@@ -81,6 +103,8 @@ public class KoelTesting {
                 caps.setCapability("browserName", "chrome");
                 driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
                 break;
+            case "cloud":
+                return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
