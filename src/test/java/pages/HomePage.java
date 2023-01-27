@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,11 +16,10 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
     }
-
     @FindBy(xpath = "//*[@class='fa fa-plus-circle create']")
     WebElement addAPlaylist;
     @FindBy(xpath = "//*[@data-testid='playlist-context-menu-create-simple']")
-    WebElement clickNewPlaylist;
+    WebElement newPlaylistElement;
     @FindBy(css = "input[placeholder='↵ to save']")
     WebElement playlistName;
     @FindBy(css = ".playlist:nth-child(3)")
@@ -30,12 +28,12 @@ public class HomePage extends BasePage {
     WebElement chooseName;
 
     public HomePage addPlaylist() {
-        addAPlaylist.click();
+        click(addAPlaylist);
         return this;
     }
 
-    public HomePage newPlaylist() {
-        clickNewPlaylist.click();
+    public HomePage clickNewPlaylist() {
+        click(newPlaylistElement);
         return this;
     }
 

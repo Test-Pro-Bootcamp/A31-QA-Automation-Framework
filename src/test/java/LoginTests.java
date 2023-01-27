@@ -10,14 +10,15 @@ import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void LoginPageValidEmailPasswordTest(){
+    public void LoginPageValidEmailPasswordTest() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         loginPage.login();
         homePage.addPlaylist();
-        homePage.newPlaylist();
+        homePage.clickNewPlaylist();
         homePage.namePlaylist();
         homePage.doubleClickToPlaylist();
+        homePage.newPlaylistName();
 //    loginPage.provideEmail("sandra.geche@gmail.com");
 //    loginPage.provideEmail("te$t$tudent");
 //    loginPage.clickSubmitBtn();

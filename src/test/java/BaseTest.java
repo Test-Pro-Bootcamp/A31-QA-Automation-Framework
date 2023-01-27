@@ -4,12 +4,18 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 
 public class BaseTest {
@@ -18,16 +24,13 @@ public class BaseTest {
     public static WebDriverWait wait = null;
     public static Actions action;
 
-    @BeforeSuite
-    static void setupClass() {
-
-        WebDriverManager.chromedriver().setup();
-    }
+//    @BeforeSuite
+//    static void setupClass() {WebDriverManager.chromedriver().setup();}
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseUrl) {
-        driver = new ChromeDriver();
+    public static void launchBrowser(String BaseUrl) throws MalformedURLException {
+        driver = pickBrowser(System.getProperty("browser"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseUrl;
         driver.get(url);
@@ -36,8 +39,30 @@ public class BaseTest {
     }
 
         @AfterMethod
-    public static void closeBrowser(){
-        driver.quit();
+    public static void closeBrowser(){driver.quit();}
+        private static WebDriver pickBrowser(String browser) throws MalformedURLException {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            String gridURL = "http://192.168.0.160:4444";
+        switch (browser){
+            case "safari":
+                WebDriverManager.safaridriver().setup();
+                return driver = new SafariDriver();
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                return driver = new FirefoxDriver();
+            case "grid-firefox":
+                capabilities.setCapability("browserName", "firefox");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+            case "grid-safari":
+                capabilities.setCapability("browserName", "safari");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+            case "grid-chrome":
+                capabilities.setCapability("browserName", "chrome");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+            default:
+                WebDriverManager.chromedriver().setup();;
+                return driver= new ChromeDriver();
+        }
         }
     public static void login() {
         provideEmail();
