@@ -23,9 +23,6 @@ public class BaseTest {
     public static WebDriverWait wait = null;
     public static Actions action;
 
-//    @BeforeSuite
-//    static void setupClass() {WebDriverManager.chromedriver().setup();}
-
     @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseUrl) throws MalformedURLException {
@@ -97,6 +94,7 @@ public class BaseTest {
 
     public static void newPlaylist() {
         WebElement newPlaylist = driver.findElement(By.xpath("//*[@data-testid='playlist-context-menu-create-simple']"));
+
     }
 
     public static void namePlaylist() {
@@ -123,3 +121,4 @@ public class BaseTest {
         enterName.sendKeys("Wild dream");
         enterName.sendKeys(Keys.ENTER);
     }
+}
