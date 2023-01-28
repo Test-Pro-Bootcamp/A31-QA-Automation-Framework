@@ -13,6 +13,10 @@ dependencies {
     testImplementation 'org.testng:testng:7.6.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
+    implementation 'io.cucumber:cucumber-core:7.9.0'
+    implementation 'io.cucumber:cucumber-java:7.9.0'
+    implementation 'io.cucumber:gherkin:25.0.2'
+    implementation 'io.cucumber:cucumber-testng:7.9.0'
 }
 
 test {
@@ -22,7 +26,7 @@ test {
     }
     task testSmoke(type: Test) {
         useTestNG() {
-            suites "src/test/resources/smoke.xml"
+            suites "src/test/resources/TestNG.xml"
         }
     }
 
