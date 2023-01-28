@@ -1,3 +1,5 @@
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,12 +35,13 @@ public class BaseTest {
     public ThreadLocal<WebDriver> threadLocal = null;
 
 
-    @BeforeSuite
-    public void setupClass() {
-//        WebDriverManager.firefoxdriver().setup();
-    }
+//    @BeforeSuite
+//    public void setupClass() {
+////        WebDriverManager.firefoxdriver().setup();
+//    }
 
-    @BeforeMethod
+//    @BeforeMethod
+    @Before
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
@@ -58,7 +61,8 @@ public class BaseTest {
         return threadLocal.get();
     }
 
-    @AfterMethod
+//    @AfterMethod
+    @After
     public void closeBrowser() {
         getDriver().quit();
         threadLocal.remove();
