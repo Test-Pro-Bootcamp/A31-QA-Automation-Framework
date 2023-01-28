@@ -3,17 +3,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
 
-
 public class MyBaseTest {
     public static WebDriver driver = null;
-    public static String url = "https://bbb.testpro.io/";
+    public static String url = null;
+    public static WebDriverWait wait = null;
+    public static FluentWait fluentWait = null;
+
+    //public static WebDriver driver;
+    //public static WebDriverWait;
+    //public static String url = "https://bbb.testpro.io";
 
 
     @BeforeSuite
@@ -21,12 +29,24 @@ public class MyBaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeMethod
-    public static void launchBrowser() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
-    }
+   // @BeforeMethod
+    //@Parameters("baseUrl")
+    //public static void launchBrowser(String baseURL) {
+       //driver = new ChromeDriver();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       // driver.get(url);
+
+
+        @BeforeMethod
+        @Parameters({"BaseURL"})
+        public void launchBrowser(String BaseURL) {
+            LoginTests.driver = new ChromeDriver();
+            LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            url = BaseURL;
+            driver.get(url);
+            wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        }
+
 
     @AfterMethod
     public static void closeBrowser() {
