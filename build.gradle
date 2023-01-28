@@ -18,6 +18,11 @@ dependencies {
     implementation 'io.cucumber:cucumber-java:7.9.0'
     implementation 'io.cucumber:gherkin:25.0.2'
 }
+task testHomework20 (type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Homework20.xml"
+    }
+}
 
 test {
     useTestNG() {
