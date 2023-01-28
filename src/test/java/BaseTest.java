@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -23,6 +24,7 @@ public class BaseTest {
     private static WebDriver WebDriverReference;
     private static Duration Timeout;
     public static WebDriverWait wait;
+    public static Actions action;
     public static String url = "https://bbb.testpro.io/";
 
 
@@ -38,6 +40,7 @@ public class BaseTest {
         //LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(BaseURL);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        action = new Actions(driver);
     }
 
     @AfterMethod
