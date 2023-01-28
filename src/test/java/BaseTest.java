@@ -35,7 +35,7 @@ public class BaseTest {
 
     @BeforeSuite
     public void setupClass() {
-//        WebDriverManager.firefoxdriver().setup();
+ //       WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeMethod
@@ -66,7 +66,7 @@ public class BaseTest {
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://192.168.1.29:4444";
 
         switch (browser) {
             case "firefox":
