@@ -27,10 +27,6 @@ public class LoginStepDefinition {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    @After
-    public void iCloseBrowser(){
-        driver.quit();
-    }
 
     @And("I open Login Page")
     public void iOpenLoginPage() {
@@ -58,5 +54,10 @@ public class LoginStepDefinition {
     @Then("I am logged in")
     public void iAmLoggedIn() {
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
+    }
+
+    @After
+    public void iCloseBrowser(){
+        driver.quit();
     }
 }
