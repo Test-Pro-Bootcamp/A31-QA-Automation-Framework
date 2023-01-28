@@ -24,7 +24,12 @@ public class LoginStepDefinition {
     public void openBrowser() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    @After
+    public void iCloseBrowser(){
+        driver.quit();
     }
 
 
@@ -48,7 +53,7 @@ public class LoginStepDefinition {
     @And("I submit")
     public void iSubmit() {
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='submit']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
     }
 
     @Then("I am logged in")
@@ -56,8 +61,4 @@ public class LoginStepDefinition {
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
     }
 
-    @After
-    public void iCloseBrowser(){
-        driver.quit();
-    }
 }
