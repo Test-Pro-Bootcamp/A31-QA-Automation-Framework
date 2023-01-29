@@ -24,6 +24,7 @@ public class HomePage extends BasePage {
     private static WebElement playlistNameLocator;
 
     public HomePage( WebDriver givenDriver) {
+
         super(givenDriver);
     }
 

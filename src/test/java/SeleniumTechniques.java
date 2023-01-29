@@ -12,12 +12,16 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
+
     static Actions action = new Actions(driver);
 
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
         login("terrence.regis", "te$t$tudent");
+
+   
+
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -26,8 +30,10 @@ public class SeleniumTechniques extends BaseTest {
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
+
     public static void renamePlaylist()  {
         login("terrence.regis@gmail.com", "te$t$tudent");
+
         doubleClickChoosePlaylist();
         enterPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
@@ -37,7 +43,9 @@ public class SeleniumTechniques extends BaseTest {
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
+
         login("terrence.regis", "te$t$tudent");
+
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -45,7 +53,10 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
+
         login("terrence.regis", "te$t$tudent");
+
+
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
