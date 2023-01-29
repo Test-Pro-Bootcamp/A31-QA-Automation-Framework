@@ -21,13 +21,13 @@ public class LoginStepDefinitions {
     WebDriver driver;
     WebDriverWait wait;
 
-    @Before("I open browser")
+    @Before
     public void openBrowser() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
-    @After
+    @After()
     public void closeBrowser() {
         driver.quit();
 
