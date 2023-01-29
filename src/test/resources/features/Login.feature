@@ -1,9 +1,8 @@
 Feature: Login feature
 
   Scenario: Login Success
-    Given I open browser
-    And I open Login Page
+    Given I open Login Page
     When I enter email "jrpasia@gmail.com"
     And I enter password "Bukikoy2013"
-    And I submit
+    And I click submit
     Then I am logged in
