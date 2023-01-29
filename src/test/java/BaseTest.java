@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -14,7 +15,7 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = null;
-
+    public static WebDriverWait wait = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -26,8 +27,10 @@ public class BaseTest {
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
         LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
+
     }
 
     @AfterMethod
