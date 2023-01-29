@@ -5,42 +5,42 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static org.openqa.selenium.support.How.*;
+
 public class HomePage extends BasePage {
-    static String playlistName = "Summer Songs";
+    private static String playlistName = "Summer Songs";
+    private  static By playlistElementLocator = By.xpath("//a[text() = '"+playlistName+"']");
 
-     static  By userAvatarIcon = By.cssSelector("img.avatar");
-     static By playlistLocator = By.cssSelector(".playlist:nth-child(3)");
-     static By playlistNameLocator = By.cssSelector("input[name='name']");
-     static By playlistElementLocator = By.xpath("//a[text() = '"+playlistName+"']");
+    @FindBy(css="img.avatar")
+    private WebElement userAvatarIcon;
 
+    @FindBy(css=".playlist:nth-child(3)")
+    private static WebElement playlistLocator;
 
-
+    @FindBy(css="input[name='name']")
+    private static WebElement playlistNameLocator;
 
     public HomePage( WebDriver givenDriver) {
         super(givenDriver);
     }
 
     public WebElement getUserAvatar () {
-        return findElement(userAvatarIcon);
+        return userAvatarIcon;
     }
 
     public static void doubleClickChoosePlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(playlistLocator)).click();
-        WebElement playlistElement = driver.findElement(playlistLocator);
-        actions.doubleClick(playlistElement).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(playlistLocator));
+        actions.doubleClick(playlistLocator).perform();
     }
 
     public static void enterPlaylistName() {
-       wait.until(ExpectedConditions.presenceOfElementLocated(playlistNameLocator));
-        WebElement playlistInputField = driver.findElement(playlistNameLocator);
-//        clear() does not work, element has an attribute of "required"
-//            workaround is ctrl A (to select all) then backspace to clear then replace with new playlist name
-
-        playlistInputField.sendKeys((Keys.chord(Keys.COMMAND, "a", Keys.DELETE)));
-        playlistInputField.sendKeys(playlistName);
-        playlistInputField.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.elementToBeClickable(playlistNameLocator));
+        playlistNameLocator.sendKeys((Keys.chord(Keys.COMMAND, "a", Keys.DELETE)));
+        playlistNameLocator.sendKeys(playlistName);
+        playlistNameLocator.sendKeys(Keys.ENTER);
     }
 
     public static boolean doesPlaylistExist() {
