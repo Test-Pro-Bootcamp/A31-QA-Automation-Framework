@@ -22,7 +22,7 @@ dependencies {
 test {
     useTestNG() {
         suites "src/test/resources/testNG.xml"
-        systemProperty "browser", System.getProperty("browser")
+//        systemProperty "browser", System.getProperty("browser")
     }
 }
 

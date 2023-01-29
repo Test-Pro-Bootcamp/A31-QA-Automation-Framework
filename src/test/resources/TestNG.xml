@@ -4,11 +4,11 @@
 <suite name="TestNG">
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
-    <test name="LoginTests" preserve-order="false">
+    <test name="Example Test" preserve-order="false">
         <classes>
 <!--            <class name="LoginTests" />-->
-            <class name="PlaylistTests"/>
-            <class name="CurrentQueTests"/>
+<!--            <class name="PlaylistTests"/>-->
+<!--            <class name="CurrentQueTests"/>-->
             <class name="CucumberRunner"/>
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->

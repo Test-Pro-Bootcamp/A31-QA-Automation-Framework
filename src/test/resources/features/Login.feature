@@ -1,5 +1,5 @@
 Feature: Login feature
-
+  @regression @smoke
   Scenario: Login Success
     Given I open Login Page
     When I enter email "jrpasia@gmail.com"
