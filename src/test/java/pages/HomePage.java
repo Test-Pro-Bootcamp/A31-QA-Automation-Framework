@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePageTest extends BasePageTest {
+public class HomePage extends BasePage {
     @FindBy(css="img.avatar" )
     WebElement userAvatarIcon;
-    public HomePageTest(WebDriver givenDriver) {
+    public HomePage(WebDriver givenDriver) {
         super (givenDriver);
 
     }
@@ -22,9 +22,8 @@ public class HomePageTest extends BasePageTest {
     @FindBy(css="input[name='name']")
     WebElement playlistInputField;
 
-    public HomePageTest doubleClickFirstPlaylist(){
+    public void doubleClickFirstPlaylist(){
         doubleClick(firstPlaylist);
-        return this;
     }
     public void enterPlaylistName(String playlistName){
         WebElement playListNameTextField = driver.findElement((By) playlistInputField);

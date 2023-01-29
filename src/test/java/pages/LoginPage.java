@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginPageTest extends BasePageTest {
+public class LoginPage extends BasePage {
 
 
     @FindBy(css="[type='submit']" )
@@ -15,22 +15,22 @@ public class LoginPageTest extends BasePageTest {
     @FindBy(css = "[type='password']" )
    WebElement passwordField;
 
-    public LoginPageTest(WebDriver givenDriver) {
+    public LoginPage(WebDriver givenDriver) {
        super (givenDriver);
     }
 
-    public LoginPageTest clickSubmitButton() {
+    public LoginPage clickSubmitButton() {
         submitButton.click();
         return this;
     }
 
-    public LoginPageTest provideEmail(String email) {
+    public LoginPage provideEmail(String email) {
         emailField.sendKeys(email);
         return this;
 
     }
 
-    public LoginPageTest providePassword(String password) {
+    public LoginPage providePassword(String password) {
         passwordField.sendKeys(password);
         return this;
 
@@ -44,8 +44,8 @@ public class LoginPageTest extends BasePageTest {
 
     @Test
     public void loginValidEMailPasswordTest() {
-    LoginPageTest loginPage = new LoginPageTest(driver);
-    HomePageTest homePage = new HomePageTest(driver);
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
     loginPage.provideEmail("skyeman75@gmail.com")
              .providePassword("te$t$tudent")
              .clickSubmitButton();

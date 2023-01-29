@@ -1,17 +1,14 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePageTest;
-import pages.LoginPageTest;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class Homework21Test extends BaseTest {
-
-
-
     @Test
     public void renamePlaylist() {
         String playlistName = "Jarrod Playlist";
-        LoginPageTest loginPage = new LoginPageTest(driver);
-        HomePageTest homePage = new HomePageTest(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
         loginPage.logIn();
         homePage.doubleClickFirstPlaylist();
         homePage.enterPlaylistName(playlistName);
