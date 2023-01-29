@@ -1,35 +1,39 @@
 package pages;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginPageTest extends BasePageTest {
 
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailFieldLocator = By.cssSelector("[type='email']");
-    By passwordFieldLocator = By.cssSelector("[type='password']");
+
+    @FindBy(css="[type='submit']" )
+   WebElement submitButton;
+    @FindBy(css = "[type='email']" )
+    WebElement emailField;
+    @FindBy(css = "[type='password']" )
+   WebElement passwordField;
 
     public LoginPageTest(WebDriver givenDriver) {
        super (givenDriver);
     }
 
-    public void clickSubmitButton() {
-        driver.findElement(submitButtonLocator).click();
+    public LoginPageTest clickSubmitButton() {
+        submitButton.click();
+        return this;
     }
 
-    public void provideEmail(String email) {
-        WebElement emailElement = driver.findElement(emailFieldLocator);
-        emailElement.click();
-        emailElement.sendKeys(email);
+    public LoginPageTest provideEmail(String email) {
+        emailField.sendKeys(email);
+        return this;
+
     }
 
-    public void providePassword(String password) {
-        WebElement passwordElement = driver.findElement(passwordFieldLocator);
-        passwordElement.click();
-        passwordElement.sendKeys(password);
+    public LoginPageTest providePassword(String password) {
+        passwordField.sendKeys(password);
+        return this;
+
     }
     public void logIn(){
         provideEmail("skyeman75@gmail.com");
@@ -42,7 +46,9 @@ public class LoginPageTest extends BasePageTest {
     public void loginValidEMailPasswordTest() {
     LoginPageTest loginPage = new LoginPageTest(driver);
     HomePageTest homePage = new HomePageTest(driver);
-    loginPage.logIn();
+    loginPage.provideEmail("skyeman75@gmail.com")
+             .providePassword("te$t$tudent")
+             .clickSubmitButton();
     Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 }
