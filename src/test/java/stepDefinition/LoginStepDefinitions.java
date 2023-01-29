@@ -7,12 +7,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
 
@@ -32,7 +32,6 @@ public class LoginStepDefinitions {
         driver.quit();
 
     }
-
     @Given("I open Login Page")
     public void iOpenLoginPage() {
         driver.get("https://bbb.testpro.io");
@@ -40,21 +39,25 @@ public class LoginStepDefinitions {
 
     @When("I enter email {string}")
     public void iEnterEmail(String email) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).sendKeys(email);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.provideEmail(email);
     }
 
     @And("I enter password {string}")
     public void iEnterPassword(String password) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']"))).sendKeys(password);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.providePassword(password);
     }
 
     @And("I click submit")
     public void iClickSubmit() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='submit']"))).click();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickSubmitBtn();
     }
 
     @Then("I am logged in")
     public void iAmLoggedIn() {
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 }
