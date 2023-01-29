@@ -5,7 +5,7 @@ import pages.HomePage;
 import pages.LoginPage;
 
 
-public class LoginTests extends BaseTest {
+public class LoginTest extends BaseTest {
 
 
     @Test

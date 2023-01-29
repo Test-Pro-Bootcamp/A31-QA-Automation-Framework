@@ -3,10 +3,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.DataProvider;
+
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 
 import static org.testng.Assert.assertTrue;
@@ -16,15 +23,12 @@ public  class BaseTest {
     public static WebDriverWait wait = null;
     public static Actions actions;
 
-   @BeforeSuite
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-   }
+
 
     @BeforeMethod
     @Parameters({"baseURL"})
     public static void setUpBrowser(String baseURL) {
-        driver = new ChromeDriver();
+        driver = pickBrowser(System.getProperty("browser"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(baseURL);
@@ -37,6 +41,28 @@ public  class BaseTest {
         driver.quit();
     }
 
+    public static WebDriver pickBrowser(String brwsr) throws MalformedURLException{
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        String gridURL = "http://192.168.1.168:4444";
+        switch (brwsr){
+           case "firefox":
+               System.setProperty("webdriver.gecko.driver","geckodriver");
+               return driver = new FirefoxDriver();
+           case "MicrosoftEdge":
+               return driver = new EdgeDriver();
+            case "grid-firefox":
+                capabilities.setCapability("browserName","firefox");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+            case "grid-edge":
+                capabilities.setCapability("browserName","MicrosoftEdge");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+            case "grid-chrome":
+                capabilities.setCapability("browserName","chrome");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+           default:
+               return driver = new ChromeDriver();
+       }
+    }
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.sendKeys(email);

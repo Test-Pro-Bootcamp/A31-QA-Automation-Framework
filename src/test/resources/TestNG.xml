@@ -6,14 +6,7 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="BaseTest"/>
-            <class name="Homework14Test"/>
-            <class name="Homework17Test"/>
-            <class name="Homework18Test"/>
-            <class name="Homework21Test"/>
-            <class name="Homework19Test">
-                <methods>
-                    <include name = "deleteEmptyPlaylist"/>
-                </methods>
+            <class name="LoginTest">
             </class>
         </classes>
     </test>
