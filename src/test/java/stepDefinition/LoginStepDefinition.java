@@ -116,6 +116,7 @@ public class LoginStepDefinition {
 
     @And("Song is playing")
     public void songIsPlaying() {
-        Assert.assertTrue();
+        WebElement visualizer = driver.findElement(By.cssSelector("button[title='Click for a marvelous visualizer!']"));
+        Assert.assertTrue(visualizer.isDisplayed());
     }
 }
