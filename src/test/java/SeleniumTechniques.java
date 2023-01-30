@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,7 +17,7 @@ public class SeleniumTechniques extends BaseTest {
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
     public void playSong()   {
-        login();
+        login("demo@class.com", "te$t$tudent");
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlay();
@@ -25,17 +27,19 @@ public class SeleniumTechniques extends BaseTest {
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
     public void renamePlaylist() throws InterruptedException {
-        login();
+        login("demo@class.com", "te$t$tudent");
         doubleClickChoosePlaylist();
+
         enterPlaylistName();
+
         Assert.assertTrue(doesPlaylistExist());
-        Thread.sleep(2000);
+
 
     }
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
     @Test
     public void listOfSongsWebElements() {
-        login();
+        login("demo@class.com", "te$t$tudent");
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
@@ -43,7 +47,7 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test
     public void hoverOverPlayBtn() {
-        login();
+        login("demo@class.com", "te$t$tudent");
         chooseAllSongsList();
         hoverToPlayBtn();
         Assert.assertTrue(hoverToPlayBtn().isDisplayed());
@@ -59,6 +63,7 @@ public class SeleniumTechniques extends BaseTest {
     public void contextClickFirstSong() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
         WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
+        Actions action = new Actions(driver);
         action.contextClick(firstSong).perform();
     }
 
@@ -74,6 +79,7 @@ public class SeleniumTechniques extends BaseTest {
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        Actions action = new Actions(driver);
         action.doubleClick(playlistElement).perform();
     }
 
@@ -81,15 +87,17 @@ public class SeleniumTechniques extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
     public void enterPlaylistName() {
-        WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
+        WebElement playlistInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name='name']")));
+                driver.findElement(By.cssSelector("input[name='name']"));
 //        clear() does not work, element has an attribute of "required"
 //            workaround is ctrl A (to select all) then backspace to clear then replace with new playlist name
         playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
         playlistInputField.sendKeys("Summer Songs");
         playlistInputField.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class='alertify-logs top right']")));
     }
     public boolean doesPlaylistExist() {
-        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Edited Playlist Name']"));
+        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Summer Songs']"));
         return playlistElement.isDisplayed();
     }
 
@@ -112,6 +120,7 @@ public class SeleniumTechniques extends BaseTest {
     public WebElement hoverToPlayBtn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+        Actions action = new Actions(driver);
         action.moveToElement(playButton).perform();
         return  playButton;
 
