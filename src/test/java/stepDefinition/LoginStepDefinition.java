@@ -85,6 +85,7 @@ public class LoginStepDefinition {
 
     @Then("I am not logged in")
     public void iAmNotLoggedIn() {
-        Assert.assertFalse(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
+        String url= "https://bbb.testpro.io";
+        Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 }
