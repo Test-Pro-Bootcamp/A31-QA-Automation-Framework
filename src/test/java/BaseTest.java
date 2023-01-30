@@ -27,7 +27,7 @@ public  class BaseTest {
     @BeforeMethod
     @Parameters({"baseURL"})
     public static void setUpBrowser(String baseURL) throws MalformedURLException {
-        driver = pickBrowser(System.getProperty("browser"));
+        driver = pickBrowser("firefox");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(baseURL);
@@ -41,7 +41,7 @@ public  class BaseTest {
     }
 
     public static WebDriver pickBrowser(String brwsr) throws MalformedURLException{
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.168:4444";
         switch (brwsr) {
             case "firefox" -> {
@@ -52,16 +52,16 @@ public  class BaseTest {
                 return driver = new EdgeDriver();
             }
             case "grid-firefox" -> {
-                capabilities.setCapability("browserName", "firefox");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+                caps.setCapability("browserName", "firefox");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
             }
             case "grid-edge" -> {
-                capabilities.setCapability("browserName", "MicrosoftEdge");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+                caps.setCapability("browserName", "MicrosoftEdge");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
             }
             case "grid-chrome" -> {
-                capabilities.setCapability("browserName", "chrome");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+                caps.setCapability("browserName", "chrome");
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
             }
             default -> {
                 return driver = new ChromeDriver();
