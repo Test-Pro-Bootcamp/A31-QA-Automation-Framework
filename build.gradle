@@ -17,19 +17,19 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/Homework25.xml"
+        suites "src/test/resources/${suite}.xml"
         systemProperty "browser", System.getProperty("browser")
     }
 }
 
 task testSmoke(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Smoke.xml"
+        suites "src/test/resources/smoke.xml"
     }
 }
 
 task testRegression(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Regression.xml"
+        suites "src/test/resources/regression.xml"
     }
 }
