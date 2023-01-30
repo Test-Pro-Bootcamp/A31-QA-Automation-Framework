@@ -38,7 +38,6 @@ public class LoginStepDefinition {
     @And("I open Login Page")
     public void iOpenLoginPage() {
         driver.get("https://bbb.testpro.io/");
-
     }
 
     @When("I enter email {string}")
