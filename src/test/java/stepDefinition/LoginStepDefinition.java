@@ -80,7 +80,7 @@ public class LoginStepDefinition {
 
     @And("I click submit")
     public void iClickSubmit() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
+        iSubmit();
     }
 
     @Then("I am not logged in")
