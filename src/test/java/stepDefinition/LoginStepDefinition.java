@@ -19,14 +19,15 @@ import java.time.Duration;
 
 public class LoginStepDefinition {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
     @Before
     public void openBrowser(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     @After
@@ -34,7 +35,7 @@ public class LoginStepDefinition {
         driver.quit();
     }
 
-    @And("I open Login Page")
+    @Given("I open Login Page")
     public void iOpenLoginPage() {
         driver.get("https://bbb.testpro.io");
     }
@@ -62,5 +63,15 @@ public class LoginStepDefinition {
         Assert.assertTrue(
                 wait.until(ExpectedConditions.elementToBeClickable(
                         By.cssSelector("img.avatar"))).isDisplayed());
+    }
+
+    @Then("I get an error message")
+    public void loginFailErrorMessage(){
+        Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".error"))).isDisplayed());
+    }
+
+    @Then("I get Enter Email and Password")
+    public void messageEnterEmailandPassword(){
+        Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).isDisplayed());
     }
 }
