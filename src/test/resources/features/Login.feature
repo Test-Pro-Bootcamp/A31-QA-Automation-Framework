@@ -8,7 +8,7 @@ Feature: Login feature
     Then I am logged in
 
   Scenario: Login with incorrect password
-    Given I open Login Page URL
+    Given I open Login Page
     When I enter my email "shalinibaronia@gmail.com"
     And I enter incorrect password "te$tstudent"
     And I click submit

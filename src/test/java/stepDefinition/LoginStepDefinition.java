@@ -65,12 +65,12 @@ public class LoginStepDefinition {
      //Login with incorrect password
     @Given("I open Login Page URL")
     public void iOpenLoginPageURL() {
-        driver.get("https://bbb.testpro.io/");
+      iOpenLoginPage();
     }
 
     @When("I enter my email {string}")
     public void iEnterMyEmail(String email) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).sendKeys(email);
+       iEnterEmail(email);
     }
 
     @And("I enter incorrect password {string}")
