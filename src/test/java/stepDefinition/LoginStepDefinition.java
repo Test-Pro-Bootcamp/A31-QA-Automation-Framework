@@ -92,6 +92,7 @@ public class LoginStepDefinition {
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
+    // Play a song
     @Given("I open Homepage")
     public void iOpenHomepage() {
        iOpenLoginPage();
@@ -104,7 +105,7 @@ public class LoginStepDefinition {
     @When("I context click on song")
     public void iContextClickOnSong() {
         Actions acts = new Actions(driver);
-        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ol[@class='top-song-list']//article[@class='playing']//span[@class='details']")));
+        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//body/div[@id='app']/div[@id='main']/div[@id='mainWrapper']/section[@id='mainContent']/section[@id='homeWrapper']/div[@class='main-scroll-wrap']/div[@class='two-cols']/section/ol[@class='top-song-list']/li[3]/article[1]/span[2]/span[1]")));
         acts.contextClick(song).perform();
     }
 
