@@ -75,7 +75,7 @@ public class LoginStepDefinition {
 
     @And("I enter incorrect password {string}")
     public void iEnterIncorrectPassword(String password) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']"))).sendKeys(password);
+        iEnterPassword(password);
     }
 
     @And("I click submit")
