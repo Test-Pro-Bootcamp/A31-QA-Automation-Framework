@@ -34,9 +34,10 @@ public class LoginStepDefinition {
     }
 
 
+    //Login Success
     @And("I open Login Page")
     public void iOpenLoginPage() {
-        driver.get("https://bbb.testpro.io");
+        driver.get("https://bbb.testpro.io/");
 
     }
 
@@ -62,15 +63,15 @@ public class LoginStepDefinition {
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
     }
 
+     //Login with incorrect password
     @Given("I open Login Page URL")
     public void iOpenLoginPageURL() {
-        driver.get("https://bbb.testpro.io");
+        driver.get("https://bbb.testpro.io/");
     }
 
     @When("I enter my email {string}")
     public void iEnterMyEmail(String email) {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).sendKeys(email);
-
     }
 
     @And("I enter incorrect password {string}")
@@ -85,7 +86,7 @@ public class LoginStepDefinition {
 
     @Then("I am not logged in")
     public void iAmNotLoggedIn() {
-        String url= "https://bbb.testpro.io";
+        String url= "https://bbb.testpro.io/";
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 }
