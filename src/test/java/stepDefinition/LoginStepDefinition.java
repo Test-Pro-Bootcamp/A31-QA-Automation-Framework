@@ -93,8 +93,11 @@ public class LoginStepDefinition {
     }
 
     @Given("I open Homepage")
-    public void iOpenHomepage() {
-        iAmLoggedIn();
+    public void iOpenHomepage(String email, String password) {
+       iOpenLoginPage();
+       iEnterEmail(email);
+       iEnterPassword(password);
+       iSubmit();
     }
 
     @When("I context click on song")
