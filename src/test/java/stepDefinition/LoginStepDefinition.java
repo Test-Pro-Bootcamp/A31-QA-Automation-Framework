@@ -93,17 +93,19 @@ public class LoginStepDefinition {
     }
 
     @Given("I open Homepage")
-    public void iOpenHomepage(String email, String password) {
+    public void iOpenHomepage() {
        iOpenLoginPage();
-       iEnterEmail(email);
-       iEnterPassword(password);
-       iSubmit();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).sendKeys("shalinibaronia@gmail.com");
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']"))).sendKeys("te$t$tudent");
+        iSubmit();
+
     }
 
     @When("I context click on song")
     public void iContextClickOnSong() {
-        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > section:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > section:nth-child(1) > ol:nth-child(2) > li:nth-child(1) > article:nth-child(1) > span:nth-child(2) > span:nth-child(1)")));
-        action.contextClick(song).perform();
+        Actions acts = new Actions(driver);
+        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ol[@class='top-song-list']//article[@class='playing']//span[@class='details']")));
+        acts.contextClick(song).perform();
     }
 
     @And("I click play button")
@@ -111,4 +113,9 @@ public class LoginStepDefinition {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='playback']"))).click();
     }
 
+
+    @And("Song is playing")
+    public void songIsPlaying() {
+        Assert.assertTrue();
+    }
 }

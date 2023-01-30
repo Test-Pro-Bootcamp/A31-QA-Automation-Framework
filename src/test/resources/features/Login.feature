@@ -18,3 +18,4 @@ Feature: Login feature
     Given I open Homepage
     When I context click on song
     And I click play button
+    And Song is playing
