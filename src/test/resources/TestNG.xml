@@ -12,6 +12,7 @@
             <class name="MyBaseTest"/>
             <class name="Homework20"/>
             <class name="Homework21"/>
+
 <!--   <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>

@@ -7,8 +7,8 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework18">
-                <methods>
+            <class name="Homework18"/>
+            <methods>
                     <include name="playASongTest" />
                 </methods>
             </class>

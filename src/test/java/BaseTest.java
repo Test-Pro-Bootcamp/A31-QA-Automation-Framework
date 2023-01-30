@@ -103,7 +103,7 @@ public class BaseTest {
         WebElement searchField = driver.findElement(By.cssSelector("//input[@placeholder='Press F to search']"));
         searchField.sendKeys(songTitle);
         searchField.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
     public void grabASong() {
         WebElement song = driver.findElement(By.xpath("article[title='Simon Mathewson by Music Insiders By Fma'] a[class='name']"));
@@ -120,21 +120,21 @@ public class BaseTest {
     public void viewAllSearchResults() throws InterruptedException{
         WebElement viewAllSearchResults = driver.findElement(By.cssSelector("button[data-test='view-all-songs-btn"));
         viewAllSearchResults.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
         clickAddToButton();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
     public static void clickAddToButton() throws InterruptedException {
         WebElement addTo = driver.findElement(By.xpath("//button.btn-add-to"));
         addTo.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     public static void selectSong(String simonMathewson) throws InterruptedException {
         WebElement selectSong = driver.findElement(By.cssSelector("section[id='songResultsWrapper'] tr:nth-child(2) td:nth-child(1)"));
         selectSong.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
 
     }
@@ -142,7 +142,7 @@ public class BaseTest {
         WebElement selectPlaylist = driver.findElement(By.xpath("//*[@id=\"playlists\"]/ul/li[5]"));
 
         selectPlaylist.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     public String getNotificationText() {

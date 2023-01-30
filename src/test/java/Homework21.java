@@ -33,10 +33,10 @@ public class Homework21 extends BaseTest {
         actions.contextClick(Playlist).perform();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[normalize-space()='Edit']")));
     }
-    public static void clickEditOption() throws InterruptedException {
+    public static void clickEditOption()  {
         WebElement EditOption = driver.findElement(By.cssSelector("li[data-testid='playlist-context-menu-edit-40418']"));
         EditOption.click();
-       Thread.sleep(4000);
+
     }
     //public void contextClickChoosePlaylist(){
         //wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-testid='playlist-context-menu-edit-40418']")));
@@ -52,7 +52,7 @@ public class Homework21 extends BaseTest {
         //playlistInputField.sendKeys(Homework21 Test);
         //playlistInputField.sendKeys(Keys.ENTER);
     //}
-    public static void enterPlaylistName() throws InterruptedException {
+    public static void enterPlaylistName() {
         String playListName = "Homework21 New Playlist";
         WebElement EditInput = driver.findElement(By.cssSelector("input[name='name']"));
         Actions actions = new Actions(driver);
@@ -61,7 +61,7 @@ public class Homework21 extends BaseTest {
         EditInput.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
         EditInput.sendKeys(playListName);
         EditInput.sendKeys(Keys.ENTER);
-        Thread.sleep(5000);
+
     }
     public boolean doesPlaylistExist(){
         WebElement playlistElement = driver.findElement(By.xpath("//a[normalize-space()='Homework21 New Playlist']"));
