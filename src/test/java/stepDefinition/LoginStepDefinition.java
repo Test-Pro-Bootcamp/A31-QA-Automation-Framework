@@ -3,6 +3,7 @@ package stepDefinition;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -61,4 +62,29 @@ public class LoginStepDefinition {
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
     }
 
+    @Given("I open Login Page URL")
+    public void iOpenLoginPageURL() {
+        driver.get("https://bbb.testpro.io");
+    }
+
+    @When("I enter my email {string}")
+    public void iEnterMyEmail(String email) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).sendKeys(email);
+
+    }
+
+    @And("I enter incorrect password {string}")
+    public void iEnterIncorrectPassword(String password) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']"))).sendKeys(password);
+    }
+
+    @And("I click submit")
+    public void iClickSubmit() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
+    }
+
+    @Then("I am not logged in")
+    public void iAmNotLoggedIn() {
+        Assert.assertFalse(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
+    }
 }

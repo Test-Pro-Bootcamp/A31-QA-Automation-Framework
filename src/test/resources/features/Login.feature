@@ -6,3 +6,11 @@ Feature: Login feature
     And I enter password "te$t$tudent"
     And I submit
     Then I am logged in
+
+  Scenario: Login with incorrect password
+    Given I open Login Page URL
+    When I enter my email "shalinibaronia@gmail.com"
+    And I enter incorrect password "te$tstudent"
+    And I click submit
+    Then I am not logged in
+
