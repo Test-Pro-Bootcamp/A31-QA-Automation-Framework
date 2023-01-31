@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilitiesUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -24,49 +25,45 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public String url = null;
-    public WebDriverWait wait = null;
-
-    public FluentWait fluentWait = null;
-    public Actions actions = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
+    public WebDriver driver;
+    public String url;
+    public WebDriverWait wait;
+    public FluentWait fluentWait;
+    public Actions actions;
+    public ThreadLocal<WebDriver> threadLocal;
 
 
     @BeforeSuite
     public void setupClass() {
-//        WebDriverManager.firefoxdriver().setup();
+       // WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
-        url = BaseURL;
-        threadLocal = new ThreadLocal<>();
-        driver = pickBrowser(System.getProperty("browser"));
-        threadLocal.set(driver);
-
-        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
-        actions = new Actions(getDriver());
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().manage().window().maximize();
+       driver = pickBrowser(System.getProperty("browser"));
+       threadLocal = new ThreadLocal<>();
+       threadLocal.set(driver);
+       actions = new Actions(getDriver());
+       getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+       url = BaseURL;
+            //  getDriver().manage().window().maximize();
         getDriver().get(url);
-
     }
 
-    public WebDriver getDriver() {
-        return threadLocal.get();
+    public WebDriver getDriver() {return threadLocal.get();
     }
 
-    @AfterMethod
-    public void closeBrowser() {
-        getDriver().quit();
-        threadLocal.remove();
-    }
+//    @AfterMethod
+//    public void closeBrowser() {
+//        getDriver().quit();
+//        threadLocal.remove();
+  //  }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http:localhost:4444";
 
         switch (browser) {
             case "firefox":
@@ -94,22 +91,20 @@ public class BaseTest {
 
     public WebDriver lambdaTest() throws MalformedURLException {
 
-        String hubURL = "https://hub.lambdatest.com/wd/hub";
+        String hubURL = "@hub.lambdatest.com/wd/hub";
+        String userName = "prytulan";
+        String authkey = "WgY3Zgvccqb4l3dl85eWD491JzWVeDNustid0KoldJx9EuDVJL";
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Firefox");
-        capabilities.setCapability("browserVersion", "107.0");
-        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
-        ltOptions.put("build", "Selenium 4");
-        ltOptions.put("name", this.getClass().getName());
-        ltOptions.put("platformName", "Windows 10");
-        ltOptions.put("seCdp", true);
-        ltOptions.put("selenium_version", "4.0.0");
-        capabilities.setCapability("LT:Options", ltOptions);
+        DesiredCapabilities capss = new DesiredCapabilities();
+        capss.setCapability("platform", "Windows10");
+        capss.setCapability("browserName", "Chrome");
+        capss.setCapability("version", "106.0");
+        capss.setCapability("resolution", "2560x1440");
+        capss.setCapability("build", "TestNG With Java");
+        capss.setCapability("name", this.getClass().getName());
+        capss.setCapability("plugin", "git-testing");
 
-        return new RemoteWebDriver(new URL(hubURL), capabilities);
+        return new RemoteWebDriver(new URL("https://"+userName+":"+authkey+hubURL), capss);
     }
 
 
