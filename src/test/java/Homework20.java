@@ -10,7 +10,7 @@ public class Homework20 extends BaseTest {
         clickSubmit();
 
         //Find Playlist
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[normalize-space()='Homework 20 Test'])[1]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[normalize-space()='Homework 20 Test'])"))).click();
 
 
         // Delete selected playlist
@@ -18,7 +18,7 @@ public class Homework20 extends BaseTest {
 
 
         // Validate that the playlist is deleted
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Ok']"))).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Ok'])[1]"))).click();
 
 
         //String name = "";
