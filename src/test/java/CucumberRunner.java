@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         plugin = {"pretty", "json:src/test/resources/features/reports/test.json"},
-        features = {"src/test/resources/features/Login.feature"},
+        features = {"src/test/resources/features/Login.feature"},publish = true,
         glue = {"stepDefinition"}
 
 )
