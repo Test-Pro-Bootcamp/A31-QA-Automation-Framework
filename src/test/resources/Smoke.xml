@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG" parallel="methods" thread-count="1">
+<suite name="Smoke Tests" parallel="methods" thread-count="1">
 
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="CucumberRunner" />
+            <class name="ProfileTests">
+                <methods>
+                    <include name="changeTheme" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
