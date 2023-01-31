@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest {
-
+    //You need to remove song Pluto from Test Pro Playlist before this test
     @Test
         public void addSongtoPlaylist() throws InterruptedException {
         String newSongAddedNotification = "Added 1 song into";

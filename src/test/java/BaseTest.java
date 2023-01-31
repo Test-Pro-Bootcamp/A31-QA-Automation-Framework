@@ -114,7 +114,7 @@ public class BaseTest {
 
     //HW17 by Aliaksandr
     public void choosePlaylist (String playlistName) throws InterruptedException {
-        WebElement playlistNameElement = driver.findElement(By.xpath("//a[contains(text(),'Test Pro Playlist')]"));
+        WebElement playlistNameElement = driver.findElement(By.xpath("//section[11]//li[contains(text(), '"+playlistName+"')]"));
         playlistNameElement.click();
         Thread.sleep(2000);
     }
