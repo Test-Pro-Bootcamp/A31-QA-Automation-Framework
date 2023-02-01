@@ -11,7 +11,8 @@
 <!--            <class name="Homework17"></class>-->
 <!--            <class name="Homwork19"></class>-->
 <!--            <class name = "Homework20"></class>-->
-            <class name = "Homework21"></class>
+<!--            <class name = "Homework21"></class>-->
+            <class name = "LoginTests"></class>
         </classes>
     </test>
 </suite>

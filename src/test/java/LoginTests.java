@@ -1,3 +1,5 @@
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -18,13 +20,20 @@ public class LoginTests extends BaseTest {
 
         navigateToPage();
 
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
+//        provideEmail("demo@class.com");
+//        providePassword("te$t$tudent");
+//        clickSubmit();
+//
+//        Thread.sleep(2000);
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+//        Assert.assertTrue(avatarIcon.isDisplayed());
 
-        Thread.sleep(2000);
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.provideEmail("anupapeter@hotmail.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmitBtn();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
     }
 
