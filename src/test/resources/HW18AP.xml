@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="HW18 Tests">
+
+    <parameter name="BaseURL" value="https://bbb.testpro.io/" />
+
+    <test name="HW18 Test" preserve-order="false">
+        <classes>
+            <class name="HW18AP">
+                <methods>
+                    <include name="playASongTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
