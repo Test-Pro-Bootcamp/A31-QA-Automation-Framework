@@ -32,10 +32,8 @@ public class LoginTests extends BaseTest {
 
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void loginInvalidEmailValidPasswordTest () {
+        login("invalid@class.com", "te$t$tudent");
 
-        provideEmail("invalid@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
 
         Assert.assertEquals(driver.getCurrentUrl(), url);
 

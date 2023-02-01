@@ -7,10 +7,8 @@ public class ProfileTests extends BaseTest {
 
     @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
     public static void updateProfileNameTest () throws InterruptedException {
+    login("demo@class.com", "te$t$tudent");
 
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
 
         Thread.sleep(2000);
         clickAvatarIcon();

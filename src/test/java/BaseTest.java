@@ -4,12 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.HomePage;
+import pages.LoginPage;
 
+import javax.swing.*;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -19,6 +23,9 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
     public static FluentWait fluentWait = null;
+    static LoginPage loginPage= null;
+    static HomePage homePage = null;
+    //static Actions actions = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -33,6 +40,9 @@ public class BaseTest {
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+
+        homePage = new HomePage(driver);
+
     }
 
     @AfterMethod
@@ -46,11 +56,14 @@ public class BaseTest {
 //    }
 
     public static void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-    }
+        loginPage = new LoginPage(driver);
 
+        loginPage.provideEmail(email);
+        loginPage.providePassword(password);
+        loginPage.clickSubmitBtn();
+
+    }
+/*
     public static void clickSubmit() {
         WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
@@ -69,7 +82,7 @@ public class BaseTest {
         emailField.clear();
         emailField.sendKeys(email);
     }
-
+*/
     public static void clickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
         saveButton.click();
