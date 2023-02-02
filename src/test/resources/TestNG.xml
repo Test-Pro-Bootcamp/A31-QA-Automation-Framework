@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG">
+<suite name="TestNG" parallel="methods" thread-count="2">
 <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
+<!--            <class name="LoginTests"/>-->
             <class name="BaseTest"/>
             <class name="Homework17"/>
-            <class name="Homework18"/>
+            <class name="createPlaylistTest"/>
+<!--            <class name="Homework18"/>-->
             <class name="Homework19"/>
-            <class name="Homework21"/>
+<!--            <class name="Homework21"/>-->
         </classes>
     </test>
 </suite>

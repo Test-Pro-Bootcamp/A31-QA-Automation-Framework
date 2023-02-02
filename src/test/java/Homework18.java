@@ -6,7 +6,7 @@ import pages.LoginPage;
 
 public class Homework18 extends BaseTest {
     @Test
-    public static void playSongTest () {
+    public void playSongTest () {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         AllSongsPage allSongsPage = new AllSongsPage(driver);

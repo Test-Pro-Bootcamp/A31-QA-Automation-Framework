@@ -18,12 +18,13 @@ dependencies {
 test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
-        systemProperty"browser", System.getProperty("browser")
+        systemProperty "browser", System.getProperty("browser")
     }
 }
 
 task playSong(type: Test) {
     useTestNG() {
         suites "src/test/resources/PlaySong.xml"
+        systemProperty "browser", System.getProperty("browser")
     }
 }
