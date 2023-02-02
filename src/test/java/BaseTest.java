@@ -43,7 +43,7 @@ public class BaseTest {
         driver = pickBrowser(System.getProperty("browser"));
         threadLocal.set(driver);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
         getDriver().get(url);
     }
