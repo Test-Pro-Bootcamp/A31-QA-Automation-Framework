@@ -1,6 +1,7 @@
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,7 +59,7 @@ public class BaseTest {
         threadLocal.remove();
     }
 
-    public WebDriver pickBrowser(String browser) throws MalformedURLException {
+    public WebDriver pickBrowser(@NotNull String browser) throws MalformedURLException {
         DesiredCapabilities dCap = new DesiredCapabilities();
         String gridURI = "http://192.168.86.32:4444";
 
