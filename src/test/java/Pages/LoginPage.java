@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
@@ -10,20 +11,18 @@ public class LoginPage extends BasePage {
         super(dvr);
     }
 
-    By submitButtonLocator = By.cssSelector("button[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
+    @FindBy(css="button[type='submit']") WebElement submitButtonLocator;
+    @FindBy(css="[type='email']") WebElement emailField;
+    @FindBy(css="[type='password']") WebElement passwordField;
 
     public void provideEmail(String email){
-        WebElement emailElement = driver.findElement(emailField);
-        emailElement.sendKeys(email);
+       emailField.sendKeys(email);
     }
 
     public void providePassword(String password){
-        WebElement passwordElement = driver.findElement(passwordField);
-        passwordElement.sendKeys(password);
+        passwordField.sendKeys(password);
     }
     public void clickSubmitBtn(){
-        driver.findElement(submitButtonLocator).click();
+        submitButtonLocator.click();
     }
 }
