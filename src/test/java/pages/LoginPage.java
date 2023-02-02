@@ -41,5 +41,9 @@ public class LoginPage extends BasePage{
         return this;
     }
 
+    public WebElement emailFieldDisplayed() {
+        return wait.until(ExpectedConditions.visibilityOf(emailField));
+    }
+
 
 }
