@@ -33,7 +33,7 @@ public class LoginPage extends BasePage{
     }
 
     public LoginPage clickSubmit() {
-        click(submitButton);
+       driver.findElement(submitButton).click();
         return this;
     }
 
