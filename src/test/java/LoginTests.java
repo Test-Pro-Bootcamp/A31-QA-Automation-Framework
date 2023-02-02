@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 public class LoginTests extends BaseTest {
-
+    LoginPage loginPage = new LoginPage(getDriver());
     @Test
     public void LoginValidEmailPasswordTest () {
-       LoginPage loginPage = new LoginPage(driver);
+      
         HomePage homepage = new HomePage(getDriver());
 
         loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
@@ -17,7 +17,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void loginInvalidEmailValidPasswordTest () {
-        LoginPage loginPage = new LoginPage(driver);
+
 
 
         loginPage.provideEmail("invalid@class.com");
