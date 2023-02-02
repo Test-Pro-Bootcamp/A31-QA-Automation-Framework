@@ -111,22 +111,31 @@ public class BaseTest {
         return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
 
-    protected void login(String email, String password) {
-        WebElement emailField = driver.findElement(By.cssSelector("[type = 'email']"));
-        wait.until(ExpectedConditions.elementToBeClickable(emailField));
+    public void login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
 
-        emailField.clear();
-        emailField.sendKeys(email);
+    public void clickSubmit() {
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+        submitButton.click();
+    }
 
-        WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
-        wait.until(ExpectedConditions.elementToBeClickable(passwordField));
+    public void providePassword(String password) {
+        WebElement passwordField = getDriver().findElement(By.cssSelector("[type='password']"));
+        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 
         passwordField.clear();
         passwordField.sendKeys(password);
-
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type = 'submit']")));
-        submitButton.click();
     }
+
+    public void provideEmail(String email) {
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+        emailField.clear();
+        emailField.sendKeys(email);
+    }
+
 
     public void clickAvatarIcon() {
         WebElement avatarIcon = getDriver().findElement(By.cssSelector("img.avatar"));
