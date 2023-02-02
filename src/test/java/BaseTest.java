@@ -22,12 +22,12 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public static WebDriver driver = null;
-    public static WebDriverWait wait = null;
-    public static String url = null;
-    public ThreadLocal<WebDriver> threadDriver = null;
+    public WebDriver driver = null;
+    public String url = null;
+    public WebDriverWait wait = null;
 
     public Actions actions = null;
+    public ThreadLocal<WebDriver> threadDriver = null;
 
     //@BeforeSuite
     //static void setupClass() {
@@ -65,26 +65,32 @@ public class BaseTest {
         switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+               return driver = new FirefoxDriver();
                 break;
+
             case "MicrosoftEdge":
                 WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
+                return driver = new EdgeDriver();
                 break;
+
             case "grid-edge":
                 dCap.setCapability("browserName", "MicrosoftEdge");
-                driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
+               return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
                 break;
+
             case "grid-firefox":
                 dCap.setCapability("browserName", "firefox");
-                driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
+                return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
                 break;
+
             case "grid-chrome":
                 dCap.setCapability("browserName", "chrome");
-                driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
+                return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
                 break;
+
             case "cloud":
                 return lambdaTest();
+
             default:
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
