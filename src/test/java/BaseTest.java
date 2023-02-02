@@ -27,7 +27,7 @@ public class BaseTest {
     public WebDriverWait wait = null;
 
     public Actions actions = null;
-    public ThreadLocal<WebDriver> threadDriver = null;
+    public ThreadLocal<WebDriver> threadDriver;
 
     //@BeforeSuite
     //static void setupClass() {
