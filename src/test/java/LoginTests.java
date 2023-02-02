@@ -2,19 +2,52 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-    @Test
-    public static void LoginEmptyEmailPasswordTest () {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    @Test(enabled = true, priority = 0, groups = {"Smoke", "Regression"}, description = "Login with valid credentials")
+    public void loginValidEmailPassword() {
 
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("test123@test.com").providePassword("te$t$tudent").clickSubmit();
+//        loginPage.login("test123@test.com", "te$t$tudent");
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 1, groups = {"Regression"}, description = "Login with not existing email")
+    public void loginNotExistingEmail() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("notExistingEmail@test.com").providePassword("te$t$tudent").clickSubmit();
+        Assert.assertTrue(loginPage.loginError().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Login with Empty Password")
+    public void loginWithEmptyPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("test123@test.com").providePassword("").clickSubmit();
+
+        //Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 3, groups = {"Regression"}, description = "Login with invalid Password")
+    public void loginWithInvalidPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("test123@test.com").providePassword("teststudent").clickSubmit();
+        Assert.assertTrue(loginPage.loginError().isDisplayed());
     }
 }
