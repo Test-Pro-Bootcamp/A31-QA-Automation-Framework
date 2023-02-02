@@ -11,9 +11,9 @@ public class LoginPage extends BasePage {
         super(dvr);
     }
 
-    @FindBy(css="button[type='submit']") WebElement submitButtonLocator;
-    @FindBy(css="[type='email']") WebElement emailField;
-    @FindBy(css="[type='password']") WebElement passwordField;
+    @FindBy(css="button[type='submit']") private WebElement submitButtonLocator;
+    @FindBy(css="[type='email']") private WebElement emailField;
+    @FindBy(css="[type='password']") private WebElement passwordField;
 
     public void provideEmail(String email){
        emailField.sendKeys(email);
