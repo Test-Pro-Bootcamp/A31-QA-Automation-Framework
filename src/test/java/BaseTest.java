@@ -183,4 +183,20 @@ public class BaseTest {
                 {"", ""}
         };
     }
+
+    public void playSong() throws InterruptedException {
+        WebElement buttonPlaySong = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
+        Thread.sleep(5000);
+        buttonPlaySong.click();
+    }
+
+    public boolean isDisplayedPlayingSong() {
+        WebElement songIsPlaying = driver.findElement(By.cssSelector("[data-testid = 'sound-bar-play']"));
+        return songIsPlaying.isDisplayed();
+    }
+
+    public void playSong() {
+        driver.findElement(By.cssSelector("[data-testid='play-next-btn']")).click();
+        driver.findElement(By.cssSelector("[data-testid='play-btn']")).click();
+    }
 }
