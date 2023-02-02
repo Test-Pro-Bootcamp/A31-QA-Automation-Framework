@@ -34,7 +34,7 @@ public class BaseTest {
         //WebDriverManager.chromedriver().setup();
     //}
 
-    @Before
+    @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
