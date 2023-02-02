@@ -1,23 +1,20 @@
 package pages;
 
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     //locators
     By submitButtonLocator = By.cssSelector("[type='submit']");
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
 
-    By profileIcon  = By.xpath("//a[@class='view-profile']");
+    By profileIcon = By.xpath("//a[@class='view-profile']");
 
 
-    public LoginPage( WebDriver givenDriver) {
+    public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
@@ -38,8 +35,8 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage logIn(){
-        provideEmail("demo@class.com");
+    public LoginPage logIn() {
+        provideEmail("zahinedu@gmail.com");
         providePassword("te$t$tudent");
         clickSubmitBtn();
         return this;

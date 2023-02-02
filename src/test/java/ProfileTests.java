@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProfilePage;
 
-public class ProfileTests extends BaseTestHW24 {
+public class ProfileTests extends BaseTestHW25 {
 
 
     @Test(enabled = true, priority = 0, description = "Change profile theme")
@@ -23,7 +23,7 @@ public class ProfileTests extends BaseTestHW24 {
     public void updateProfileNameTest () throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
-        provideEmail("demo@class.com");
+        provideEmail("zahinedu@gmail.com");
         providePassword("te$t$tudent");
         clickSubmit();
 
