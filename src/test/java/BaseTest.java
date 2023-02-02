@@ -18,28 +18,39 @@ import java.net.URI;
 import java.time.Duration;
 
 public class BaseTest {
-    public static WebDriver driver;
-    public static String url = "https://bbb.testpro.io/";
-    public static WebDriverWait wait = null;
-    public static Actions action;
+    public  WebDriver driver;
+    public  String url = "https://bbb.testpro.io/";
+    public  WebDriverWait wait = null;
+    public  Actions action;
+    public ThreadLocal<WebDriver> threadDriver;
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseUrl) throws MalformedURLException {
-        driver = pickBrowser(System.getProperty("browser"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
-        driver.get(url);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        action = new Actions(driver);
+        threadDriver = new ThreadLocal<>();
+        driver = pickBrowser(System.getProperty("browser"));
+        threadDriver.set(driver);
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        action = new Actions(getDriver());
+        getDriver().get(url);
+
     }
 
-        @AfterMethod
-    public static void closeBrowser(){driver.quit();}
-        private static WebDriver pickBrowser(String browser) throws MalformedURLException {
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            String gridURL = "http://192.168.0.160:4444";
-        switch (browser){
+    @AfterMethod
+    public  void closeBrowser() {
+       getDriver().quit();
+       threadDriver.remove();
+    }
+
+    public WebDriver getDriver() {
+        return threadDriver.get();
+    }
+
+    private  WebDriver pickBrowser(String browser) throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        String gridURL = "http://192.168.0.160:4444";
+        switch (browser) {
             case "safari":
                 WebDriverManager.safaridriver().setup();
                 return driver = new SafariDriver();
@@ -48,56 +59,58 @@ public class BaseTest {
                 return driver = new FirefoxDriver();
             case "grid-firefox":
                 capabilities.setCapability("browserName", "firefox");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
             case "grid-safari":
                 capabilities.setCapability("browserName", "safari");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
             case "grid-chrome":
                 capabilities.setCapability("browserName", "chrome");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),capabilities);
+                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
             default:
-                WebDriverManager.chromedriver().setup();;
-                return driver= new ChromeDriver();
+                WebDriverManager.chromedriver().setup();
+                ;
+                return driver = new ChromeDriver();
         }
-        }
-    public static void login() {
+    }
+
+    public void login() {
         provideEmail();
         providePassword();
         clickSubmitButton();
     }
 
-    public static void provideEmail() {
+    public void provideEmail() {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.clear();
         emailField.sendKeys("sandra.geche@gmail.com");
     }
 
-    public static void providePassword() {
+    public void providePassword() {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         wait.until(ExpectedConditions.elementToBeClickable(passwordField));
         passwordField.clear();
         passwordField.sendKeys("te$t$tudent");
     }
 
-    public static void clickSubmitButton() {
+    public void clickSubmitButton() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit"));
     }
 
-    public static void validateHomepage() {
+    public void validateHomepage() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
-    public static void addPlaylist() {
+    public void addPlaylist() {
         WebElement addPlayList = driver.findElement(By.xpath("//*[@class='fa fa-plus-circle create']"));
     }
 
-    public static void newPlaylist() {
+    public void newPlaylist() {
         WebElement newPlaylist = driver.findElement(By.xpath("//*[@data-testid='playlist-context-menu-create-simple']"));
 
     }
 
-    public static void namePlaylist() {
+    public void namePlaylist() {
         WebElement namePlaylist = driver.findElement(By.cssSelector("input[placeholder='↵ to save']"));
         namePlaylist.clear();
         namePlaylist.click();
@@ -105,17 +118,17 @@ public class BaseTest {
         namePlaylist.sendKeys(Keys.ENTER);
     }
 
-    public static void doubleClickToPlaylist() {
+    public void doubleClickToPlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement webElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
         action.doubleClick(webElement).perform();
     }
 
-    public static void choosePlaylist() {
+    public void choosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
 
-    public static void newPlaylistName() {
+    public void newPlaylistName() {
         WebElement enterName = driver.findElement(By.cssSelector("input[name='name']"));
         enterName.sendKeys(Keys.chord(Keys.COMMAND, "a", Keys.BACK_SPACE));
         enterName.sendKeys("Wild dream");
