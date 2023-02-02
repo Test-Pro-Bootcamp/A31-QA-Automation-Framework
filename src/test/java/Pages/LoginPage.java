@@ -9,33 +9,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage extends BasePage{
-    @FindBy(css = "[type = 'email']")
-    WebElement emailField;
-
-    @FindBy(css = "[type = 'password']")
-    WebElement passwordField;
-
-    @FindBy(css = "button[type = 'submit']")
-    WebElement submitButton;
-
+    By submitButton = By.cssSelector("[type='submit']");
+    By emailField = By.cssSelector("[type='email']");
+    By passwordField = By.cssSelector("[type='password']");
     By profileIcon  = By.xpath("//a[@class='view-profile']");
+
+
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
-    public LoginPage provideEmail(String email){
-        emailField.sendKeys(email);
+    public LoginPage provideEmail(String email) {
+        WebElement emailElement = driver.findElement(emailField);
+        emailElement.sendKeys(email);
         return this;
     }
 
     public LoginPage providePassword(String password) {
-        passwordField.sendKeys(password);
+        WebElement passwordElement = driver.findElement(passwordField);
+        passwordElement.sendKeys(password);
         return this;
     }
 
     public LoginPage clickSubmit() {
-        submitButton.click();
+        click(submitButton);
         return this;
     }
 
