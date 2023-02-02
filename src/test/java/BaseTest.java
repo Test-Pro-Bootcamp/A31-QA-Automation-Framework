@@ -36,7 +36,7 @@ public class BaseTest {
     //}
 
     @Before
-    @Parameters({"BaseUrl"})
+    @Parameters("BaseUrl")
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
 
