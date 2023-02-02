@@ -27,7 +27,7 @@ public class BaseTest {
     public WebDriverWait wait = null;
 
     public Actions actions = null;
-    public ThreadLocal<WebDriver> threadDriver;
+    public ThreadLocal<WebDriver> threadLocal = null;
 
     //@BeforeSuite
     //static void setupClass() {
@@ -39,9 +39,9 @@ public class BaseTest {
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
 
-        threadDriver=new ThreadLocal<>();
+        threadLocal=new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadDriver.set(driver);
+        threadLocal.set(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         actions = new Actions(getDriver());
@@ -49,13 +49,13 @@ public class BaseTest {
     }
 
     public WebDriver getDriver(){
-        return threadDriver.get();
+        return threadLocal.get();
     }
 
     @After
     public void closeBrowser() {
         getDriver().quit();
-        threadDriver.remove();
+        threadLocal.remove();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
