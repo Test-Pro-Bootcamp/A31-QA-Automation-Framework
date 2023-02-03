@@ -29,6 +29,6 @@ task testSmoke(type: Test) {
 
 task testRegression(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Regression.xml"
+        suites "src/test/resources/Homework18MG.xml"
     }
 }
