@@ -12,7 +12,7 @@ public class LoginPage extends BasePage{
     By submitButton = By.cssSelector("[type='submit']");
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
-    By profileIcon  = By.xpath("//a[@class='view-profile']");
+    By profileIcon  = By.xpath("//a[@title='View/edit user profile']");
 
 
 
