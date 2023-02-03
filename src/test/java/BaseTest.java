@@ -61,7 +61,7 @@ public class BaseTest {
     public WebDriver getDriver(){
         return threadLocal.get();
     }
-    
+
 
         public WebDriver pickBrowser(String browser) throws MalformedURLException {
             DesiredCapabilities caps = new DesiredCapabilities();
