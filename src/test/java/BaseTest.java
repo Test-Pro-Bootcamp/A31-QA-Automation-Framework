@@ -15,6 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
 
 public class BaseTest {
@@ -42,7 +43,24 @@ public class BaseTest {
        getDriver().quit();
        threadDriver.remove();
     }
+  public WebDriver lambdaTest() throws MalformedURLException {
+        String username = "sandra.geche";
+        String authkey = "lWvIg6Zxh5QNNsRJLoSthAhW70nwrogc1vPrDJcwrfvYtIMlyR";
+        String hub = "@hub.lambdatest.com/wd/hub";
 
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "106.0");
+        caps.setCapability("resolution", "1024x768");
+        caps.setCapability("build","TestNG with Java");
+        caps.setCapability("name", this.getClass().getName());
+        caps.setCapability("plugin", "git-testng");
+        return  new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
+
+
+
+  }
     public WebDriver getDriver() {
         return threadDriver.get();
     }
@@ -66,9 +84,10 @@ public class BaseTest {
             case "grid-chrome":
                 capabilities.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), capabilities);
+            case "cloud":
+                return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
-                ;
                 return driver = new ChromeDriver();
         }
     }

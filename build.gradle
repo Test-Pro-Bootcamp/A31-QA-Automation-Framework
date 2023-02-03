@@ -29,6 +29,7 @@ test {
         suites "src/test/resources/TestNG.xml"
         systemProperty "browser", System.getProperty("browser")
     }
+
 }
 
 task testSmoke(type: Test) {
