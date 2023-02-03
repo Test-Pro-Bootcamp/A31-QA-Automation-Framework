@@ -25,9 +25,9 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
+    public WebDriver driver;
     public String url = null;
-    public WebDriverWait wait = null;
+    public WebDriverWait wait;
 
     public FluentWait fluentWait = null;
     public Actions action = null;
