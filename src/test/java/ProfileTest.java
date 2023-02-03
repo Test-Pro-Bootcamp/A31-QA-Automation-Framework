@@ -1,13 +1,27 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import Pages.LoginPage;
 import Pages.ProfilePage;
 
+import java.net.MalformedURLException;
+
 public class ProfileTest extends BaseTest {
 
+    @BeforeMethod
+    @Parameters({"BaseUrl"})
+    public void launchBrowser_main(String BaseUrl) throws MalformedURLException {
+        this.launchBrowser(BaseUrl);
+    }
 
+    @AfterMethod
+    public void closeBrowser_main() {
+        this.closeBrowser();
+    }
     @Test
     public void changeTheme() {
         LoginPage loginPage = new LoginPage(getDriver());
