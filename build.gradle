@@ -19,6 +19,7 @@ test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
         systemProperty "browser", System.getProperty("browser")
+
     }
 }
 
