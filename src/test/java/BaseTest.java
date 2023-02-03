@@ -128,7 +128,7 @@ public class BaseTest {
     }
 
     public void providePassword(String password) {
-        WebElement passwordField = getDriver().findElement(By.cssSelector("[type='password']"));
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 
         passwordField.clear();
