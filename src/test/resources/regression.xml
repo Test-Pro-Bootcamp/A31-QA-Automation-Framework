@@ -9,6 +9,7 @@
             <class name="LoginTests" />
             <class name="BaseTest" />
             <class name="ProfileTest" />
+            <class name="CucumberRunner" />
 
 
         </classes>
