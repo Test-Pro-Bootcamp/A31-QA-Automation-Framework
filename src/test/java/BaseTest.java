@@ -43,24 +43,24 @@ public class BaseTest {
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
 
-        threadDriver=new ThreadLocal<>();
+        //threadDriver=new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadDriver.set(driver);
+        //threadDriver.set(driver);
 
 
-      wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
-        actions = new Actions(getDriver());
-        getDriver().get(url);
+      wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        actions = new Actions(driver);
+        driver.get(url);
     }
 
-    public WebDriver getDriver(){
-        return threadDriver.get();
-    }
+    //public WebDriver getDriver(){
+        //return threadDriver.get();
+   // }
 
     @After
     public void closeBrowser() {
-        getDriver().quit();
-        threadDriver.remove();
+        driver.quit();
+
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
