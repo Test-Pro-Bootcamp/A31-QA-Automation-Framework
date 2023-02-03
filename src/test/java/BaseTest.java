@@ -67,9 +67,7 @@ public class BaseTest {
         getDriver().quit();
         threadLocal.remove();
     }
-
-
-        public WebDriver pickBrowser(String browser) throws MalformedURLException {
+    public WebDriver pickBrowser(String browser) throws MalformedURLException {
             DesiredCapabilities caps = new DesiredCapabilities();
             String gridURL = "http://192.168.86.32:4444";;
 
@@ -96,6 +94,7 @@ public class BaseTest {
                     return driver = new ChromeDriver();
             }
         }
+
     public WebDriver lambdaTest() throws MalformedURLException {
 
         String hubURL = "https://hub.lambdatest.com/wd/hub";
@@ -167,6 +166,4 @@ public class BaseTest {
         profileName.clear();
         profileName.sendKeys(randomName);
     }
-
-
 }

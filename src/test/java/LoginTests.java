@@ -21,7 +21,6 @@ public class LoginTests extends BaseTest {
 //    static void setupClass() {
 //        WebDriverManager.chromedriver().setup();
 //    }
-
     @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser_main(String BaseUrl) throws MalformedURLException {
@@ -54,6 +53,5 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
-
     }
 }

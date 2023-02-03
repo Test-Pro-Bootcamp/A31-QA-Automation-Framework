@@ -38,7 +38,4 @@ public class ProfileTest extends BaseTest {
         profilePage.chooseVioletTheme()
                 .isVioletThemeSelected();
     }
-
-
-
 }

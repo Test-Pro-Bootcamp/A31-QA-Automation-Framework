@@ -22,20 +22,12 @@ public class ProfilePage extends BasePage{
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-
     public ProfilePage chooseVioletTheme() {
         driver.findElement(violetTheme).click();
         return this;
     }
 
     public boolean isVioletThemeSelected(){
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
         return driver.findElement(isVioletThemeSelected).isDisplayed();
     }
-
-
 }
