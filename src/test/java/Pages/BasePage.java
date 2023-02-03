@@ -10,7 +10,9 @@ import java.time.Duration;
 
 public class BasePage {
     WebDriver driver;
+
     WebDriverWait wait;
+
     Actions action;
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
