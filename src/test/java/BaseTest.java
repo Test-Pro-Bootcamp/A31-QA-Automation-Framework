@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
+import pages.BasePage;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -14,7 +15,6 @@ import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
     public static String url = null;
-
 
     @BeforeSuite
     static void setupClass() {
