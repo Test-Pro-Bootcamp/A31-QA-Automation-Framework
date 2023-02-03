@@ -42,12 +42,14 @@ public class BaseTest {
 //        WebDriverManager.chromedriver().setup();
 //    }
 
-    @Before
-    @Parameters({"BaseUrl"})
+  //  @BeforeMethod
+    //@Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
-        threadLocal = new ThreadLocal<>();
-        driver = pickBrowser(System.getProperty("browser"));
+    threadLocal = new ThreadLocal<>();
+    String browser = System.getProperty("browser");
+    System.out.println("*************************" + browser);
+        driver = pickBrowser(browser);
         threadLocal.set(driver);
 
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
@@ -61,7 +63,7 @@ public class BaseTest {
     public WebDriver getDriver(){
         return threadLocal.get();
     }
-    @After
+   // @After
     public void closeBrowser() {
         getDriver().quit();
         threadLocal.remove();
