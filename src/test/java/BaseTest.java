@@ -53,7 +53,7 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
+    @After
     public void closeBrowser() {
         getDriver().quit();
         threadLocal.remove();

@@ -8,7 +8,7 @@
         <classes>
             <class name="LoginTests" />
             <class name="ProfileTest"/>
-            
+
         </classes>
     </test>
 </suite>
