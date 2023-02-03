@@ -143,13 +143,13 @@ public class BaseTest {
 
 
     public void clickAvatarIcon() {
-        WebElement avatarIcon = getDriver().findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
     }
 
     public void provideCurrentPassword(String password) {
-        WebElement currentPassword = getDriver().findElement(By.cssSelector("[name='current_password']"));
+        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }
@@ -159,12 +159,12 @@ public class BaseTest {
     }
 
     public void clickSaveButton() {
-        WebElement saveButton = getDriver().findElement(By.cssSelector("button.btn-submit"));
+        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
         saveButton.click();
     }
 
     public void provideProfileName(String randomName) {
-        WebElement profileName = getDriver().findElement(By.cssSelector("[name='name']"));
+        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
         profileName.clear();
         profileName.sendKeys(randomName);
     }
