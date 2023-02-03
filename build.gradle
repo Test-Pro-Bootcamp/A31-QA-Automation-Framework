@@ -38,3 +38,4 @@ test {
             systemProperty "browser", System.getProperty("browser")
         }
 
+    }
