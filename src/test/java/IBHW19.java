@@ -11,7 +11,7 @@ public class IBHW19 extends BaseTest{
 
 
     @Test
-    public void DeletePlaylistTest() throws InterruptedException {
+    public void deletePlaylistTest() throws InterruptedException {
         String playlistName = "test playlist";
 
         login("ionut.burtoiu@testpro.io", "te$t$tudent");
@@ -40,7 +40,4 @@ public class IBHW19 extends BaseTest{
             }
         }
     }
-
-
-
 }
