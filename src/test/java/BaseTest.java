@@ -48,7 +48,6 @@ public class BaseTest {
         url = BaseUrl;
     threadLocal = new ThreadLocal<>();
     String browser = System.getProperty("browser");
-    System.out.println("*************************" + browser);
         driver = pickBrowser(browser);
         threadLocal.set(driver);
 
