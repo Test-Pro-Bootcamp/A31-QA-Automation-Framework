@@ -25,13 +25,13 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver;
+    public WebDriver driver=null;
     public String url = null;
-    public WebDriverWait wait;
+    public WebDriverWait wait=null;
 
     public FluentWait fluentWait = null;
     public Actions action = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
+    public ThreadLocal<WebDriver> threadLocal=null;
 
 
 
@@ -40,7 +40,7 @@ public class BaseTest {
         //WebDriverManager.chromedriver().setup();
     //}
 
-    @Before
+    @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
@@ -50,7 +50,6 @@ public class BaseTest {
 
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         action = new Actions(getDriver());
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().manage().window().maximize();
         getDriver().get(url);
 
