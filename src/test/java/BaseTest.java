@@ -27,42 +27,39 @@ import java.util.UUID;
 public class BaseTest {
     public WebDriver driver = null;
     public String url = null;
-    public WebDriverWait wait = null;
+    public WebDriverWait wait;
 
     public Actions action = null;
-    public ThreadLocal<WebDriver> threadDriver = null;
+    public ThreadLocal<WebDriver> threadLocal = null;
 
     //@BeforeSuite
     //static void setupClass() {
         //WebDriverManager.chromedriver().setup();
     //}
 
-    @BeforeMethod
-    @Parameters("BaseUrl")
+    @Before
+    @Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
-
-        threadDriver=new ThreadLocal<>();
+        threadLocal = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
+        threadLocal.set(driver);
 
-        threadDriver.set(driver);
-
-
-
-      wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
-
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         action = new Actions(getDriver());
+//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().manage().window().maximize();
         getDriver().get(url);
-    }
 
-    public WebDriver getDriver(){
-        return threadDriver.get();
     }
 
     @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
-        threadDriver.remove();
+        threadLocal.remove();
+    }
+    public WebDriver getDriver(){
+        return threadLocal.get();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
