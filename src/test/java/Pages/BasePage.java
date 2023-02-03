@@ -33,5 +33,6 @@ public class BasePage {
 
     public void contextClick(By locator){
         action.contextClick(findElement(locator)).perform();
+
     }
 }
