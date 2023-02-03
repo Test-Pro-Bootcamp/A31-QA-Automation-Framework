@@ -13,7 +13,7 @@ public class ProfilePage extends BasePage{
 
     //locators
 
-    By violetTheme = By.xpath("//div[contains(text(),'Violet')]");
+    By violetTheme = By.cssSelector("div.main-scroll-wrap section:nth-child(2) ul.themes:nth-child(2) li:nth-child(2) div.theme > div.name");
 
     By isVioletThemeSelected = By.xpath("//div[@data-testid='theme-card-violet' and contains(@class,'selected')]");
 
