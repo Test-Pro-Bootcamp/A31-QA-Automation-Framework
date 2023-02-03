@@ -11,11 +11,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -27,12 +27,15 @@ import java.util.UUID;
 public class BaseTest {
     public WebDriver driver = null;
     public String url = null;
-    public WebDriverWait wait;
+    public WebDriverWait wait = null;
 
+    public FluentWait fluentWait = null;
     public Actions action = null;
     public ThreadLocal<WebDriver> threadLocal = null;
 
-    //@BeforeSuite
+
+
+      //@BeforeSuite
     //static void setupClass() {
         //WebDriverManager.chromedriver().setup();
     //}
