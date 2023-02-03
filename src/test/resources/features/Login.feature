@@ -1,6 +1,6 @@
 Feature: Login feature
 
-  @smoke @regression
+  @smoke
   Scenario: Login Success
     Given I open Login Page
     When I enter email "demo@class.com"
@@ -15,6 +15,7 @@ Feature: Login feature
     And I enter password "te$t$tudent"
     And I submit
     Then I am logged in
+  #this line abov
 
 #  Scenario Outline: Login with various input
 #    Given I open Login Page
