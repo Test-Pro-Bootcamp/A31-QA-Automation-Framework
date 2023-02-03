@@ -12,9 +12,9 @@ public class LoginPage extends BasePage{
     By submitButton = By.cssSelector("[type='submit']");
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
-    //By profileIcon  = By.xpath("//a[@title='View/edit user profile']");
-    @FindBy(xpath = "//a[@title='View/edit user profile']" )
-    WebElement profileIcon;
+    By profileIcon  = By.xpath("//a[@title='View/edit user profile']");
+   // @FindBy(xpath = "//a[@title='View/edit user profile']" )
+   // WebElement profileIcon;
 
 
     public LoginPage(WebDriver givenDriver) {
@@ -46,6 +46,6 @@ public class LoginPage extends BasePage{
     }
 
     public void clickProfileIcon() {
-        click((By) profileIcon);
+        driver.findElement(profileIcon).click();
     }
 }
