@@ -37,10 +37,10 @@ public class BaseTest {
 
 
 
-      @BeforeSuite
-    static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
+//      @BeforeSuite
+//    static void setupClass() {
+//        WebDriverManager.chromedriver().setup();
+//    }
 
     @Before
     @Parameters({"BaseUrl"})
