@@ -43,24 +43,24 @@ public class BaseTest {
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
 
-        //threadDriver=new ThreadLocal<>();
+        threadDriver=new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        //threadDriver.set(driver);
+        threadDriver.set(driver);
 
 
-      wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-        actions = new Actions(driver);
-        driver.get(url);
+      wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
+        actions = new Actions(getDriver());
+        getDriver().get(url);
     }
 
-    //public WebDriver getDriver(){
-        //return threadDriver.get();
-   // }
+    public WebDriver getDriver(){
+        return threadDriver.get();
+    }
 
     @After
     public void closeBrowser() {
-        driver.quit();
-
+        getDriver().quit();
+        threadDriver.remove();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
@@ -128,7 +128,7 @@ public class BaseTest {
     }
 
     public void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        WebElement passwordField = getDriver().findElement(By.cssSelector("[type='password']"));
         wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 
         passwordField.clear();
@@ -143,13 +143,13 @@ public class BaseTest {
 
 
     public void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = getDriver().findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
     }
 
     public void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+        WebElement currentPassword = getDriver().findElement(By.cssSelector("[name='current_password']"));
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }
@@ -159,12 +159,12 @@ public class BaseTest {
     }
 
     public void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+        WebElement saveButton = getDriver().findElement(By.cssSelector("button.btn-submit"));
         saveButton.click();
     }
 
     public void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+        WebElement profileName = getDriver().findElement(By.cssSelector("[name='name']"));
         profileName.clear();
         profileName.sendKeys(randomName);
     }

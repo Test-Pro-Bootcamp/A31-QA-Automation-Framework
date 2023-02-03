@@ -8,8 +8,8 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void LoginValidEmailPasswordTest () {
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homepage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homepage = new HomePage(getDriver());
 
 
         loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
@@ -18,15 +18,15 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void loginInvalidEmailValidPasswordTest () {
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homepage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homepage = new HomePage(getDriver());
 
 
         loginPage.provideEmail("invalid@class.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmit();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
 
     }
 }
