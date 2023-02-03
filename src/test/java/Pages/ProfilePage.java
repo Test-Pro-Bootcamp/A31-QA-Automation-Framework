@@ -24,7 +24,7 @@ public class ProfilePage extends BasePage{
 
 
     public ProfilePage chooseVioletTheme() {
-        click(violetTheme);
+        driver.findElement(violetTheme).click();
         return this;
     }
 
