@@ -1,6 +1,7 @@
 import Pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,6 +11,7 @@ import Pages.LoginPage;
 import Pages.ProfilePage;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class ProfileTest extends BaseTest {
 
@@ -30,7 +32,9 @@ public class ProfileTest extends BaseTest {
         HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
-        loginPage.clickProfileIcon();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        homePage.getUserAvatar().click();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         profilePage.chooseVioletTheme()
                 .isVioletThemeSelected();
     }
