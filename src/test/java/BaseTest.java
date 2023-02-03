@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -36,10 +37,10 @@ public class BaseTest {
 
 
 
-      //@BeforeSuite
-    //static void setupClass() {
-        //WebDriverManager.chromedriver().setup();
-    //}
+      @BeforeSuite
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @Before
     @Parameters({"BaseUrl"})
