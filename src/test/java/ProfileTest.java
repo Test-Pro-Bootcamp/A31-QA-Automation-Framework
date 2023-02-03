@@ -1,3 +1,4 @@
+import Pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -26,9 +27,10 @@ public class ProfileTest extends BaseTest {
     public void changeTheme() {
         LoginPage loginPage = new LoginPage(getDriver());
         ProfilePage profilePage = new ProfilePage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
-        loginPage.login()
-                .clickProfileIcon();
+        loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
+              homePage.getUserAvatar();
         profilePage.chooseVioletTheme()
                 .isVioletThemeSelected();
     }
