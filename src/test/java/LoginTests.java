@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
@@ -17,8 +18,9 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
-    public static void loginValidEmailValidPasswordTest () throws InterruptedException {
+    public static void loginValidEmailValidPasswordTest () {
         LoginPage loginpage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
           loginpage.provideEmail("karkisuman0330@gmail.com");
           loginpage.providePassword("te$t$tudent");
           loginpage.submitBtn();
@@ -27,9 +29,8 @@ public class LoginTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();*/
 
-        Thread.sleep(2000);
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed();
+
 
     }
 
