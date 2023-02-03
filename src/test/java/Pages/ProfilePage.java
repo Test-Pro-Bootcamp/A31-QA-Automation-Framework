@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ProfilePage extends BasePage{
 
@@ -15,6 +18,7 @@ public class ProfilePage extends BasePage{
 
     public ProfilePage(WebDriver givenDriver) {
         super(givenDriver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
 
@@ -24,12 +28,11 @@ public class ProfilePage extends BasePage{
     }
 
     public boolean isVioletThemeSelected(){
-//        wait.until(ExpectedConditions.visibilityOf(isVioletThemeSelected));
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         return driver.findElement(isVioletThemeSelected).isDisplayed();
     }
 
