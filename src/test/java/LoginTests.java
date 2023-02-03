@@ -15,12 +15,7 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-
-
-//      @BeforeSuite
-//    static void setupClass() {
-//        WebDriverManager.chromedriver().setup();
-//    }
+    
     @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser_main(String BaseUrl) throws MalformedURLException {
