@@ -61,41 +61,35 @@ public class BaseTest {
     public WebDriver getDriver(){
         return threadLocal.get();
     }
+    
 
-    public WebDriver pickBrowser(String browser) throws MalformedURLException {
-        DesiredCapabilities dCap = new DesiredCapabilities();
-        String gridURI = "http://192.168.86.32:4444";
+        public WebDriver pickBrowser(String browser) throws MalformedURLException {
+            DesiredCapabilities caps = new DesiredCapabilities();
+            String gridURL = "http://192.168.86.32:4444";;
 
-        switch (browser) {
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-               return driver = new FirefoxDriver();
-
-               case "MicrosoftEdge":
-                WebDriverManager.edgedriver().setup();
-                return driver = new EdgeDriver();
-
+            switch (browser) {
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    return driver = new FirefoxDriver();
+                case "MicrosoftEdge":
+                    WebDriverManager.edgedriver().setup();
+                    return driver = new EdgeDriver();
                 case "grid-edge":
-                dCap.setCapability("browserName", "MicrosoftEdge");
-               return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
-
-               case "grid-firefox":
-                dCap.setCapability("browserName", "firefox");
-                return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
-
+                    caps.setCapability("browserName", "MicrosoftEdge");
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                case "grid-firefox":
+                    caps.setCapability("browserName", "firefox");
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 case "grid-chrome":
-                dCap.setCapability("browserName", "chrome");
-                return driver = new RemoteWebDriver(URI.create(gridURI).toURL(), dCap);
-
+                    caps.setCapability("browserName", "chrome");
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 case "cloud":
-                return lambdaTest();
-
+                    return lambdaTest();
                 default:
-                WebDriverManager.chromedriver().setup();
-                return driver = new ChromeDriver();
+                    WebDriverManager.chromedriver().setup();
+                    return driver = new ChromeDriver();
+            }
         }
-    }
-
     public WebDriver lambdaTest() throws MalformedURLException {
 
         String hubURL = "https://hub.lambdatest.com/wd/hub";
