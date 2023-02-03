@@ -5,17 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -30,7 +29,7 @@ public class BaseTest {
     public String url = null;
     public WebDriverWait wait = null;
 
-    public Actions actions = null;
+    public Actions action = null;
     public ThreadLocal<WebDriver> threadDriver = null;
 
     //@BeforeSuite
@@ -38,18 +37,21 @@ public class BaseTest {
         //WebDriverManager.chromedriver().setup();
     //}
 
-    @Before
+    @BeforeMethod
     @Parameters("BaseUrl")
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
         url = BaseUrl;
 
         threadDriver=new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
+
         threadDriver.set(driver);
 
 
+
       wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
-        actions = new Actions(getDriver());
+
+        action = new Actions(getDriver());
         getDriver().get(url);
     }
 
@@ -57,7 +59,7 @@ public class BaseTest {
         return threadDriver.get();
     }
 
-    @After
+    @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
         threadDriver.remove();
@@ -168,4 +170,6 @@ public class BaseTest {
         profileName.clear();
         profileName.sendKeys(randomName);
     }
+
+
 }
