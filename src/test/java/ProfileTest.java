@@ -10,8 +10,8 @@ public class ProfileTest extends BaseTest {
 
     @Test
     public void changeTheme() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
         loginPage.login()
                 .clickProfileIcon();
@@ -21,7 +21,7 @@ public class ProfileTest extends BaseTest {
 
     @Test
     public void updateProfileNameTest () throws InterruptedException {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
 
         loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
 
@@ -35,7 +35,7 @@ public class ProfileTest extends BaseTest {
         clickSaveButton();
 
         Thread.sleep(2000);
-        WebElement actualProfileName = getDriver().findElement(By.cssSelector("a.view-profile>span"));
+        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }
