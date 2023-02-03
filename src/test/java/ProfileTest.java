@@ -26,7 +26,7 @@ public class ProfileTest extends BaseTest {
         this.closeBrowser();
     }
     @Test
-    public void changeTheme() {
+    public void changeTheme() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         ProfilePage profilePage = new ProfilePage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -34,7 +34,7 @@ public class ProfileTest extends BaseTest {
         loginPage.provideEmail("shalinibaronia@gmail.com").providePassword("te$t$tudent").clickSubmit();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         homePage.getUserAvatar().click();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        Thread.sleep(2000);
         profilePage.chooseVioletTheme()
                 .isVioletThemeSelected();
     }
