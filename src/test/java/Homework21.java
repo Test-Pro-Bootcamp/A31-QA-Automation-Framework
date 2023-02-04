@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class Homework21 extends BaseTest{
 
     @Test
-    public static void createPlayList() {
+    public  void createPlayList() {
         login("terrence.regis@gmail.com", "te$t$tudent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[title='Create a new playlist']"))).click();
 
@@ -28,10 +28,10 @@ public class Homework21 extends BaseTest{
 
 
 
-    @Test
-    public void refactorRenamePlayList()  {
-        SeleniumTechniques.renamePlaylist();
-    }
+//    @Test
+//    public void refactorRenamePlayList()  {
+//        SeleniumTechniques.renamePlaylist();
+//    }
 
 
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
-    static Actions action = new Actions(driver);
+    Actions action = new Actions(driver);
 
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
@@ -26,7 +26,7 @@ public class SeleniumTechniques extends BaseTest {
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
     @Test
-    public static void renamePlaylist()  {
+    public void renamePlaylist()  {
         login("terrence.regis@gmail.com", "te$t$tudent");
         doubleClickChoosePlaylist();
         enterPlaylistName();
@@ -73,7 +73,7 @@ public class SeleniumTechniques extends BaseTest {
         return soundBarVisualizer.isDisplayed();
     }
 
-    public static void doubleClickChoosePlaylist() {
+    public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
         action.doubleClick(playlistElement).perform();
@@ -82,7 +82,7 @@ public class SeleniumTechniques extends BaseTest {
     public void choosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
-    public static void enterPlaylistName() {
+    public void enterPlaylistName() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='name']")));
         WebElement playlistInputField = driver.findElement(By.cssSelector("input[name='name']"));
 //        clear() does not work, element has an attribute of "required"
@@ -92,7 +92,7 @@ public class SeleniumTechniques extends BaseTest {
         playlistInputField.sendKeys("Summer Songs");
         playlistInputField.sendKeys(Keys.ENTER);
     }
-    public static boolean doesPlaylistExist() {
+    public boolean doesPlaylistExist() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains (text(), 'Summer Songs')]")));
         WebElement playlistElement = driver.findElement(By.xpath("//a[contains (text(), 'Summer Songs')]"));
         return playlistElement.isDisplayed();
