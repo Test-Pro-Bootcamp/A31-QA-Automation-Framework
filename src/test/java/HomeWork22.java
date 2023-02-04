@@ -14,8 +14,6 @@ public class HomeWork22 extends BaseTest {
         homePage.newName();
         Assert.assertTrue(homePage.checkPlayList());
     }
-
-
 }
 
 
