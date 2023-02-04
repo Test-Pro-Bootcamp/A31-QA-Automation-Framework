@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke Tests">
+<suite name="Smoke Tests" parallel="methods" thread-count="1">
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
+            <class name="LoginTests">
+                <methods>
+                    <include name="loginValidEmailPassword"/>
+                </methods>
+            </class>
+            <class name="ProfileTests">
+                <methods>
+                    <include name="changeCurrentTheme"/>
+                </methods>
+            </class>
+            <class name="AllSongsTests">
+                <methods>
+                    <include name="playSong"/>
+                </methods>
+            </class>
+            <class name="PlaylistTests">
+                <methods>
+                    <include name="addSongToPlaylist"/>
+                    <include name="deletePlaylist"/>
+                    <include name="renamePlaylist"/>
+                </methods>
+            </class>
+
         </classes>
     </test>
 </suite>

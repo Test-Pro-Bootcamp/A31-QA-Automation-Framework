@@ -34,11 +34,10 @@ public class LoginTests extends BaseTest {
     public void loginWithEmptyPassword() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com").providePassword("").clickSubmit();
 
-        //Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+        Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
     }
 
     @Test(enabled = true, priority = 3, groups = {"Regression"}, description = "Login with invalid Password")

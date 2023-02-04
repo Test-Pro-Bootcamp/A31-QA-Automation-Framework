@@ -38,7 +38,6 @@ public class AllSongsPage extends BasePage {
     //Click All Songs tab
     public void allSongs() {
         allSongs.click();
-        // click(allSongs); //using BasePage click(By locator) method
     }
 
     public void selectSong(String sTitle) {
@@ -49,7 +48,6 @@ public class AllSongsPage extends BasePage {
     //Click AddTo button
     public void addTo() {
         addToButton.click();
-        //click(addToButton); //using BasePage click(By locator) method
     }
 
     //Select the existing playlist
@@ -57,11 +55,6 @@ public class AllSongsPage extends BasePage {
         WebElement clickPlaylistName = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@class='existing-playlists']//li[contains(text(), '" + pName + "')]")));
         clickPlaylistName.click();
     }
-
-//    public void validateTheSongIsAdded(String songTitle, String playlistName) {
-//        navigateToPlaylist(playlistName);
-//        Assert.assertTrue(confirmSongIsAdded(songTitle));
-//    }
 
     //Navigate to the playlist
     public void navigateToPlaylist(String pName) {
@@ -77,7 +70,6 @@ public class AllSongsPage extends BasePage {
 
     //Select a song and play
     public void playSelectedSong(String songTitle) {
-        //click(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(), '" + songTitle + "')]"));
         WebElement selectSong = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songsWrapper']//table[@class='items']//td[contains(text(), '" + songTitle + "')]")));
         actions.doubleClick(selectSong).perform();
     }

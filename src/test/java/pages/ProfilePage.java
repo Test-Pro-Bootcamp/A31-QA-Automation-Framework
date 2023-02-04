@@ -66,14 +66,4 @@ public class ProfilePage extends BasePage {
         return verifySelectedVioletTheme.isDisplayed();
     }
 
-
-//    @DataProvider(name = "incorrectLoginProviders")
-//    public static Object[][] getDataFromDataproviders() {
-//
-//        return new Object[][]{
-//                {"invalid@email.com", "invalidPass"},
-//                {"demo@mail.com", "invalid"},
-//                {"", ""}
-//        };
-//    }
 }
