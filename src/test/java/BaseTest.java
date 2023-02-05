@@ -24,23 +24,27 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public String url = null;
-    public WebDriverWait wait = null;
+    static WebDriver driver = null;
+    static String url = null;
+    static WebDriverWait wait = null;
 
-    public FluentWait fluentWait = null;
-    public Actions actions = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
+    static Actions actions = null;
+    static ThreadLocal<WebDriver> threadLocal = null;
 
 
     @BeforeSuite
-    public void setupClass() {
+    public static void setupClass() {
 //        WebDriverManager.firefoxdriver().setup();
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+        }
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public void launchBrowser(String BaseURL) throws MalformedURLException {
+    public static void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
         threadLocal = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
@@ -54,7 +58,7 @@ public class BaseTest {
 
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return threadLocal.get();
     }
 
@@ -64,7 +68,7 @@ public class BaseTest {
         threadLocal.remove();
     }
 
-    public WebDriver pickBrowser(String browser) throws MalformedURLException {
+    public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.160:4444";
 
@@ -92,24 +96,37 @@ public class BaseTest {
         }
     }
 
-    public WebDriver lambdaTest() throws MalformedURLException {
+    public static WebDriver lambdaTest() throws MalformedURLException {
 
         String hubURL = "https://hub.lambdatest.com/wd/hub";
-
+/*
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "Firefox");
         capabilities.setCapability("browserVersion", "107.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
+        ltOptions.put("user", "michelle.collins");
+        ltOptions.put("accessKey", "q2dpdbhVMUG9mzkaPgnVU44azm66PK2awtFEIdKUYBzZ3tELjr");
         ltOptions.put("build", "Selenium 4");
-        ltOptions.put("name", this.getClass().getName());
+        // ltOptions.put("name", this.getClass().getName());
         ltOptions.put("platformName", "Windows 10");
         ltOptions.put("seCdp", true);
         ltOptions.put("selenium_version", "4.0.0");
         capabilities.setCapability("LT:Options", ltOptions);
+*/
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setPlatformName("Windows 10");
+        browserOptions.setBrowserVersion("106.0");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("username", "michelle.collins");
+        ltOptions.put("accessKey", "q2dpdbhVMUG9mzkaPgnVU44azm66PK2awtFEIdKUYBzZ3tELjr");
+        ltOptions.put("resolution", "1280x1024");
+        //  ltOptions.put("project", "Homework19.xml");
+        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("driver_version", "110.0");
+        ltOptions.put("w3c", true);
+        browserOptions.setCapability("LT:Options", ltOptions);
 
-        return new RemoteWebDriver(new URL(hubURL), capabilities);
+        return new RemoteWebDriver(new URL(hubURL), browserOptions);
     }
 
 
