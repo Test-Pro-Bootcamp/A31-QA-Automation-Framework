@@ -26,7 +26,7 @@ task testHomework20(type: Test) {
 
 test {
     useTestNG() {
-        suites "src/test/resources/TestNG.xml"
+        suites "src/test/resources/${suite}.xml"
         systemProperty "browser", System.getProperty("browser")
     }
 
@@ -34,14 +34,14 @@ test {
 
 task testSmoke(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Smoke.xml"
+        suites "src/test/resources/smoke.xml"
         systemProperty "browser", System.getProperty("browser")
     }
 }
 
 task testRegression(type: Test) {
     useTestNG() {
-        suites "src/test/resources/Regression.xml"
+        suites "src/test/resources/regression.xml"
         systemProperty "browser", System.getProperty("browser")
     }
 }
