@@ -34,6 +34,17 @@ public class BaseTest {
         driver.quit();
     }
 
+    public static void login(String email, String password){
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
+
+    public static void navigateToPage() {
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+    }
+
     public static void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.clear();
@@ -48,11 +59,6 @@ public class BaseTest {
     public static void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitButton.click();
-    }
-
-    public static void navigateToPage() {
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
     }
 
     public static String generateRandomName() {
