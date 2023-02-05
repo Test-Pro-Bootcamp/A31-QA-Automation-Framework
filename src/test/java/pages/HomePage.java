@@ -21,6 +21,7 @@ public class HomePage extends BasePage {
 
     @FindBy (xpath = "//li[text()='New Playlist']")
     private WebElement addNewPlaylistButton;
+    ////*[@id="playlists"]/nav/ul/li[1] OR //li[text()='New Playlist']
 
     @FindBy (css = "input[type='text'][name='name']")
     private WebElement newPlaylistTextField;

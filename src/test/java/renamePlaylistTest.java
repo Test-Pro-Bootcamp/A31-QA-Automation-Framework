@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-public class Homework21 extends BaseTest {
+public class renamePlaylistTest extends BaseTest {
 
     public static String playlistName = "Test Playlist";
 

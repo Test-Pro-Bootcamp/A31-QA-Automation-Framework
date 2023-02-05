@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -17,6 +18,9 @@ public class PlaylistPage extends BasePage {
 
     @FindBy (css = "button.del.btn-delete-playlist")
     private WebElement deletePlaylistButton;
+
+    @FindBy (css = "//div[@class='success show' and contains(text(),'Deleted playlist')]")
+    private WebElement deletedPlaylistAlertMessage;
 
     public PlaylistPage (WebDriver givenDriver) {
         super(givenDriver);
@@ -36,6 +40,11 @@ public class PlaylistPage extends BasePage {
 
     public WebElement getDeletePlaylistButton () {
         return wait.until(ExpectedConditions.visibilityOf(deletePlaylistButton));
+    }
+
+    public void confirmXYZPlaylistDeletion () {
+//        wait.until(ExpectedConditions.visibilityOf(deletedPlaylistAlertMessage));
+        Assert.assertTrue(deletedPlaylistAlertMessage.isDisplayed());
     }
 
 }

@@ -4,9 +4,10 @@ import pages.AllSongsPage;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class Homework18 extends BaseTest {
+public class playSongTest extends BaseTest {
     @Test
     public void playSongTest () {
+
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         AllSongsPage allSongsPage = new AllSongsPage(driver);

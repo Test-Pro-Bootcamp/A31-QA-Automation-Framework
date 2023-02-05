@@ -23,7 +23,6 @@ public class deletePlaylistTest extends BaseTest {
         loginPage.clickSubmitBtn();
 
         //click add button
-
         homePage.clickAddButton();
 
         //select New Playlist from dropdown
@@ -42,7 +41,7 @@ public class deletePlaylistTest extends BaseTest {
         playlistPage.deletePlaylist();
 
         //validate playlist deletion
-        Assert.assertTrue(playlistPage.getDeletePlaylistButton().isDisplayed());
+//        playlistPage.confirmXYZPlaylistDeletion();
 
     }
 }

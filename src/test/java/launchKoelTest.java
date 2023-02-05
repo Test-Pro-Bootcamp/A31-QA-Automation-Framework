@@ -32,40 +32,6 @@ public class launchKoelTest extends BaseTest {
 //    }
 
 //
-//    @Test (enabled = true, priority = 3)
-//    public void addSongToPlaylist () {
-//
-//        LoginPage loginPage = new LoginPage(getDriver());
-//        HomePage homePage = new HomePage(getDriver());
-//        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
-//        PlaylistPage playlistPage = new PlaylistPage(getDriver());
-//
-//        //Enter tester username
-//        loginPage.provideEmail("amandaag39@gmail.com");
-//
-//        //Enter password
-//        loginPage.providePassword("te$t$tudent");
-//
-//        //Click login button
-//        loginPage.clickSubmitBtn();
-//
-//        //navigate to 'All Songs'
-//        homePage.navigateToAllSongsPage();
-//
-//        //right-click on song
-//        allSongsPage.rightClickSong();
-//
-//        //click on add to
-//        homePage.clickAddTooButton();
-//
-//        //click on XYZ Playlist in dropdown
-//        homePage.clickXYZInDropdown();
-//
-//        //navigate to XYZ Playlist
-//        homePage.selectXYZPlaylist();
-//
-//        //check for song in playlist
-//        Assert.assertTrue(playlistPage.confirmXYZPlaylist().isDisplayed());
 //
 //    }
 

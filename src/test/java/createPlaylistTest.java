@@ -33,4 +33,7 @@ public class createPlaylistTest extends BaseTest {
         Assert.assertTrue(homePage.confirmXYZPlaylist().isDisplayed());
 
     }
+
+
+
 }
