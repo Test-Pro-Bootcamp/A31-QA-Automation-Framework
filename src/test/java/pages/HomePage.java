@@ -27,6 +27,10 @@ public class HomePage extends BasePage {
     private WebElement successMsg;
     @FindBy(xpath = "//li[contains(text(),'Edit')]")
     private WebElement editPlaylistButton;
+    @FindBy(css = "[type='search']")
+    private WebElement searchField;
+    @FindBy(css = "button[data-test='view-all-songs-btn']")
+    private WebElement viewAllSearchButton;
 
     public WebElement getUserAvatar() {
         return userAvatarIcon;
@@ -103,5 +107,19 @@ public class HomePage extends BasePage {
 
     public boolean getSuccessMsg() {
         return successMsg.isDisplayed();
+    }
+
+    public void searchSong(String songTitleKeyword) {
+        searchField.click();
+        searchField.sendKeys(songTitleKeyword);
+    }
+
+    public WebElement searchResultsDisplayed(String songTitleKeyword) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//section//span[@class='details' and contains(text(), '" + songTitleKeyword + "')]")));
+    }
+
+    public void viewAllSearchResults() {
+        viewAllSearchButton.click();
+
     }
 }

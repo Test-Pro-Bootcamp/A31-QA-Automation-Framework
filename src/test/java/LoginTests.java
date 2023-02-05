@@ -16,7 +16,6 @@ public class LoginTests extends BaseTest {
         HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com").providePassword("te$t$tudent").clickSubmit();
-//        loginPage.login("test123@test.com", "te$t$tudent");
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 
@@ -24,19 +23,17 @@ public class LoginTests extends BaseTest {
     public void loginNotExistingEmail() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("notExistingEmail@test.com").providePassword("te$t$tudent").clickSubmit();
         Assert.assertTrue(loginPage.loginError().isDisplayed());
     }
 
-    @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Login with Empty Password")
-    public void loginWithEmptyPassword() {
+    @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Login with Empty Email and Password")
+    public void loginWithEmptyEmailPassword() {
 
         LoginPage loginPage = new LoginPage(getDriver());
 
-        loginPage.provideEmail("test123@test.com").providePassword("").clickSubmit();
-
+        loginPage.provideEmail("").providePassword("").clickSubmit();
         Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
     }
 
@@ -44,9 +41,18 @@ public class LoginTests extends BaseTest {
     public void loginWithInvalidPassword() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("test123@test.com").providePassword("teststudent").clickSubmit();
         Assert.assertTrue(loginPage.loginError().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 4, groups = {"Regression"}, description = "Login with Empty Password")
+    public void loginWithEmptyPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("test123@test.com").providePassword("").clickSubmit();
+        Assert.assertEquals(getDriver().getCurrentUrl(), "https://bbb.testpro.io/");
+
     }
 }
