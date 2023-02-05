@@ -17,6 +17,7 @@ public class LoginPage {
     By emailField = By.cssSelector("[type='email']");
     By passwordField = By.cssSelector("[type='password']");
 
+
     public LoginPage(WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -30,8 +31,6 @@ public class LoginPage {
 
     }
 
-    //@FindBy(css = "[test]")
-
     public LoginPage providePassword(String password) {
         WebElement passwordElement = driver.findElement(passwordField);
         passwordElement.click();
@@ -39,19 +38,17 @@ public class LoginPage {
         return null;
     }
 
-
     public LoginPage clickSubmitBtn() {
         driver.findElement(submitButtonLocator).click();
         return this;
     }
 
     public void logIn() {
+        provideEmail("simplyd2d@gmail.com");
+        providePassword("te$t$tudent");
+        clickSubmitBtn();
     }
-}
 
-//public void logIn () {
-//provideEmail("simplyd2d@gmail.com");
-//providePassword("te$t$tudent");
-// clickSubmitBtn();
+}
 
 
