@@ -4,7 +4,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PlaylistPage;
 
-public class Homework19 extends BaseTest {
+public class deletePlaylistTest extends BaseTest {
 
     @Test
     public void deletePlaylist() {
@@ -23,6 +23,7 @@ public class Homework19 extends BaseTest {
         loginPage.clickSubmitBtn();
 
         //click add button
+
         homePage.clickAddButton();
 
         //select New Playlist from dropdown

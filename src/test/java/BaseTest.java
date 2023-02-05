@@ -3,7 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -20,7 +19,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
-import java.util.HashMap;
 
 
 public class BaseTest {
@@ -126,19 +124,12 @@ public class BaseTest {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        // Configure your capabilities here
-        ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("110.0");
-        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("username", "amandaag39");
-        ltOptions.put("accessKey", "49PivqN0RpHM4zjvL2JPJDjCAVUoeFeg9MAWYUguESCCVD6OSC");
-        ltOptions.put("video", true);
-        ltOptions.put("project", "Untitled");
-        ltOptions.put("selenium_version", "4.0.0");
-        ltOptions.put("w3c", true);
-        browserOptions.setCapability("LT:Options", ltOptions);
-
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("browserName", "Edge");
+        caps.setCapability("version", "latest");
+        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("name", this.getClass().getName());
+        caps.setCapability("plugin", "git-testng");
         return new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
