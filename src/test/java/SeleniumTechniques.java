@@ -11,7 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
-
+// 
     Actions action = new Actions(driver);
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
