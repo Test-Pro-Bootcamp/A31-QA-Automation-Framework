@@ -31,6 +31,8 @@ public class HomePage extends BasePage {
     private WebElement searchField;
     @FindBy(css = "button[data-test='view-all-songs-btn']")
     private WebElement viewAllSearchButton;
+    @FindBy(css = "[data-testid='play-btn']")
+    private WebElement playButton;
 
     public WebElement getUserAvatar() {
         return userAvatarIcon;
@@ -120,6 +122,10 @@ public class HomePage extends BasePage {
 
     public void viewAllSearchResults() {
         viewAllSearchButton.click();
+    }
 
+    public WebElement hoverPlay() {
+        actions.moveToElement(playButton).perform();
+        return playButton;
     }
 }

@@ -47,7 +47,7 @@ public class HomeTests extends BaseTest {
         Assert.assertTrue((homePage.getSuccessMsg()));
     }
 
-    @Test(enabled = true, groups = {"Regression"}, description = "Search a song")
+    @Test(enabled = true, priority = 0, groups = {"Regression"}, description = "Search a song")
     public void searchSong() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -55,5 +55,17 @@ public class HomeTests extends BaseTest {
         loginPage.provideEmail("test123@test.com").providePassword("te$t$tudent").clickSubmit();
         homePage.searchSong("Ketsa");
         homePage.viewAllSearchResults();
+    }
+
+    @Test(enabled = true, priority = 0, groups = {"Regression"}, description = "Hover over play button")
+    public void hoverOverPlayButton() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+
+        loginPage.provideEmail("test123@test.com").providePassword("te$t$tudent").clickSubmit();
+        allSongsPage.allSongs();
+        homePage.hoverPlay();
+        Assert.assertTrue(homePage.hoverPlay().isDisplayed());
     }
 }

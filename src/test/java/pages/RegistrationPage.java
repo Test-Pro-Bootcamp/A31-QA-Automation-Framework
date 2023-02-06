@@ -31,7 +31,7 @@ public class RegistrationPage extends BasePage {
 
     public void registrationEmail() {
         registrationEmail.click();
-        registrationEmail.sendKeys("test3214@test.com");
+        registrationEmail.sendKeys("test3215@test.com");
     }
 
     public void registerButton() {
