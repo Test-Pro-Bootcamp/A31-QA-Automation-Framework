@@ -6,11 +6,11 @@ import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
-    @Test
+    @Test (groups = {"smoke", "regression"})
     public void LoginValidEmailValidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("hand923@gmail.com")
                  .providePassword("te$t$tudent")
@@ -19,4 +19,42 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.userAvatarIcon().isDisplayed());
         }
 
+    @Test (groups = {"regression"})
+    public void LoginValidEmailInvalidPasswordTest() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("hand923@gmail.com")
+                .providePassword("invalidPW")
+                .clickSubmitButton();
+
+        Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
+    }
+
+    @Test (groups = {"regression"})
+    public void LoginInvalidEmailValidPasswordTest() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("invalidemail@gmail.com")
+                .providePassword("te$t$tudent")
+                .clickSubmitButton();
+
+        Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
+    }
+
+    @Test (groups = {"regression"})
+    public void LoginEmptyEmailEmptyPasswordTest() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("")
+                .providePassword("")
+                .clickSubmitButton();
+
+        Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
+    }
     }
