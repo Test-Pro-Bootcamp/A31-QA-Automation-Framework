@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,12 +17,12 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
     public static void loginValidEmailValidPasswordTest () throws InterruptedException {
 
-        provideEmail("demo@class.com");
+        provideEmail("burtoiuionut@ymail.com");
         providePassword("te$t$tudent");
         clickSubmit();
 
         Thread.sleep(2000);
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar")));
         Assert.assertTrue(avatarIcon.isDisplayed());
 
     }

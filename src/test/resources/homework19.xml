@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke Tests">
+<suite name="homework19">
 
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests">
+            <class name="homework19">
                 <methods>
                     <include name="DeletePlaylistTest" />
                 </methods>
