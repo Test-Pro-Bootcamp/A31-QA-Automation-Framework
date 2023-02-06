@@ -50,5 +50,5 @@ public class Homework18MG extends BaseTest{
         //public boolean playinSongIsDisplayed() {
             //WebElement songIsPlaing = driver.findElement(By.cssSelector("[data-testid = 'sound-bar-play']"));
             //Assert.assertTrue(songIsPlaing.isDisplayed());
-        //}
+        ////}
     }
