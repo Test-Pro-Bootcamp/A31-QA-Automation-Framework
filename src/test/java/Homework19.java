@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class homework19 extends BaseTest{
+public class Homework19 extends BaseTest{
 
     @Test
-    public void DeletePlaylistTest() throws InterruptedException {
+    public void deletePlaylistTest() throws InterruptedException {
         String playlistName = "test playlist";
 
         login("burtoiuionut@ymail.com", "te$t$tudent");
