@@ -11,6 +11,8 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
+    String playlistName = "Test Pro Playlist";
+
 
     //      context click (sometimes koel page does not load completely, re-run the test)
     @Test
@@ -59,7 +61,7 @@ public class SeleniumTechniques extends BaseTest {
     public void contextClickFirstSong() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
         WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
-        action.contextClick(firstSong).perform();
+        actions.contextClick(firstSong).perform();
     }
 
     public void choosePlay() {
@@ -74,7 +76,7 @@ public class SeleniumTechniques extends BaseTest {
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
-        action.doubleClick(playlistElement).perform();
+        actions.doubleClick(playlistElement).perform();
     }
 
     public void choosePlaylist() {
@@ -85,11 +87,11 @@ public class SeleniumTechniques extends BaseTest {
 //        clear() does not work, element has an attribute of "required"
 //            workaround is ctrl A (to select all) then backspace to clear then replace with new playlist name
         playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
-        playlistInputField.sendKeys("Summer Songs");
+        playlistInputField.sendKeys(playlistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
     public boolean doesPlaylistExist() {
-        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='Edited Playlist Name']"));
+        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='"+playlistName+"']"));
         return playlistElement.isDisplayed();
     }
 
@@ -112,7 +114,7 @@ public class SeleniumTechniques extends BaseTest {
     public WebElement hoverToPlayBtn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
         WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        action.moveToElement(playButton).perform();
+        actions.moveToElement(playButton).perform();
         return  playButton;
 
 }

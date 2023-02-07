@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -20,6 +21,8 @@ public class BaseTest {
     public static WebDriverWait wait = null;
     public static FluentWait fluentWait = null;
 
+    public static Actions actions = null;
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -29,10 +32,12 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        actions = new Actions(LoginTests.driver);
         url = BaseURL;
         driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+
     }
 
     @AfterMethod
@@ -48,6 +53,12 @@ public class BaseTest {
     public static void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
+        clickSubmit();
+    }
+
+    public static void login() {
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
         clickSubmit();
     }
 
