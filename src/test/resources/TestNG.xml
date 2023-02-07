@@ -8,7 +8,9 @@
         <classes>
             <class name="LoginTests" />
             <class name="BaseTest" />
-            <class name="HWork21" />
+            <class name="TGHW17" />
+            <class name="TGHW21" />
+            <class name="Homework18" />
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
 
