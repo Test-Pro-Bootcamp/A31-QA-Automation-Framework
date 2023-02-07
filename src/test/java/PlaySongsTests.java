@@ -10,9 +10,9 @@ public class PlaySongsTests extends BaseTest {
     @Test(groups = {"smoke", "regression"})
     public void playSongFromAllSongs() {
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
-        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")

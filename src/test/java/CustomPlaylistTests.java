@@ -12,9 +12,9 @@ public class CustomPlaylistTests extends BaseTest{
 
         String playlistName = "Sample Playlist";
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
-        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")
@@ -33,8 +33,8 @@ public class CustomPlaylistTests extends BaseTest{
 
         String newPlaylistName = "Edited Playlist";
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")
@@ -50,9 +50,9 @@ public class CustomPlaylistTests extends BaseTest{
 
         String playlistName = "Empty Playlist";
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
-        CustomPlaylistPage customPlaylistPage = new CustomPlaylistPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        CustomPlaylistPage customPlaylistPage = new CustomPlaylistPage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("te$t$tudent")

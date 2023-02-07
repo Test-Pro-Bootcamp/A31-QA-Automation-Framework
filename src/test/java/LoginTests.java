@@ -9,8 +9,8 @@ public class LoginTests extends BaseTest {
     @Test (groups = {"smoke", "regression"})
     public void LoginValidEmailValidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                  .providePassword("te$t$tudent")
@@ -22,7 +22,7 @@ public class LoginTests extends BaseTest {
     @Test (groups = {"regression"})
     public void LoginValidEmailInvalidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("invalidPW")
@@ -34,7 +34,7 @@ public class LoginTests extends BaseTest {
     @Test (groups = {"regression"})
     public void LoginInvalidEmailValidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
 
         loginPage.provideEmail("invalidemail@gmail.com")
                 .providePassword("te$t$tudent")
@@ -46,7 +46,7 @@ public class LoginTests extends BaseTest {
     @Test (groups = {"regression"})
     public void LoginEmptyEmailEmptyPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
 
         loginPage.provideEmail("")
                 .providePassword("")
