@@ -14,7 +14,7 @@ public class HWork21 extends BaseTest {
         conTextClick();
         newName();
         Assert.assertTrue(checkPlayList());
-    }
+        }
     public void choosePlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
     }
