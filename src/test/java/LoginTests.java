@@ -21,9 +21,7 @@ public class LoginTests extends BaseTest {
     public static void loginValidEmailValidPasswordTest () {
         LoginPage loginpage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-          loginpage.provideEmail("karkisuman0330@gmail.com");
-          loginpage.providePassword("te$t$tudent");
-          loginpage.submitBtn();
+          loginpage.provideEmail("karkisuman0330@gmail.com").providePassword("te$t$tudent").submitBtn();
 
        /* provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -37,9 +35,7 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void loginInvalidEmailValidPasswordTest () {
        LoginPage loginpage = new LoginPage(driver);
-        loginpage.provideEmail("invalid@class.com");
-       loginpage.providePassword("te$t$tudent");
-       loginpage.submitBtn();
+        loginpage.provideEmail("invalid@class.com").providePassword("te$t$tudent").submitBtn();
 
         Assert.assertEquals(driver.getCurrentUrl(), url);
 

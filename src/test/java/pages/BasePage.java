@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +26,8 @@ public class BasePage {
     public void doubleClickAxn(WebElement locator){
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         action.doubleClick(locator).build().perform();
-}
+        PageFactory.initElements(driver,this);
+    }
      public WebElement findElement(By locator){
    return  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 }
