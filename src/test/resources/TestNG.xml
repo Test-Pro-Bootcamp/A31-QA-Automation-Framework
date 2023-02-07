@@ -6,6 +6,8 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
+            <class name="LoginTests" />
+            <class name="BaseTest" />
             <class name="HWork21" />
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->

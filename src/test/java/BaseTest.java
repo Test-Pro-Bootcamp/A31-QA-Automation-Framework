@@ -46,8 +46,8 @@ public class BaseTest {
 //    }
 
     public static void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
+        provideEmail("tatsianahuryeva@yahoo.com");
+        providePassword("te$t$tudent");
         clickSubmit();
     }
 
