@@ -6,7 +6,7 @@ import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
-    @Test (groups = {"smoke", "regression"})
+    @Test (priority = 0) //smoke test
     public void LoginValidEmailValidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -19,7 +19,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.userAvatarIcon().isDisplayed());
         }
 
-    @Test (groups = {"regression"})
+    @Test (priority = 1)
     public void LoginValidEmailInvalidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -31,7 +31,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
     }
 
-    @Test (groups = {"regression"})
+    @Test (priority = 2)
     public void LoginInvalidEmailValidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -43,7 +43,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
     }
 
-    @Test (groups = {"regression"})
+    @Test (priority = 3)
     public void LoginEmptyEmailEmptyPasswordTest() {
 
         LoginPage loginPage = new LoginPage(driver);

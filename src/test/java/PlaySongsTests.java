@@ -7,7 +7,7 @@ import pages.LoginPage;
 
 public class PlaySongsTests extends BaseTest {
 
-    @Test(groups = {"smoke", "regression"})
+    @Test(priority = 0)
     public void playSongFromAllSongs() {
 
         LoginPage loginPage = new LoginPage(driver);

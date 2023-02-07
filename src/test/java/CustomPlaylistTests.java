@@ -7,7 +7,7 @@ import pages.LoginPage;
 
 public class CustomPlaylistTests extends BaseTest{
 
-    @Test (groups = {"smoke", "regression"})
+    @Test (priority = 0)
     public void addSongToCustomPlaylist() {
 
         String playlistName = "Sample Playlist";
@@ -28,7 +28,7 @@ public class CustomPlaylistTests extends BaseTest{
         Assert.assertTrue(allSongsPage.getSuccessMsg().isDisplayed());
     }
 
-    @Test (groups = {"smoke", "regression"})
+    @Test (priority = 1)
     public void renamePlaylistWithPlaylistName() {
 
         String newPlaylistName = "Edited Playlist";
@@ -45,7 +45,24 @@ public class CustomPlaylistTests extends BaseTest{
         Assert.assertTrue(homePage.getSuccessMsg().isDisplayed());
     }
 
-    @Test (groups = {"smoke", "regression"})
+    @Test (priority = 2) //regression
+    public void renamePlaylistEmptyPlaylistName() {
+
+        String newPlaylistName = "";
+
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmail("hand923@gmail.com")
+                .providePassword("te$t$tudent")
+                .clickSubmitButton();
+
+        homePage.doubleClickFirstPlaylist()
+                .renamePlaylist(newPlaylistName);
+        Assert.assertFalse(homePage.getSuccessMsg().isDisplayed());
+    }
+
+    @Test (priority = 3)
     public void deletePlaylist() {
 
         String playlistName = "Empty Playlist";

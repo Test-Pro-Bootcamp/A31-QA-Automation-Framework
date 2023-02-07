@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke">
-    <groups>
-        <run>
-            <include name="smoke" />
-        </run>
-    </groups>
+<suite name="Smoke" parallel="methods" thread-count="1">
 
     <parameter name="BaseURL" value="http://bbb.testpro.io" />
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
-            <class name="CustomPlaylistTests"/>
+            <class name="LoginTests">
+                <methods>
+                    <include name="LoginValidEmailValidPasswordTest"/>
+                </methods>
+            </class>
+            <class name="CustomPlaylistTests">
+                <methods>
+                    <include name="addSongToCustomPlaylist"/>
+                    <include name="renamePlaylistWithPlaylistName"/>
+                    <include name="deletePlaylist"/>
+                 </methods>
+            </class>
             <class name="PlaySongsTests"/>
         </classes>
     </test>
