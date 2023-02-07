@@ -23,7 +23,6 @@ public class LoginTests extends BaseTest {
     public void LoginValidEmailInvalidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("hand923@gmail.com")
                 .providePassword("invalidPW")
@@ -36,7 +35,6 @@ public class LoginTests extends BaseTest {
     public void LoginInvalidEmailValidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("invalidemail@gmail.com")
                 .providePassword("te$t$tudent")
@@ -49,7 +47,6 @@ public class LoginTests extends BaseTest {
     public void LoginEmptyEmailEmptyPasswordTest() {
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("")
                 .providePassword("")
