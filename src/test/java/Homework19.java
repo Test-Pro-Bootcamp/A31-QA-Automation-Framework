@@ -4,13 +4,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework18 extends BaseTest {
+public class Homework19 extends BaseTest {
 
     @Test
-    public void playaSongTest() {
+    public void deletePlaylistTest(){
         login("demo@class.com", "te$t$tudent");
-        playSong();
-        isSongPlaying();
+        rightClickPlaylist();
+        deletePlaylist();
+        verifyPlaylistIsDeleted();
 
         closeBrowser();
     }

@@ -5,23 +5,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-    @Test (enabled = true, priority = 1, description = "LoginEmptyEmailPasswordTest")
-    public static void LoginEmptyEmailPasswordTest () {
+//    @Test (enabled = true, priority = 1, description = "LoginEmptyEmailPasswordTest")
+    @Test(dataProvider = "IncorrectLoginProvider", dataProviderClass = BaseTest.class)
+    public static void loginEmptyEmailPasswordTest (String email, String password) {
 
-        navigateToPage();
-        driver.get(url);
+        login(email, password);
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test
     public static void loginValidEmailValidPasswordTest (){
-
-        navigateToPage();
 
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -33,8 +32,6 @@ public class LoginTests extends BaseTest {
 
     @Test
     public static void loginInvalidEmailValidPasswordTest() {
-
-        navigateToPage();
 
         provideEmail("invalid@class.com");
         providePassword("te$t$tudent");

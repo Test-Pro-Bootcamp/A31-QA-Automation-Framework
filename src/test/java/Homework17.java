@@ -9,7 +9,6 @@ public class Homework17 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        navigateToPage();
         login("demo@class.com", "te$t$tudent");
 
         WebElement addPlaylistButton = driver.findElement(By.cssSelector("[data-testid=\"sidebar-create-playlist-btn\"]"));

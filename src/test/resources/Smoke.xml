@@ -3,11 +3,13 @@
 
 <suite name="Smoke">
 
+    <parameter name="BaseURL" value="https://bbb.testpro.io/"/>
+
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="LoginTests">
                 <methods>
-                    <include name="loginValidEmailValidPasswordTest"/>
+                    <include name="loginEmptyEmailPasswordTest"/>
                 </methods>
             </class>
         </classes>
