@@ -26,21 +26,21 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public String url = null;
-    public WebDriverWait wait = null;
+    public static WebDriver driver = null;
+    public static String url = null;
+    public static WebDriverWait wait = null;
 
     public FluentWait fluentWait = null;
-    public Actions actions = null;
+    public static Actions actions = null;
     public ThreadLocal<WebDriver> threadLocal = null;
 
 
-//    @BeforeSuite
-//    public void setupClass() {
-////        WebDriverManager.firefoxdriver().setup();
-//    }
+    @BeforeSuite
+    public void setupClass() {
+//        WebDriverManager.firefoxdriver().setup();
+   }
 
-//    @BeforeMethod
+    @BeforeMethod
     @Before
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
@@ -52,14 +52,17 @@ public class BaseTest {
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
 //        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().manage().window().maximize();
-        getDriver().get(url);
+ //       getDriver().manage().window().maximize();
+        driver.get(url);
 
     }
 
     public WebDriver getDriver() {
         return threadLocal.get();
     }
+  //static WebDriver getDriver() {
+   //   return threadDriver.get();
+  //}
 
 //    @AfterMethod
     @After
@@ -70,7 +73,7 @@ public class BaseTest {
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        String gridURL = "http://192.168.1.160:4444";
+        String gridURL = "http://192.168.1.4:4444";
 
         switch (browser) {
             case "firefox":

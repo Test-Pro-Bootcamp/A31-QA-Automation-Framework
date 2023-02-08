@@ -7,7 +7,10 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="CucumberRunner" />
+            <class name="LoginTests" />
+            <class name="ProfileTests" />
+            <class name="BaseTest" />
+            <class name="Homework17" />
         </classes>
     </test>
 </suite>
