@@ -27,13 +27,13 @@ public class BaseTest {
        // WebDriverManager.firefoxdriver().setup();
     }
 
+
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
-       driver=pickBrowser(System.getProperty("browser"));
-        //LoginTests.driver = new ChromeDriver();
-       // System.setProperty("webdriver.gecko.driver","geckodriver");
-        //LoginTests.driver= new FirefoxDriver();
+    public static void launchBrowser(String BaseURL) throws MalformedURLException {
+      driver = pickBrowser(System.getProperty("browser"));
+        /*LoginTests.driver = new ChromeDriver();
+        LoginTests.driver= new FirefoxDriver();*/
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
@@ -44,11 +44,12 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
-    private static  WebDriver pickBrowser(String browser) throws MalformedURLException {
+    public static  WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURl = "http://10.0.0.155:4444";
         switch(browser){
             case "firefox":
+                System.setProperty("webdriver.gecko.driver","geckodriver");
                 WebDriverManager.firefoxdriver().setup();
                 driver=new FirefoxDriver();
                 break;
