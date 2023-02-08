@@ -11,13 +11,14 @@ import java.time.Duration;
 
 public class BasePage {
 
-    static WebDriver driver;
-    static WebDriverWait wait;
-    static Actions actions;
+      static WebDriver driver;
+      static WebDriverWait wait;
+      static Actions actions;
 
     public BasePage( WebDriver givenDriver) {
-        driver = givenDriver;
+        this.driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        actions = new Actions(driver);
     }
 
     public void click(By locator) {
@@ -29,6 +30,10 @@ public class BasePage {
 
     public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    public WebElement checkElement(WebElement element)
+    {
+        return  wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public void contextClick(By locator) {

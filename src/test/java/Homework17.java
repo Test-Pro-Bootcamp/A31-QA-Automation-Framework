@@ -13,7 +13,6 @@ public class Homework17 extends BaseTest {
         AllSongPage allSongPage = new AllSongPage(driver);
         LoginPage loginPage = new LoginPage(driver);
 
-
         loginPage.logIn();
         allSongPage.chooseAllSongsList();
         allSongPage.contextClickFirstSong();

@@ -79,20 +79,26 @@ public class BaseTest {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 return driver = new FirefoxDriver();
+      //      break;
             case "MicrosoftEdge":
                 WebDriverManager.edgedriver().setup();
                 return driver = new EdgeDriver();
+      //      break;
             case "grid-edge":
                 caps.setCapability("browserName", "MicrosoftEdge");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+      //      break;
             case "grid-firefox":
                 caps.setCapability("browserName", "firefox");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+      //      break;
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+      //      break;
             case "cloud":
                 return lambdaTest();
+      //      break;
             default:
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
