@@ -7,7 +7,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="CucumberRunner" />
+            <class name="BaseTest" />
         </classes>
     </test>
 </suite>

@@ -6,39 +6,45 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends BasePage{
+import java.time.Duration;
 
-    //locators
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-    By profileIcon  = By.xpath("//a[@class='view-profile']");
+public class LoginPage extends BasePage {
 
 
-    public LoginPage( WebDriver givenDriver) {
+    @FindBy(css = "[type='email']")
+    WebElement emailField;
+
+    @FindBy(css = "[type='password']")
+    WebElement passwordField;
+
+    @FindBy(css = "[type='submit']")
+    WebElement submitButton;
+    @FindBy(xpath = "//a[@class='view-profile']")
+    WebElement profileIcon;
+
+    public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
-    public LoginPage clickSubmitBtn() {
-        driver.findElement(submitButtonLocator).click();
-        return this;
-    }
-
     public LoginPage provideEmail(String email) {
-        WebElement emailElement = driver.findElement(emailField);
-        emailElement.sendKeys(email);
+        emailField.sendKeys(email);
         return this;
     }
 
     public LoginPage providePassword(String password) {
-        WebElement passwordElement = driver.findElement(passwordField);
-        passwordElement.sendKeys(password);
+        passwordField.sendKeys(password);
         return this;
     }
 
-    public LoginPage logIn(){
-        provideEmail("demo@class.com");
+    public LoginPage clickSubmitBtn() {
+        submitButton.click();
+        return this;
+    }
+
+    public LoginPage logIn() {
+        provideEmail("tatsianahuryeva@yahoo.com");
         providePassword("te$t$tudent");
         clickSubmitBtn();
         return this;
