@@ -20,6 +20,8 @@ public class SongsPage extends BasePage {
     private WebElement selectCreatedPlaylist;
     @FindBy(css = "div.alertify-logs.top.right")
     private WebElement songAddedMessageLocator;
+    @FindBy(xpath="//*[@id='songsWrapper']//div[1]/table/tr[1]/td[6]/button/i")
+    private WebElement favouriteSignLocator;
     public SongsPage(WebDriver givenDriver) {
         super(givenDriver);
     }
@@ -54,6 +56,9 @@ public class SongsPage extends BasePage {
     // Validating Song added message
     public boolean isSongAddedMessageDisplayed() {
         return songAddedMessageLocator.isDisplayed();
+    }
+    public void addSongToFavouriteList(){
+        wait.until(ExpectedConditions.elementToBeClickable(favouriteSignLocator)).click();
     }
 }
 
