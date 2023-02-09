@@ -9,7 +9,7 @@ public class Homework22 extends BaseTest {
     @Test
     public void remamePlaylistTest() {
 
-
+// selenium page factory
         //Log in with your credentials
         provideEmail("simplyd2d@gmail.com");
         providePassword("te$t$tudent");

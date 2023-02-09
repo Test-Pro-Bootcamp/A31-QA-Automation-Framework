@@ -1,9 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-public class Homework17A extends MyBaseTest{
+/* public class Homework17A extends MyBaseTest{
 //    public static WebDriver driver = new ChromeDriver();
 //    we can remove this webdriver initialization
 
@@ -30,14 +25,15 @@ public class Homework17A extends MyBaseTest{
         /* Assert.assertTrue(isNotificationPopUpPresent();   This I am unsure off? */
 
 
+//*
+
+
+   // }
 
 
 
-    }
+///*
+//}
 
 
-
-
-}
-
-
+//

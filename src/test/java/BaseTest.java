@@ -53,7 +53,8 @@ public class BaseTest  {
         action = new Actions(getDriver());
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
-        url = BaseURL;
+//        url = BaseURL;
+        getDriver().get(BaseURL);
 
     }
 
@@ -63,17 +64,16 @@ public class BaseTest  {
 
 
     @AfterMethod
-
-    //public void closeBrowser() {
-    //getDriver().quit();
-    //threadLocal.remove();
-    //}
+    public void closeBrowser() {
+    getDriver().quit();
+    threadLocal.remove();
+    }
 
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        //String gridURL = "http://192.168.43.53:4444/";
-        String gridURL = "http:localhost:4444";
+        String gridURL = "http://192.168.43.53:4444/";
+        //String gridURL = "http:localhost:4444";
 
         switch (browser) {
             case "firefox": //Mac not installed

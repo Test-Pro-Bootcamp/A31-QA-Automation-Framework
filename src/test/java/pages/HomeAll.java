@@ -16,15 +16,15 @@ public class HomeAll extends BasePage{
     public HomeAll (WebDriver givenDriver){
         super(givenDriver);
     }
-    String playlistName = "New";
-    String newPlaylistName = "New2";
+    String playlistName = "Crazy";
+    String newPlaylistName = "Crazy2";
     @FindBy(xpath = "//*[@id='playlists']/h1/i")
     WebElement addNewPlaylist;
     @FindBy(xpath = "//*[text()='New Playlist']")
     WebElement newPlaylist;
     @FindBy(xpath = "//input[@name='name']")
     WebElement nameField;
-    @FindBy(xpath = "//li/a[text()='New']")
+    @FindBy(xpath = "//li/a[text()='Crazy']")
     WebElement myPlaylist;
     @FindBy(xpath = "//li[text()='Edit']")
     WebElement editButton;

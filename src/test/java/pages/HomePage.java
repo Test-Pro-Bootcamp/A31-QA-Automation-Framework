@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
 
-    String playlistName = "my";
-    By myPlaylist = By.xpath("//li/a[text()='my']");
-    By deleteButton = By.xpath("//*[@title='Delete this playlist']");
+    String playlistName = "Crazy";
+    By myPlaylist = By.xpath("//a[normalize-space()='Crazy']");
+    By deleteButton = By.xpath("//i[@class='fa fa-times']");
 
 
     public HomePage(WebDriver givenDriver) {
