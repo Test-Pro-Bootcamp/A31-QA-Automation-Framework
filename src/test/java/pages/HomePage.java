@@ -3,14 +3,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class HomePage extends BasePage {
 
-    static WebDriver driver;
-    WebDriverWait wait;
-    By userAvatarIcon = By.cssSelector("img.avatar");
+    String playlistName = "my";
+    By myPlaylist = By.xpath("//li/a[text()='my']");
+    By deleteButton = By.xpath("//*[@title='Delete this playlist']");
 
 
     public HomePage(WebDriver givenDriver) {
@@ -18,11 +18,19 @@ public class HomePage extends BasePage {
 
     }
 
-    public HomePage getUserAvatar() {
-        driver.findElement(By.xpath("//span[@id='userBadge']"));
+    public HomePage enterPlayList() {
+        wait.until(ExpectedConditions.elementToBeClickable(myPlaylist)).click();
         return this;
-
     }
 
+    public HomePage clickDelete() {
+        wait.until(ExpectedConditions.elementToBeClickable(deleteButton)).click();
+        return this;
+    }
 }
+
+
+
+
+
 

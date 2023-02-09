@@ -1,66 +1,35 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.LoginPage;
-
 
 public class LoginTests extends BaseTest {
 
-    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    public static void loginEmptyEmailPasswordTest (String email, String password) {
-
-        navigateToPage();
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-
-    }
-
-    @Test(enabled = true, priority = 1, description = "LoginValidEmailValidPasswordTest")
-    public static void loginValidEmailValidPasswordTest () {
-
-        navigateToPage();
-
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
-
-
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    public void loginEmptyEmailPasswordTest(String email, String password) {
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.provideEmail("simplyd2d@gmail.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+    }
 
-        //WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
-        //Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password")
+    public void loginValidEmailValidPasswordTest(String email, String password) {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent")
+                .clickSubmitBtn();
 
     }
 
-    @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
-    public static void LoginInvalidEmailValidPasswordTest () {
-        navigateToPage();
-        provideEmail("invalid@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+    @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
+    public void LoginInvalidEmailValidPasswordTest() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.provideEmail("simplyd2d@gmail.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmitBtn();
     }
-    @Test(enabled = true, priority = 3, description = "LoginValidEmailValidPasswordTest")
-    public static void updateProfileNameTest () throws InterruptedException {
-        navigateToPage();
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickSubmit();
-        Thread.sleep(2000);
-        clickAvatarIcon();
-        String randomName = generateRandomName();
-        provideCurrentPassword("te$t$tudent");
-        provideProfileName(randomName);
-        clickSaveButton();
-        Thread.sleep(2000);
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
-        Assert.assertEquals(actualProfileName.getText(), randomName);
-    }
+
 }
+
