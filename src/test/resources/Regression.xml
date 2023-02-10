@@ -2,13 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression">
+
     <parameter name="BaseURL" value="https://bbb.testpro.io/" />
 
     <test name="Example Test" preserve-order="false">
         <classes>
+            <class name="HomeTests" />
+            <class name="RegistrationTests" />
+            <class name="PlayListTests" />
             <class name="LoginTests" />
-            <class name="ProfileTests"/>
-            <class name="BaseTest"/>
+            <class name="SongsTests" />
+            <class name="ProfileTests" />
         </classes>
     </test>
 </suite>

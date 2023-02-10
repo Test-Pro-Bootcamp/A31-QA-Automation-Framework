@@ -1,71 +1,57 @@
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public String url = null;
-    public WebDriverWait wait = null;
+    public static WebDriver driver ;
+    public static String url;
+    public static WebDriverWait wait;
+    public static Actions actions ;
+    public static ThreadLocal<WebDriver> threadDriver ;
 
-    public FluentWait fluentWait = null;
-    public Actions actions = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
-
-
-//    @BeforeSuite
-//    public void setupClass() {
-////        WebDriverManager.firefoxdriver().setup();
-//    }
-
-//    @BeforeMethod
-    @Before
+    @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
-        threadLocal = new ThreadLocal<>();
+        threadDriver = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
-        threadLocal.set(driver);
+        threadDriver.set(driver);
 
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//      getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().manage().window().maximize();
         getDriver().get(url);
 
     }
 
     public WebDriver getDriver() {
-        return threadLocal.get();
+        return threadDriver.get();
     }
 
-//    @AfterMethod
-    @After
+   @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
-        threadLocal.remove();
+        threadDriver.remove();
     }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
@@ -101,38 +87,31 @@ public class BaseTest {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Firefox");
-        capabilities.setCapability("browserVersion", "107.0");
+        capabilities.setCapability("browserName", "Chrome");
+        capabilities.setCapability("browserVersion", "108.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-        ltOptions.put("user", "khaledoni01");
-        ltOptions.put("accessKey", "Zx0HIXlEJ9ERHjcH9UDCvNXRoiSm2si9VM3L6Dii3SX6W1GPF4");
+        ltOptions.put("user", "pooja.b.bankar");
+        ltOptions.put("accessKey", "zMzjTdq92GWBU6mbvY28f57PdTjfR1uOViRlLWeJSpeuS5y5PO");
         ltOptions.put("build", "Selenium 4");
         ltOptions.put("name", this.getClass().getName());
-        ltOptions.put("platformName", "Windows 10");
+        ltOptions.put("platformName", "Windows 11");
         ltOptions.put("seCdp", true);
         ltOptions.put("selenium_version", "4.0.0");
         capabilities.setCapability("LT:Options", ltOptions);
 
         return new RemoteWebDriver(new URL(hubURL), capabilities);
+
     }
-
-
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
 
     public void login(String email, String password) {
         provideEmail(email);
         providePassword(password);
         clickSubmit();
     }
-
     public void clickSubmit() {
         WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
     }
-
     public void providePassword(String password) {
         WebElement passwordField = getDriver().findElement(By.cssSelector("[type='password']"));
         wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
@@ -140,47 +119,9 @@ public class BaseTest {
         passwordField.clear();
         passwordField.sendKeys(password);
     }
-
     public void provideEmail(String email) {
         WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
         emailField.clear();
         emailField.sendKeys(email);
-    }
-
-    public void clickSaveButton() {
-        WebElement saveButton = getDriver().findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public void provideProfileName(String randomName) {
-        WebElement profileName = getDriver().findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public void provideCurrentPassword(String password) {
-        WebElement currentPassword = getDriver().findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
-
-    public String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
-    }
-
-    public void clickAvatarIcon() {
-        WebElement avatarIcon = getDriver().findElement(By.cssSelector("img.avatar"));
-        avatarIcon.click();
-
-    }
-
-    @DataProvider(name = "incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
-
-        return new Object[][]{
-                {"invalid@email.com", "invalidPass"},
-                {"demo@mail.com", "invalid"},
-                {"", ""}
-        };
     }
 }
