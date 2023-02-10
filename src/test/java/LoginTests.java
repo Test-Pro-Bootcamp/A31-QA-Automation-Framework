@@ -1,39 +1,30 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
-
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public void loginEmptyEmailPasswordTest (String email, String password) {
+    @Test(enabled = true,priority = 0,groups = {"Regression"},description = "Login with Invalid email and Invalid password test")
+    public void loginInvalidEmailInvalidPasswordTest() {
         LoginPage loginPage = new LoginPage(getDriver());
 
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
+        loginPage.provideEmail("invalid@class.com");
+        loginPage.providePassword("teststudent");
         loginPage.clickSubmitBtn();
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
-    //Page Object Model example
-    @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password Test")
-    public void LoginValidEmailPasswordTest () {
+    @Test(enabled = true,priority = 1,groups = {"Smoke","Regression"},description = "Login with Valid Email and Password Test")
+    public void loginValidEmailValidPasswordTest() {
 
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-
-        loginPage.provideEmail("demo@class.com")
-                .providePassword("te$t$tudent")
-                .clickSubmitBtn();
+        loginPage.logIn();
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
     }
-
-    @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
+    @Test(enabled = true,priority = 2,groups = {"Regression"},description = "Login with Invalid Email and Valid Password Test")
     public void loginInvalidEmailValidPasswordTest () {
         LoginPage loginPage = new LoginPage(getDriver());
 
@@ -44,7 +35,16 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
 
     }
+    @Test(enabled = true,priority = 3,groups = {"Regression"}, description = "Login with valid Email and Invalid Password Test")
+    public void loginValidEmailInvalidPasswordTest () {
+        LoginPage loginPage = new LoginPage(getDriver());
 
+        loginPage.provideEmail("abc@test.com");
+        loginPage.providePassword("teststudent");
+        loginPage.clickSubmitBtn();
 
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+
+    }
 
 }
