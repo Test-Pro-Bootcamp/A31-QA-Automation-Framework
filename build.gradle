@@ -18,17 +18,18 @@ dependencies {
 test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
+        systemProperty "browser",System.getProperty("browser")
     }
 }
 
-task testSmoke(type: Test) {
-    useTestNG() {
-        suites "src/test/resources/Smoke.xml"
-    }
-}
+//task testSmoke(type: Test) {
+ //   useTestNG() {
+ //       suites "src/test/resources/Smoke.xml"
+  //  }
+//}
 
-task testRegression(type: Test) {
-    useTestNG() {
-        suites "src/test/resources/Regression.xml"
-    }
-}
+//task testRegression(type: Test) {
+ //   useTestNG() {
+  //      suites "src/test/resources/Regression.xml"
+ //   }
+//}
