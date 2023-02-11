@@ -13,27 +13,30 @@ dependencies {
     testImplementation 'org.testng:testng:7.6.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
+    implementation 'io.cucumber:cucumber-testng:7.9.0'
+    implementation 'io.cucumber:cucumber-core:7.9.0'
+    implementation 'io.cucumber:cucumber-java:7.9.0'
+    implementation 'io.cucumber:gherkin:25.0.2'
 }
-
 test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
-//        suites "src/test/resources/${suite}.xml"
-//        suites "src/test/resources/Homework19.xml"
-//        suites "src/test/resources/Homework21.xml"
-//        suites "src/test/resources/Homework22.xml"
-        systemProperty"browser", System.getProperty("browser")
+//        systemProperty "browser", System.getProperty("browser")
     }
 }
-
 task testSmoke(type: Test) {
     useTestNG() {
         suites "src/test/resources/Smoke.xml"
+        systemProperty "browser", System.getProperty("browser")
+        //  systemProperty "browser", System.getProperty("browser")
     }
 }
 
 task testRegression(type: Test) {
     useTestNG() {
         suites "src/test/resources/Regression.xml"
+        systemProperty "browser", System.getProperty("browser")
     }
 }
+
+

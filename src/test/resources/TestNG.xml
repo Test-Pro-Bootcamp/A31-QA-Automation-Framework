@@ -9,6 +9,7 @@
            <!-- <class name="LoginTests"/>-->
             <class name="Homework25"/>
             <class name="BaseTest"/>
+            <class name="CucumberRunner"/>
      <!--       <class name="Homework17A"/> -->
        <!--     <class name="Homework18"/> -->
    <!--         <class name="Homework19"/>

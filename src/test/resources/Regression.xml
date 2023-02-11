@@ -12,6 +12,7 @@
             <class name="Homework17A"/>
             <class name="Homework18"/>
             <class name="Homework19"/>
+            <class name="CucumberRunner"/>
         </classes>
     </test>
 </suite>
