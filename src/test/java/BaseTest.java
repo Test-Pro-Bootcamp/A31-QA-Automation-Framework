@@ -41,13 +41,11 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) throws MalformedURLException {
-        LoginTests.driver = new ChromeDriver();
-        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         threadLocal = new ThreadLocal<>();
         driver = pickBrowser(System.getProperty("browser"));
         threadLocal.set(driver);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
         getDriver().manage().window().maximize();
         getDriver().get(url);
@@ -56,12 +54,7 @@ public class BaseTest {
         return threadLocal.get();
     }
 
-    @AfterMethod
-    public static void closeBrowser(){
-   //    LoginTests.driver.quit();
-        getDriver().quit();
-        threadLocal.remove();
-    }
+
     public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.160:4444";
@@ -89,11 +82,12 @@ public class BaseTest {
                 return driver = new ChromeDriver();
         }
     }
-
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
+    @AfterMethod
+    public static void closeBrowser(){
+        //    LoginTests.driver.quit();
+        getDriver().quit();
+        threadLocal.remove();
+    }
 
     public static void login(String email, String password) {
         provideEmail("tatsianahuryeva@yahoo.com");
