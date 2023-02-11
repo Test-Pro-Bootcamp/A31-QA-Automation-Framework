@@ -91,6 +91,7 @@ public class BaseTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName","chrome");
         capabilities.setCapability("browserVersion","110");
+
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
 
         ltOptions.put("username", "tatsiana.guryev");
