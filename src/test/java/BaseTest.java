@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.UUID;
 
 
@@ -75,13 +76,33 @@ public class BaseTest {
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
-  //          case "cloud":
-  //              return lambdaTest();
+            case "cloud":
+                return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
         }
     }
+    public static WebDriver lambdaTest() throws MalformedURLException {
+        String username = "tatsiana.guryev";
+        String accessKey = "HRqintf83dtNQoQm3VkfTYC21LmK3M9zHSV3EdblnNTTaPeFT7";
+        String hub = "@hub.lambdatest.com/wd/hub";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName","chrome");
+        capabilities.setCapability("browserVersion","110");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+
+        ltOptions.put("username", "tatsiana.guryev");
+        ltOptions.put("accessKey", "HRqintf83dtNQoQm3VkfTYC21LmK3M9zHSV3EdblnNTTaPeFT7");
+        ltOptions.put("project", "Untitled");
+        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("w3c", true);
+        capabilities.setCapability("LT:Options",ltOptions);
+
+       return new RemoteWebDriver(new URL("https://"+ username +":" + accessKey + hub),capabilities );
+ }
+
     @AfterMethod
     public static void closeBrowser(){
         //    LoginTests.driver.quit();
