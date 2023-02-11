@@ -107,7 +107,7 @@ public class BaseTest {
 
     public void playSong(){
         Actions actions = new Actions(driver);
-        WebElement doubleClickSong = driver.findElement(By.xpath("//span[contains(text(), 'Mid-Air Machine')]"));
+        WebElement doubleClickSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Dark Days')]")));
         actions.doubleClick(doubleClickSong).perform();
     }
 
@@ -117,7 +117,7 @@ public class BaseTest {
     }
 
     public static void rightClickPlaylist(){
-        WebElement rightClickList = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        WebElement rightClickList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         Actions action = new Actions(driver);
         action.contextClick(rightClickList).perform();
     }
@@ -128,7 +128,7 @@ public class BaseTest {
     }
 
     public static void verifyPlaylistIsDeleted(){
-        WebElement successDeleteMsg = driver.findElement(By.cssSelector(".alertify-logs>.success"));
+        WebElement successDeleteMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alertify-logs>.success")));
         Assert.assertTrue(successDeleteMsg.isDisplayed());
     }
 }

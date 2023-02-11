@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
     @Test
-    public static void updateProfileNameTest () {
+    public static void updateProfileNameTest () throws Exception {
 
 
         provideEmail("demo@class.com");
@@ -21,8 +21,8 @@ public class ProfileTests extends BaseTest {
         provideProfileName(randomName);
         clickSaveButton();
 
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
-        wait.until(ExpectedConditions.visibilityOf(actualProfileName));
+        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
+        Thread.sleep(2000);
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }

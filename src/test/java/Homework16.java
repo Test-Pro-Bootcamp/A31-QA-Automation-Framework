@@ -12,7 +12,7 @@ import java.time.Duration;
 public class Homework16 extends BaseTest {
 
     @Test
-    static void Navigation() throws Exception {
+    static void Navigation() {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
