@@ -1,54 +1,48 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
+public class LoginPage extends BasePage {
 
-
-public class LoginPage {
-    WebDriver driver;
-    WebDriverWait wait;
-
-
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-
+    //WebElements
+    @FindBy(css = "[type='email']")
+    WebElement emailField;
+    @FindBy(css = "[type='password']")
+    WebElement passwordField;
+    @FindBy(css = "button[type='submit']")
+    WebElement submitButton;
 
     public LoginPage(WebDriver givenDriver) {
-        driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
+        super(givenDriver);
     }
 
-    public void provideEmail(String email) {
-        WebElement emailElement = driver.findElement(emailField);
-        emailElement.click();
-        emailElement.sendKeys(email);
-
-    }
-
-    public LoginPage providePassword(String password) {
-        WebElement passwordElement = driver.findElement(passwordField);
-        passwordElement.click();
-        passwordElement.sendKeys(password);
-        return null;
-    }
-
-    public LoginPage clickSubmitBtn() {
-        driver.findElement(submitButtonLocator).click();
+    public LoginPage provideEmail(String email) {
+        emailField.sendKeys(email);
         return this;
     }
 
-    public void logIn() {
-        provideEmail("simplyd2d@gmail.com");
-        providePassword("te$t$tudent");
-        clickSubmitBtn();
+    public LoginPage providePassword(String password) {
+        passwordField.sendKeys(password);
+        return this;
     }
 
+    public LoginPage clickSubmit() {
+        submitButton.click();
+        return this;
+    }
+
+    public void login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
+
+//    public LoginPage login(String email, String password) {
+//        provideEmail(email);
+//        providePassword(password);
+//        clickSubmit();
+//        return this;
+//    }
 }
-
-

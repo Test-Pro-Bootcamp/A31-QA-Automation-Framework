@@ -2,13 +2,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class Homework19 extends BaseTest {
 
     @Test
     public void deleteEmptyPlaylist() throws InterruptedException {
-        login("simplyd2d@gmail.com", "te$t$tudent");
-        clickSubmit();
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmail("simplyd2d@gmail.com")
+                .providePassword("te$t$tudent")
+                .clickSubmit();
 
         //select playlist Homework 19 Test
         WebElement selectPlaylist = driver.findElement(By.xpath("(//a[normalize-space()='Homework 19 Test'])[1]"));
