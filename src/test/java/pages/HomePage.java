@@ -43,6 +43,7 @@ public class HomePage extends BasePage {
         }
 
         public WebElement getUserAvatar () {
+            wait.until(ExpectedConditions.visibilityOf(userAvatarIcon));
             return userAvatarIcon;
         }
         public boolean doesPlaylistExist(String playlistName){

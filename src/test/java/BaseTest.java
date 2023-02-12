@@ -76,14 +76,14 @@ public class BaseTest {
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
-            case "cloud":
-                return lambdaTest();
+  //          case "cloud":
+  //              return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
                 return driver = new ChromeDriver();
         }
     }
-    public static WebDriver lambdaTest() throws MalformedURLException {
+ /*   public static WebDriver lambdaTest() throws MalformedURLException {
         String username = "tatsiana.guryev";
         String accessKey = "HRqintf83dtNQoQm3VkfTYC21LmK3M9zHSV3EdblnNTTaPeFT7";
         String hub = "@hub.lambdatest.com/wd/hub";
@@ -103,7 +103,7 @@ public class BaseTest {
 
        return new RemoteWebDriver(new URL("https://"+ username +":" + accessKey + hub),capabilities );
  }
-
+*/
     @AfterMethod
     public static void closeBrowser(){
         //    LoginTests.driver.quit();
@@ -154,7 +154,7 @@ public class BaseTest {
     }
 
     public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");//
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
     public static void clickAvatarIcon() {
