@@ -22,8 +22,6 @@ public class LoginTests extends BaseTest {
 
         loginPage.logIn();
         homePage.getUserAvatar();
-
-        Thread.sleep(5000);
     }
 
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")

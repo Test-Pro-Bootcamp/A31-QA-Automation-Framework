@@ -21,6 +21,11 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[type='submit']")
     WebElement submitButton;
 
+    @FindBy(css = "//a[@class='view-profile']")
+    WebElement profileIcon;
+   // "//a[@class='view-profile']"
+    //"img.avatar"
+
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
@@ -45,6 +50,10 @@ public class LoginPage extends BasePage {
         providePassword("te$t$tudent");
         clickSubmitBtn();
         return this;
+    }
+    public void clickProfileIcon() {
+        wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
+        profileIcon.click();
     }
 
 
