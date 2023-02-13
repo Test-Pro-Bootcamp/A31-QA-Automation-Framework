@@ -6,13 +6,11 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="LoginTests" />
+            <class name="RegistrationTests"/>
+            <class name="LoginTests"/>
             <class name="ProfileTests"/>
-            <class name="BaseTest"/>
-            <class name="Homework17A"/>
-            <class name="Homework18"/>
-            <class name="Homework19"/>
-            <class name="CucumberRunner"/>
+            <class name="AllSongsTests"/>
+            <class name="HomeTests"/>
         </classes>
     </test>
 </suite>

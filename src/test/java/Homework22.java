@@ -18,7 +18,7 @@ public class Homework22 extends BaseTest {
         // Selecting playlist which is to be renamed
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"playlists\"]//a[contains(text(),'Homework20')]")));
         WebElement playList = driver.findElement(By.xpath("//*[@id=\"playlists\"]//a[contains(text(),'Homework20')]"));
-        action.doubleClick(playList).perform();
+        actions.doubleClick(playList).perform();
 
 
         // Enter new name for playlist

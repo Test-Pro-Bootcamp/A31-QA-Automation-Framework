@@ -9,7 +9,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
@@ -17,21 +16,21 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.UUID;
 
 
-public class BaseTest  {
+public class BaseTest {
 
 
-    public WebDriver driver;
+    //public WebDriver driver;
 
-    public WebDriverWait wait;
-    public String url;
-    public Actions action;
-    public FluentWait fluentWait;
+    //public WebDriverWait wait;
+    //public String url;
+    //public Actions action;
+    //public FluentWait fluentWait;
 
-    public ThreadLocal<WebDriver> threadLocal;
-
+    //public ThreadLocal<WebDriver> threadLocal;
 
 
     //private String url = "https://bbb.testpro.io/";
@@ -39,18 +38,24 @@ public class BaseTest  {
     @BeforeSuite
     public static void setupClass() {
 
-        //WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
         //WebDriverManager.firefoxdriver().setup();
         //WebDriverManager.safaridriver().setup();
     }
+
+    public static WebDriver driver;
+    public static String url = "https://bbb.testpro.io/";
+    public static WebDriverWait wait;
+    public static Actions actions;
+    public ThreadLocal<WebDriver> threadDriver;
 
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         driver = pickBrowser(System.getProperty("browser"));
-        threadLocal = new ThreadLocal<>();
-        threadLocal.set(driver);
-        action = new Actions(getDriver());
+        threadDriver = new ThreadLocal<>();
+        threadDriver.set(driver);
+        actions = new Actions(getDriver());
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
 //        url = BaseURL;
@@ -59,14 +64,15 @@ public class BaseTest  {
     }
 
     public WebDriver getDriver() {
-        return threadLocal.get();
+
+        return threadDriver.get();
     }
 
 
     @AfterMethod
     public void closeBrowser() {
-    getDriver().quit();
-    threadLocal.remove();
+        getDriver().quit();
+        threadDriver.remove();
     }
 
 
@@ -104,37 +110,39 @@ public class BaseTest  {
                 return driver = new ChromeDriver();
 
         }
-
-      return null;
+        return null;
     }
-
-
 
 
     public WebDriver lambdaTest() throws MalformedURLException {
-        String hub = "@hub.lambdatest.com/wd/hub";
-        String username = "david.heinrich";
-        String authkey = "dNeMHzFmBK4YyxvbsQgMWzrEnEDbICVwPOvAbD0WW5opWA4xgp";
 
+        String hubURL = "https://hub.lambdatest.com/wd/hub";
 
-        DesiredCapabilities caps = new DesiredCapabilities();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "Chrome");
+        capabilities.setCapability("browserVersion", "108.0");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("username", "david.heinrich");
+        ltOptions.put("accessKey", "dNeMHzFmBK4YyxvbsQgMWzrEnEDbICVwPOvAbD0WW5opWA4xgp");
+        ltOptions.put("build", "Selenium 4");
+        ltOptions.put("name", this.getClass().getName());
+        ltOptions.put("platformName", "Windows 10");
+        ltOptions.put("w3c", true);
+        ltOptions.put("selenium_version", "4.0.0");
+        capabilities.setCapability("LT:Options", ltOptions);
 
-        caps.setCapability("platform", "Windows 10");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "106.0");
-        caps.setCapability("resolution", "1024x768");
-        caps.setCapability("build", "TestNG With Java");
-        caps.setCapability("name", this.getClass().getName());
-        caps.setCapability("plugin", "git-testing");
-
-
-        return new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
-
+        return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
 
-    //public static void navigateToPage() {
-    // String url = "https://bbb.testpro.io/";
-    // driver.get(url);}
+
+
+
+
+
+
+    public static void navigateToPage() {
+    String url = "https://bbb.testpro.io/";
+    driver.get(url);}
     public void login(String email, String password) {
         provideEmail(email);
         providePassword(password);

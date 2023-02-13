@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
+import org.testng.internal.BaseTestMethod;
+import pages.BasePage;
 
 public class Homework20 extends BaseTest {
 

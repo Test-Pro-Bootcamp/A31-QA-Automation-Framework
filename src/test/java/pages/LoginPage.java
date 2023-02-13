@@ -1,43 +1,55 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
+    public LoginPage(WebDriver givenDriver) {
 
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-    By profileIcon  = By.xpath("//a[@class='view-profile']");
-    public LoginPage( WebDriver givenDriver) {
         super(givenDriver);
     }
-    public LoginPage clickSubmitBtn() {
-        driver.findElement(submitButtonLocator).click();
-        return this;
-    }
+
+    //WebElement
+    @FindBy(css = "[type='email']")
+    private WebElement emailField;
+    @FindBy(css = "[type='password']")
+    private WebElement passwordField;
+    @FindBy(css = "button[type='submit']")
+    private WebElement submitButton;
+    @FindBy(css = ".error")
+    private WebElement loginErrorMsg;
+
     public LoginPage provideEmail(String email) {
-        WebElement emailElement = driver.findElement(emailField);
-        emailElement.sendKeys(email);
+        emailField.sendKeys(email);
+        emailField.click();
         return this;
     }
+
     public LoginPage providePassword(String password) {
-        WebElement passwordElement = driver.findElement(passwordField);
-        passwordElement.sendKeys(password);
+        passwordField.sendKeys(password);
+        passwordField.click();
         return this;
     }
 
-    public LoginPage logIn(){
-
-        provideEmail("simplyd2d@gmail.com");
-        providePassword("te$t$tudent");
-        clickSubmitBtn();
+    public LoginPage clickSubmit() {
+        submitButton.click();
         return this;
     }
-    public void clickProfileIcon() {
-        click(profileIcon);
+
+    //Login
+    public void login(String email, String password) {
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+    }
+
+    public WebElement loginError() {
+        return loginErrorMsg;
+    }
+
+    public WebElement emailFieldDisplayed() {
+        return wait.until(ExpectedConditions.visibilityOf(emailField));
     }
 }
-

@@ -1,35 +1,55 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public void loginEmptyEmailPasswordTest(String email, String password) {
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.provideEmail("simplyd2d@gmail.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
-    }
 
-    @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password")
-    public void loginValidEmailValidPasswordTest(String email, String password) {
+    @Test(enabled = true, priority = 0, groups = {"Smoke", "Regression"}, description = "Login with valid credentials")
+    public void loginValidEmailPassword() {
+
 
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent")
-                .clickSubmitBtn();
+        HomePage homePage = new HomePage(getDriver());
 
+        loginPage.provideEmail("simplyd2d@gmail.com").providePassword("te$t$tudent").clickSubmit();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 
-    @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
-    public void LoginInvalidEmailValidPasswordTest() {
+    @Test(enabled = true, priority = 1, groups = {"Regression"}, description = "Login with not existing email")
+    public void loginNotExistingEmail() {
+
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.provideEmail("simplyd2d@gmail.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
+
+        loginPage.provideEmail("notExistingEmail@test.com").providePassword("te$t$tudent").clickSubmit();
+        Assert.assertTrue(loginPage.loginError().isDisplayed());
     }
 
+    @Test(enabled = true, priority = 2, groups = {"Regression"}, description = "Login with Empty Email and Password")
+    public void loginWithEmptyEmailPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("").providePassword("").clickSubmit();
+        Assert.assertTrue(loginPage.emailFieldDisplayed().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 3, groups = {"Regression"}, description = "Login with invalid Password")
+    public void loginWithInvalidPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("simplyd2d@gmail.com").providePassword("teststudent").clickSubmit();
+        Assert.assertTrue(loginPage.loginError().isDisplayed());
+    }
+
+    @Test(enabled = true, priority = 4, groups = {"Regression"}, description = "Login with Empty Password")
+    public void loginWithEmptyPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("simplyd2d@gmail.com").providePassword("").clickSubmit();
+        Assert.assertEquals(getDriver().getCurrentUrl(), "https://bbb.testpro.io/");
+    }
 }
-
