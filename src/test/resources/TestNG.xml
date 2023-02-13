@@ -6,7 +6,8 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="TGHW25"/>
+            <class name="LoginTests"/>
+            <class name="ProfileTests"/>
         </classes>
     </test>
 </suite>
