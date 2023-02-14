@@ -21,7 +21,9 @@ public class Homework14 extends BaseTest {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         WebElement loginField = driver.findElement(By.cssSelector("[type='submit'"));
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password'"));
-        WebElement avatar = driver.findElement(By.className("avatar"));
+        /*WebElement avatar = driver.findElement(By.className("avatar"));*/
+
+        driver.quit();
 
 
     }
