@@ -6,8 +6,8 @@ public class Homework18 extends BaseTest {
 
     @Test
     public void playASongTest() {
-        AllSongPage allSongPage = new AllSongPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        AllSongPage allSongPage = new AllSongPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.logIn();
         allSongPage.playSong();
