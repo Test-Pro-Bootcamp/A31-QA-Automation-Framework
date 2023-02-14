@@ -10,7 +10,7 @@ import java.time.Duration;
 public class Homework14 extends BaseTest {
 
     @Test
-    public static void Navigation() {
+    public static void Navigation() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -18,10 +18,10 @@ public class Homework14 extends BaseTest {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
 
-        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
-        WebElement loginField = driver.findElement(By.cssSelector("[type='submit'"));
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password'"));
-        /*WebElement avatar = driver.findElement(By.className("avatar"));*/
+        WebElement registrationField = driver.findElement(By.cssSelector("[id='hel']"));
+        registrationField.click();
+
+       Thread.sleep(500);
 
         driver.quit();
 
