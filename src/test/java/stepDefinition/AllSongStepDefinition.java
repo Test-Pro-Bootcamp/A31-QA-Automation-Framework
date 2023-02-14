@@ -46,7 +46,7 @@ public class AllSongStepDefinition {
 //        driver.quit();
 //    }
 
-    @Given("User navigate to All Song Page")
+    @And("User navigate to All Song Page")
     public void UserNavigateToAllSongPage() {
         AllSongPage allSongPage = new AllSongPage(driver);
         allSongPage.chooseAllSongsList();

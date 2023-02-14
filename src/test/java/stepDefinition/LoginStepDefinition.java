@@ -82,12 +82,10 @@ public class LoginStepDefinition {
 
     @Then("I get an error message")
     public void iGetAnErrorMessage() {
-  //      WebDriverWait wait = new WebDriverWait(driver, 2);
-            Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".error"))).isDisplayed());
+              Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".error"))).isDisplayed());
     }
     @Then("I get Enter Email and Password")
     public void messageEnterEmailAndPassword(){
-
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).isDisplayed());
     }
 }
