@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     //"img.avatar"
 
     public LoginPage(WebDriver givenDriver) {
+
         super(givenDriver);
     }
 

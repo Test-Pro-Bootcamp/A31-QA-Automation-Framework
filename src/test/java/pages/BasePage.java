@@ -24,6 +24,7 @@ import java.time.Duration;
         }
 
         public void click(By locator) {
+
             wait.until(ExpectedConditions.elementToBeClickable(locator));
         }
 
@@ -32,6 +33,7 @@ import java.time.Duration;
         }
 
         public void contextClick(By locator) {
+
             actions.contextClick(findElement(locator)).perform();
         }
 

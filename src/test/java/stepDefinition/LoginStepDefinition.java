@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.nl.En;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,9 +25,11 @@ public class LoginStepDefinition {
 
     @Before
     public void openBrowser(){
+        ChromeDriverManager.getInstance().setup();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+
     }
     @After
     public void closeBrowser() {
@@ -60,7 +63,7 @@ public class LoginStepDefinition {
 
     @Then("I am logged in")
     public void iAmLoggedIn() {
-        Assert.assertTrue(
+                Assert.assertTrue(
                 wait.until(ExpectedConditions
                         .elementToBeClickable(By.cssSelector("img.avatar"))).isDisplayed());
     }
@@ -79,6 +82,12 @@ public class LoginStepDefinition {
 
     @Then("I get an error message")
     public void iGetAnErrorMessage() {
+  //      WebDriverWait wait = new WebDriverWait(driver, 2);
             Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".error"))).isDisplayed());
+    }
+    @Then("I get Enter Email and Password")
+    public void messageEnterEmailAndPassword(){
+
+        Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']"))).isDisplayed());
     }
 }

@@ -27,7 +27,12 @@ Feature: Login feature
   @regression
   Scenario: Login with empty email and password
   Given I open Login Page
-  
+  When I enter email ""
+  And I enter password ""
+  And I submit
+  Then I get an error message
+
+
 
  # @smoke
  # Scenario Outline: Login with various input
