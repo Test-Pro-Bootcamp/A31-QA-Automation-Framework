@@ -26,7 +26,6 @@ public class AllSongStepDefinition {
     protected WebDriverWait wait;
 
 
-
     @Given("I open AllSong Page")
     public void I_open_AllSong_Page() {
         AllSongPage allSongPage = new AllSongPage(driver);
