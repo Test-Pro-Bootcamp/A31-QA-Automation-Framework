@@ -21,10 +21,9 @@ import pages.LoginPage;
 
 import java.time.Duration;
 
-public class AllSongStepDefinition {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+import static stepDefinition.BaseStep.driver;
 
+public class AllSongStepDefinition  {
 
     @Given("I open AllSong Page")
     public void I_open_AllSong_Page() {
