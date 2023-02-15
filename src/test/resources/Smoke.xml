@@ -7,7 +7,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="Homework21"/>
+            <class name="ProfileTests"/>
         </classes>
     </test>
 </suite>

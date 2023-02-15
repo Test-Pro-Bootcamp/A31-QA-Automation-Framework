@@ -1,3 +1,4 @@
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,8 +10,10 @@ import static org.openqa.selenium.Keys.ENTER;
 public class Homework17 extends BaseTest {
 
     @Test
-    public void addSongToPlaylist() throws InterruptedException {
-        login("demo@class.com", "te$t$tudent");
+    public void addSongToPlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login("demo@class.com", "te$t$tudent");
 
         WebElement addPlaylistButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i.fa-plus-circle")));
         addPlaylistButton.click();
@@ -27,10 +30,10 @@ public class Homework17 extends BaseTest {
         homeButton.click();
 
         Actions action = new Actions(driver);
-        WebElement rightClickSong = driver.findElement(By.xpath("//span[contains(text(), 'Mid-Air Machine')]"));
+        WebElement rightClickSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Mid-Air Machine')]")));
         action.contextClick(rightClickSong).perform();
 
-        WebElement clickAddTo = driver.findElement(By.xpath("//li[contains(text(), 'Add To')]"));
+        WebElement clickAddTo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(), 'Add To')]")));
         clickAddTo.click();
 
         WebElement clickPlaylist = driver.findElement(By.cssSelector("li.has-sub>ul>li.playlist"));

@@ -42,11 +42,11 @@ public class BaseTest {
         driver.quit();
     }
 
-    public static void login(String email, String password){
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-    }
+//    public static void login(String email, String password){
+//        provideEmail(email);
+//        providePassword(password);
+//        clickSubmit();
+//    }
 
 //    public static void navigateToPage() {
 //        String url = "https://bbb.testpro.io/";
@@ -61,74 +61,74 @@ public class BaseTest {
                 {"", ""}
         };
     }
-    public static void provideEmail(String email) {
-        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+//    public static void provideEmail(String email) {
+//        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+//
+//        emailField.clear();
+//        emailField.sendKeys(email);
+//    }
+//    public static void providePassword(String password) {
+//        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+//
+//        passwordField.clear();
+//        passwordField.sendKeys(password);
+//    }
+//
+//    public static void clickSubmit() {
+//        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+//
+//        submitButton.click();
+//    }
+//    public static String generateRandomName() {
+//        return UUID.randomUUID().toString().replace("-", "");
+//    }
+//
+//    public static void provideCurrentPassword(String password){
+//        WebElement currentPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
+//        currentPassword.clear();
+//        currentPassword.sendKeys(password);
+//    }
+//
+//    public static void provideProfileName(String randomName){
+//        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+//        profileName.clear();
+//        profileName.sendKeys(randomName);
+//    }
+//
+//    public static void clickSaveButton(){
+//        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+//        saveButton.click();
+//    }
+//
+//    public static void clickAvatarIcon() {
+//        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
+//        avatarIcon.click();
+//    }
 
-        emailField.clear();
-        emailField.sendKeys(email);
-    }
-    public static void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
-
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    }
-
-    public static void clickSubmit() {
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
-
-        submitButton.click();
-    }
-    public static String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");
-    }
-
-    public static void provideCurrentPassword(String password){
-        WebElement currentPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
-
-    public static void provideProfileName(String randomName){
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public static void clickSaveButton(){
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public static void clickAvatarIcon() {
-        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
-        avatarIcon.click();
-    }
-
-    public void playSong(){
-        Actions actions = new Actions(driver);
-        WebElement doubleClickSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Dark Days')]")));
-        actions.doubleClick(doubleClickSong).perform();
-    }
-
-    public void isSongPlaying(){
-        WebElement visualizer = driver.findElement(By.cssSelector("div>img[alt='Sound bars']"));
-        Assert.assertTrue(visualizer.isDisplayed());
-    }
-
-    public static void rightClickPlaylist(){
-        WebElement rightClickList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
-        Actions action = new Actions(driver);
-        action.contextClick(rightClickList).perform();
-    }
-
-    public static void deletePlaylist(){
-        WebElement deletePlaylistClick = driver.findElement(By.cssSelector(".playlist-item-menu>ul>li:nth-child(2)"));
-        deletePlaylistClick.click();
-    }
-
-    public static void verifyPlaylistIsDeleted(){
-        WebElement successDeleteMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alertify-logs>.success")));
-        Assert.assertTrue(successDeleteMsg.isDisplayed());
-    }
+//    public void playSong(){
+//        Actions actions = new Actions(driver);
+//        WebElement doubleClickSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Dark Days')]")));
+//        actions.doubleClick(doubleClickSong).perform();
+//    }
+//
+//    public void isSongPlaying(){
+//        WebElement visualizer = driver.findElement(By.cssSelector("div>img[alt='Sound bars']"));
+//        Assert.assertTrue(visualizer.isDisplayed());
+//    }
+//
+//    public static void rightClickPlaylist(){
+//        WebElement rightClickList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+//        Actions action = new Actions(driver);
+//        action.contextClick(rightClickList).perform();
+//    }
+//
+//    public static void deletePlaylist(){
+//        WebElement deletePlaylistClick = driver.findElement(By.cssSelector(".playlist-item-menu>ul>li:nth-child(2)"));
+//        deletePlaylistClick.click();
+//    }
+//
+//    public static void verifyPlaylistIsDeleted(){
+//        WebElement successDeleteMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alertify-logs>.success")));
+//        Assert.assertTrue(successDeleteMsg.isDisplayed());
+//    }
 }

@@ -1,3 +1,5 @@
+import Pages.LoginPage;
+import Pages.SongPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -10,8 +12,11 @@ public class Homework21 extends BaseTest {
 
     @Test
     public void renamePlaylist(){
-        login("demo@class.com", "te$t$tudent");
-        rightClickPlaylist();
+        LoginPage loginPage = new LoginPage(driver);
+        SongPage songPage = new SongPage(driver);
+
+        loginPage.login("demo@class.com", "te$t$tudent");
+        songPage.rightClickPlaylist();
 
         WebElement clickEdit = driver.findElement(By.xpath("//li[contains(text(), 'Edit')]"));
         clickEdit.click();
