@@ -1,12 +1,16 @@
 package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
 public class ProfilePage extends BasePage {
             //locators
-        By violetTheme = By.xpath("//div[@data-testid='theme-card-violet']");
+    @FindBy(xpath = "//div[@data-testid='theme-card-violet']")
+    WebElement violetTheme;
+
 
         By isVioletThemeSelected = By.xpath("//div[@data-testid='theme-card-violet' and contains(@class,'selected')]");
 
@@ -15,10 +19,10 @@ public class ProfilePage extends BasePage {
         }
 
 
-        public void chooseVioletTheme() {
-            wait.until(ExpectedConditions.elementToBeClickable(violetTheme));
+        public ProfilePage chooseVioletTheme() {
+            waitClick(violetTheme);
             click(violetTheme);
-   //         return this;
+            return this;
         }
 
         public boolean isVioletThemeSelected(){

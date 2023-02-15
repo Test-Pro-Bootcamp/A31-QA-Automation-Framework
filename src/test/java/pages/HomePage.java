@@ -14,30 +14,17 @@ import java.time.Duration;
 
 public class HomePage extends BasePage {
 
-    public HomePage(WebDriver givenDriver) {
-        super(givenDriver);
-//                driver = givenDriver;//we can remove these ones since we have initialized them in basepage(inheritance using extends)
-//                wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    }
-
-//        POM locators
-//        By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
-//        By playlistInputField = By.cssSelector("input[name='name']");
-//        By userAvatarIcon = By.cssSelector("img.avatar");
-
-    //        Page Factory locators
     @FindBy(css = "input[name='name']")
     WebElement playlistInputField;
-
     @FindBy(css = "img.avatar")
     WebElement userAvatarIcon;
     @FindBy(css = "div.success.show")
     private WebElement successMsg;
 
+    public HomePage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
 
-    //     public void doubleClickFirstPlaylist(){
-    //        doubleclick = driver.findElement(firstPlaylist);
-    //     }
     public void enterPlaylistName(String playlistName) {
         playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
         playlistInputField.sendKeys(playlistName);
@@ -45,9 +32,11 @@ public class HomePage extends BasePage {
     }
 
     public WebElement getUserAvatar() {
-        wait.until(ExpectedConditions.visibilityOf(userAvatarIcon));
-        return userAvatarIcon;
+        return
+                wait.until(ExpectedConditions.visibilityOf(userAvatarIcon));
+        //       return userAvatarIcon;
     }
+
     public boolean getSuccessPopUp() {
         wait.until(ExpectedConditions.visibilityOf(successMsg));
         return successMsg.isDisplayed();

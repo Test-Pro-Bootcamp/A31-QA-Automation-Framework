@@ -12,39 +12,45 @@ import org.testng.Assert;
 public class AllSongPage extends BasePage {
 
     @FindBy(css = "section#songsWrapper tr:nth-child(1) td.title")
+    //".all-songs tr.song-item:nth-child(1)"
     WebElement firstSong;
     @FindBy(css = "section.music a.songs")
     WebElement allSongBtn;
+    @FindBy(xpath = "//a[contains(text(), 'All Songs')]")
+    WebElement allSongBtnXpath;
     @FindBy(css = "//div[@data-testid='sound-bar-play']")
     WebElement soundBar;
+        @FindBy(css = "#songsWrapper > header > div.song-list-controls > span > button.btn-add-to")
+    WebElement addToPlayList;
+    @FindBy(css = "#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li.favorites")
+    WebElement favoritesPlayList;
+
+    By soundBarIcon = By.cssSelector("img[alt='Sound bars']");
 
 
     public AllSongPage(WebDriver givenDriver) {
         super(givenDriver);
     }
-    //Page Factory locators
 
-    //   @FindBy(css = "section.music a.songs");
-    //   WebElement allSongs;
     public void chooseAllSongsList() {
-        wait.until(ExpectedConditions.elementToBeClickable(allSongBtn)).click();
+        waitClick(allSongBtnXpath);
+        allSongBtnXpath.click();
     }
 
-    public static void contextClickFirstSong() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
-        WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
+    public void contextClickFirstSong() {
+        waitClick(firstSong);
         firstSong.click();
     }
 
-    public boolean songIsPlaying() {
-        WebElement songIsPlaying = driver.findElement(By.cssSelector("[data-testid='sound-bar-play']"));
-        return songIsPlaying.isDisplayed();
+    public WebElement songIsPlaying() {
+        return
+        wait.until(ExpectedConditions.visibilityOfElementLocated(soundBarIcon));
     }
 
-    public static void addToPlayList() {
-        WebElement addToPlayList = driver.findElement(By.cssSelector("#songsWrapper > header > div.song-list-controls > span > button.btn-add-to"));
+    public void addToPlayList() {
+        waitClick(addToPlayList);
         addToPlayList.click();
-        WebElement favoritesPlayList = driver.findElement(By.cssSelector("#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li.favorites"));
+        waitClick(favoritesPlayList);
         favoritesPlayList.click();
     }
 
@@ -56,20 +62,25 @@ public class AllSongPage extends BasePage {
         playButton.click();
     }
 
-    public void isSongPlaying() {
-        wait.until((ExpectedConditions.visibilityOf(soundBar)));
+    public AllSongPage isSongPlaying() {
+        waitClick(soundBar);
         Assert.assertTrue(soundBar.isDisplayed());
+        return this;
     }
 
-    public void selectFirstSong() {
+    public AllSongPage selectFirstSong() {
+        waitClick(firstSong);
         firstSong.click();
-        //      return this;
+        return this;
     }
 
-    public void doubleClickFirstSong() {
-        Actions actions = new Actions(driver);
-        WebElement selectFirstSongField = wait.until(ExpectedConditions.elementToBeClickable(firstSong));
-        actions.doubleClick(selectFirstSongField).build().perform();
+    public AllSongPage doubleClickFirstSong() {
+        doubleClick(firstSong);
+        return this;
+    }
+
+    public WebElement getAllSongBtnXpath() {
+        return wait.until(ExpectedConditions.visibilityOf(allSongBtnXpath));
     }
 
 }

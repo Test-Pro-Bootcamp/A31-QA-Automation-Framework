@@ -26,39 +26,20 @@ public class AllSongStepDefinition {
     protected WebDriverWait wait;
 
 
-//    @Before
-//    public void openBrowser() {
-//        ChromeDriverManager.getInstance().setup();
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-//        driver.get("http://bbb.testpro.io");
-//    }
 
-//    @Before
-//    public void logIn() {
-//        LoginPage loginPage = new LoginPage(driver);
-//        loginPage.logIn();
-//    }
-
-//    @After
-//    public void closeBrowser() {
-//        driver.quit();
-//    }
-
-    @And("User navigate to All Song Page")
-    public void UserNavigateToAllSongPage() {
+    @Given("I open AllSong Page")
+    public void I_open_AllSong_Page() {
         AllSongPage allSongPage = new AllSongPage(driver);
         allSongPage.chooseAllSongsList();
     }
 
-    @When("User selected first song")
-    public void userSelectedFirstSong() {
+    @When("I selected first song")
+    public void I_selected_first_song() {
         AllSongPage allSongPage = new AllSongPage(driver);
         allSongPage.selectFirstSong();
     }
 
-    @And("User double click the song")
+    @And("I double click the song")
     public void userDoubleClickTheSong() {
         AllSongPage allSongPage = new AllSongPage(driver);
         allSongPage.doubleClickFirstSong();
@@ -67,6 +48,6 @@ public class AllSongStepDefinition {
     @Then("The song should playing")
     public void theSongShouldPlaying() {
         AllSongPage allSongPage = new AllSongPage(driver);
-        allSongPage.isSongPlaying();
+        Assert.assertTrue(allSongPage.songIsPlaying().isDisplayed());
     }
 }
