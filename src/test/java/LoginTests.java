@@ -8,8 +8,7 @@ import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class, description = "IncorrectLoginProveders")
     public static void loginEmptyEmailPasswordTest(String email, String password) {
         login(email, password);
         Assert.assertEquals(driver.getCurrentUrl(), url);
@@ -32,9 +31,5 @@ public class LoginTests extends BaseTest {
         loginPage.provideEmail("invalid@class.com")
                 .providePassword("te$t$tudent")
                 .clickSubmitBtn();
-
-
     }
-
-
 }

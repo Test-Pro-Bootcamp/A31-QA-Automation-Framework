@@ -33,8 +33,7 @@ public class ProfileTests extends BaseTest {
 
         loginPage.logIn();
         clickAvatarIcon();
-        //            .clickProfileIcon();
-        profilePage.chooseVioletTheme();
-         profilePage.isVioletThemeSelected();
+        profilePage.chooseVioletTheme()
+                .isVioletThemeSelected();
     }
 }

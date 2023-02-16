@@ -7,9 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import org.testng.Assert;
 
 
 public class HomePage extends BasePage {
@@ -20,6 +18,8 @@ public class HomePage extends BasePage {
     WebElement userAvatarIcon;
     @FindBy(css = "div.success.show")
     private WebElement successMsg;
+    @FindBy(xpath = "//a[text()='+playlistName+']")
+    WebElement playListElement;
 
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
@@ -41,9 +41,11 @@ public class HomePage extends BasePage {
         return successMsg.isDisplayed();
     }
 
-    public boolean doesPlaylistExist(String playlistName) {
-        WebElement playlistElement = driver.findElement(By.xpath("//a[text()='+playlistName+']"));
-        return playlistElement.isDisplayed();
+    public HomePage doesPlaylistExist(String playlistName) {
+        wait.until(ExpectedConditions.elementToBeClickable(playListElement));
+  //              return playlistElement.isDisplayed();
+        Assert.assertTrue(playListElement.isDisplayed());
+        return this;
     }
 
     public boolean isDisplayed() {

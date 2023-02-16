@@ -24,6 +24,10 @@ public class AllSongPage extends BasePage {
     WebElement addToPlayList;
     @FindBy(css = "#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li.favorites")
     WebElement favoritesPlayList;
+    @FindBy(xpath = "//i[@title='Create a new playlist']")
+    WebElement buttonPlus;
+    @FindBy(xpath = "//li[text()='New Playlist']")
+    WebElement newPlayListButton;
 
     By soundBarIcon = By.cssSelector("img[alt='Sound bars']");
 
@@ -83,4 +87,14 @@ public class AllSongPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOf(allSongBtnXpath));
     }
 
+    public void buttonPlus() {
+        waitClick(buttonPlus);
+        buttonPlus.click();
+    }
+    public void playListBtn (){
+        waitClick(newPlayListButton);
+        newPlayListButton.click();
+    }
+
 }
+
