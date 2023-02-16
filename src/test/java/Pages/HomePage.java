@@ -8,16 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+public class HomePage extends BasePage {
 
     By userAvatarIcon = By.cssSelector("img.avatar");
 
     public HomePage (WebDriver givenDriver){
-        driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        super(givenDriver);
     }
 
     public WebElement getUserAvatar (){
