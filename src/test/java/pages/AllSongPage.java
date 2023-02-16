@@ -20,7 +20,7 @@ public class AllSongPage extends BasePage {
     WebElement allSongBtnXpath;
     @FindBy(css = "//div[@data-testid='sound-bar-play']")
     WebElement soundBar;
-        @FindBy(css = "#songsWrapper > header > div.song-list-controls > span > button.btn-add-to")
+    @FindBy(css = "#songsWrapper > header > div.song-list-controls > span > button.btn-add-to")
     WebElement addToPlayList;
     @FindBy(css = "#songsWrapper > header > div.song-list-controls > div > section.existing-playlists > ul > li.favorites")
     WebElement favoritesPlayList;
@@ -44,7 +44,7 @@ public class AllSongPage extends BasePage {
 
     public WebElement songIsPlaying() {
         return
-        wait.until(ExpectedConditions.visibilityOfElementLocated(soundBarIcon));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(soundBarIcon));
     }
 
     public void addToPlayList() {

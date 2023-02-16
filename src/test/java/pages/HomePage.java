@@ -34,7 +34,6 @@ public class HomePage extends BasePage {
     public WebElement getUserAvatar() {
         return
                 wait.until(ExpectedConditions.visibilityOf(userAvatarIcon));
-        //       return userAvatarIcon;
     }
 
     public boolean getSuccessPopUp() {
@@ -76,6 +75,11 @@ public class HomePage extends BasePage {
         String newPlayListName = "Tatsiana";
         WebElement createdPlayList = driver.findElement(By.xpath("//a[text()='" + newPlayListName + "']"));
         return createdPlayList.isDisplayed();
+    }
+
+    public boolean doesNotLogin() {
+        WebElement fieldEmail = driver.findElement(By.cssSelector("[type='email']"));
+        return fieldEmail.isDisplayed();
     }
 
 }

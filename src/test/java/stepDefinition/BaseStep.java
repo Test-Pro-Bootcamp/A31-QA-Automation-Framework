@@ -18,7 +18,7 @@ public class BaseStep {
     protected Actions actions = null;
 
     @Before
-    public void openBrowser(){
+    public void openBrowser() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(120));

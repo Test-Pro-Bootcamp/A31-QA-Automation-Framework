@@ -3,10 +3,12 @@ package pages;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -23,8 +25,8 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "//a[@class='view-profile']")
     WebElement profileIcon;
-   // "//a[@class='view-profile']"
-    //"img.avatar"
+
+    By avatarIcon = By.cssSelector("//a[@class='view-profile']");
 
     public LoginPage(WebDriver givenDriver) {
 
@@ -52,12 +54,11 @@ public class LoginPage extends BasePage {
         clickSubmitBtn();
         return this;
     }
+
     public void clickProfileIcon() {
         wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
         profileIcon.click();
     }
-
-
 }
 
 

@@ -23,7 +23,7 @@ import java.time.Duration;
 
 import static stepDefinition.BaseStep.driver;
 
-public class AllSongStepDefinition  {
+public class AllSongStepDefinition {
 
     @Given("I open AllSong Page")
     public void I_open_AllSong_Page() {
