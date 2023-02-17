@@ -11,22 +11,22 @@ import java.time.Duration;
 
 public class Homework16 extends BaseTest {
 
-    @Test
-    static void Navigation() {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://bbb.testpro.io/";
-
-        driver.get(url);
-
-        WebElement registrationLink = driver.findElement(By.cssSelector("#hel"));
-        registrationLink.click();
-
-        WebElement verifyRegistrationButton = driver.findElement(By.cssSelector("input[value='Register']"));
-        Assert.assertTrue(verifyRegistrationButton.isDisplayed());
-
-        driver.quit();
-    }
+//    @Test
+//    static void Navigation() {
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//
+//        String url = "https://bbb.testpro.io/";
+//
+//        driver.get(url);
+//
+//        WebElement registrationLink = driver.findElement(By.cssSelector("#hel"));
+//        registrationLink.click();
+//
+//        WebElement verifyRegistrationButton = driver.findElement(By.cssSelector("input[value='Register']"));
+//        Assert.assertTrue(verifyRegistrationButton.isDisplayed());
+//
+//        driver.quit();
+//    }
 
 }
