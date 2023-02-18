@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SeleniumTechniques extends BaseTest {
 
-    String playlistName = "Test Pro Playlist";
+    String playlistName = "Burtoiu I";
 
 
     //      context click (sometimes koel page does not load completely, re-run the test)
