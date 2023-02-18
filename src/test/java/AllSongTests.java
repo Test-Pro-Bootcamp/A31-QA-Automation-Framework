@@ -34,4 +34,15 @@ public class AllSongTests extends BaseTest{
         homePage.doesPlaylistExist("AllPlaylist");
 
     }
-}
+    @Test
+    public void renamePlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.logIn();
+        homePage.choosePlaylist();
+        homePage.conTextClick();
+        homePage.newName();
+        Assert.assertTrue(homePage.checkPlayList());
+    }
+    }
