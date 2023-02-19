@@ -27,10 +27,10 @@ public class BaseTest {
     public static WebDriverWait wait;
 
 
-    @BeforeSuite
-    static void setupClass() {
-//        WebDriverManager.chromedriver().setup();
-    }
+//    @BeforeSuite
+//    static void setupClass() {
+//        WebDriverManager.firefoxdriver().setup();
+//    }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
@@ -43,7 +43,7 @@ public class BaseTest {
     }
 
 
-    public static WebDriver pickBrowser(String browser) throws MalformedURLException {
+    private static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.10:4444";
 
@@ -61,7 +61,7 @@ public class BaseTest {
                 driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 break;
             case "grid-firefox":
-                caps.setCapability("browserName", "FireFox");
+                caps.setCapability("browserName", "firefox");
                 driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 break;
             case "grid-chrome":
