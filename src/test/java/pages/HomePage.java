@@ -20,6 +20,13 @@ public class HomePage extends BasePage {
     private WebElement successMsg;
     @FindBy(xpath = "//a[text()='+playlistName+']")
     WebElement playListElement;
+    @FindBy(css = ".playlist:nth-child(3)")
+    WebElement playList;
+    @FindBy(css = "[type='email']")
+    WebElement emailField;
+    @FindBy(css = "div.alertify-logs.top.right")
+    WebElement createdMessLocator;
+    private By createdPlayListMess = By.cssSelector("div.alertify-logs.top.right");
 
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
@@ -41,11 +48,15 @@ public class HomePage extends BasePage {
         return successMsg.isDisplayed();
     }
 
-    public HomePage doesPlaylistExist(String playlistName) {
-        wait.until(ExpectedConditions.elementToBeClickable(playListElement));
-  //              return playlistElement.isDisplayed();
-        Assert.assertTrue(playListElement.isDisplayed());
-        return this;
+    public boolean isPlaylistCreatedMessageDisplayed() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(createdPlayListMess));
+        return createdMessLocator.isDisplayed();
+    }
+
+    public boolean checkPlayList() {
+        String newPlayListName = "Tatsiana1";
+        WebElement createdPlayList = driver.findElement(By.xpath("//a[text()='" + newPlayListName + "']"));
+        return createdPlayList.isDisplayed();
     }
 
     public boolean isDisplayed() {
@@ -53,35 +64,28 @@ public class HomePage extends BasePage {
     }
 
     public void choosePlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        waitvisibility(playList);
     }
 
     public void conTextClick() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
-        WebElement element = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        waitvisibility(playList);
         Actions action = new Actions(driver);
-        action.contextClick(element).perform();
+        action.contextClick(playList).perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li[data-testid^='playlist-context-menu-edit']"))).click();
     }
 
     public void newName() {
-        WebElement inputNewName = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='name']")));
-        inputNewName.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
-        String newPlayListName = "Tatsiana";
-        inputNewName.sendKeys(newPlayListName);
-        inputNewName.sendKeys(Keys.ENTER);
-
+        waitClick(playlistInputField);
+        playlistInputField.sendKeys((Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE)));
+        String newPlayListName = "Tatsiana1";
+        playlistInputField.sendKeys(newPlayListName);
+        playlistInputField.sendKeys(Keys.ENTER);
     }
 
-    public boolean checkPlayList() {
-        String newPlayListName = "Tatsiana";
-        WebElement createdPlayList = driver.findElement(By.xpath("//a[text()='" + newPlayListName + "']"));
-        return createdPlayList.isDisplayed();
-    }
 
     public boolean doesNotLogin() {
-        WebElement fieldEmail = driver.findElement(By.cssSelector("[type='email']"));
-        return fieldEmail.isDisplayed();
+        waitvisibility(emailField);
+        return emailField.isDisplayed();
     }
 
 }

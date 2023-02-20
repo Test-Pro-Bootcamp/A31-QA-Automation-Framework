@@ -33,7 +33,6 @@ import java.time.Duration;
         }
 
         public void contextClick(By locator) {
-
             actions.contextClick(findElement(locator)).perform();
         }
 
@@ -44,6 +43,11 @@ import java.time.Duration;
           public void waitClick(WebElement locator) {
               wait.until(ExpectedConditions.elementToBeClickable(locator));
           }
+          public void waitvisibility(WebElement locator){
+            wait.until(ExpectedConditions.visibilityOf(locator));
+        }
+
+
 
     }
 

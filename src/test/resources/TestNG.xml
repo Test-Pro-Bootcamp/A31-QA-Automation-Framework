@@ -7,6 +7,8 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="AllSongTests"/>
+            <class name="ProfileTests"/>
+            <class name="LoginTests"/>
         </classes>
     </test>
 </suite>

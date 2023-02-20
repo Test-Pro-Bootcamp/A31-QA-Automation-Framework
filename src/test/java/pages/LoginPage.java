@@ -16,16 +16,12 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "[type='email']")
     WebElement emailField;
-
     @FindBy(css = "[type='password']")
     WebElement passwordField;
-
     @FindBy(css = "[type='submit']")
     WebElement submitButton;
-
     @FindBy(css = "//a[@class='view-profile']")
     WebElement profileIcon;
-
     By avatarIcon = By.cssSelector("//a[@class='view-profile']");
 
     public LoginPage(WebDriver givenDriver) {

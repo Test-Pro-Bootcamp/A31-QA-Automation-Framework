@@ -8,7 +8,7 @@ import pages.AllSongPage;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class AllSongTests extends BaseTest{
+public class AllSongTests extends BaseTest {
 
     @Test
     public void playASongTest() {
@@ -21,19 +21,20 @@ public class AllSongTests extends BaseTest{
         allSongPage.doubleClickFirstSong();
         Assert.assertTrue(allSongPage.songIsPlaying().isDisplayed());
     }
+
     @Test
-    public void createPlaylist(){
+    public void createPlaylist() {
         AllSongPage allSongPage = new AllSongPage(driver);
-        HomePage homePage= new HomePage(driver);
+        HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.logIn();
         allSongPage.buttonPlus();
         allSongPage.playListBtn();
-        homePage.enterPlaylistName("AllPlaylist");
-        homePage.doesPlaylistExist("AllPlaylist");
-
+        homePage.enterPlaylistName("AllPlaylist1");
+        homePage.isPlaylistCreatedMessageDisplayed();
     }
+
     @Test
     public void renamePlaylist() {
         LoginPage loginPage = new LoginPage(driver);
@@ -45,4 +46,4 @@ public class AllSongTests extends BaseTest{
         homePage.newName();
         Assert.assertTrue(homePage.checkPlayList());
     }
-    }
+}

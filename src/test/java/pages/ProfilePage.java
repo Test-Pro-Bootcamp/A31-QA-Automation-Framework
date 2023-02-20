@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
 public class ProfilePage extends BasePage {
-    //locators
     @FindBy(xpath = "//div[@data-testid='theme-card-violet']")
     WebElement violetTheme;
     By isVioletThemeSelected = By.xpath("//div[@data-testid='theme-card-violet' and contains(@class,'selected')]");
