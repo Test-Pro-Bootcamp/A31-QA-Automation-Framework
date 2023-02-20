@@ -12,15 +12,14 @@ public class Homework19 extends BaseTest {
 
     @Test
     public void deletePlaylistTest(){
-        LoginPage loginPage = new LoginPage(driver);
-        SongPage songPage = new SongPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        SongPage songPage = new SongPage(getDriver());
 
         loginPage.login("demo@class.com", "te$t$tudent");
         songPage.rightClickPlaylist();
         songPage.deletePlaylist();
         songPage.verifyPlaylistIsDeleted();
 
-        closeBrowser();
     }
 
 }

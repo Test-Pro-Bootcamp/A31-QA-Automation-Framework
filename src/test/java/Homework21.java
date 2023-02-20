@@ -12,13 +12,13 @@ public class Homework21 extends BaseTest {
 
     @Test
     public void renamePlaylist(){
-        LoginPage loginPage = new LoginPage(driver);
-        SongPage songPage = new SongPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        SongPage songPage = new SongPage(getDriver());
 
         loginPage.login("demo@class.com", "te$t$tudent");
         songPage.rightClickPlaylist();
 
-        WebElement clickEdit = driver.findElement(By.xpath("//li[contains(text(), 'Edit')]"));
+        WebElement clickEdit = getDriver().findElement(By.xpath("//li[contains(text(), 'Edit')]"));
         clickEdit.click();
 
         WebElement editField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name='name']")));
@@ -26,7 +26,6 @@ public class Homework21 extends BaseTest {
         editField.sendKeys("Renamed Playlist Successful");
         editField.sendKeys(ENTER);
 
-        closeBrowser();
     }
 
 }

@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
     @Test
-    public static void updateProfileNameTest () throws Exception {
+    public void updateProfileNameTest () throws InterruptedException {
 
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        ProfilePage profilePage = new ProfilePage(getDriver());
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");

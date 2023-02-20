@@ -14,21 +14,20 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-//    @Test (enabled = true, priority = 1, description = "LoginEmptyEmailPasswordTest")
     @Test(dataProvider = "IncorrectLoginProvider", dataProviderClass = BaseTest.class)
-    public static void loginEmptyEmailPasswordTest (String email, String password) {
+    public void loginEmptyEmailPasswordTest (String email, String password) {
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.login(email, password);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test
-    public static void loginValidEmailValidPasswordTest (){
+    public void loginValidEmailValidPasswordTest (){
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");
@@ -36,24 +35,18 @@ public class LoginTests extends BaseTest {
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
-//        provideEmail("demo@class.com");
-//        providePassword("te$t$tudent");
-//        clickSubmit();
-//
-//        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
-//        Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
     @Test
-    public static void loginInvalidEmailValidPasswordTest() {
+    public void loginInvalidEmailValidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.provideEmail("invalid@class.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
 }
