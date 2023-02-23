@@ -48,7 +48,7 @@ public class BaseTest {
 
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         actions = new Actions(getDriver());
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().manage().window().maximize();
         getDriver().get(url);
 
@@ -111,12 +111,6 @@ public class BaseTest {
 
         return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
-
-
-//    protected static void navigateToPage() {
-//        String url = "https://bbb.testpro.io/";
-//        driver.get(url);
-//    }
 
     public void login(String email, String password) {
         provideEmail(email);
