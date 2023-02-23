@@ -30,10 +30,10 @@ public class BaseTest {
     ThreadLocal<WebDriver> threadDriver;
 
 
-//    @BeforeSuite
-//    static void setupClass() {
+    @BeforeSuite
+    static void setupClass() {
 //        WebDriverManager.firefoxdriver().setup();
-//    }
+    }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
@@ -54,11 +54,6 @@ public class BaseTest {
         return threadDriver.get();
     }
 
-    @AfterMethod
-    public void closeBrowser() {
-        getDriver().quit();
-        threadDriver.remove();
-    }
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -118,6 +113,12 @@ public class BaseTest {
                 {"demo@mail.com", "invalid"},
                 {"", ""}
         };
+    }
+
+    @AfterMethod
+    public void closeBrowser() {
+        getDriver().quit();
+        threadDriver.remove();
     }
 
 }
