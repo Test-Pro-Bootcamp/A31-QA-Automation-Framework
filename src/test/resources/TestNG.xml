@@ -10,6 +10,7 @@
             <class name="ProfileTests"/>
             <class name="LoginTests"/>
             <class name="Homework18"/>
+            <class name="Homework20ap"/>
 <!--            <class name="BaseTest"/>-->
         </classes>
     </test>
