@@ -27,7 +27,9 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
         LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //lets add a line of code to maximize the browser during launch
+        LoginTests.driver.manage().window().maximize();
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);
@@ -82,6 +84,9 @@ public class BaseTest {
     }
 
     public static void provideCurrentPassword(String password) {
+        //should we use wait in this line?
+        //I believe we can try running the test first,
+        //plz run it
         WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
         currentPassword.clear();
         currentPassword.sendKeys(password);

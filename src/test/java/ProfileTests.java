@@ -17,13 +17,16 @@ public class ProfileTests extends BaseTest {
         clickAvatarIcon();
 
         String randomName = generateRandomName();
-
+        //what's wrong with this one? locator seems correct
+        //seems like it is pointing to a wrong locator, but running a passed test should remove that underline
         provideCurrentPassword("te$t$tudent");
         provideProfileName(randomName);
         clickSaveButton();
 
-        Thread.sleep(2000);
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+
+        //looks good now
+        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".success.show")));
         Assert.assertEquals(actualProfileName.getText(), randomName);
 
     }
