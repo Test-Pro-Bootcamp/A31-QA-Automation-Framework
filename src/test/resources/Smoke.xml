@@ -12,6 +12,11 @@
                     <include name="loginValidEmailValidPasswordTest" />
                 </methods>
             </class>
+            <class name="ProfileTests">
+                <methods>
+                <include name="updateProfileNameTest" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,7 @@ public class ProfileTests extends BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         clickAvatarIcon();
 
         String randomName = generateRandomName();
