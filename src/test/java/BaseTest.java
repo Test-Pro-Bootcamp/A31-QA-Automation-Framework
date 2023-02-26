@@ -44,10 +44,9 @@ public class BaseTest {
         threadDriver = new ThreadLocal<>();
         threadDriver.set(driver);
 
-        actions = new Actions(getDriver());
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         url = BaseURL;
-        getDriver().get(url);
+        driver.get(url);
     }
 
     public WebDriver getDriver(){
@@ -117,7 +116,7 @@ public class BaseTest {
 
     @AfterMethod
     public void closeBrowser() {
-        getDriver().quit();
+        driver.quit();
         threadDriver.remove();
     }
 
