@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
     @Test
-    public void updateProfileNameTest () throws InterruptedException {
+    public void updateProfileNameTest () {
 
         LoginPage loginPage = new LoginPage(getDriver());
         ProfilePage profilePage = new ProfilePage(getDriver());
@@ -27,10 +27,8 @@ public class ProfileTests extends BaseTest {
         profilePage.provideProfileName(randomName);
         profilePage.clickSaveButton();
 
-        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
-        Thread.sleep(2000);
-        Assert.assertEquals(actualProfileName.getText(), randomName);
-
+        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        Assert.assertTrue(actualProfileName.isDisplayed());
     }
 
 

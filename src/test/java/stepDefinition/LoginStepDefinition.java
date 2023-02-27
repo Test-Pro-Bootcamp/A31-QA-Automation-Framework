@@ -21,6 +21,7 @@ public class LoginStepDefinition {
 
     WebDriver driver;
     WebDriverWait wait;
+    String url = "https://bbb.testpro.io";;
 
     @Before
     public void openBrowser(){
@@ -61,5 +62,10 @@ public class LoginStepDefinition {
     public void iAmLoggedIn() {
         Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("img.avatar"))).isDisplayed());
+    }
+
+    @Then("I am not logged in")
+    public void iAmNotLoggedIn() {
+        Assert.assertTrue(wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='submit']"))).isDisplayed());
     }
 }

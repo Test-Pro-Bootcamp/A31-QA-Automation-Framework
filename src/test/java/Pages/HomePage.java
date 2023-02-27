@@ -17,7 +17,8 @@ public class HomePage extends BasePage {
     }
 
     public void getUserAvatar (){
-        WebElement avatar = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatar = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img.avatar")));
+//                driver.findElement(By.cssSelector("img.avatar"));
         Assert.assertTrue(avatar.isDisplayed());
     }
 }

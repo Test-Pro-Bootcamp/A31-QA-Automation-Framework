@@ -14,7 +14,7 @@ Feature: Login feature
     When I enter email "invalid@class.com"
     And I enter password "te$t$tudent"
     And I submit
-    Then I am logged in
+    Then I am not logged in
 
 #  Scenario Outline: Login with various input
 #    Given I open Login Page
