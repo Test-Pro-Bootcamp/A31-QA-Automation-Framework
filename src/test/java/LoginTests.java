@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
+
 public class LoginTests extends BaseTest {
 
     //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
@@ -32,20 +33,13 @@ public class LoginTests extends BaseTest {
                 .clickSubmitBtn();
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
-
     }
-
     @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
     public void loginInvalidEmailValidPasswordTest () {
         LoginPage loginPage = new LoginPage(getDriver());
-
         loginPage.provideEmail("invalid@class.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
-
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
-
     }
-
-
 }

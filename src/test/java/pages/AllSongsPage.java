@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class AllSongsPage extends BasePage{
-    By addTo = By.xpath("//li[contains(text(),'Add To')]");
-    By playNextButton = By.xpath("//i[@data-testid='play-next-btn']");
-    By playButton = By.xpath("//span[@data-testid='play-btn']");
-    By soundbar = By.xpath("//div[@data-testid='sound-bar-play']");
+    private By addTo = By.xpath("//li[contains(text(),'Add To')]");
+    private By playNextButton = By.xpath("//i[@data-testid='play-next-btn']");
+    private By playButton = By.xpath("//span[@data-testid='play-btn']");
+    private By soundbar = By.xpath("//div[@data-testid='sound-bar-play']");
 
     public AllSongsPage(WebDriver givenDriver) {
         super(givenDriver);
@@ -42,4 +42,3 @@ public class AllSongsPage extends BasePage{
         Assert.assertTrue(soundbarElement.isDisplayed());
     }
 }
-

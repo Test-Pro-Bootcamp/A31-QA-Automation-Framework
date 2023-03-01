@@ -24,14 +24,13 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public String url = null;
-    public WebDriverWait wait = null;
+    protected WebDriver driver = null;
+    protected String url = null;
+    protected WebDriverWait wait = null;
 
-    public FluentWait fluentWait = null;
-    public Actions actions = null;
-    public ThreadLocal<WebDriver> threadLocal = null;
-
+    protected FluentWait fluentWait = null;
+    protected Actions actions = null;
+    protected ThreadLocal<WebDriver> threadLocal = null;
 
     @BeforeSuite
     public void setupClass() {
@@ -53,7 +52,6 @@ public class BaseTest {
         getDriver().get(url);
 
     }
-
     public WebDriver getDriver() {
         return threadLocal.get();
     }
@@ -63,7 +61,6 @@ public class BaseTest {
         getDriver().quit();
         threadLocal.remove();
     }
-
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.1.160:4444";
@@ -111,37 +108,6 @@ public class BaseTest {
 
         return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
-
-    public void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
-        clickSubmit();
-    }
-
-    public void clickSubmit() {
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
-        submitButton.click();
-    }
-
-    public void providePassword(String password) {
-        WebElement passwordField = getDriver().findElement(By.cssSelector("[type='password']"));
-        wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
-
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    }
-
-    public void provideEmail(String email) {
-        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
-        emailField.clear();
-        emailField.sendKeys(email);
-    }
-
-    public void clickSaveButton() {
-        WebElement saveButton = getDriver().findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
     public void provideProfileName(String randomName) {
         WebElement profileName = getDriver().findElement(By.cssSelector("[name='name']"));
         profileName.clear();

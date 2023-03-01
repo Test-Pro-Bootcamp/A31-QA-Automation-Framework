@@ -7,10 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProfilePage extends BasePage{
-
     //locators
-    By violetTheme = By.xpath("//div[@data-testid='theme-card-violet']");
-    By isVioletThemeSelected = By.xpath("//div[@data-testid='theme-card-violet' and contains(@class,'selected')]");
+    private By violetTheme = By.xpath("//div[@data-testid='theme-card-violet']");
+    private By isVioletThemeSelected = By.xpath("//div[@data-testid='theme-card-violet' and contains(@class,'selected')]");
 
     public ProfilePage(WebDriver givenDriver) {
         super(givenDriver);
@@ -27,5 +26,4 @@ public class ProfilePage extends BasePage{
         }
         return driver.findElement(isVioletThemeSelected).isDisplayed();
     }
-
 }

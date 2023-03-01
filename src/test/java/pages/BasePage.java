@@ -10,38 +10,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
     public BasePage( WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
     }
-
     public void click(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         driver.findElement(locator).click();
-
     }
     public void click(WebElement locator) {
         wait.until(ExpectedConditions.visibilityOf(locator)).click();
     }
-
     public void sendKeys(By locator, String textToEnter) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(textToEnter);
     }
     public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
     public void contextClick(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         actions.contextClick(findElement(locator)).perform();
     }
-
     public void contextClick(WebElement locator) {
         wait.until(ExpectedConditions.visibilityOf(locator));
         actions.contextClick((locator)).perform();
@@ -50,5 +44,4 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         actions.doubleClick(findElement(locator)).perform();
     }
-
 }

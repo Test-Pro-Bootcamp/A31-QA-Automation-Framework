@@ -7,7 +7,7 @@ import pages.LoginPage;
 public class PlaylistTests extends BaseTest {
 
     @Test
-    public void createNewPlaylist() throws InterruptedException {
+    public void createNewPlaylist()   {
         String playlistName="Test Playlist";
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -32,7 +32,7 @@ public class PlaylistTests extends BaseTest {
     }
 
     @Test
-    public void addASongToPlaylist() throws InterruptedException {
+    public void addASongToPlaylist()   {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         AllSongsPage allSongsPage = new AllSongsPage(getDriver());
@@ -47,7 +47,7 @@ public class PlaylistTests extends BaseTest {
 
     }
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylist()   {
         String playlistName = "test playlist";
 
 

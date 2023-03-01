@@ -10,21 +10,18 @@ import org.testng.Assert;
 import java.util.List;
 
 public class HomePage extends BasePage {
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By allSongs = By.xpath("//a[contains(text(),'All Songs')]");
-    By newPlaylistIcon = By.xpath("//i[@class='fa fa-plus-circle create']");
-    By newPlaylistOption = By.xpath("//li[contains(text(), 'New Playlist')]");
-    By newPlaylistField = By.xpath("//input[@name='name']");
-
-    By myFirstPlaylist = By.cssSelector(".playlist:nth-child(3)");
-    By deletePlaylistOption = By.xpath("//li[text()='Delete']");
-    By notificationPopUp = By.xpath("//div[@class='success show']");
+    private By userAvatarIcon = By.cssSelector("img.avatar");
+    private By allSongs = By.xpath("//a[contains(text(),'All Songs')]");
+    private By newPlaylistIcon = By.xpath("//i[@class='fa fa-plus-circle create']");
+    private By newPlaylistOption = By.xpath("//li[contains(text(), 'New Playlist')]");
+    private By newPlaylistField = By.xpath("//input[@name='name']");
+    private By myFirstPlaylist = By.cssSelector(".playlist:nth-child(3)");
+    private By deletePlaylistOption = By.xpath("//li[text()='Delete']");
+    private By notificationPopUp = By.xpath("//div[@class='success show']");
 
     public HomePage( WebDriver givenDriver) {
-
         super(givenDriver);
     }
-
     public void clickAllSongs(){
         click(allSongs);
     }
@@ -33,7 +30,6 @@ public class HomePage extends BasePage {
         click(newPlaylistIcon);
     }
     public void clickNewPlaylistOption(){
-
         click(newPlaylistOption);
     }
     public void enterNewPlaylistName(String playlistName){
@@ -58,10 +54,4 @@ public class HomePage extends BasePage {
     public String getPopUpNotificationText(){
         return findElement(notificationPopUp).getText();
     }
-
-
-
-
-
-
 }

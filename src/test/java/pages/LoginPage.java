@@ -8,12 +8,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
-
     //locators
-    By submitButtonLocator = By.cssSelector("[type='submit']");
-    By emailField = By.cssSelector("[type='email']");
-    By passwordField = By.cssSelector("[type='password']");
-    By profileIcon  = By.xpath("//a[@class='view-profile']");
+    private By submitButtonLocator = By.cssSelector("[type='submit']");
+    private By emailField = By.cssSelector("[type='email']");
+    private By passwordField = By.cssSelector("[type='password']");
+    private By profileIcon  = By.xpath("//a[@class='view-profile']");
 
     public LoginPage( WebDriver givenDriver) {
         super(givenDriver);
@@ -26,7 +25,6 @@ public class LoginPage extends BasePage {
         sendKeys(emailField,email);
         return this;
     }
-
     public LoginPage providePassword(String password) {
         sendKeys(passwordField,password);
         return this;
@@ -40,5 +38,4 @@ public class LoginPage extends BasePage {
     public void clickProfileIcon() {
         click(profileIcon);
     }
-
 }
