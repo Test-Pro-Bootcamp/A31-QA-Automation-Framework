@@ -16,7 +16,7 @@ public class BasePage {
 
     public BasePage(WebDriver dvr){
         driver= dvr;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver,this);
     }
 
