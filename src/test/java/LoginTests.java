@@ -30,7 +30,7 @@ public class LoginTests extends BaseTest {
                 .clickSubmitBtn();
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
-
+//        "bbb.testpro.io" to "testpro.io".
     }
 
     @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
