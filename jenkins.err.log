@@ -1,0 +1,977 @@
+2023-02-22 23:25:28.132+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2023-02-22 23:25:30.505+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2023-02-22 23:25:30.592+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-10.0.12; built: 2022-09-14T01:54:40.076Z; git: 408d0139887e27a57b54ed52e2d92a36731a7e88; jvm 17.0.6+9-LTS-190
+2023-02-22 23:25:31.683+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2023-02-22 23:25:31.760+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2023-02-22 23:25:32.358+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: C:\ProgramData\Jenkins\.jenkins found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+2023-02-22 23:25:32.548+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@385e36d4{Jenkins v2.375.3,/,file:///C:/ProgramData/Jenkins/war/,AVAILABLE}{C:\ProgramData\Jenkins\war}
+2023-02-22 23:25:32.585+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@1e44b638{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-02-22 23:25:32.612+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started Server@26ceffa8{STARTING}[10.0.12,sto=0] @5202ms
+2023-02-22 23:25:32.614+0000 [id=27]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2023-02-22 23:25:32.951+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-02-22 23:25:32.954+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-02-22 23:25:34.291+0000 [id=45]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-02-22 23:25:34.297+0000 [id=33]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-02-22 23:25:34.305+0000 [id=37]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-02-22 23:25:34.565+0000 [id=39]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-02-22 23:25:34.566+0000 [id=39]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-02-22 23:25:34.566+0000 [id=39]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-02-22 23:25:34.568+0000 [id=39]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-02-22 23:25:34.596+0000 [id=60]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-22 23:25:35.087+0000 [id=40]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+333b0f5cf8e94fbb9a4a6132d1f47057
+
+This may also be found at: C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2023-02-22 23:26:00.952+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-02-22 23:26:00.977+0000 [id=26]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+2023-02-22 23:26:01.269+0000 [id=60]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-02-22 23:26:01.270+0000 [id=60]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-02-22 23:28:50.046+0000 [id=18]	INFO	hudson.PluginManager#install: Starting installation of a batch of 19 plugins plus their dependencies
+2023-02-22 23:28:50.049+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of ionicons-api for plugin cloudbees-folder
+2023-02-22 23:28:50.049+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of instance-identity for plugin ionicons-api
+2023-02-22 23:28:50.049+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of bouncycastle-api for plugin instance-identity
+2023-02-22 23:28:50.051+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of javax-mail-api for plugin bouncycastle-api
+2023-02-22 23:28:50.051+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of javax-activation-api for plugin javax-mail-api
+2023-02-22 23:28:50.053+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of javax-activation-api on behalf of admin
+2023-02-22 23:28:50.053+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of sshd for plugin antisamy-markup-formatter
+2023-02-22 23:28:50.054+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading javax-activation-api
+2023-02-22 23:28:50.054+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of mina-sshd-api-core for plugin sshd
+2023-02-22 23:28:50.055+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of mina-sshd-api-common for plugin mina-sshd-api-core
+2023-02-22 23:28:50.057+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of token-macro for plugin build-timeout
+2023-02-22 23:28:50.058+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of structs for plugin token-macro
+2023-02-22 23:28:50.059+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of credentials for plugin credentials-binding
+2023-02-22 23:28:50.060+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of ssh-credentials for plugin credentials-binding
+2023-02-22 23:28:50.061+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of trilead-api for plugin ssh-credentials
+2023-02-22 23:28:50.063+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-step-api for plugin credentials-binding
+2023-02-22 23:28:50.064+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of plain-credentials for plugin credentials-binding
+2023-02-22 23:28:50.066+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-api for plugin timestamper
+2023-02-22 23:28:50.066+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of scm-api for plugin workflow-api
+2023-02-22 23:28:50.068+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of commons-lang3-api for plugin timestamper
+2023-02-22 23:28:50.069+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of matrix-project for plugin ws-cleanup
+2023-02-22 23:28:50.070+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of script-security for plugin matrix-project
+2023-02-22 23:28:50.070+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of caffeine-api for plugin script-security
+2023-02-22 23:28:50.071+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of junit for plugin matrix-project
+2023-02-22 23:28:50.073+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jackson2-api for plugin junit
+2023-02-22 23:28:50.073+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jaxb for plugin jackson2-api
+2023-02-22 23:28:50.074+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of snakeyaml-api for plugin jackson2-api
+2023-02-22 23:28:50.074+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of bootstrap5-api for plugin junit
+2023-02-22 23:28:50.075+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of font-awesome-api for plugin bootstrap5-api
+2023-02-22 23:28:50.076+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of commons-text-api for plugin font-awesome-api
+2023-02-22 23:28:50.078+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of plugin-util-api for plugin font-awesome-api
+2023-02-22 23:28:50.081+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of popper2-api for plugin bootstrap5-api
+2023-02-22 23:28:50.082+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of echarts-api for plugin junit
+2023-02-22 23:28:50.083+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jquery3-api for plugin echarts-api
+2023-02-22 23:28:50.084+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of display-url-api for plugin junit
+2023-02-22 23:28:50.084+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of checks-api for plugin junit
+2023-02-22 23:28:50.086+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-support for plugin checks-api
+2023-02-22 23:28:50.087+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of resource-disposer for plugin ws-cleanup
+2023-02-22 23:28:50.089+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-cps for plugin gradle
+2023-02-22 23:28:50.089+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-scm-step for plugin workflow-cps
+2023-02-22 23:28:50.091+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-durable-task-step for plugin gradle
+2023-02-22 23:28:50.091+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of durable-task for plugin workflow-durable-task-step
+2023-02-22 23:28:50.092+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-job for plugin gradle
+2023-02-22 23:28:50.093+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-basic-steps for plugin gradle
+2023-02-22 23:28:50.093+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jakarta-mail-api for plugin workflow-basic-steps
+2023-02-22 23:28:50.094+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jakarta-activation-api for plugin jakarta-mail-api
+2023-02-22 23:28:50.094+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of apache-httpcomponents-client-4-api for plugin workflow-basic-steps
+2023-02-22 23:28:50.094+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of mailer for plugin workflow-basic-steps
+2023-02-22 23:28:50.098+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-milestone-step for plugin workflow-aggregator
+2023-02-22 23:28:50.099+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-build-step for plugin workflow-aggregator
+2023-02-22 23:28:50.102+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-groovy-lib for plugin workflow-aggregator
+2023-02-22 23:28:50.102+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of variant for plugin pipeline-groovy-lib
+2023-02-22 23:28:50.103+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-model-definition for plugin workflow-aggregator
+2023-02-22 23:28:50.104+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-model-extensions for plugin pipeline-model-definition
+2023-02-22 23:28:50.105+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-model-api for plugin pipeline-model-extensions
+2023-02-22 23:28:50.106+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-stage-step for plugin pipeline-model-extensions
+2023-02-22 23:28:50.106+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of workflow-multibranch for plugin pipeline-model-definition
+2023-02-22 23:28:50.108+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of branch-api for plugin workflow-multibranch
+2023-02-22 23:28:50.108+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-stage-tags-metadata for plugin pipeline-model-definition
+2023-02-22 23:28:50.109+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of git-client for plugin pipeline-model-definition
+2023-02-22 23:28:50.109+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-input-step for plugin pipeline-model-definition
+2023-02-22 23:28:50.110+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of jjwt-api for plugin github-branch-source
+2023-02-22 23:28:50.111+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of okhttp-api for plugin github-branch-source
+2023-02-22 23:28:50.113+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of github-api for plugin github-branch-source
+2023-02-22 23:28:50.114+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of github for plugin github-branch-source
+2023-02-22 23:28:50.115+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of git for plugin github
+2023-02-22 23:28:50.116+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-rest-api for plugin pipeline-stage-view
+2023-02-22 23:28:50.117+0000 [id=18]	INFO	hudson.model.UpdateSite$Plugin#deploy: Adding dependent install of pipeline-graph-analysis for plugin pipeline-rest-api
+2023-02-22 23:28:51.086+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: javax-activation-api
+2023-02-22 23:28:51.086+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of javax-mail-api on behalf of admin
+2023-02-22 23:28:51.087+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading javax-mail-api
+2023-02-22 23:28:52.225+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: javax-mail-api
+2023-02-22 23:28:52.225+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of bouncycastle-api on behalf of admin
+2023-02-22 23:28:52.225+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading bouncycastle-api
+2023-02-22 23:28:55.469+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: bouncycastle-api
+2023-02-22 23:28:55.469+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of instance-identity on behalf of admin
+2023-02-22 23:28:55.469+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading instance-identity
+2023-02-22 23:28:56.068+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: instance-identity
+2023-02-22 23:28:56.068+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ionicons-api on behalf of admin
+2023-02-22 23:28:56.068+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ionicons-api
+2023-02-22 23:28:56.679+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ionicons-api
+2023-02-22 23:28:56.679+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of cloudbees-folder on behalf of admin
+2023-02-22 23:28:56.679+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading cloudbees-folder
+2023-02-22 23:28:57.422+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: cloudbees-folder
+2023-02-22 23:28:57.423+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of mina-sshd-api-common on behalf of admin
+2023-02-22 23:28:57.423+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading mina-sshd-api-common
+2023-02-22 23:28:58.445+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: mina-sshd-api-common
+2023-02-22 23:28:58.445+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of mina-sshd-api-core on behalf of admin
+2023-02-22 23:28:58.447+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading mina-sshd-api-core
+2023-02-22 23:28:59.101+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: mina-sshd-api-core
+2023-02-22 23:28:59.101+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of sshd on behalf of admin
+2023-02-22 23:28:59.101+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading sshd
+2023-02-22 23:28:59.683+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: sshd
+2023-02-22 23:28:59.684+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of antisamy-markup-formatter on behalf of admin
+2023-02-22 23:28:59.684+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading antisamy-markup-formatter
+2023-02-22 23:29:00.182+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: antisamy-markup-formatter
+2023-02-22 23:29:00.182+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of structs on behalf of admin
+2023-02-22 23:29:00.182+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading structs
+2023-02-22 23:29:00.725+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: structs
+2023-02-22 23:29:00.725+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of token-macro on behalf of admin
+2023-02-22 23:29:00.725+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading token-macro
+2023-02-22 23:29:01.595+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: token-macro
+2023-02-22 23:29:01.595+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of build-timeout on behalf of admin
+2023-02-22 23:29:01.597+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading build-timeout
+2023-02-22 23:29:02.166+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: build-timeout
+2023-02-22 23:29:02.167+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of credentials on behalf of admin
+2023-02-22 23:29:02.167+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading credentials
+2023-02-22 23:29:02.995+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: credentials
+2023-02-22 23:29:02.995+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of trilead-api on behalf of admin
+2023-02-22 23:29:02.995+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading trilead-api
+2023-02-22 23:29:04.776+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: trilead-api
+2023-02-22 23:29:04.776+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ssh-credentials on behalf of admin
+2023-02-22 23:29:04.776+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ssh-credentials
+2023-02-22 23:29:05.296+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ssh-credentials
+2023-02-22 23:29:05.296+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-step-api on behalf of admin
+2023-02-22 23:29:05.296+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-step-api
+2023-02-22 23:29:05.870+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-step-api
+2023-02-22 23:29:05.871+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of plain-credentials on behalf of admin
+2023-02-22 23:29:05.871+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading plain-credentials
+2023-02-22 23:29:06.600+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: plain-credentials
+2023-02-22 23:29:06.600+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of credentials-binding on behalf of admin
+2023-02-22 23:29:06.602+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading credentials-binding
+2023-02-22 23:29:07.180+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: credentials-binding
+2023-02-22 23:29:07.180+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of scm-api on behalf of admin
+2023-02-22 23:29:07.180+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading scm-api
+2023-02-22 23:29:07.847+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: scm-api
+2023-02-22 23:29:07.847+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-api on behalf of admin
+2023-02-22 23:29:07.847+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-api
+2023-02-22 23:29:08.422+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-api
+2023-02-22 23:29:08.422+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of commons-lang3-api on behalf of admin
+2023-02-22 23:29:08.422+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading commons-lang3-api
+2023-02-22 23:29:09.285+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: commons-lang3-api
+2023-02-22 23:29:09.286+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of timestamper on behalf of admin
+2023-02-22 23:29:09.286+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading timestamper
+2023-02-22 23:29:09.849+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: timestamper
+2023-02-22 23:29:09.849+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of caffeine-api on behalf of admin
+2023-02-22 23:29:09.850+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading caffeine-api
+2023-02-22 23:29:10.727+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: caffeine-api
+2023-02-22 23:29:10.727+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of script-security on behalf of admin
+2023-02-22 23:29:10.728+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading script-security
+2023-02-22 23:29:11.405+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: script-security
+2023-02-22 23:29:11.405+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jaxb on behalf of admin
+2023-02-22 23:29:11.407+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jaxb
+2023-02-22 23:29:12.115+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jaxb
+2023-02-22 23:29:12.115+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of snakeyaml-api on behalf of admin
+2023-02-22 23:29:12.116+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading snakeyaml-api
+2023-02-22 23:29:12.631+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: snakeyaml-api
+2023-02-22 23:29:12.631+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jackson2-api on behalf of admin
+2023-02-22 23:29:12.632+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jackson2-api
+2023-02-22 23:29:15.660+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jackson2-api
+2023-02-22 23:29:15.660+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of commons-text-api on behalf of admin
+2023-02-22 23:29:15.660+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading commons-text-api
+2023-02-22 23:29:16.296+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: commons-text-api
+2023-02-22 23:29:16.296+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of plugin-util-api on behalf of admin
+2023-02-22 23:29:16.296+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading plugin-util-api
+2023-02-22 23:29:17.111+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: plugin-util-api
+2023-02-22 23:29:17.111+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of font-awesome-api on behalf of admin
+2023-02-22 23:29:17.111+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading font-awesome-api
+2023-02-22 23:29:18.871+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: font-awesome-api
+2023-02-22 23:29:18.871+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of popper2-api on behalf of admin
+2023-02-22 23:29:18.871+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading popper2-api
+2023-02-22 23:29:19.607+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: popper2-api
+2023-02-22 23:29:19.607+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of bootstrap5-api on behalf of admin
+2023-02-22 23:29:19.607+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading bootstrap5-api
+2023-02-22 23:29:20.475+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: bootstrap5-api
+2023-02-22 23:29:20.475+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jquery3-api on behalf of admin
+2023-02-22 23:29:20.475+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jquery3-api
+2023-02-22 23:29:21.348+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jquery3-api
+2023-02-22 23:29:21.350+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of echarts-api on behalf of admin
+2023-02-22 23:29:21.350+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading echarts-api
+2023-02-22 23:29:24.651+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: echarts-api
+2023-02-22 23:29:24.651+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of display-url-api on behalf of admin
+2023-02-22 23:29:24.651+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading display-url-api
+2023-02-22 23:29:25.323+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: display-url-api
+2023-02-22 23:29:25.323+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-support on behalf of admin
+2023-02-22 23:29:25.323+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-support
+2023-02-22 23:29:26.074+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-support
+2023-02-22 23:29:26.074+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of checks-api on behalf of admin
+2023-02-22 23:29:26.074+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading checks-api
+2023-02-22 23:29:26.600+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: checks-api
+2023-02-22 23:29:26.601+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of junit on behalf of admin
+2023-02-22 23:29:26.601+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading junit
+2023-02-22 23:29:27.234+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: junit
+2023-02-22 23:29:27.234+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of matrix-project on behalf of admin
+2023-02-22 23:29:27.234+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading matrix-project
+2023-02-22 23:29:27.874+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: matrix-project
+2023-02-22 23:29:27.876+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of resource-disposer on behalf of admin
+2023-02-22 23:29:27.876+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading resource-disposer
+2023-02-22 23:29:28.397+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: resource-disposer
+2023-02-22 23:29:28.397+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ws-cleanup on behalf of admin
+2023-02-22 23:29:28.398+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ws-cleanup
+2023-02-22 23:29:29.016+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ws-cleanup
+2023-02-22 23:29:29.016+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ant on behalf of admin
+2023-02-22 23:29:29.016+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ant
+2023-02-22 23:29:29.669+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ant
+2023-02-22 23:29:29.669+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-scm-step on behalf of admin
+2023-02-22 23:29:29.669+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-scm-step
+2023-02-22 23:29:30.289+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-scm-step
+2023-02-22 23:29:30.289+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-cps on behalf of admin
+2023-02-22 23:29:30.289+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-cps
+2023-02-22 23:29:31.299+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-cps
+2023-02-22 23:29:31.299+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of durable-task on behalf of admin
+2023-02-22 23:29:31.299+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading durable-task
+2023-02-22 23:29:35.919+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: durable-task
+2023-02-22 23:29:35.921+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-durable-task-step on behalf of admin
+2023-02-22 23:29:35.921+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-durable-task-step
+2023-02-22 23:29:36.598+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-durable-task-step
+2023-02-22 23:29:36.598+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-job on behalf of admin
+2023-02-22 23:29:36.598+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-job
+2023-02-22 23:29:37.171+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-job
+2023-02-22 23:29:37.171+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jakarta-activation-api on behalf of admin
+2023-02-22 23:29:37.172+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jakarta-activation-api
+2023-02-22 23:29:37.666+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jakarta-activation-api
+2023-02-22 23:29:37.666+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jakarta-mail-api on behalf of admin
+2023-02-22 23:29:37.667+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jakarta-mail-api
+2023-02-22 23:29:38.423+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jakarta-mail-api
+2023-02-22 23:29:38.423+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of apache-httpcomponents-client-4-api on behalf of admin
+2023-02-22 23:29:38.423+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading apache-httpcomponents-client-4-api
+2023-02-22 23:29:39.682+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: apache-httpcomponents-client-4-api
+2023-02-22 23:29:39.682+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of mailer on behalf of admin
+2023-02-22 23:29:39.684+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading mailer
+2023-02-22 23:29:40.268+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: mailer
+2023-02-22 23:29:40.268+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-basic-steps on behalf of admin
+2023-02-22 23:29:40.268+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-basic-steps
+2023-02-22 23:29:40.778+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-basic-steps
+2023-02-22 23:29:40.778+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of gradle on behalf of admin
+2023-02-22 23:29:40.778+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading gradle
+2023-02-22 23:29:47.973+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: gradle
+2023-02-22 23:29:47.973+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-milestone-step on behalf of admin
+2023-02-22 23:29:47.973+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-milestone-step
+2023-02-22 23:29:48.512+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-milestone-step
+2023-02-22 23:29:48.512+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-build-step on behalf of admin
+2023-02-22 23:29:48.512+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-build-step
+2023-02-22 23:29:49.104+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-build-step
+2023-02-22 23:29:49.104+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of variant on behalf of admin
+2023-02-22 23:29:49.104+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading variant
+2023-02-22 23:29:49.721+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: variant
+2023-02-22 23:29:49.722+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-groovy-lib on behalf of admin
+2023-02-22 23:29:49.722+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-groovy-lib
+2023-02-22 23:29:51.184+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-groovy-lib
+2023-02-22 23:29:51.185+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-model-api on behalf of admin
+2023-02-22 23:29:51.185+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-model-api
+2023-02-22 23:29:52.254+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-model-api
+2023-02-22 23:29:52.254+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-stage-step on behalf of admin
+2023-02-22 23:29:52.254+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-stage-step
+2023-02-22 23:29:52.932+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-stage-step
+2023-02-22 23:29:52.934+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-model-extensions on behalf of admin
+2023-02-22 23:29:52.934+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-model-extensions
+2023-02-22 23:29:53.632+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-model-extensions
+2023-02-22 23:29:53.632+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of branch-api on behalf of admin
+2023-02-22 23:29:53.632+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading branch-api
+2023-02-22 23:29:54.249+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: branch-api
+2023-02-22 23:29:54.249+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-multibranch on behalf of admin
+2023-02-22 23:29:54.250+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-multibranch
+2023-02-22 23:29:54.900+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-multibranch
+2023-02-22 23:29:54.900+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-stage-tags-metadata on behalf of admin
+2023-02-22 23:29:54.900+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-stage-tags-metadata
+2023-02-22 23:29:55.404+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-stage-tags-metadata
+2023-02-22 23:29:55.404+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of git-client on behalf of admin
+2023-02-22 23:29:55.404+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading git-client
+2023-02-22 23:29:56.696+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: git-client
+2023-02-22 23:29:56.697+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-input-step on behalf of admin
+2023-02-22 23:29:56.697+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-input-step
+2023-02-22 23:29:57.173+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-input-step
+2023-02-22 23:29:57.173+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-model-definition on behalf of admin
+2023-02-22 23:29:57.174+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-model-definition
+2023-02-22 23:29:58.367+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-model-definition
+2023-02-22 23:29:58.367+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of workflow-aggregator on behalf of admin
+2023-02-22 23:29:58.367+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading workflow-aggregator
+2023-02-22 23:29:58.876+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: workflow-aggregator
+2023-02-22 23:29:58.876+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of jjwt-api on behalf of admin
+2023-02-22 23:29:58.876+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading jjwt-api
+2023-02-22 23:29:59.534+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: jjwt-api
+2023-02-22 23:29:59.534+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of okhttp-api on behalf of admin
+2023-02-22 23:29:59.534+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading okhttp-api
+2023-02-22 23:30:00.940+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: okhttp-api
+2023-02-22 23:30:00.940+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of github-api on behalf of admin
+2023-02-22 23:30:00.940+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading github-api
+2023-02-22 23:30:01.602+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: github-api
+2023-02-22 23:30:01.602+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of git on behalf of admin
+2023-02-22 23:30:01.602+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading git
+2023-02-22 23:30:02.291+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: git
+2023-02-22 23:30:02.291+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of github on behalf of admin
+2023-02-22 23:30:02.292+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading github
+2023-02-22 23:30:02.818+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: github
+2023-02-22 23:30:02.819+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of github-branch-source on behalf of admin
+2023-02-22 23:30:02.819+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading github-branch-source
+2023-02-22 23:30:03.473+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: github-branch-source
+2023-02-22 23:30:03.474+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-github-lib on behalf of admin
+2023-02-22 23:30:03.474+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-github-lib
+2023-02-22 23:30:03.969+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-github-lib
+2023-02-22 23:30:03.970+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-graph-analysis on behalf of admin
+2023-02-22 23:30:03.970+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-graph-analysis
+2023-02-22 23:30:04.498+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-graph-analysis
+2023-02-22 23:30:04.499+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-rest-api on behalf of admin
+2023-02-22 23:30:04.499+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-rest-api
+2023-02-22 23:30:05.101+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-rest-api
+2023-02-22 23:30:05.101+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pipeline-stage-view on behalf of admin
+2023-02-22 23:30:05.102+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pipeline-stage-view
+2023-02-22 23:30:05.924+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pipeline-stage-view
+2023-02-22 23:30:05.924+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of git on behalf of admin
+2023-02-22 23:30:05.925+0000 [id=98]	INFO	h.m.UpdateCenter$InstallationJob#_run: Skipping duplicate install of: Git@5.0.0
+2023-02-22 23:30:05.925+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: git
+2023-02-22 23:30:05.925+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ssh-slaves on behalf of admin
+2023-02-22 23:30:05.925+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ssh-slaves
+2023-02-22 23:30:06.533+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ssh-slaves
+2023-02-22 23:30:06.533+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of matrix-auth on behalf of admin
+2023-02-22 23:30:06.533+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading matrix-auth
+2023-02-22 23:30:07.069+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: matrix-auth
+2023-02-22 23:30:07.069+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of pam-auth on behalf of admin
+2023-02-22 23:30:07.069+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading pam-auth
+2023-02-22 23:30:07.651+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: pam-auth
+2023-02-22 23:30:07.651+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of ldap on behalf of admin
+2023-02-22 23:30:07.651+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading ldap
+2023-02-22 23:30:09.208+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: ldap
+2023-02-22 23:30:09.208+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of email-ext on behalf of admin
+2023-02-22 23:30:09.208+0000 [id=98]	INFO	h.m.UpdateCenter$UpdateCenterConfiguration#download: Downloading email-ext
+2023-02-22 23:30:10.570+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: email-ext
+2023-02-22 23:30:10.570+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Starting the installation of mailer on behalf of admin
+2023-02-22 23:30:10.570+0000 [id=98]	INFO	h.m.UpdateCenter$InstallationJob#_run: Skipping duplicate install of: Mailer@448.v5b_97805e3767
+2023-02-22 23:30:10.570+0000 [id=98]	INFO	h.model.UpdateCenter$DownloadJob#run: Installation successful: mailer
+2023-02-22 23:30:10.570+0000 [id=98]	INFO	h.m.UpdateCenter$CompleteBatchJob#run: Completing installing of plugin batch…
+2023-02-22 23:30:13.516+0000 [id=98]	INFO	h.p.b.g.GlobalTimeOutConfiguration#load: global timeout not set
+2023-02-22 23:30:13.886+0000 [id=98]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-02-22 23:30:14.263+0000 [id=98]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-02-22 23:30:14.812+0000 [id=284]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-02-22 23:30:14.815+0000 [id=294]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-02-22 23:30:14.816+0000 [id=298]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-02-22 23:30:14.827+0000 [id=289]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-02-22 23:30:14.830+0000 [id=289]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-02-22 23:30:14.830+0000 [id=292]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-02-22 23:30:14.831+0000 [id=292]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-02-22 23:30:14.868+0000 [id=287]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-02-22 23:30:14.869+0000 [id=289]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-02-22 23:30:15.232+0000 [id=298]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-02-22 23:30:15.235+0000 [id=98]	INFO	h.m.UpdateCenter$CompleteBatchJob#run: Completed installation of 83 plugins in 1 min 25 sec
+2023-02-23 02:02:12.686+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 06:07:04.797+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 06:07:04.797+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 08:22:46.710+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 11:54:36.508+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 11:54:36.524+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.276+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.278+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.279+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.280+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.281+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.282+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.283+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.283+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 22:06:18.286+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-23 23:59:11.808+0000 [id=658]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: Found invalid crumb b6ba76b0ef9e777766ddae429c08cb0e9da30d5ebfcc0f267c146bdab01196bc. If you are calling this URL with a script, please use the API Token instead. More information: https://www.jenkins.io/redirect/crumb-cannot-be-used-for-script
+2023-02-23 23:59:11.811+0000 [id=658]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: No valid crumb was included in request for /ajaxExecutors by nicoleliano. Returning 403.
+2023-02-23 23:59:11.808+0000 [id=577]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: Found invalid crumb b6ba76b0ef9e777766ddae429c08cb0e9da30d5ebfcc0f267c146bdab01196bc. If you are calling this URL with a script, please use the API Token instead. More information: https://www.jenkins.io/redirect/crumb-cannot-be-used-for-script
+2023-02-23 23:59:11.814+0000 [id=577]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: No valid crumb was included in request for /ajaxBuildQueue by nicoleliano. Returning 403.
+2023-02-24 00:07:36.119+0000 [id=669]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: Found invalid crumb b6ba76b0ef9e777766ddae429c08cb0e9da30d5ebfcc0f267c146bdab01196bc. If you are calling this URL with a script, please use the API Token instead. More information: https://www.jenkins.io/redirect/crumb-cannot-be-used-for-script
+2023-02-24 00:07:36.120+0000 [id=669]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: No valid crumb was included in request for /ajaxBuildQueue by nicoleliano. Returning 403.
+2023-02-24 00:07:36.119+0000 [id=655]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: Found invalid crumb b6ba76b0ef9e777766ddae429c08cb0e9da30d5ebfcc0f267c146bdab01196bc. If you are calling this URL with a script, please use the API Token instead. More information: https://www.jenkins.io/redirect/crumb-cannot-be-used-for-script
+2023-02-24 00:07:36.122+0000 [id=655]	WARNING	hudson.security.csrf.CrumbFilter#doFilter: No valid crumb was included in request for /ajaxExecutors by nicoleliano. Returning 403.
+2023-02-24 06:32:58.170+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:26.403+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.178+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.182+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.184+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.184+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.185+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.193+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.195+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.196+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.198+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.198+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.198+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.201+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.202+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.209+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.209+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.209+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.210+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.210+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:27.210+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 02:50:28.301+0000 [id=754]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-25 02:50:28.728+0000 [id=754]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-25 02:50:28.757+0000 [id=754]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-02-25 02:50:28.931+0000 [id=754]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-02-25 02:50:28.933+0000 [id=754]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-02-25 06:36:45.523+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.013+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.013+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.020+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.020+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.020+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.020+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.020+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.029+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.029+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.029+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.037+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.053+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.062+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-25 22:09:15.062+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 00:14:36.553+0000 [id=815]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-26 00:14:37.003+0000 [id=815]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-26 00:14:37.057+0000 [id=815]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-02-26 00:14:37.073+0000 [id=815]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-02-26 00:14:37.073+0000 [id=815]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-02-26 06:12:19.523+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 06:12:19.547+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.445+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.445+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.445+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.453+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.453+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.453+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.453+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 14:59:37.453+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 17:59:51.394+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 17:59:51.397+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 22:35:32.597+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 22:35:32.605+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 22:35:32.605+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-26 23:25:07.056+0000 [id=914]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-26 23:25:29.541+0000 [id=914]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-02-26 23:25:30.054+0000 [id=914]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-02-26 23:25:30.655+0000 [id=914]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-02-26 23:25:30.656+0000 [id=914]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-02-27 04:48:36.234+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 04:48:36.708+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.964+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.965+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.965+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.965+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.965+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.966+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.967+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.967+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.967+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.968+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-02-27 23:41:39.976+0000 [id=974]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-27 23:41:39.982+0000 [id=974]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:41:39.985+0000 [id=974]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-02-27 23:41:39.989+0000 [id=974]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-02-27 23:41:39.989+0000 [id=974]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-02-28 06:30:01.693+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.102+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.123+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.123+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.124+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.125+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.125+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.126+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.155+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.169+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.173+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.177+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.178+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.179+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.179+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.182+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.183+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:34.734+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-01 00:16:35.131+0000 [id=1046]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-01 00:16:35.182+0000 [id=1046]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-01 00:16:35.189+0000 [id=1046]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-01 00:16:35.193+0000 [id=1046]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-01 00:16:35.193+0000 [id=1046]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-01 06:10:00.091+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.877+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.879+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.879+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.879+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.879+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.879+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.882+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.882+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.882+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.885+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.885+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:28.885+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:29.091+0000 [id=1111]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-02 01:21:29.235+0000 [id=1111]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-02 01:21:29.280+0000 [id=1111]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-02 01:21:29.386+0000 [id=1111]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-02 01:21:29.386+0000 [id=1111]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-02 01:21:29.092+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:31.226+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:31.228+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 01:21:31.228+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 06:00:59.021+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.443+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.458+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.460+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:04:48.461+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-02 23:24:50.220+0000 [id=1181]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-02 23:25:04.338+0000 [id=1181]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-03-02 23:25:04.556+0000 [id=1181]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-03-02 23:25:04.947+0000 [id=1181]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-03-02 23:25:04.947+0000 [id=1181]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-03-03 06:42:58.055+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 06:42:58.141+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.561+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.563+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.563+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.563+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.563+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.564+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.565+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.565+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.565+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.566+0000 [id=31]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.566+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.566+0000 [id=58]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 21:31:49.567+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-03 23:24:47.072+0000 [id=1282]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-03-03 23:24:47.395+0000 [id=1282]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-03-03 23:24:47.919+0000 [id=1282]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-03-04 05:19:19.162+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.580+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.584+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.903+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.911+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.911+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.911+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.911+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-05 19:07:53.805+0000 [id=1337]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-05 19:07:53.903+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: LibraryCachingCleanup thread is still running. Execution aborted.
+2023-03-05 19:07:54.311+0000 [id=1337]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-05 19:07:54.359+0000 [id=1337]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-05 19:07:54.367+0000 [id=1337]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-05 19:07:54.367+0000 [id=1337]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-05 23:24:41.677+0000 [id=1409]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-05 23:24:55.893+0000 [id=1409]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-03-05 23:24:56.143+0000 [id=1409]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-03-05 23:24:56.424+0000 [id=1409]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-03-05 23:24:56.424+0000 [id=1409]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-03-06 03:46:41.958+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.321+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.932+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:33.943+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:34.135+0000 [id=49]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:34.300+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:34.300+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:34.300+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 01:39:34.311+0000 [id=1459]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-07 01:39:34.352+0000 [id=1459]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-07 01:39:34.362+0000 [id=1459]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-07 01:39:34.366+0000 [id=1459]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-07 01:39:34.366+0000 [id=1459]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-07 06:19:52.108+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.534+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.536+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.537+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.537+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.538+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.564+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.698+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.841+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 22:49:22.842+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-07 23:24:32.684+0000 [id=1522]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-07 23:24:41.542+0000 [id=1522]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-03-07 23:24:41.748+0000 [id=1522]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-03-07 23:24:42.004+0000 [id=1522]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-03-07 23:24:42.004+0000 [id=1522]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-03-08 04:13:40.990+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.230+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.770+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.770+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.770+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.770+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.770+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.773+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.803+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.804+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.804+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.804+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.804+0000 [id=55]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 01:15:45.836+0000 [id=1566]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-09 01:15:46.034+0000 [id=1566]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-09 01:15:46.054+0000 [id=1566]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-09 01:15:46.074+0000 [id=1566]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-09 01:15:46.074+0000 [id=1566]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-09 05:43:46.231+0000 [id=56]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.740+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.741+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.849+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.854+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.855+0000 [id=1613]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-09 23:34:57.855+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.874+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.878+0000 [id=59]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.879+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.926+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.926+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-09 23:34:57.962+0000 [id=1613]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.UnknownHostException: updates.jenkins.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:219)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:214)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2068)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2039)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-09 23:34:58.006+0000 [id=1613]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'updates.jenkins.io' at the attempt #1 to do the action check updates server
+2023-03-09 23:34:58.011+0000 [id=1613]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-03-09 23:34:58.011+0000 [id=1613]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: UnknownHostException: updates.jenkins.io
+2023-03-10 06:05:01.485+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 06:05:01.555+0000 [id=54]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 21:21:57.565+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-10 23:24:21.981+0000 [id=1699]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-03-10 23:24:35.683+0000 [id=1699]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-03-10 23:24:35.920+0000 [id=1699]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2023-03-10 23:24:36.236+0000 [id=1699]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2023-03-10 23:24:36.237+0000 [id=1699]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2023-03-11 02:05:37.115+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
