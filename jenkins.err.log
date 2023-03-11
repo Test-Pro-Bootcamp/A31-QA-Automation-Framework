@@ -975,3 +975,11 @@ java.net.UnknownHostException: updates.jenkins.io
 2023-03-10 23:24:36.236+0000 [id=1699]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
 2023-03-10 23:24:36.237+0000 [id=1699]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
 2023-03-11 02:05:37.115+0000 [id=48]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 06:07:06.114+0000 [id=57]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.521+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
+2023-03-11 13:56:57.527+0000 [id=53]	INFO	hudson.model.AsyncPeriodicWork#doRun: Periodic background build discarder thread is still running. Execution aborted.
