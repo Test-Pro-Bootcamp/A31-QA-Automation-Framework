@@ -1,0 +1,16 @@
+2023-02-22 18:25:27,158 DEBUG - Starting WinSW in the service mode
+2023-02-22 18:25:27,276 INFO  - Starting C:\Program Files\Java\jdk-17\\bin\java.exe -Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Users\nicol\OneDrive\Desktop\A31-QA-Automation-Framework\jenkins.war" --httpPort=8080 --webroot="C:\ProgramData\Jenkins\war"
+2023-02-22 18:25:27,290 INFO  - Extension loaded: killOnStartup
+2023-02-22 18:25:27,297 WARN  - The requested PID file 'C:\ProgramData\Jenkins\jenkins.pid' does not exist. The runaway process won't be checked
+2023-02-22 18:25:27,360 INFO  - Started process 28956
+2023-02-22 18:25:27,370 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2023-02-22 18:25:27,374 INFO  - Recording PID of the started process:28956. PID file destination is C:\ProgramData\Jenkins\jenkins.pid
+2023-02-22 18:25:27,380 ERROR - Cannot update the PID file C:\ProgramData\Jenkins\jenkins.pid
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\ProgramData\Jenkins\jenkins.pid'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.File.InternalWriteAllText(String path, String contents, Encoding encoding, Boolean checkHost)
+   at winsw.Plugins.RunawayProcessKiller.RunawayProcessKillerExtension.OnProcessStarted(Process process)

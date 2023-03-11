@@ -24,7 +24,7 @@ import java.util.UUID;
 public class BaseTest {
 
     WebDriver driver;
-    String url;
+    String url = "https://bbb.testpro.io/";;
     WebDriverWait wait;
     ThreadLocal<WebDriver> threadDriver;
 
