@@ -6,17 +6,17 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
     @Test(dataProvider = "IncorrectLoginProvider", dataProviderClass = BaseTest.class)
     public void loginEmptyEmailPasswordTest (String email, String password) {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.login(email, password);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test
     public void loginValidEmailValidPasswordTest (){
 
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");
@@ -29,13 +29,13 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginInvalidEmailValidPasswordTest() {
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.provideEmail("invalid@class.com");
         loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmitBtn();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
 }

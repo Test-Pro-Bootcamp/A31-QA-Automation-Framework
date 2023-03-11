@@ -26,8 +26,8 @@ public class BaseTest {
     WebDriver driver;
     String url;
     WebDriverWait wait;
-    Actions actions;
     ThreadLocal<WebDriver> threadDriver;
+
 
 
     @BeforeSuite
@@ -42,9 +42,10 @@ public class BaseTest {
         driver = pickBrowser(System.getProperty("browser"));
 
         threadDriver = new ThreadLocal<>();
-        threadDriver.set(driver);
+        threadDriver.set(getDriver());
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
         url = BaseURL;
         driver.get(url);
     }
@@ -85,7 +86,7 @@ public class BaseTest {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
-        return driver;
+        return getDriver();
     }
 
     public WebDriver lambdaTest() throws MalformedURLException {
@@ -116,7 +117,7 @@ public class BaseTest {
 
     @AfterMethod
     public void closeBrowser() {
-        driver.quit();
+        getDriver().quit();
         threadDriver.remove();
     }
 
