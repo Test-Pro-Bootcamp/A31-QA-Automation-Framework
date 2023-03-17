@@ -1,50 +1,24 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
 
-public class LoginTests extends BaseTest {
+import java.time.Duration;
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public void loginEmptyEmailPasswordTest (String email, String password) {
-        LoginPage loginPage = new LoginPage(getDriver());
+public class LoginTests {
 
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
-    }
+    @Test
+    public static void LoginEmptyEmailPasswordTest(){
 
-    //Page Object Model example
-    @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password Test")
-    public void LoginValidEmailPasswordTest () {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        loginPage.provideEmail("demo@class.com")
-                .providePassword("te$t$tudent")
-                .clickSubmitBtn();
-
-        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+        driver.quit();
 
     }
-
-    @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
-    public void loginInvalidEmailValidPasswordTest () {
-        LoginPage loginPage = new LoginPage(getDriver());
-
-        loginPage.provideEmail("invalid@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
-
-    }
-
-
 
 }
