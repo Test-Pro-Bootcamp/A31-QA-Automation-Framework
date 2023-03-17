@@ -2,8 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNG">
-
-
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="LoginTests" />
