@@ -1,50 +1,80 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
 
-public class LoginTests extends BaseTest {
+import java.time.Duration;
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public void loginEmptyEmailPasswordTest (String email, String password) {
-        LoginPage loginPage = new LoginPage(getDriver());
+public class LoginTests {
 
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
-    }
+    @Test
+    public static void LoginEmptyEmailPasswordTest(){
 
-    //Page Object Model example
-    @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password Test")
-    public void LoginValidEmailPasswordTest () {
+        WebDriver driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        loginPage.provideEmail("demo@class.com")
-                .providePassword("te$t$tudent")
-                .clickSubmitBtn();
-
-        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+        driver.quit();
 
     }
 
-    @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
-    public void loginInvalidEmailValidPasswordTest () {
-        LoginPage loginPage = new LoginPage(getDriver());
+    @Test
+    public static void LoginValidEmailPasswordTest() throws InterruptedException {
 
-        loginPage.provideEmail("invalid@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
+        WebDriver driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.sendKeys("demo@class.com");
+
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.sendKeys("te$t$tudent");
+
+        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        submitButton.click();
+
+        Thread.sleep(2000);
+
+        WebElement avatarIcon = driver.findElement(By.className("avatar"));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+
+        driver.quit();
 
     }
 
+    @Test
+    public static void LoginInvalidEmail(){
 
+        WebDriver driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        String url = "https://bbb.testpro.io/";
+        driver.get(url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.sendKeys("demoinvalid@class.com");
+
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
+        passwordField.sendKeys("te$t$tudent");
+
+        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        loginButton.click();
+
+        Assert.assertTrue(emailField.isDisplayed());
+
+        driver.quit();
+
+    }
 
 }
