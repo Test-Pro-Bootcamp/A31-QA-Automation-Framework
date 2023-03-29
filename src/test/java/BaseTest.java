@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,8 +28,18 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
+    public  void launchBrowser(String BaseURL) {
+    //czar told to add these 3 lines to fix websocket error
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments ("--remote-allow-origins=*");
+            driver = new ChromeDriver(options);
+
+    //czar told to add this line to maximize Chrome window size so all the elements are visible
+        driver.manage().window().maximize();
+
+        //I removed this line after adding Czars 3 lines
+        // LoginTests.driver = new ChromeDriver();
+
 //        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         driver.get(url);

@@ -11,9 +11,10 @@ public class Homework19 extends BaseTest {
 
     @Test
     public void DeletePlaylistTest() throws InterruptedException {
+       //Don't forget tot delete "test playlist" in your Koel account before running this test. Otherwise it will fail.
         String playlistName = "test playlist";
 
-        login("demo@class.com", "te$t$tudent");
+        login("zyabruk@gmail.com", "te$t$tudent");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@title='Create a new playlist']"))).click();
 
         WebElement newPlaylist = driver.findElement(By.xpath("//li[text()='New Playlist']"));
