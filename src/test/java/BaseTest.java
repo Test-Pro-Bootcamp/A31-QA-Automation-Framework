@@ -3,7 +3,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -19,6 +21,7 @@ public class BaseTest {
     public static String url = null;
     public static WebDriverWait wait = null;
     public static FluentWait fluentWait = null;
+    public static Actions actions = null;
 
     @BeforeSuite
     static void setupClass() {
@@ -26,14 +29,22 @@ public class BaseTest {
     }
 
     @BeforeMethod
+
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
-        LoginTests.driver = new ChromeDriver();
-//        LoginTests.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments ("--remote-allow-origins=*");
+        LoginTests.driver = new ChromeDriver(options);
+
+        driver.manage().window().maximize();
+
         url = BaseURL;
         driver.get(url);
         wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
+        actions = new Actions(driver);
     }
+
 
     @AfterMethod
     public static void closeBrowser(){
