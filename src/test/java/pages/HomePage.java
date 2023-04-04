@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean doesPlaylistExist(String playlistName) {
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + playlistName + "']")));
         WebElement playlistElement = driver.findElement(By.xpath("//a[text()='" + playlistName + "']"));
         return playlistElement.isDisplayed();
     }

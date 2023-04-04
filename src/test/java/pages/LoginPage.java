@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
@@ -16,15 +17,18 @@ public class LoginPage extends BasePage {
     }
 
     public void clickSubmitBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(submitButtonLocator));
         driver.findElement(submitButtonLocator).click();
     }
 
     public void provideEmail(String email) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
         WebElement emailElement = driver.findElement(emailField);
         emailElement.sendKeys(email);
     }
 
     public void providePassword(String password) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         WebElement passwordElement = driver.findElement(passwordField);
         passwordElement.sendKeys(password);
 

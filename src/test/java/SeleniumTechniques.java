@@ -73,7 +73,7 @@ public class SeleniumTechniques extends BaseTest {
     }
 
     public void doubleClickChoosePlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playlist:nth-child(3)")));
         WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
         actions.doubleClick(playlistElement).perform();
     }

@@ -13,8 +13,10 @@ public class Homework22 extends BaseTest {
         HomePage homePage = new HomePage(driver);
 
         loginPage.logIn();
+        //Thread.sleep(1000);
         homePage.doubleClickFirstPlaylist();
         homePage.enterPlaylistName(playlistName);
+        //Thread.sleep(1000);
         Assert.assertTrue(homePage.doesPlaylistExist(playlistName));
 
     }
