@@ -11,8 +11,8 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    public WebDriver driver;
+    public WebDriverWait wait;
     Actions actions;
 
     public BasePage( WebDriver givenDriver) {
@@ -33,8 +33,9 @@ public class BasePage {
         actions.contextClick(findElement(locator)).perform();
     }
 
-    public void doubleClick (By locator) {
-        actions.doubleClick(findElement(locator)).perform();
+    public void doubleClick (WebElement locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        actions.doubleClick(locator).perform();
     }
 
 }

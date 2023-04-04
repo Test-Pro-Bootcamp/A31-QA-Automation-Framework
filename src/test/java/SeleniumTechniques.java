@@ -79,7 +79,7 @@ public class SeleniumTechniques extends BaseTest {
     }
 
     public void choosePlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playlist:nth-child(3)"))).click();
     }
     public void enterPlaylistName() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name='name']")));

@@ -6,7 +6,7 @@
 
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="SeleniumTechniques" />
+            <class name="Homework22" />
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
         </classes>

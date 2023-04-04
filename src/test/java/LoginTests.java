@@ -8,7 +8,7 @@ import pages.LoginPage;
 public class LoginTests extends BaseTest {
 
     //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    @Test(enabled = true, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
     public static void loginEmptyEmailPasswordTest (String email, String password) {
 
         login(email, password);
@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest {
     }
 
     //Page Object Model example
-    @Test
+    @Test (enabled = true)
     public void LoginValidEmailPasswordTest () {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -33,9 +33,12 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, priority = 2, description = "LoginInvalidEmailValidPasswordTest")
     public static void loginInvalidEmailValidPasswordTest () {
 
+        LoginPage loginPage = new LoginPage(driver);
+        //HomePage homePage = new HomePage(driver);
+
         provideEmail("invalid@class.com");
         providePassword("te$t$tudent");
-        clickSubmit();
+        loginPage.clickSubmitBtn();
 
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
