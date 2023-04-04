@@ -5,7 +5,7 @@ import pages.LoginPage;
 
 public class Homework22 extends BaseTest {
     @Test
-    public void renamePlaylist() throws InterruptedException {
+    public void renamePlaylist() {
 
         String playlistName = ("Test Pro Rockstars");
 
@@ -13,10 +13,10 @@ public class Homework22 extends BaseTest {
         HomePage homePage = new HomePage(driver);
 
         loginPage.logIn();
-        //Thread.sleep(1000);
+
         homePage.doubleClickFirstPlaylist();
         homePage.enterPlaylistName(playlistName);
-        //Thread.sleep(1000);
+
         Assert.assertTrue(homePage.doesPlaylistExist(playlistName));
 
     }
