@@ -37,6 +37,9 @@ public class BaseTest {
         options.addArguments ("--remote-allow-origins=*");
         LoginTests.driver = new ChromeDriver(options);
 
+        //added this line to fix the issue of test shutting dow right after entering login/password
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         driver.manage().window().maximize();
 
         url = BaseURL;
