@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HomePage extends BasePage {
 
     By userAvatarIcon = By.cssSelector("img.avatar");
-    By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
-    By playlistInputField = By.cssSelector("input[name='name']");
+    private By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
+    private By playlistInputField = By.cssSelector("input[name='name']");
     public HomePage( WebDriver givenDriver) {
         super(givenDriver);
     }
