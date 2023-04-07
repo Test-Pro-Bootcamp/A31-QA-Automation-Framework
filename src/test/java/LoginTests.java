@@ -21,11 +21,11 @@ public class LoginTests extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-
+        //Fluid interface
+        loginPage.provideEmail("demo@class.com").providePassword("te$t$tudent").clickSubmitBtn();
+//        loginPage.provideEmail("demo@class.com");
+//        loginPage.providePassword("te$t$tudent");
+//        loginPage.clickSubmitBtn();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
     }

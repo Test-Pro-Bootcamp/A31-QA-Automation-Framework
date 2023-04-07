@@ -51,11 +51,11 @@ public class SeleniumTechniques extends BaseTest {
 
     @Test (enabled = true)
     public void hoverOverPlayBtn() {
-        LoginPage loginPage2 = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         AllSongsPage allSongsPage = new AllSongsPage(driver);
         BasePage basePage = new BasePage(driver);
 
-        loginPage2.logIn();
+        loginPage.logIn();
         allSongsPage.chooseAllSongsList();
         basePage.hoverToPlayBtn();
         Assert.assertTrue(basePage.hoverToPlayBtn().isDisplayed());

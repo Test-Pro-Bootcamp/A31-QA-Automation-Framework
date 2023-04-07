@@ -25,19 +25,22 @@ public class LoginPage extends BasePage {
         super(givenDriver);
     }
 
-    public void provideEmail(String email) {
+    public LoginPage provideEmail(String email) {
         //wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
         emailField.sendKeys(email);
+        return this;
     }
 
-    public void providePassword(String password) {
+    public LoginPage providePassword(String password) {
         //wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         passwordField.sendKeys(password);
+        return this;
     }
 
-    public void clickSubmitBtn() {
+    public LoginPage clickSubmitBtn() {
         //wait.until(ExpectedConditions.elementToBeClickable(submitButtonLocator));
         submitButtonLocator.click();
+        return this;
     }
 
     public void logIn() {

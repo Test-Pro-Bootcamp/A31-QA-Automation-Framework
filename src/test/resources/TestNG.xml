@@ -9,8 +9,8 @@
 <!--            <class name="Homework22" />-->
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
-<!--            <class name="LoginTests"/>-->
-                <class name="SeleniumTechniques"/>
+            <class name="LoginTests"/>
+<!--                <class name="SeleniumTechniques"/>-->
         </classes>
     </test>
 </suite>
