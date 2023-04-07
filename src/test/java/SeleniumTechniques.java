@@ -30,7 +30,7 @@ public class SeleniumTechniques extends BaseTest {
     }
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void renamePlaylist() throws InterruptedException {
         login();
         doubleClickChoosePlaylist();
@@ -41,7 +41,7 @@ public class SeleniumTechniques extends BaseTest {
 
     }
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void listOfSongsWebElements() {
         login();
         choosePlaylist();
