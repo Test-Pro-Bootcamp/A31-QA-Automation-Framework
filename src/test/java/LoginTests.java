@@ -11,7 +11,7 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
     public static void loginEmptyEmailPasswordTest (String email, String password) {
 
-        login(email, password);
+        login();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 

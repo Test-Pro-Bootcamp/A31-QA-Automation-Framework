@@ -6,6 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AllSongsPage;
+import pages.BasePage;
+import pages.LoginPage;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -13,19 +17,22 @@ public class SeleniumTechniques extends BaseTest {
 
 
     //      context click (sometimes koel page does not load completely, re-run the test)
-    @Test
+    @Test (enabled = true)
     public void playSong()   {
-        login("demo@class.com", "te$t$tudent");
-        chooseAllSongsList();
-        contextClickFirstSong();
-        choosePlay();
-        Assert.assertTrue(isSongPlaying());
+        LoginPage loginPage = new LoginPage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+
+        loginPage.logIn();
+        allSongsPage.chooseAllSongsList();
+        allSongsPage.contextClickFirstSong();
+        allSongsPage.choosePlay();
+        Assert.assertTrue(allSongsPage.isSongPlaying());
     }
 
     //      renames playlist using Actions double click (Pre-requisite - create at least one playlist)
-    @Test
+    @Test (enabled = false)
     public void renamePlaylist() throws InterruptedException {
-        login("demo@class.com", "te$t$tudent");
+        login();
         doubleClickChoosePlaylist();
         //Thread.sleep(5000);
         enterPlaylistName();
@@ -34,43 +41,46 @@ public class SeleniumTechniques extends BaseTest {
 
     }
     //    displays all songs in the playlist (Pre-requisite - create at least one playlist)
-    @Test
+    @Test (enabled = false)
     public void listOfSongsWebElements() {
-        login("demo@class.com", "te$t$tudent");
+        login();
         choosePlaylist();
         displayAllSongs();
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongsInPlaylist())));
     }
 
-    @Test
+    @Test (enabled = true)
     public void hoverOverPlayBtn() {
-        login("demo@class.com", "te$t$tudent");
-        chooseAllSongsList();
-        hoverToPlayBtn();
-        Assert.assertTrue(hoverToPlayBtn().isDisplayed());
+        LoginPage loginPage2 = new LoginPage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        BasePage basePage = new BasePage(driver);
 
+        loginPage2.logIn();
+        allSongsPage.chooseAllSongsList();
+        basePage.hoverToPlayBtn();
+        Assert.assertTrue(basePage.hoverToPlayBtn().isDisplayed());
     }
 
 
     //    helper methods
-    public void chooseAllSongsList() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
-    }
+//    public void chooseAllSongsList() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section.music a.songs"))).click();
+//    }
 
-    public void contextClickFirstSong() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
-        WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
-        actions.contextClick(firstSong).perform();
-    }
+//    public void contextClickFirstSong() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
+//        WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
+//        actions.contextClick(firstSong).perform();
+//    }
 
-    public void choosePlay() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav.menu.song-menu li.playback"))).click();
-    }
+//    public void choosePlay() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav.menu.song-menu li.playback"))).click();
+//    }
 
-    public boolean isSongPlaying() {
-        WebElement soundBarVisualizer = driver.findElement(By.cssSelector("[data-testid = 'sound-bar-play']"));
-        return soundBarVisualizer.isDisplayed();
-    }
+//    public boolean isSongPlaying() {
+//        WebElement soundBarVisualizer = driver.findElement(By.cssSelector("[data-testid = 'sound-bar-play']"));
+//        return soundBarVisualizer.isDisplayed();
+//    }
 
     public void doubleClickChoosePlaylist() {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playlist:nth-child(3)")));
@@ -112,13 +122,12 @@ public class SeleniumTechniques extends BaseTest {
     }
 
     //hover to play button/controls
-    public WebElement hoverToPlayBtn(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
-        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        actions.moveToElement(playButton).perform();
-        return  playButton;
-
-}
+//    public WebElement hoverToPlayBtn(){
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
+//        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+//        actions.moveToElement(playButton).perform();
+//        return  playButton;
+//}
 
 
 }

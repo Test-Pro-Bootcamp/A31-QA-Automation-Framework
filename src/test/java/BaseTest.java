@@ -37,7 +37,7 @@ public class BaseTest {
         options.addArguments ("--remote-allow-origins=*");
         LoginTests.driver = new ChromeDriver(options);
 
-        //added this line to fix the issue of test shutting dow right after entering login/password
+        //added this line to fix the issue of test shutting down right after entering login/password
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.manage().window().maximize();
@@ -59,9 +59,9 @@ public class BaseTest {
 //        driver.get(url);
 //    }
 
-    public static void login(String email, String password) {
-        provideEmail(email);
-        providePassword(password);
+    public static void login() {
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
         clickSubmit();
     }
 

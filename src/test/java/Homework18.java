@@ -7,7 +7,7 @@ public class Homework18 extends BaseTest {
 
     @Test
     public void playASongTest() {
-        login("demo@class.com", "te$t$tudent");
+        login();
         playSong();
         isSongPlaying();
     }
