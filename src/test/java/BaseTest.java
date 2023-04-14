@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
@@ -24,18 +25,17 @@ public class BaseTest {
     public static Actions actions = null;
 
     @BeforeSuite
-    static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
+//    static void setupClass() {
+//        WebDriverManager.firefoxdriver().setup();
+//    }
 
     @BeforeMethod
 
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments ("--remote-allow-origins=*");
-        LoginTests.driver = new ChromeDriver(options);
+
+        driver = pickBrowser(System.getProperty("browser"));
 
         //added this line to fix the issue of test shutting down right after entering login/password
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -54,6 +54,25 @@ public class BaseTest {
         LoginTests.driver.quit();
     }
 
+    private static WebDriver pickBrowser (String browser) {
+        switch (browser) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "MicrosoftEdge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                 ChromeOptions options = new ChromeOptions();
+                 options.addArguments ("--remote-allow-origins=*");
+                LoginTests.driver = new ChromeDriver(options);
+        }
+        return driver;
+    }
 //    protected static void navigateToPage() {
 //        String url = "https://bbb.testpro.io/";
 //        driver.get(url);
