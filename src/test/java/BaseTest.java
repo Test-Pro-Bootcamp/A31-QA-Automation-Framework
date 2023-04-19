@@ -29,6 +29,9 @@ public class BaseTest {
     public static FluentWait fluentWait = null;
     public static Actions actions = null;
 
+    // we declared threadDriver variable here. because we would like to access it in different methods
+    static ThreadLocal<WebDriver> threadDriver;
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.firefoxdriver().setup();
@@ -38,23 +41,38 @@ public class BaseTest {
     @Parameters({"BaseURL"})
     public static void launchBrowser(String BaseURL) throws MalformedURLException {
 
+        //creating the object
+        threadDriver = new ThreadLocal<>();
+
         driver = pickBrowser(System.getProperty("browser"));
 
-        //added this line to fix the issue of test shutting down right after entering login/password
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //setting driver
+        threadDriver.set(driver);
+
+        //Khaled commented this out at 52:11
+        //actions = new Actions(getDriver());
+
+        //Khaled commented this out at 52:16
+        //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        //Khaled commented this out at 52:25
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 
         driver.manage().window().maximize();
-
         url = BaseURL;
-        driver.get(url);
-        wait = new WebDriverWait(LoginTests.driver, Duration.ofSeconds(20));
-        actions = new Actions(driver);
+        getDriver().get(url);
+
     }
 
 
     @AfterMethod
-    public static void closeBrowser(){
-        LoginTests.driver.quit();
+    public static void tearDownBrowser(){
+        getDriver().quit();
+        threadDriver.remove();
+    }
+
+    public static WebDriver getDriver(){
+        return threadDriver.get();
     }
 
     private static WebDriver pickBrowser (String browser) throws MalformedURLException {
