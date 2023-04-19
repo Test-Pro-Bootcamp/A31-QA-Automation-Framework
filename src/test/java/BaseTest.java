@@ -23,23 +23,23 @@ import java.util.UUID;
 
 
 public class BaseTest {
-    public static WebDriver driver = null;
-    public static String url = null;
-    public static WebDriverWait wait = null;
-    public static FluentWait fluentWait = null;
-    public static Actions actions = null;
+    public  WebDriver driver = null;
+    public  String url = null;
+    public  WebDriverWait wait = null;
+    public  FluentWait fluentWait = null;
+    public  Actions actions = null;
 
     // we declared threadDriver variable here. because we would like to access it in different methods
-    static ThreadLocal<WebDriver> threadDriver;
+     ThreadLocal<WebDriver> threadDriver;
 
     @BeforeSuite
-    static void setupClass() {
+     void setupClass() {
         WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public static void launchBrowser(String BaseURL) throws MalformedURLException {
+    public void launchBrowser(String BaseURL) throws MalformedURLException {
 
         //creating the object
         threadDriver = new ThreadLocal<>();
@@ -66,16 +66,16 @@ public class BaseTest {
 
 
     @AfterMethod
-    public static void tearDownBrowser(){
+    public void tearDownBrowser(){
         getDriver().quit();
         threadDriver.remove();
     }
 
-    public static WebDriver getDriver(){
+    public WebDriver getDriver(){
         return threadDriver.get();
     }
 
-    private static WebDriver pickBrowser (String browser) throws MalformedURLException {
+    private WebDriver pickBrowser (String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.0.210:4444";
 
@@ -108,18 +108,18 @@ public class BaseTest {
     }
 
 
-    public static void login() {
+    public void login() {
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
     }
 
-    public static void clickSubmit() {
+    public void clickSubmit() {
         WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         submitButton.click();
     }
 
-    public static void providePassword(String password) {
+    public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         wait.until(ExpectedConditions.elementToBeClickable(passwordField));// use this when method only take WebElement
 
@@ -127,41 +127,41 @@ public class BaseTest {
         passwordField.sendKeys(password);
     }
 
-    public static void provideEmail(String email) {
+    public void provideEmail(String email) {
         WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
         emailField.clear();
         emailField.sendKeys(email);
     }
 
-    public static void clickSaveButton() {
+    public void clickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
         saveButton.click();
     }
 
-    public static void provideProfileName(String randomName) {
+    public void provideProfileName(String randomName) {
         WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
         profileName.clear();
         profileName.sendKeys(randomName);
     }
 
-    public static void provideCurrentPassword(String password) {
+    public void provideCurrentPassword(String password) {
         WebElement currentPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
         currentPassword.clear();
         currentPassword.sendKeys(password);
     }
 
-    public static String generateRandomName() {
+    public String generateRandomName() {
         return UUID.randomUUID().toString().replace("-", "");//
     }
 
-    public static void clickAvatarIcon() {
+    public void clickAvatarIcon() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
 
     }
 
     @DataProvider(name="incorrectLoginProviders")
-    public static Object[][] getDataFromDataproviders() {
+    public Object[][] getDataFromDataproviders() {
 
         return new Object[][] {
                 {"invalid@email.com", "invalidPass"},
