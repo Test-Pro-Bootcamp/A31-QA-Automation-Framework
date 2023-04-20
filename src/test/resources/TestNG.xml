@@ -10,6 +10,7 @@
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="BaseTest"/>-->
             <class name="LoginTests"/>
+            <class name="Homework17"/>
 <!--                <class name="SeleniumTechniques"/>-->
         </classes>
     </test>
