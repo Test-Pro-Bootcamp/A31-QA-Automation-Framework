@@ -119,11 +119,11 @@ public class BaseTest {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 //  your capabilities are configured here
-        caps.setCapability("platform", "MacOS Catalina");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("version", "13");
-        caps.setCapability("resolution", "1440x900");
-        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "102.0");
+        caps.setCapability("resolution", "1920x1080");
+        caps.setCapability("build", "Lambda Test w TestNG and Java");
         caps.setCapability("name", this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
