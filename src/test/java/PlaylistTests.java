@@ -1,13 +1,27 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.util.List;
 
-public class Homework19 extends BaseTest {
+public class PlaylistTests extends BaseTest{
+
+    @Test
+    public void addSongToPlaylist() throws InterruptedException {
+        LoginPage lp = new LoginPage(getDriver());
+        lp.logIn();
+
+        HomePage hp = new HomePage(getDriver());
+        hp.addSongToPlaylist();
+
+        Assert.assertTrue(hp.isSongInPlaylist());
+    }
 
     @Test
     public void DeletePlaylistTest() throws InterruptedException {
@@ -38,5 +52,19 @@ public class Homework19 extends BaseTest {
                 Assert.assertTrue(false);
             }
         }
+    }
+
+    public void grabASong(){
+        WebElement song = driver.findElement(By.xpath("//article[@data-test='song-card']"));
+        WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//li[5]"));
+
+        Actions acts = new Actions(driver);
+        acts.clickAndHold(song)
+                .release(playlist)
+                .build()
+                .perform();
+
+        playlist.click();
+//        acts.dragAndDrop(song, playlist).build().perform();
     }
 }

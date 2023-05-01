@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,7 +42,7 @@ public class BaseTest {
 //    }
 
 //    @BeforeMethod
-    @Before
+    @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
@@ -62,7 +63,7 @@ public class BaseTest {
     }
 
 //    @AfterMethod
-    @After
+    @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
         threadLocal.remove();
@@ -92,7 +93,11 @@ public class BaseTest {
                 return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
-                return driver = new ChromeDriver();
+                ChromeOptions co = new ChromeOptions();
+                co.addArguments("--remote-allow-origins=*");
+                co.addArguments("--window-size=1920,1080");
+                co.addArguments("--start-maximized");
+                return driver = new ChromeDriver(co);
         }
     }
 

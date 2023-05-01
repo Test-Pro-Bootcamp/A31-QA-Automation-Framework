@@ -7,8 +7,7 @@ import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    //    @Test(enabled = true, priority = 0, description = "LoginEmptyEmailPasswordTest")
-    @Test(enabled = false, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
+    @Test(enabled = true, dataProvider = "incorrectLoginProviders", dataProviderClass = BaseTest.class)
     public void loginEmptyEmailPasswordTest (String email, String password) {
         LoginPage loginPage = new LoginPage(getDriver());
 
@@ -30,7 +29,6 @@ public class LoginTests extends BaseTest {
                 .clickSubmitBtn();
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
-
     }
 
     @Test(enabled = true, priority = 2, description = "Login with Invalid Email and Valid Password Test")
@@ -42,7 +40,6 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmitBtn();
 
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
-
     }
 
 
