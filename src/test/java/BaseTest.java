@@ -41,7 +41,7 @@ public class BaseTest {
 //    }
 
 //    @BeforeMethod
-    @Before
+    @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) throws MalformedURLException {
         url = BaseURL;
@@ -62,7 +62,7 @@ public class BaseTest {
     }
 
 //    @AfterMethod
-    @After
+    @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
         threadLocal.remove();
@@ -92,7 +92,11 @@ public class BaseTest {
                 return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
-                return driver = new ChromeDriver();
+                ChromeOptions co = new ChromeOptions();
+                co.addArguments("--remote-allow-origins=*");
+                co.addArguments("--window-size=1920,1080");
+                co.addArguments("--start-maximized");
+                return driver = new ChromeDriver(co);
         }
     }
 
