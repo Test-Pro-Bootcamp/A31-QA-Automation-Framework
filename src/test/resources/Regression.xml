@@ -8,7 +8,8 @@
         <classes>
             <class name="LoginTests" />
             <class name="ProfileTests"/>
-            <class name="BaseTest"/>
+            <class name="PlaybackTests" />
+            <class name="PlaylistTests" />
         </classes>
     </test>
 </suite>
